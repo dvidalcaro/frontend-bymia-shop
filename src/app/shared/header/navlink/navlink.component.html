@@ -1,0 +1,55 @@
+<nav class="nav__container">
+   
+    <div class="nav__links"
+    *ngFor="let link of linksHeader"
+    >
+<a [href]=link.links
+
+>  {{link.label | titlecase}} 
+
+ </a>
+ 
+</div>
+
+<img src="../assets/svg/Icon_awesome_search.svg" alt="Buscar" class="search" 
+(click)="openBarSearch()"
+>
+</nav>
+
+
+<form class="search__form" action=""
+    *ngIf="switchBar"
+
+>
+    <select name="" id="">
+        <option value="">Categorías</option>
+        <!-- //<option value="" >Por categorías de productos</option> -->
+        <optgroup label="Por categorías de productos">
+            <option value="">Accesorios</option>
+            <option value="">Laptops</option>
+            <option value="">Celulares</option>
+            <option value="">Audio</option>
+            <option value="">Tablets</option>
+            <option value="">Desktop</option>
+        </optgroup>
+        <optgroup label="Por Marcas">
+            <option value="">Todas las marcas</option>
+            <option value="">Samsung</option>
+            <option value="">Apple</option>
+            <option value="">Nvidia</option>
+        </optgroup>
+        <option value="">Ofertas</option>
+        <option value="">Lanzamientos</option>
+        <option value="">Flash Sales</option>
+        <option value="">Destacados</option>
+        <option value="">Más Vendidos</option>
+    </select>
+    <img class="search__img" src="/assets/img/icon_search_black.png" alt="Buscar">
+    <input  type="text" placeholder="Buscar por marca, color, etc.">
+    <img class="close__img" src="/assets/img/icon_closed_black.png" 
+     alt="Cerrar"
+     (click)="closeBarSearch()"
+     >
+  
+</form>
+

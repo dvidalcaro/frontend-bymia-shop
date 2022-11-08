@@ -1,0 +1,10 @@
+@import 'variables';
+html , body{
+    font-family: $primary-font, Helvetica, sans-serif !important;
+    background-color: $background-color;
+    color: $primary-color;
+    padding: 0;
+    margin: 0;
+    
+}
+
