@@ -14,10 +14,10 @@ export class BlocksService {
    }
  
   showSlider(){
-   
+    //
     const httpOptions = {
       headers: new HttpHeaders({
-        'Access-Control-Allow-Origin':'*',
+         'Access-Control-Allow-Origin':'*', 
         'Accept':  'application/json',
         
       })

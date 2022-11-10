@@ -1,30 +1,23 @@
 <nav class="nav__container">
-   
-    <div class="nav__links"
-    *ngFor="let link of linksHeader"
-    >
-<a [href]=link.links
+    <div class="link__container">
+        <div class="nav__links" *ngFor="let link of linksHeader">
+            <a routerLink=  "/nosotros" > {{link.label | titlecase}}
 
->  {{link.label | titlecase}} 
+            </a>
+        </div>
+        
+    </div>
+    <img src="../assets/svg/Icon_awesome_search.svg" alt="Buscar" class="search" (click)="openBarSearch()">
 
- </a>
- 
-</div>
-
-<img src="../assets/svg/Icon_awesome_search.svg" alt="Buscar" class="search" 
-(click)="openBarSearch()"
->
 </nav>
 
 
-<form class="search__form" action=""
-    *ngIf="switchBar"
-
->
+<form class="search__form" action="" *ngIf="switchBar">
     <select name="" id="">
         <option value="">Categorías</option>
         <!-- //<option value="" >Por categorías de productos</option> -->
         <optgroup label="Por categorías de productos">
+            <option value="">Todos</option>
             <option value="">Accesorios</option>
             <option value="">Laptops</option>
             <option value="">Celulares</option>
@@ -33,7 +26,7 @@
             <option value="">Desktop</option>
         </optgroup>
         <optgroup label="Por Marcas">
-            <option value="">Todas las marcas</option>
+            <option value="">Todas</option>
             <option value="">Samsung</option>
             <option value="">Apple</option>
             <option value="">Nvidia</option>
@@ -45,11 +38,7 @@
         <option value="">Más Vendidos</option>
     </select>
     <img class="search__img" src="/assets/img/icon_search_black.png" alt="Buscar">
-    <input  type="text" placeholder="Buscar por marca, color, etc.">
-    <img class="close__img" src="/assets/img/icon_closed_black.png" 
-     alt="Cerrar"
-     (click)="closeBarSearch()"
-     >
-  
-</form>
+    <input type="text" placeholder="Buscar por marca, color, etc.">
+    <img class="close__img" src="/assets/img/icon_closed_black.png" alt="Cerrar" (click)="closeBarSearch()">
 
+</form>

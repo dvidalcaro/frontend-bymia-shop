@@ -16,7 +16,7 @@ export class NavlinkComponent implements OnInit {
   linksHeader: navLink[] = [
     {
       label: 'nosotros',
-      links: 'nosotros'
+      links: '/nosotros'
     },
 
     {
