@@ -17,7 +17,7 @@ export class BlocksService {
     //
     const httpOptions = {
       headers: new HttpHeaders({
-         'Access-Control-Allow-Origin':'*', 
+        /*  'Access-Control-Allow-Origin':'*',  */
         'Accept':  'application/json',
         
       })
