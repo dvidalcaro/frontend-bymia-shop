@@ -16,32 +16,32 @@ export class NavlinkComponent implements OnInit {
   linksHeader: navLink[] = [
     {
       label: 'nosotros',
-      links: '/nosotros'
+      links: '#'
     },
 
     {
       label: 'faq',
-      links: 'faq'
+      links: '#'
     },
 
     {
       label: 'ofertas',
-      links: 'ofertas'
+      links: '#'
     },
 
     {
       label: 'lanzamientos',
-      links: 'lanzamientos'
+      links: '#'
     },
 
     {
       label: 'flash sales',
-      links: 'flash-sales'
+      links: '#'
     },
 
     {
       label: 'precio de lista',
-      links: 'precio-de-lista'
+      links: '#'
     }
   ];
 
