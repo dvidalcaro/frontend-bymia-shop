@@ -6,13 +6,17 @@
      background-color: #000000;
      padding: 0;
      margin: 0;
+     max-width: 100%;
+     
 
      .header__container {
          display: flex;
          height: 12.5rem;
          justify-content: center;
-         width: 90%;
-         align-items: center;        
+         min-width: 90%;
+         align-items: center; 
+         
+
      }
 
  }
@@ -155,7 +159,6 @@
          font-size: 22px;
          font-weight: 400;
          padding-left: 56px;
-
          outline: none;
          border-radius: 0 14px 14px 0;
 
@@ -187,3 +190,143 @@
      cursor: pointer;
      z-index: 2;
  }
+
+
+@media screen and (max-width:1738px){
+    .nav__container {       
+        margin-left: 8rem;
+   
+        img {   
+            margin: 0 1rem 0 3.5rem;            
+        }
+   
+    }
+
+    .link__container {
+        display: flex;
+        gap: 2.5rem;
+   
+        .nav__links {
+   
+            a {               
+                font-size: 1rem; 
+                
+            }   
+   
+        }
+    }
+
+    header{
+        .header__container {
+            
+            height: 10.5rem;    
+
+        }
+    }
+
+    .login__container {
+        
+        width: 6.30rem;
+        height: 2.0625rem;
+       
+        border-radius: 1.5625rem;
+        margin-left: 1.5rem;
+   
+        a {
+            
+            font-size: 0.6625rem;
+            
+   
+            img {
+                margin-right: 0.3125rem;
+                width: 1.37rem ;
+                height: 1.37rem;
+            }
+   
+            
+   
+        }
+    }
+
+    .icon__container {
+        
+        gap: 1.25rem;
+   
+   
+   
+        a {
+            text-decoration: none;
+   
+            .indicator {
+                
+                width: 1rem;               
+                font-size: 0.625rem;
+                padding: 0.098rem;                
+                margin-left: -0.5rem;
+                top: 3.9875rem;
+   
+            }
+        }
+    }
+
+    .search__form {
+        
+        top: 3.975rem;        
+        width: 56.7%;
+        height: 2.375rem;
+        left: 20rem;
+   
+   
+        select {
+            width: 15rem;
+            border-radius: 14px 0 0 14px;
+            background-color: $secundary-color;            
+            font-size: 0.98rem;
+            padding-left: 27px;           
+            background-position-x: 150px;
+           
+   
+            option {
+                line-height: 30px;
+                padding: 10px 2px 1px;
+            }
+   
+            optgroup {
+                font-size: 16px;
+                font-weight: medium;
+            }
+   
+   
+   
+        }
+   
+   
+        input {
+            
+            font-size: 0.98rem;           
+            padding-left: 56px;   
+   
+        }
+    }
+
+    .search__img {
+        
+        top: 0.6rem;
+        width: 1.18rem;
+        height: 1.18rem;
+        margin-left: 27%;
+        
+        z-index: 2;
+    }
+   
+    .close__img {
+        
+        top: 0.6rem;
+        width: 1.125rem;
+        height: 1.125rem;
+        margin-left: 95%;
+        
+    }
+   
+   
+}

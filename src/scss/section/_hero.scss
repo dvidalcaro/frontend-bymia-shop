@@ -86,3 +86,66 @@
     
 }
 }
+
+
+@media screen and (max-width:1738px){
+
+    .hero_container{
+        
+        width: 90%;
+        
+        
+        iframe{
+            
+            width: 650px;
+            height: 450px;
+            
+        }
+    
+        
+    
+        .slider_hero{
+            height: auto;
+            padding-left: 3.25rem;
+            margin-top: 1.125rem;
+            p{
+                
+                font-size: 0.875rem ;
+                
+            }
+    
+            h1{
+                font-size: 3.5625rem ;
+                line-height: 4.8125rem;               
+                margin-top: 1.25rem;
+    
+            }
+    
+            .subtitle{
+                font-size: 1rem;
+                padding-right: 8rem;
+                margin-top: 1.8125rem;
+            }
+    
+            button{
+                width: 6.25rem;
+                height: 2.125rem;                
+                font-size: 0.98rem;               
+                border-radius:1.5625rem ;
+                margin-top:1.875rem;
+            }
+        }
+    
+    
+    
+    }
+    
+    .carousel-indicators{
+
+            left: -6.875rem;
+            top: -2.9375rem;
+    
+       
+    }
+    
+}
