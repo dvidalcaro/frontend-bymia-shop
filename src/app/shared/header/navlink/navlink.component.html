@@ -1,7 +1,7 @@
 <nav class="nav__container">
     <div class="link__container">
         <div class="nav__links" *ngFor="let link of linksHeader">
-            <a routerLink=  "/nosotros" > {{link.label | titlecase}}
+            <a [href]=  link.links > {{link.label | titlecase}}
 
             </a>
         </div>
