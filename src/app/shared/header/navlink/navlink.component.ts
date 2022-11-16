@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+
 import { navLink } from '../../interfaces/navlink';
 import { SharedService } from '../../shared.service';
+
+
 
 
 @Component({
@@ -8,6 +13,7 @@ import { SharedService } from '../../shared.service';
   templateUrl: './navlink.component.html',
   styles: [
   ]
+  
 })
 export class NavlinkComponent implements OnInit {
 
@@ -15,34 +21,31 @@ export class NavlinkComponent implements OnInit {
 
   linksHeader: navLink[] = [
     {
-      label: 'nosotros',
-      links: '#'
+      label: 'Nosotros',
+      links: 'nosotros'
     },
 
     {
-      label: 'faq',
-      links: '#'
+      label: 'FAQs',
+      links: 'faq'
     },
 
     {
-      label: 'ofertas',
-      links: '#'
+      label: 'Ofertas',
+      links: 'ofertas'
     },
 
     {
-      label: 'lanzamientos',
-      links: '#'
+      label: 'Lanzamientos',
+      links: 'lanzamientos'
     },
 
     {
-      label: 'flash sales',
-      links: '#'
+      label: 'Flash Sales',
+      links: 'flash-sales'
     },
 
-    {
-      label: 'precio de lista',
-      links: '#'
-    }
+    
   ];
 
   

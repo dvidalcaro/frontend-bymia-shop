@@ -95,21 +95,24 @@
      border-radius: 1.5625rem;
      margin-left: 2.1875rem;
 
-     a {
+     span {
          color: #000000;
          text-decoration: none;
          font-size: 0.9375rem;
          font-weight: bold;
-
-         img {
-             margin-right: 0.3125rem;
-         }
+        cursor: pointer;
+        
 
          &:hover {
              color: $primary-color;
          }
 
      }
+
+     img {
+        margin-right: 0.3125rem;
+        cursor: pointer;
+    }
  }
 
  .search__form {
@@ -128,7 +131,7 @@
          font-weight: bold;
          font-size: 17px;
          padding-left: 27px;
-         background-image: url(/assets/img/icon_search_form.png);
+         background-image: url('/assets/img/icon_search_form.png');
          background-repeat: no-repeat;
          background-position: right center;
          background-position-x: 150px;
@@ -232,19 +235,17 @@
         border-radius: 1.5625rem;
         margin-left: 1.5rem;
    
-        a {
+        span {
             
             font-size: 0.6625rem;
             
    
-            img {
-                margin-right: 0.3125rem;
-                width: 1.37rem ;
-                height: 1.37rem;
-            }
-   
-            
-   
+        }
+
+        img {
+            margin-right: 0.3125rem;
+            width: 1.37rem ;
+            height: 1.37rem;
         }
     }
 

@@ -1,4 +1,43 @@
 <div class="login__container">
-   <a href=""><img src="../assets/svg/icon_user.svg" alt="Ingresar">Ingresar</a> 
-    
+   <img (click)="openLogin()" src="../assets/svg/icon_user.svg" alt="Ingresar"><span (click)="openLogin()">Ingresar</span> 
+
+</div>
+
+
+<div class="container__modal animate__animated animate__zoomIn" *ngIf="showLogin">
+   <div class="container__form">
+      <img  (click)="closeLogin()" src="../assets/img/icon_closed_black.png" alt="cerrar">
+
+      <div class="container__platform">
+         <div class="platform icon__google">
+           
+            <img src="../assets/svg/Icon-google.svg" alt="Logueate con Google">
+         
+            <a href="">Continuar con Google</a>
+         </div>
+
+         <div class="platform icon__facebook">
+            <img src="../assets/svg/Icon-facebook.svg" alt="Logueate con Facebook">
+            <a href="">Continuar con Facebook</a>
+         </div>
+
+         <div class="platform icon__apple">
+            <img src="../assets/svg/Icon-apple.svg" alt="Logueate con Facebook">
+            <a href="" >Continuar con Apple</a>
+         </div>
+      </div>
+
+      <div class="container__line">
+         <hr>
+         <hr>
+      </div>
+      <form action="">
+         <input type="email" name="" id="" placeholder="Dirección de email">
+         <input type="password" name="" id="" placeholder="Contraseña">
+         <button class="button_modal">Entrar</button>
+      </form>
+      <button class="button_modal">Registrarse</button>
+      <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
+         y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
+   </div>
 </div>

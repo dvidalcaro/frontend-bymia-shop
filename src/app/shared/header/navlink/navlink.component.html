@@ -1,14 +1,44 @@
 <nav class="nav__container">
     <div class="link__container">
-        <div class="nav__links" *ngFor="let link of linksHeader">
-            <a [href]=  link.links > {{link.label | titlecase}}
+        <div class="nav__links" >
+            <a routerLink="nosotros" > {{linksHeader[0].label}}
+
+            </a>
+        </div>
+
+        <div class="nav__links" >
+            <a routerLink="faqs" > {{linksHeader[1].label}}
+
+            </a>
+        </div>
+
+        <div class="nav__links" >
+            <a routerLink="ofertas" > {{linksHeader[2].label}}
+
+            </a>
+        </div>
+
+        <div class="nav__links" >
+            <a routerLink="lanzamientos" > {{linksHeader[3].label}}
+
+            </a>
+        </div>
+
+        <div class="nav__links" >
+            <a routerLink="flash-sales" > {{linksHeader[4].label}}
+
+            </a>
+        </div>
+
+        <div class="nav__links" >
+            <a  > Precio De Lista 
 
             </a>
         </div>
         
     </div>
     <img src="../assets/svg/Icon_awesome_search.svg" alt="Buscar" class="search" (click)="openBarSearch()">
-
+   
 </nav>
 
 
@@ -27,9 +57,12 @@
         </optgroup>
         <optgroup label="Por Marcas">
             <option value="">Todas</option>
-            <option value="">Samsung</option>
+            <option value="">Asus</option>
             <option value="">Apple</option>
-            <option value="">Nvidia</option>
+            <option value="">Hp</option>
+            <option value="">Logitech</option>
+            <option value="">msi</option>
+            <option value="">Samsung</option>
         </optgroup>
         <option value="">Ofertas</option>
         <option value="">Lanzamientos</option>
@@ -38,7 +71,8 @@
         <option value="">Más Vendidos</option>
     </select>
     <img class="search__img" src="/assets/img/icon_search_black.png" alt="Buscar">
-    <input type="text" placeholder="Buscar por marca, color, etc.">
+    <input type="text" placeholder="Buscar por producto, marca, color, etc.">
     <img class="close__img" src="/assets/img/icon_closed_black.png" alt="Cerrar" (click)="closeBarSearch()">
 
 </form>
+

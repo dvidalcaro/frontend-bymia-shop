@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShopcartComponent } from './shopcart/shopcart.component';
+import { HeaderRoutingModule } from './header-routing.module';
 
 
 
@@ -21,7 +22,9 @@ import { ShopcartComponent } from './shopcart/shopcart.component';
     ShopcartComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HeaderRoutingModule
+
   ],
   exports: [
     LogoComponent,

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 
@@ -19,14 +19,16 @@ import { PagesModule } from './pages/pages.module';
   ],
   imports: [
       BrowserModule, 
-      HttpClientModule,
-      AppRoutingModule,      
+      HttpClientModule,       
      SharedModule,
      HeaderModule,
      BlocksModule,
      PagesModule
      
      
+  ],
+  exports:[
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
