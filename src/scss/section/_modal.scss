@@ -1,4 +1,4 @@
-.container__modal {
+ .container__modal {
     display: flex;
     position: fixed;
     top: 0;
@@ -22,7 +22,7 @@
     flex-direction: column;
     align-items: center;
     width: 29.9375rem;
-    
+
     background-color: $primary-color;
     border-radius: 1.6875rem;
 
@@ -44,15 +44,60 @@
             border-radius: 0.75rem;
             width: 22.625rem;
             height: 3.8125rem;
-            font-size: 1.1875rem ;
+            font-size: 1.1875rem;
             font-weight: bold;
-            padding-left:  1.1875rem;
+            padding-left: 1.1875rem;
             line-height: 22px;
             color: $background-color;
         }
 
 
     }
+
+    .platform__mail{
+ 
+        display: flex;
+        width: 22.625rem;
+        height: 3.8125rem;
+        background-color: $background-color;
+        border-radius: 0.75rem;
+    
+        
+       
+        a {
+    
+         font-size: 1.1875rem;
+         padding: 1.2rem 0 1.2rem 0;
+         text-decoration: none;
+         color: $primary-color;
+         align-self: center;
+       }
+    
+    }
+
+    .icon__mail {
+        img {
+            width: 1.6543rem;
+            height: 1.9681rem;
+            align-self: center;
+            margin: 0 27.8px 0 28.7px;
+        }
+ 
+     }
+
+     h1{
+        font-size: 1.875rem;
+        text-align: center;
+        color: $background-color;
+        line-height: 2rem;
+        margin: 0 2rem 3.4375rem 2rem;
+        line-height: 2.1875rem;
+        font-weight: bold;
+
+        
+     }
+
+
 }
 
 .button_modal {
@@ -62,7 +107,7 @@
     background-color: $secundary-color;
     border: none;
     font-weight: bold;
-    font-size: 1.1875rem ;
+    font-size: 1.1875rem;
 
 }
 
@@ -77,33 +122,33 @@
         height: 3.8125rem;
         background-color: $background-color;
         border-radius: 0.75rem;
-        
+
 
         a {
 
-            font-size: 1.1875rem;           
+            font-size: 1.1875rem;
             padding: 1.2rem 0 1.2rem 0;
             text-decoration: none;
             color: $primary-color;
             align-self: center;
-            
+
         }
 
-        
+
 
     }
 
     .icon__google {
-        
-        
-        
-        
+
+
+
+
         img {
             width: 2rem;
             height: 2rem;
             align-self: center;
             margin: 0 24.6px 0 25.6px;
-            
+
         }
 
     }
@@ -129,158 +174,168 @@
     }
 
 
+
+    
+    
+       
+      
+
 }
 
-.container__line{
+
+
+.container__line {
     display: flex;
-    gap: 20px;
-    
-    hr{
+    gap: 6px;
+
+    hr {
         background-color: $background-color;
         width: 167px;
         height: 3px;
         opacity: 1;
         margin: 2.3rem 0;
     }
-    
+
+    img {
+        width: 16px;
+        height: 16px;
+        margin: 0;
+        align-self: center;
+    }
+
 }
 
-.condition__p{
+.condition__p {
     color: $background-color;
     font-size: 0.75rem;
     font-weight: 200;
-    width: 20.125rem ;
-    line-height: 0.875rem ;
+    width: 20.125rem;
+    line-height: 0.875rem;
     padding: 1.125rem 0 2.375rem 0;
     letter-spacing: 0px;
-    
-    strong{
+
+    strong {
         font-weight: bold;
         font-size: 0.7rem;
     }
 
-    a{
+    a {
         color: $background-color;
         text-decoration: none;
     }
 
-   
+
 }
 
-@media screen and (max-width:1738px){
+@media screen and (max-width:1738px) {
 
     .container__form {
         width: 28rem;
-    
+
         img {
             width: 1.25rem;
             height: 1.25rem;
             margin: 20px 23.7px 20.7px 0;
-            
-           
-            
+
+
+
         }
-    
+
         form {
-            
+
             gap: 1rem;
-            
-    
+
+
             input {
-                
-               
+
+
                 height: 2.7rem;
-                font-size: 1rem ;
-                
+                font-size: 1rem;
+
             }
-    
-    
+
+
         }
     }
-    
+
     .button_modal {
-        
-       
+
+
         height: 2.2rem;
-        
-        font-size: 1rem ;
-    
+
+        font-size: 1rem;
+
     }
-    
+
     .container__platform {
-        
+
         gap: 0.4875rem;
-    
+
         .platform {
-            
+
             height: 3rem;
-            
-            
-    
+
             a {
-    
-                font-size: 1.1875rem;           
+
+                font-size: 1.1875rem;
                 padding: 1rem 0 1rem 0;
-                
-                
             }
-    
-            
-    
+
+
+
         }
-    
+
         .icon__google {
-            
-            
-            
-            
+
             img {
                 width: 1.5rem;
                 height: 1.5rem;
-                
-                
             }
-    
+
         }
-    
+
         .icon__facebook {
             img {
                 width: 1rem;
                 height: 1.8rem;
                 margin-right: 27px;
             }
-    
+
         }
-    
+
         .icon__apple {
             img {
                 width: 1.3rem;
                 height: 1.6rem;
-               
+
                 margin-right: 27px;
             }
-    
+
         }
-    
-    
+
+
     }
-    
-    .container__line{
-       
-        
-        hr{
-           
+
+    .container__line {
+        gap: 3px;
+
+        hr {
+
             margin: 1.5rem 0;
         }
-        
+
+        img {
+            margin: 0;
+        }
+
     }
-    
-    .condition__p{
-        
-       
+
+    .condition__p {
+
+
         padding-bottom: 0.5rem;
-        
-       
+
+
     }
-    
-}
+
+} 

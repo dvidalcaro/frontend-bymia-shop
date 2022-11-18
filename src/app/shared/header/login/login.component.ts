@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   showLogin: boolean= false;
+  showRegister: boolean= false;
 
   constructor() { }
 
@@ -21,6 +22,15 @@ export class LoginComponent implements OnInit {
 
   closeLogin(){
     this.showLogin= false;
+  }
+
+  openRegister(){
+    this.showRegister=true;
+    this.showLogin=false;
+  }
+
+  closeRegister(){
+    this.showRegister= false;
   }
 
   ngOnInit(): void {

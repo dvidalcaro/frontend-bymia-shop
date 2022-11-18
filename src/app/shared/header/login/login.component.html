@@ -3,8 +3,8 @@
 
 </div>
 
-
-<div class="container__modal animate__animated animate__zoomIn" *ngIf="showLogin">
+<!-- Modal login and registrr -->
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showLogin">
    <div class="container__form">
       <img  (click)="closeLogin()" src="../assets/img/icon_closed_black.png" alt="cerrar">
 
@@ -29,6 +29,7 @@
 
       <div class="container__line">
          <hr>
+         <img src="../assets/svg/elipse.svg" alt="elipse">
          <hr>
       </div>
       <form action="">
@@ -36,7 +37,50 @@
          <input type="password" name="" id="" placeholder="Contraseña">
          <button class="button_modal">Entrar</button>
       </form>
-      <button class="button_modal">Registrarse</button>
+      <button class="button_modal" (click)="openRegister()">Registrarse</button>
+      <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
+         y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
+   </div>
+</div>
+
+<!-- Modal Register -->
+
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showRegister">
+   <div class="container__form">
+      <img  (click)="closeRegister()" src="../assets/img/icon_closed_black.png" alt="cerrar">
+
+      <h1>Registrate con algunas de estas opciones</h1>
+
+      <div class="container__platform">
+         <div class="platform icon__google">
+           
+            <img src="../assets/svg/Icon-google.svg" alt="Registrate con Google">
+         
+            <a href="">Continuar con Google</a>
+         </div>
+
+         <div class="platform icon__facebook">
+            <img src="../assets/svg/Icon-facebook.svg" alt="Registrate con Facebook">
+            <a href="">Continuar con Facebook</a>
+         </div>
+
+         <div class="platform icon__apple">
+            <img src="../assets/svg/Icon-apple.svg" alt="Registrate con Apple">
+            <a href="" >Continuar con Apple</a>
+         </div>
+      </div>
+
+      <div class="container__line">
+         <hr>
+         <img src="../assets/svg/elipse.svg" alt="elipse">
+         <hr>
+      </div>
+
+      <div class="platform__mail icon__mail">
+         <img src="../assets/svg/Icon-mail.svg" alt="Registrate con Mail">
+         <a href="" >Continuar con Mail</a>
+      </div>
+      
       <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
          y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
    </div>
