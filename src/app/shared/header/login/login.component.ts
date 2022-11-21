@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   showLogin: boolean= false;
   showRegister: boolean= false;
+  showRegisterMail: boolean= false;
 
   constructor() { }
 
@@ -30,7 +31,17 @@ export class LoginComponent implements OnInit {
   }
 
   closeRegister(){
-    this.showRegister= false;
+    this.showRegister=false;
+  }
+
+  openRegisterMail(){
+    
+     this.showRegister= false; 
+     this.showRegisterMail= true;
+  }
+
+  closeRegisterMail(){
+    this.showRegisterMail= false;
   }
 
   ngOnInit(): void {
