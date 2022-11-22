@@ -521,6 +521,14 @@
 
     </div>
     <div class="see__more">
-        <button class="see__more__button">Ver más</button>
+        <ul class="animate__animated animate__slideInDown" *ngIf="showCategories">
+            <li *ngFor="let category of listCategories">
+                {{category}}
+            </li>
+            
+        </ul>
+
+
+        <button class="see__more__button" (click)="showListCategories()">{{seeMore}}</button>
     </div>
 </div>

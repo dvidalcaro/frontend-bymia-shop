@@ -13,6 +13,23 @@ export class HomeComponent  {
   showLaptops: boolean= true;
   showSmartphone: boolean = false;
   showVideoCard: boolean = false;
+  showCategories: boolean= false;
+  seeMore: string= 'Ver más';
+  listCategories: string []= [
+    'Drones & Camcorders',
+    'Gaming',
+    'Graphics Cards',
+    'Hard Drives and Memory',
+    'Home Life',
+    'Routers and Networking',
+    'Smart Home',
+    'image.png',
+    'Printers',
+    'TVs, Monitors Projectors',
+    'Smart Watches',
+    'Surveillance'
+  ]
+
 
   
 
@@ -37,6 +54,16 @@ export class HomeComponent  {
     this.showLaptops= false;
     this.showSmartphone = false;
     this.showVideoCard = true;
+  }
+
+  showListCategories(){
+    if(this.showCategories){
+      this.showCategories= false;
+      this.seeMore= 'Ver más';
+    }else{
+      this.showCategories= true;
+      this.seeMore= 'Ver menos';
+    }
   }
 
 

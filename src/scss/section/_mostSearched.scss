@@ -1,6 +1,6 @@
 .container__most__searched{
-    max-width: 90%;
     
+    margin-bottom: 50px;
 
     h1{
         text-align: center;
@@ -79,6 +79,7 @@
 .see__more{
     display: flex;
     justify-content: center;
+    flex-direction: column;
 
     .see__more__button{
         background-color: $secundary-color;
@@ -86,8 +87,30 @@
         font-size:1.375rem ;
         font-weight: bold;
         border-radius: 1.5625rem;
-        padding: 10px 30px;
+        padding: 4px 6px;
         margin-top: 3.25rem;
+        width: 8.875rem;
+        align-self: center;
+       cursor: pointer;
+
        
     }
+
+    ul{
+        display: flex;
+       justify-content: center;
+       gap: 20%;
+       flex-wrap: wrap;
+       padding: 0px 200px 0px 200px;
+       margin-top: 50px;
+
+        li{
+            list-style-type: none;
+            margin-top: 37px;
+            cursor: pointer;
+            color: $secundary-color;
+            text-align: center;
+            width: 184px;
+        }
+       }
 }
