@@ -154,3 +154,148 @@ hr{
     }
 }
 
+@media screen and (max-width:1738px) {
+
+    .container__product__outstanding{
+        margin-top: 7.5rem;
+        
+    }
+    
+    
+    .header__outstanding{
+    
+    
+    p{
+       
+        font-size: 1.1562rem ;
+       
+    }
+    
+    hr{
+        
+        width: 41.5625rem;
+        height: 2px;
+       
+        margin: 0 0.9375rem;
+        
+    }
+    
+    }
+    
+    .categories__outstanding{
+        
+        ul{
+           
+            gap:1rem;
+            li{
+               
+                
+                padding: 0.2rem 1rem;
+                font-size: 0.875rem;
+    
+                &:hover{
+                    padding: 0.2rem 1rem;
+                font-size: 0.875rem;
+                    
+                }
+    
+            }
+        }
+    }
+    .selected__nav{
+                    border: 1px solid $secundary-color;
+                    border-radius: 16px;
+                    padding: 0.25rem 1.125rem;
+                    border: 1px solid $secundary-color;
+                    overflow: hidden;
+    }
+    
+    .container__product{
+       
+       margin-top: 2.8125rem;
+       gap:3.375rem;
+    
+        .product{
+            
+            width: 15.8125rem;
+            height: 12.625rem;
+        }
+       
+        .product__img{
+           
+    
+            .favorite{
+                width:1.3125rem;
+                height: 1.8875rem;
+                align-self: flex-end;
+                margin: 1.275rem 1.275rem 0px 0px ;
+            }
+    
+            img{
+                align-self: center;
+                margin: 0.875rem 0px 1rem 0px; 
+                width: 12.375rem;
+                height: 7.875rem;
+                contain: cover;
+    
+            }
+    
+        }
+    }
+    
+    .description__product{
+        padding: 0 1.5rem 0 1.5rem;   
+        
+    
+        p{
+            
+            margin-top: 0.875rem  ;
+            font-size: 1rem ;
+            
+            
+        }
+    
+       
+    }
+    .rating{
+        
+        margin-top: 25px;
+        
+        
+        gap:8px;
+        
+        .star{
+           
+            gap:5px;
+    
+            img{
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+    
+        p{
+            font-size: 0.5rem;
+            margin-top: 0.3125rem ;
+        }
+    }
+    
+    .price{
+        
+        gap:8px;
+        margin-top: -14px;
+        p{
+            
+            font-size:1.0625rem ;
+           
+        }
+    
+        span{
+            
+            font-size: 0.5rem;
+            margin-top: 0.6rem ;
+            align-self: center;
+        }
+    }
+    
+}
