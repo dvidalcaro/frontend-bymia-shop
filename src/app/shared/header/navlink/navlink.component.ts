@@ -13,11 +13,13 @@ import { SharedService } from '../../shared.service';
   templateUrl: './navlink.component.html',
   styles: [
   ]
-  
+
 })
 export class NavlinkComponent implements OnInit {
 
-  switchBar: boolean=false;
+  switchBar: boolean = false;
+  showPriceList: boolean = false;
+  showConfirm: boolean = false;
 
   linksHeader: navLink[] = [
     {
@@ -45,23 +47,40 @@ export class NavlinkComponent implements OnInit {
       links: 'flash-sales'
     },
 
-    
+
   ];
 
-  
-  constructor( private sharedService:SharedService) {
-    
-   }
 
-   closeBarSearch(){
-    this.switchBar= false;
-   }
+  constructor(private sharedService: SharedService) {
 
-   openBarSearch(){
-     this.switchBar= true;
   }
-   
-  
+
+  closeBarSearch() {
+    this.switchBar = false;
+  }
+
+  openBarSearch() {
+    this.switchBar = true;
+  }
+
+  openPriceList(){
+    this.showPriceList= true;
+  }
+
+  closePriceList(){
+    this.showPriceList=false;
+  }
+
+  openConfirm(){
+    this.showConfirm= true;
+    this.closePriceList()
+  }
+
+  closeConfirm(){
+    this.showConfirm = false;
+  }
+
+
   ngOnInit(): void {
   }
 
