@@ -23,7 +23,7 @@ import { HeaderRoutingModule } from './header-routing.module';
   ],
   imports: [
     CommonModule,
-    HeaderRoutingModule
+    HeaderRoutingModule 
 
   ],
   exports: [

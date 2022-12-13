@@ -10,20 +10,27 @@ import { HeaderModule } from './shared/header/header.module';
 import { BlocksModule } from './blocks/blocks.module';
 import { PagesModule } from './pages/pages.module';
 
+import { UserPanelModule } from './user-panel/user-panel.module';
+import { HeaderRoutingModule } from './shared/header/header-routing.module';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
+    
     
   ],
   imports: [
       BrowserModule, 
+      HeaderRoutingModule,
       HttpClientModule,       
      SharedModule,
      HeaderModule,
      BlocksModule,
-     PagesModule
+     PagesModule,
+     UserPanelModule
      
      
   ],

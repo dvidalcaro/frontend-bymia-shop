@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
     
      this.showRegister= false; 
      this.showRegisterMail= true;
+     this.showLogin=false;
   }
 
   closeRegisterMail(){

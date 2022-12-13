@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { AboutUsComponent } from 'src/app/pages/about-us/about-us.component';
