@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   showLogin: boolean= false;
   showRegister: boolean= false;
   showRegisterMail: boolean= false;
+  showForgetPassword: boolean =false;
+  showConfirmMail: boolean= false;
 
   constructor() { }
 
@@ -43,6 +45,25 @@ export class LoginComponent implements OnInit {
 
   closeRegisterMail(){
     this.showRegisterMail= false;
+  }
+
+  openForgetPassword(){
+    this.showForgetPassword=true;
+    this.showLogin= false;
+
+  }
+
+  closeForgetPassword(){
+    this.showForgetPassword=false;
+  }
+
+  openConfirmMail(){
+    this.showConfirmMail=true;
+    this.showForgetPassword=false;
+  }
+
+  closeConfirmMail(){
+    this.showConfirmMail=false;
   }
 
   ngOnInit(): void {

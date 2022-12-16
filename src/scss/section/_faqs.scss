@@ -3,35 +3,36 @@ $accordion-bg: red;
 .faq{
 
     height: auto;
-    border-radius: 2rem;
+    border-radius: 0.75rem;
     background-color: #101010;
 
     h1{
         text-align: center;
         margin: 0;
         padding:1rem;
+        color: $secundary-color;
         
     }
 }
 
 .accordion{
     padding: 2rem 2rem;
-    border-radius: 2rem;
+    border-radius: 0.75rem;
     
     .accordion-item{
-        border-radius: 2rem;
+        border-radius: 0.75rem;
         
         margin-bottom: 1rem;
     }
 
     .accordion-button{
-        border-radius: 2rem;
+        border-radius: 0.75rem;
         font-size: 1.1875rem;
         font-weight: 400;
         
     } 
     h2{
-        border-radius: 2rem;
+        border-radius: 0.75rem;
     }
 }
 
@@ -39,7 +40,7 @@ $accordion-bg: red;
 
 .accordion-item:first-of-type .accordion-button {
     
-    border-radius: 32px;
+    border-radius: 0.75rem;
     border-color: none;
 }
 

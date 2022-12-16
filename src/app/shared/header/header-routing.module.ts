@@ -7,6 +7,8 @@ import { OffersComponent } from 'src/app/pages/offers/offers.component';
 import { LaunchComponent } from 'src/app/pages/launch/launch.component';
 import { FlashSalesComponent } from 'src/app/pages/flash-sales/flash-sales.component';
 import { FaqComponent } from 'src/app/pages/faq/faq.component';
+import { ShopCartComponent } from 'src/app/pages/shop-cart/shop-cart.component';
+import { WishListComponent } from 'src/app/pages/wish-list/wish-list.component';
 
 
 const routes : Routes =[
@@ -41,7 +43,15 @@ const routes : Routes =[
     component: FlashSalesComponent
   },
 
-  
+  {
+    path:'shop-cart',
+    component: ShopCartComponent
+  },
+
+  {
+    path:'wish-list',
+    component: WishListComponent
+  },
 
   {
     path:'**',
