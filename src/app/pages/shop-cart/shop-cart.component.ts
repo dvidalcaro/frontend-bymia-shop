@@ -115,6 +115,7 @@ export class ShopCartComponent implements OnInit {
 
   deleteAllProduct() {
     this.products.splice(0, this.products.length);
+    this.priceTotal=0;
   }
 
   subTotalProducts() {
