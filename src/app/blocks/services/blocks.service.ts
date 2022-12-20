@@ -6,29 +6,34 @@ import { SliderInterface } from 'src/app/shared/interfaces/slider-interface';
   providedIn: 'root'
 })
 export class BlocksService {
- 
-   _response: any;
 
-   get response(){
+  _response: any;
+
+  get response() {
     return this._response;
-   }
- 
-  showSlider(){
-    //
+  }
+
+  showSlider() {
+    //  http://back-test.bymiashop.com/api/front/sliders
     const httpOptions = {
       headers: new HttpHeaders({
-        /*  'Access-Control-Allow-Origin':'*',  */
-        'Accept':  'application/json',
+        /*  'Access-Control-Allow-Origin':'*',   */
+        'Accept': 'application/json',
+        /* 'Authorization': 'YWxhZGRpbjpvcGVuc2VzYW1l',
+        'USUARIO': '5ebca7b6-32ab-11ed-b952-db18e75238a6',
+        'PASSWORD': 'b03ab9c4-9064-490d-91a7-62611a37c570'  */
         
       })
     };
-    this.http.get('http://back-test.bymiashop.com/api/v1/sliders', httpOptions)
-    .subscribe((resp:any) =>{
-        
-      this._response= resp;
-      console.log(resp)
-    })
-      
+
+    httpOptions.headers.append('Authorization', 'Basic{YWxhZGRpbjpvcGVuc2VzYW1l}')
+    this.http.get('http://back-test.bymiashop.com/api/front/sliders', httpOptions)
+      .subscribe((resp: any) => {
+
+        this._response = resp;
+        console.log(resp)
+      })
+
   }
 
 

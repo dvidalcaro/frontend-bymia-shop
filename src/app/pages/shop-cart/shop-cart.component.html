@@ -1,1 +1,72 @@
-<p>shop-cart works!</p>
+<div class="container-fluid">
+
+    <!-- Producto -->
+    <div class="container container__wishlist animate__animated animate__zoomIn">
+
+        <div class="container__wishlist__header">
+            <div class="title__wishlist">
+                <h3>Carrito <img src="../assets/svg/Icon_shopping_cart.svg" alt="favoritos"></h3>
+                <p (click)="deleteAllProduct()">Anular la seleccion de todos los elementos</p>
+            </div>
+
+            <div class="container__subtotal">
+                <div class="button__addproduct">
+                    <button>Proceder al envio</button>
+                </div>
+
+                <div class="subtotal">
+                    <h6>Subtotal</h6>
+                    <p>US$ {{priceTotal}} </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto -->
+
+        <div class="container__product__wishlist container__product__shopcart" 
+            *ngFor="let product of products index as id"
+        >
+            <img [src]=[product.img_url] [alt]=[product.nameProduct]>
+            <div class="product__wishlist">
+                <h3>Nombre de producto: </h3>
+                <p> {{product.nameProduct}}  </p>
+            </div>
+
+            <div class="product__shopcart">
+                <h3>PRE X UNI</h3>
+                <p>$ {{product.priceByUnit}} </p>
+            </div>
+            <div class="product__shopcart ">
+                <h3 >CANTIDAD</h3>
+                <div class="product__shopcart__quantity">
+
+                    <img src="../assets/svg/icon_subtract.svg" alt="Restar" (click)="subtractProduct(id)">
+                    <p> {{product.productQuantity}} </p>
+                    <img src="../assets/svg/icon_plus.svg" alt="Adicionar" (click)="addProduct(id)">
+                    
+                </div>
+            </div>
+
+            <div class="product__shopcart">
+                <h3>PRE TOTAL</h3>
+                <p>$ {{product.priceTotal}} </p>
+            </div>
+
+
+            <div class="button__product__wishlist button__product__shopcart">
+                <button class="addcart">Ver producto</button>
+                <button (click)="deleteProduct(id)">Eliminar</button>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>
