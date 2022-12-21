@@ -19,14 +19,11 @@ export class BlocksService {
       headers: new HttpHeaders({
         /*  'Access-Control-Allow-Origin':'*',   */
         'Accept': 'application/json',
-        /* 'Authorization': 'YWxhZGRpbjpvcGVuc2VzYW1l',
-        'USUARIO': '5ebca7b6-32ab-11ed-b952-db18e75238a6',
-        'PASSWORD': 'b03ab9c4-9064-490d-91a7-62611a37c570'  */
-        
+        'Authorization': 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==', 
       })
     };
 
-    httpOptions.headers.append('Authorization', 'Basic{YWxhZGRpbjpvcGVuc2VzYW1l}')
+    
     this.http.get('http://back-test.bymiashop.com/api/front/sliders', httpOptions)
       .subscribe((resp: any) => {
 

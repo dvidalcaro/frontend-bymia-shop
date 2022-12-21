@@ -90,7 +90,7 @@ export class ShopCartComponent implements OnInit {
   }
 
   subtractProduct(index: number) {
-    if (this.products[index].productQuantity === 0) {
+    if (this.products[index].productQuantity === 1) {
       return
     } else {
 
