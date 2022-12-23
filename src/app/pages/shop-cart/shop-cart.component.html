@@ -1,13 +1,15 @@
 <div class="container-fluid">
 
-    <!-- Producto -->
+    <!-- Header Producto -->
     <div class="container container__wishlist animate__animated animate__zoomIn">
 
         <div class="container__wishlist__header">
             <div class="title__wishlist">
                 <h3>Carrito <img src="../assets/svg/Icon_shopping_cart.svg" alt="favoritos"></h3>
-                <p (click)="deleteAllProduct()">Anular la seleccion de todos los elementos</p>
+                <button class="button__deleteallproduct" (click)="openConfirm()">Anular la seleccion de todos los elementos</button>
             </div>
+
+            
 
             <div class="container__subtotal">
                 <div class="button__addproduct">
@@ -63,10 +65,42 @@
 
         </div>
 
+        <div class="container__product__wishlist container__product__shopcart container__product__noproduct" 
+            *ngIf="noProduct"
+        >
+
+        <h2>Tu carrito está vacío</h2>
+        <p>¿No sabés qué comprar? ¡Miles de productos te esperan!</p>
+        <a  class="noproduct__a" href="#destacados">Descubrir ofertas</a>
+    </div>
+
 
 
     </div>
 
 
 
+</div>
+
+<!-- Modal Confimation -->
+
+<div class="container__modal container__modal__confirm animate__animated animate__zoomIn animate__faster" *ngIf="showConfirmation">
+    <div class="container__form">
+        <img (click)="closeDelete()" src="../assets/img/icon_closed_black.png" alt="cerrar">
+
+        <div class="container__platform">
+            <p class="platform__p confirm__p">
+                {{messageConfirm}}
+            </p>
+        </div>
+
+       
+        <form action="">
+           
+           
+            <button class="button_modal button__confirm" (click)="confirmDeleteAllProduct()">Aceptar</button>
+        </form>
+        
+        
+    </div>
 </div>

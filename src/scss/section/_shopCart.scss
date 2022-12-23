@@ -79,3 +79,51 @@
     justify-content: flex-start;
     gap: 0.25rem ;
 }
+
+.button__deleteallproduct{
+    font-size: 0.575rem ;
+    font-weight: bold;
+    color: $primary-color;
+    background-color: $background-color;
+    border-radius: 0.5625rem;
+    padding: 0.3rem 0.75rem;
+}
+
+/* .container__modal__confirm{
+    height: 70vh;
+} */
+
+.confirm__p{
+    text-align: center;
+    font-weight: bold;
+}
+
+.button__confirm{
+    margin-bottom: 1.075rem;
+}
+
+.container__product__noproduct{
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 7rem 0;
+
+    h2{
+        color: $background-color;
+    }
+
+    p{
+        color: #101010;
+    }
+
+    .noproduct__a{
+        text-decoration: none;
+        color: $background-color;
+        cursor: pointer;
+        font-weight: bold;
+        background-color: $secundary-color;
+        border-radius: 0.5675rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        
+    }
+}

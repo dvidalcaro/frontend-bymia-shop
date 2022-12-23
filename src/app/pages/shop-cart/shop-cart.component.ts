@@ -24,6 +24,9 @@ export class ShopCartComponent implements OnInit {
   productQuantity: number = 0;
   priceTotal: number = 0;
   priceProduct: number = 432;
+  showConfirmation: boolean= false;
+  messageConfirm: string = 'Presiona Aceptar para borrar todos los productos agregados';
+  noProduct: boolean = false;
 
   products: Products[] = [
 
@@ -104,13 +107,13 @@ export class ShopCartComponent implements OnInit {
   }
 
   deleteProduct(id: number) {
-    console.log();
+    
 
     this.priceTotal = this.priceTotal - this.products[id].priceTotal
     this.products.splice(id, 1)
+    this.showNoProduct();
 
-
-    console.log(this.products)
+    
   }
 
   deleteAllProduct() {
@@ -120,6 +123,41 @@ export class ShopCartComponent implements OnInit {
 
   subTotalProducts() {
     this
+  }
+
+  openConfirm(){
+    if (this.products.length > 0) {
+      this.showConfirmation=true;
+    } else {
+      this.messageConfirm='No hay productos para borrar'
+      this.showConfirmation=true;
+    }
+    
+  }
+
+  closeDelete(){
+    this.showConfirmation=false;
+  }
+
+  confirmDeleteAllProduct(){
+    if (this.products.length > 0) {
+      this.deleteAllProduct();
+    this.showConfirmation=false;
+    this.showNoProduct();
+    } else {
+      this.showConfirmation=false;
+    }
+    
+  }
+
+  showNoProduct(){
+
+    if (this.products.length > 0) {
+      this.noProduct= false;
+    } else {
+      this.noProduct= true;
+    }
+    
   }
 
 }
