@@ -87,6 +87,7 @@
     background-color: $background-color;
     border-radius: 0.5625rem;
     padding: 0.3rem 0.75rem;
+    margin-top: 0.4rem;
 }
 
 /* .container__modal__confirm{
@@ -126,4 +127,14 @@
         border: none;
         
     }
+}
+
+.container__form{
+
+    .exclamation{
+        align-self: center;
+        width: auto;
+        height: auto;
+    }
+
 }

@@ -71,7 +71,7 @@
 
         <h2>Tu carrito está vacío</h2>
         <p>¿No sabés qué comprar? ¡Miles de productos te esperan!</p>
-        <a  class="noproduct__a" href="#destacados">Descubrir ofertas</a>
+        <a  class="noproduct__a" href="destacados">Descubrir ofertas</a>
     </div>
 
 
@@ -87,17 +87,17 @@
 <div class="container__modal container__modal__confirm animate__animated animate__zoomIn animate__faster" *ngIf="showConfirmation">
     <div class="container__form">
         <img (click)="closeDelete()" src="../assets/img/icon_closed_black.png" alt="cerrar">
-
+        <img class="exclamation"  src="../assets/svg/exclamation-triangle-fill.svg" alt="cerrar">
         <div class="container__platform">
             <p class="platform__p confirm__p">
                 {{messageConfirm}}
             </p>
         </div>
-
+        
        
         <form action="">
            
-           
+            <button class="button_modal" (click)="closeDelete()" *ngIf="showCancel">Cancelar</button>
             <button class="button_modal button__confirm" (click)="confirmDeleteAllProduct()">Aceptar</button>
         </form>
         

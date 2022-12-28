@@ -25,8 +25,9 @@ export class ShopCartComponent implements OnInit {
   priceTotal: number = 0;
   priceProduct: number = 432;
   showConfirmation: boolean= false;
-  messageConfirm: string = 'Presiona Aceptar para borrar todos los productos agregados';
+  messageConfirm: string = '¿Estas seguro que deseas borrar todos los productos del carrito? ¡Esta acción no se puede desshacer!';
   noProduct: boolean = false;
+  showCancel: boolean = true;
 
   products: Products[] = [
 
@@ -128,9 +129,11 @@ export class ShopCartComponent implements OnInit {
   openConfirm(){
     if (this.products.length > 0) {
       this.showConfirmation=true;
+      this.showCancel= true;
     } else {
       this.messageConfirm='No hay productos para borrar'
       this.showConfirmation=true;
+      this.showCancel= false;
     }
     
   }
