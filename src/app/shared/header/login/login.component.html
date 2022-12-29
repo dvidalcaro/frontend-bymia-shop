@@ -1,13 +1,12 @@
-<div class="login__container">
-   <img (click)="openLogin()" src="../assets/svg/icon_user.svg" alt="Ingresar"><span (click)="openLogin()">Ingresar</span> 
+<!-- <div class="login__container">
+   <img (click)="openLogin()" src="../assets/svg/icon_user.svg" alt="Ingresar"><span  routerLink="/login" >Ingresar</span> 
 
-</div>
+</div> -->
 
 <!-- Modal login and registrr -->
-<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showLogin">
+<div class="container__modal animate__animated animate__zoomIn animate__faster">
    <div class="container__form">
-      <img  (click)="closeLogin()" src="../assets/img/icon_closed_black.png" alt="cerrar">
-
+      <img  (click)="closeForgetPassword()" src="../assets/img/icon_closed_black.png" alt="cerrar">
       <!-- <div class="container__platform">
          <div class="platform icon__google">
            
@@ -37,7 +36,7 @@
          <input type="password"  placeholder="Contraseña">
          <button class="button_modal">Entrar</button>
       </form>
-      <button class="button_modal" (click)="openRegisterMail()">Registrarse</button>
+      <button class="button_modal" routerLink="/register">Registrarse</button>
 
       <p class="forget__password__p" (click)="openForgetPassword()"><strong>¿Has olvidado tu contraseña? hace clic acá</strong></p>
       <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
@@ -133,7 +132,7 @@
 
 <!-- Modal continue with mail -->
 
-
+<!-- 
 <div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showRegisterMail">
    <div class="container__form">
       <img  (click)="closeRegisterMail()" src="../assets/img/icon_closed_black.png" alt="cerrar">
@@ -163,3 +162,4 @@
          y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
    </div>
 </div>
+ -->

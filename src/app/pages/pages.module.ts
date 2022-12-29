@@ -19,6 +19,7 @@ import { UserPanelModule } from "../user-panel/user-panel.module";
 
 
 
+
 @NgModule({
     declarations: [
         HomeComponent,
@@ -30,6 +31,7 @@ import { UserPanelModule } from "../user-panel/user-panel.module";
         FlashSalesComponent,
         WishListComponent,
         ShopCartComponent,
+        
     ],
     exports: [
         HomeComponent,

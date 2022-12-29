@@ -9,9 +9,12 @@ import { FlashSalesComponent } from 'src/app/pages/flash-sales/flash-sales.compo
 import { FaqComponent } from 'src/app/pages/faq/faq.component';
 import { ShopCartComponent } from 'src/app/pages/shop-cart/shop-cart.component';
 import { WishListComponent } from 'src/app/pages/wish-list/wish-list.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
-const routes : Routes =[
+
+const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
@@ -19,49 +22,59 @@ const routes : Routes =[
   },
 
   {
-    path:'nosotros',
+    path: 'nosotros',
     component: AboutUsComponent
   },
 
   {
-    path:'faqs',
+    path: 'faqs',
     component: FaqComponent
   },
 
   {
-    path:'ofertas',
+    path: 'ofertas',
     component: OffersComponent
   },
 
   {
-    path:'lanzamientos',
+    path: 'lanzamientos',
     component: LaunchComponent
   },
 
   {
-    path:'flash-sales',
+    path: 'flash-sales',
     component: FlashSalesComponent
   },
 
   {
-    path:'shop-cart',
+    path: 'shop-cart',
     component: ShopCartComponent
   },
 
   {
-    path:'wish-list',
+    path: 'wish-list',
     component: WishListComponent
   },
 
   {
-    path:'**',
-    redirectTo:''
+    path: 'login',
+    component: LoginComponent
+  },
+  
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes , { useHash: true })],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class HeaderRoutingModule { }

@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShopcartComponent } from './shopcart/shopcart.component';
 import { HeaderRoutingModule } from './header-routing.module';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -19,7 +20,8 @@ import { HeaderRoutingModule } from './header-routing.module';
     LoginComponent,
     SearchComponent,
     WishlistComponent,
-    ShopcartComponent
+    ShopcartComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +35,8 @@ import { HeaderRoutingModule } from './header-routing.module';
     LoginComponent,
     SearchComponent,
     WishlistComponent,
-    ShopcartComponent
+    ShopcartComponent,
+    RegisterComponent
   ]
 })
 export class HeaderModule { }

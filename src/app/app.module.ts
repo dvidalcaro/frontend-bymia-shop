@@ -12,6 +12,7 @@ import { PagesModule } from './pages/pages.module';
 
 import { UserPanelModule } from './user-panel/user-panel.module';
 import { HeaderRoutingModule } from './shared/header/header-routing.module';
+import { InterceptorsModule } from './interceptors/interceptors.module';
 
 
 
@@ -30,7 +31,9 @@ import { HeaderRoutingModule } from './shared/header/header-routing.module';
      HeaderModule,
      BlocksModule,
      PagesModule,
-     UserPanelModule
+     UserPanelModule,
+    InterceptorsModule
+
      
      
   ],
