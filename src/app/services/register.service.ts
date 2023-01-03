@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 interface userRegistre{
@@ -30,11 +31,13 @@ const httpOptions = {
 export class RegisterService {
   _response: any;
 
+   
+
   userNew: userRegistre =
     {
       "customer_type_role":1,
       "name":"Dalinda",
-      "email":"dalindabilbao@gmail.com",
+      "email":"dalindabilbao124443@gmail.com",
       "password":"prueba123",
       "country_code_cel_phone":11,
       "cel_phone":'1163549780'
@@ -51,7 +54,7 @@ export class RegisterService {
    
 
     
-    return this.http.post<userRegistre>('http://back-test.bymiashop.com/api/front/register', this.userNew , httpOptions)
+    return this.http.post<userRegistre>('http://back-test.bymiashop.com/api/front/register', this.userNew )
       
 
   }

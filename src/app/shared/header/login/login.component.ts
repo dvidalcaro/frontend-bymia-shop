@@ -65,14 +65,7 @@ export class LoginComponent implements OnInit {
     this.showForgetPassword=false;
   }
 
-  openConfirmMail(){
-    this.showConfirmMail=true;
-    this.showForgetPassword=false;
-  }
-
-  closeConfirmMail(){
-    this.showConfirmMail=false;
-  }
+ 
 
   ngOnInit(): void {
   }

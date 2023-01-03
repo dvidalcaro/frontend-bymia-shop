@@ -6,7 +6,7 @@
 <!-- Modal login and registrr -->
 <div class="container__modal animate__animated animate__zoomIn animate__faster">
    <div class="container__form">
-      <img  (click)="closeForgetPassword()" src="../assets/img/icon_closed_black.png" alt="cerrar">
+      <img  routerLink="/" src="../assets/img/icon_closed_black.png" alt="cerrar">
       <!-- <div class="container__platform">
          <div class="platform icon__google">
            
@@ -38,7 +38,7 @@
       </form>
       <button class="button_modal" routerLink="/register">Registrarse</button>
 
-      <p class="forget__password__p" (click)="openForgetPassword()"><strong>¿Has olvidado tu contraseña? hace clic acá</strong></p>
+      <p class="forget__password__p" routerLink="/forget-password" ><strong>¿Has olvidado tu contraseña? hace clic acá</strong></p>
       <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
          y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
    </div>
@@ -46,45 +46,7 @@
 
 <!-- Modal Forget Password -->
 
-<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showForgetPassword">
-   <div class="container__form">
-      <img  (click)="closeForgetPassword()" src="../assets/img/icon_closed_black.png" alt="cerrar">
 
-     
-      <form action="">
-         <label for="" class="forget__password__label" requiered>Ingresa tu email para recuperar tu contraseña</label>
-         <input type="email"  placeholder="Dirección de email">
-         
-         <button class="button_modal" (click)="openConfirmMail()">Enviar</button>
-      </form>
-      
-
-      
-      <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
-         y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
-   </div>
-</div>
-
-<!-- password recovery shipping confirmation -->
-
-<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showConfirmMail">
-   <div class="container__form">
-      <img  (click)="closeConfirmMail()" src="../assets/img/icon_closed_black.png" alt="cerrar">
-
-     <h3 class="message__h3">
-      Tu email fue enviado con exito
-     </h3>
-
-     <p class="message__p">
-
-      Revisa tu casilla de email o en la carpeta de spam y encontraras el <strong>link</strong>  de restablecimiento de tu contraseña
-     </p>
-
-     <button class="button_modal button_modal__close" (click)="closeConfirmMail()">Cerrar</button>
-
-      
-   </div>
-</div>
 
  <!-- Modal Register -->
 <!-- 

@@ -24,7 +24,7 @@ export class BlocksService {
     };
 
     
-    this.http.get('http://back-test.bymiashop.com/api/front/sliders', httpOptions)
+    this.http.get('http://back-test.bymiashop.com/api/front/sliders')
       .subscribe((resp: any) => {
 
         this._response = resp;

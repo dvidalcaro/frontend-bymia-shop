@@ -1,7 +1,7 @@
 
 <div class="container__modal animate__animated animate__zoomIn animate__faster">
     <div class="container__form">
-       <img   src="../assets/img/icon_closed_black.png" alt="cerrar">
+       <img  routerLink="/"  src="../assets/img/icon_closed_black.png" alt="cerrar">
  
        
        <p class="title__registerMail__p">Seleccione si eres Persona o Empresa</p>
@@ -11,6 +11,7 @@
              <option value="">Persona</option>
              <option value="">Empresa</option>
           </select>
+          
           <input type="email" placeholder="Nombre y Apellido">
           <input type="email" placeholder="Dirección de email">
           <input type="password"  placeholder="Contraseña">
@@ -21,7 +22,7 @@
              </p>
           
           </form>
-          <button class="button_modal" >Registrarse</button>
+          <button class="button_modal" (click)="registerUser()" >Registrarse</button>
        
        
        <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>

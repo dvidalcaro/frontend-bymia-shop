@@ -1,20 +1,20 @@
  .container__modal {
     display: flex;
-    /* position: fixed; */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 72vh;
-   /*  z-index: 100; */
+    height: 100vh;
+    z-index: 100;
     justify-content: center;
     align-items: center;
      /* Note: currently only Safari supports backdrop-filter */
-   /*  background: transparent;
+    background: transparent;
    
     backdrop-filter: blur(15px);
     --webkit-backdrop-filter: blur(15px);
     background-color: rgba(255, 255, 255, 0.01);
-    transition: all 5s step-start; */
+    transition: all 5s step-start;
 
 }
 
@@ -112,6 +112,18 @@
 
 }
 
+.container__form__pricelist{
+    width: 36.0625rem ;
+    .platform__h1{
+        color: $background-color;
+        align-self: center;
+        padding: 0;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 1.375rem;
+    }
+}
+
 .container__platform {
     display: flex;
     flex-direction: column;
@@ -185,10 +197,14 @@
 
 }
 
+
+
 .platform__p{
     color: $background-color;
     align-self: center;
     padding: 0 50px 0 50px;
+    text-align: center;
+    font-size:0.875rem;
 }
 
 
@@ -220,7 +236,7 @@
     font-weight: 200;
     width: 20.125rem;
     line-height: 0.875rem;
-    padding: 0 0 2.375rem 0;
+    padding: 10px 0 0.375rem 0;
     letter-spacing: 0px;
 
     strong {
@@ -271,7 +287,8 @@
 }
 .register__p{
     padding: 0;
-    margin: 0;
+    margin: -0.625rem 0 0 1.3rem;
+    
 }
 
 .title__registerMail__p{

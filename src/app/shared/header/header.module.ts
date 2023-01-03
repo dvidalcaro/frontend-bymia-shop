@@ -9,6 +9,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShopcartComponent } from './shopcart/shopcart.component';
 import { HeaderRoutingModule } from './header-routing.module';
 import { RegisterComponent } from './register/register.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 
@@ -21,7 +22,8 @@ import { RegisterComponent } from './register/register.component';
     SearchComponent,
     WishlistComponent,
     ShopcartComponent,
-    RegisterComponent
+    RegisterComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     CommonModule,
