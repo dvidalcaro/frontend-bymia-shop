@@ -6,28 +6,31 @@ import { SliderInterface } from 'src/app/shared/interfaces/slider-interface';
   providedIn: 'root'
 })
 export class BlocksService {
- 
-   _response: any;
 
-   get response(){
+  _response: any;
+
+  get response() {
     return this._response;
-   }
- 
-  showSlider(){
-   
+  }
+
+  showSlider() {
+    //  http://back-test.bymiashop.com/api/front/sliders
     const httpOptions = {
       headers: new HttpHeaders({
-        'Accept':  'application/json',
-        
+        /*  'Access-Control-Allow-Origin':'*',   */
+        'Accept': 'application/json',
+        'Authorization': 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==', 
       })
     };
-    this.http.get('http://back-test.bymiashop.com/api/v1/sliders', httpOptions)
-    .subscribe((resp:any) =>{
-        
-      this._response= resp;
-      console.log(resp)
-    })
-      
+
+    
+    this.http.get('http://back-test.bymiashop.com/api/front/sliders')
+      .subscribe((resp: any) => {
+
+        this._response = resp;
+        console.log(resp)
+      })
+
   }
 
 

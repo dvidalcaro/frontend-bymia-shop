@@ -18,12 +18,12 @@ export class SlidersComponent implements OnInit {
 
   
    
-  get sliders (){
+   get sliders (){
     
     return this.sliderServices._response;
    
   }
- 
+  
   
   constructor(private sliderServices: BlocksService ) {
      

@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { SearchComponent } from './search/search.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ShopcartComponent } from './shopcart/shopcart.component';
+import { HeaderRoutingModule } from './header-routing.module';
+import { RegisterComponent } from './register/register.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 
 
@@ -18,10 +21,14 @@ import { ShopcartComponent } from './shopcart/shopcart.component';
     LoginComponent,
     SearchComponent,
     WishlistComponent,
-    ShopcartComponent
+    ShopcartComponent,
+    RegisterComponent,
+    ForgetPasswordComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    HeaderRoutingModule 
+
   ],
   exports: [
     LogoComponent,
@@ -30,7 +37,8 @@ import { ShopcartComponent } from './shopcart/shopcart.component';
     LoginComponent,
     SearchComponent,
     WishlistComponent,
-    ShopcartComponent
+    ShopcartComponent,
+    RegisterComponent
   ]
 })
 export class HeaderModule { }

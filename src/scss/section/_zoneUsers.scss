@@ -1,0 +1,35 @@
+
+
+.container__zone{
+    display: flex;
+    justify-content: center;
+    gap: 7.375rem;
+    
+}
+
+.zone{
+    display: flex;
+    gap: 1rem;
+    background-color: #101010;
+    border-radius: 1.375rem;
+    max-width:27.75rem;
+
+    .description{
+        align-self: center;    
+        
+        p{
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    .zone__img{
+        align-self: center; 
+        img{
+            margin-left: -1rem;
+        }
+    }
+
+    
+}
+

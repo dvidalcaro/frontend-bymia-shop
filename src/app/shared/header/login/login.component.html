@@ -1,4 +1,127 @@
-<div class="login__container">
-   <a href=""><img src="../assets/svg/icon_user.svg" alt="Ingresar">Ingresar</a> 
-    
+<!-- <div class="login__container">
+   <img (click)="openLogin()" src="../assets/svg/icon_user.svg" alt="Ingresar"><span  routerLink="/login" >Ingresar</span> 
+
+</div> -->
+
+<!-- Modal login and registrr -->
+<div class="container__modal animate__animated animate__zoomIn animate__faster">
+   <div class="container__form">
+      <img  routerLink="/" src="../assets/img/icon_closed_black.png" alt="cerrar">
+      <!-- <div class="container__platform">
+         <div class="platform icon__google">
+           
+            <img src="../assets/svg/Icon-google.svg" alt="Logueate con Google">
+         
+            <a href="">Continuar con Google</a>
+         </div>
+
+         <div class="platform icon__facebook">
+            <img src="../assets/svg/Icon-facebook.svg" alt="Logueate con Facebook">
+            <a href="">Continuar con Facebook</a>
+         </div>
+
+         <div class="platform icon__apple">
+            <img src="../assets/svg/Icon-apple.svg" alt="Logueate con Facebook">
+            <a href="" >Continuar con Apple</a>
+         </div>
+      </div>
+
+      <div class="container__line">
+         <hr>
+         <img src="../assets/svg/elipse.svg" alt="elipse">
+         <hr>
+      </div> -->
+      <form action="">
+         <input type="email"  placeholder="Dirección de email">
+         <input type="password"  placeholder="Contraseña">
+         <button class="button_modal">Entrar</button>
+      </form>
+      <button class="button_modal" routerLink="/register">Registrarse</button>
+
+      <p class="forget__password__p" routerLink="/forget-password" ><strong>¿Has olvidado tu contraseña? hace clic acá</strong></p>
+      <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
+         y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
+   </div>
 </div>
+
+<!-- Modal Forget Password -->
+
+
+
+ <!-- Modal Register -->
+<!-- 
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showRegister">
+   <div class="container__form">
+      <img  (click)="closeRegister()" src="../assets/img/icon_closed_black.png" alt="cerrar">
+
+      <h1>Registrate con algunas de estas opciones</h1>
+
+      <div class="container__platform">
+         <div class="platform icon__google">
+           
+            <img src="../assets/svg/Icon-google.svg" alt="Registrate con Google">
+         
+            <a href="">Continuar con Google</a>
+         </div>
+
+         <div class="platform icon__facebook">
+            <img src="../assets/svg/Icon-facebook.svg" alt="Registrate con Facebook">
+            <a href="">Continuar con Facebook</a>
+         </div>
+
+         <div class="platform icon__apple">
+            <img src="../assets/svg/Icon-apple.svg" alt="Registrate con Apple">
+            <a href="" >Continuar con Apple</a>
+         </div>
+      </div>
+
+      <div class="container__line">
+         <hr>
+         <img src="../assets/svg/elipse.svg" alt="elipse">
+         <hr>
+      </div>
+
+      <div class="platform__mail icon__mail" >
+         <img src="../assets/svg/Icon-mail.svg" alt="Registrate con Mail">
+         <button class="button__register" (click)="openRegisterMail()" >Continuar con mail</button>
+        
+      </div>
+      
+      <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
+         y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
+   </div>
+</div>  -->
+
+<!-- Modal continue with mail -->
+
+<!-- 
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showRegisterMail">
+   <div class="container__form">
+      <img  (click)="closeRegisterMail()" src="../assets/img/icon_closed_black.png" alt="cerrar">
+
+      
+      <p class="title__registerMail__p">Seleccione si eres Persona o Empresa</p>
+      
+      <form class="form__register__mail" action="">
+         <select name="" id="">
+            <option value="">Persona</option>
+            <option value="">Empresa</option>
+         </select>
+         <input type="email" placeholder="Nombre y Apellido">
+         <input type="email" placeholder="Dirección de email">
+         <input type="password"  placeholder="Contraseña">
+         <input type="password"  placeholder="Confirmar Contraseña">
+         <input type="tel"  placeholder="Código del pais +xx ">
+         <input type="tel"  placeholder="Celular (xxx) xxx-xxxx">
+         <p class="condition__p register__p">Si deseas recibir las notificaciones de tu envío por WhatsApp, hace click  <a href=""><strong>acá.</strong> </a>
+            </p>
+         
+         </form>
+         <button class="button_modal" (click)="registerUser()">Registrarse</button>
+      
+      
+      <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
+         y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
+   </div>
+</div>
+ -->

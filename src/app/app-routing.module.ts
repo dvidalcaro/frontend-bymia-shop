@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
+/* import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutUsComponent } from './pages/about-us/about-us.component';
+
 import { FaqComponent } from './pages/faq/faq.component';
 import { FlashSalesComponent } from './pages/flash-sales/flash-sales.component';
-import { HomeComponent } from './pages/home/home.component';
+
 import { LaunchComponent } from './pages/launch/launch.component';
 import { OffersComponent } from './pages/offers/offers.component';
+import { HomeComponent } from 'src/app/pages/home/home.component';
+import { AboutUsComponent } from 'src/app/pages/about-us/about-us.component';
 
 const routes: Routes = [
 
@@ -21,7 +23,7 @@ const routes: Routes = [
   },
 
   {
-    path:'faq',
+    path:'faqs',
     component: FaqComponent
   },
 
@@ -56,3 +58,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+  */
