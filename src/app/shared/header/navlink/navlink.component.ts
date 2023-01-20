@@ -5,18 +5,12 @@ import { RouterOutlet } from '@angular/router';
 import { navLink } from '../../interfaces/navlink';
 import { SharedService } from '../../shared.service';
 
-
-
-
 @Component({
   selector: 'app-navlink',
   templateUrl: './navlink.component.html',
-  styles: [
-  ]
-
+  styles: [],
 })
 export class NavlinkComponent implements OnInit {
-
   switchBar: boolean = false;
   showPriceList: boolean = false;
   showConfirm: boolean = false;
@@ -24,36 +18,31 @@ export class NavlinkComponent implements OnInit {
   linksHeader: navLink[] = [
     {
       label: 'Nosotros',
-      links: 'nosotros'
+      links: 'nosotros',
     },
 
     {
       label: 'FAQs',
-      links: 'faq'
+      links: 'faqs',
     },
 
     {
       label: 'Ofertas',
-      links: 'ofertas'
+      links: 'ofertas',
     },
 
     {
       label: 'Lanzamientos',
-      links: 'lanzamientos'
+      links: 'lanzamientos',
     },
 
     {
       label: 'Flash Sales',
-      links: 'flash-sales'
+      links: 'flash-sales',
     },
-
-
   ];
 
-
-  constructor(private sharedService: SharedService) {
-
-  }
+  constructor(private sharedService: SharedService) {}
 
   closeBarSearch() {
     this.switchBar = false;
@@ -63,25 +52,22 @@ export class NavlinkComponent implements OnInit {
     this.switchBar = true;
   }
 
-  openPriceList(){
-    this.showPriceList= true;
+  openPriceList() {
+    this.showPriceList = true;
   }
 
-  closePriceList(){
-    this.showPriceList=false;
+  closePriceList() {
+    this.showPriceList = false;
   }
 
-  openConfirm(){
-    this.showConfirm= true;
-    this.closePriceList()
+  openConfirm() {
+    this.showConfirm = true;
+    this.closePriceList();
   }
 
-  closeConfirm(){
+  closeConfirm() {
     this.showConfirm = false;
   }
 
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
