@@ -27,7 +27,9 @@
           data-bs-parent="#accordionExample">
           <div class="accordion-body">
             <div *ngFor="let faq of top.faqs">
-              <h5>{{ faq.question }}</h5>
+              <h5>
+                <strong>{{ faq.question }}</strong>
+              </h5>
               <div [innerHTML]="faq.answer"></div>
             </div>
           </div>
