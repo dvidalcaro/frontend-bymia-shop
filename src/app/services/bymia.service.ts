@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { About } from '../shared/interfaces/About';
 import { Slider } from '../shared/interfaces/Slider';
+import { TopLevel } from '../shared/interfaces/TopLevel';
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const headers = new HttpHeaders({
@@ -17,6 +18,7 @@ const headers = new HttpHeaders({
 export class BymiaService {
   private sliders: Slider[] = [];
   private about: About = {};
+  private faqs: TopLevel[] = [];
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
@@ -38,6 +40,15 @@ export class BymiaService {
       return this.http
         .get<About>(`${url}/about-us`, { headers })
         .pipe(tap(about => (this.about = about)));
+    }
+  }
+  public getFaqs() {
+    if (this.faqs.length > 0) {
+      return of(this.faqs);
+    } else {
+      return this.http
+        .get<TopLevel[]>(`${url}/faqs`, { headers })
+        .pipe(tap(faqs => (this.faqs = faqs)));
     }
   }
 }
