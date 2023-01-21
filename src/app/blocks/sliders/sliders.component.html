@@ -1,41 +1,31 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+<div id="carouselSliders" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active "
-      aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+    <button
+      type="button"
+      data-bs-target="#carouselSliders"
+      data-bs-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"></button>
+    <button
+      type="button"
+      data-bs-target="#carouselSliders"
+      data-bs-slide-to="1"
       aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+    <button
+      type="button"
+      data-bs-target="#carouselSliders"
+      data-bs-slide-to="2"
       aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner">
-    <!-- Slider 1 -->
-    <div class="carousel-item active slider_hero">
-      <p> {{sliders[0].volanta | uppercase}} </p>
-      <h1>{{sliders[0].title}}</h1>
+  <div class="carousel-inner" *ngFor="let slider of sliders; let i = index">
+    <div class="carousel-item slider_hero" [ngClass]="{ active: i == 0 }">
+      <p>{{ slider.volanta | uppercase }}</p>
+      <h1>{{ slider.title }}</h1>
       <p class="subtitle">
-        {{sliders[0].subtitle}}
+        {{ slider.subtitle }}
       </p>
-      <button>{{sliders[0].nameBtn}}</button>
+      <button>{{ slider.nameBtn }}</button>
     </div>
-    <!-- Slider 2 -->
-    <div class="carousel-item slider_hero">
-      <p> {{sliders[1].volanta | uppercase }} </p>
-      <h1>{{sliders[1].title}}</h1>
-      <p class="subtitle">
-        {{sliders[1].subtitle}}
-      </p>
-      <button>{{sliders[1].nameBtn}}</button>
-    </div>
-    <!-- Slider 3 -->
-    <div class="carousel-item slider_hero">
-      <p> {{sliders[2].volanta | uppercase }} </p>
-      <h1>{{sliders[2].title}}</h1>
-      <p class="subtitle">
-        {{sliders[2].subtitle}}
-      </p>
-      <button>{{sliders[2].nameBtn}}</button>
-    </div>
-
   </div>
-
 </div>

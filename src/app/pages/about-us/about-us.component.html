@@ -1,24 +1,13 @@
 <div class="container__about">
-    <div class="about xxl col-6">
-
-        <div class="hero__img">
-            <img src="../assets/img/hero-img-about.png" alt="nosotros">
-        </div>
-
-        <div class="description__about">
-            <h4>Nosotros</h4>
-            <p class="about__p">
-                Bymia es un e-commerce moderno que te permite comprar productos de tecnología, de manera rápida, sencilla y desde cualquier parte del mundo. Nuestro objetivo es satisfacer eficazmente los deseos de compra de nuestros clientes (minoristas, mayoristas y público en general), trabajando en equipo con responsabilidad y seriedad, las 24 horas de todos los días del año. Para lograrlo, ofrecemos las mejores marcas, gran variedad, más de diez mil productos, ofertas, seguros, lanzamientos, diferentes métodos de pago y entrega garantizada puerta a puerta.  
-
-          
-            </p>
-            <br>
-            <p> Celulares, laptops, tablets, placas de video, discos sólidos y duros, accesorios y más artículos de las firmas mejor rankeadas. Comprá y acordá tu envío a cualquier parte del mundo en un solo sitio. Simplificamos todos los trámites para ayudarte a comprar más, mejor y tenerlo a la brevedad en el domicilio que indiques. 
-            </p>
-        </div>
-
+  <div class="about xxl col-6">
+    <div class="hero__img">
+      <img src="../assets/img/hero-img-about.png" alt="nosotros" />
     </div>
+
+    <div class="description__about">
+      <h4>Nosotros</h4>
+      <div class="about__p" [innerHTML]="about.description"></div>
+    </div>
+  </div>
 </div>
 <!-- <app-panel></app-panel> -->
-
-

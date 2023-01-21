@@ -3,11 +3,21 @@ import { Injectable } from '@angular/core';
 import { SliderInterface } from 'src/app/shared/interfaces/slider-interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BlocksService {
-
   _response: any;
+  private url = 'http://back-test.bymiashop.com/api/front/';
+
+  constructor(private http: HttpClient) {
+    const headers = new HttpHeaders({
+      Authorization:
+        'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+    });
+    this.http.get(`${this.url}sliders`, { headers }).subscribe(resp => {
+      console.log(resp);
+    });
+  }
 
   get response() {
     return this._response;
@@ -18,21 +28,18 @@ export class BlocksService {
     const httpOptions = {
       headers: new HttpHeaders({
         /*  'Access-Control-Allow-Origin':'*',   */
-        'Accept': 'application/json',
-        'Authorization': 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==', 
-      })
+        Accept: 'application/json',
+        Authorization:
+          'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+      }),
     };
 
-    
-    this.http.get('http://back-test.bymiashop.com/api/front/sliders')
+    this.http
+      .get('http://back-test.bymiashop.com/api/front/sliders')
       .subscribe((resp: any) => {
+        console.log(resp);
 
         this._response = resp;
-        console.log(resp)
-      })
-
+      });
   }
-
-
-  constructor(private http: HttpClient) { }
 }
