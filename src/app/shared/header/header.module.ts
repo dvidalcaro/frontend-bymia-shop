@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { LogoComponent } from './logo/logo.component';
 import { NavlinkComponent } from './navlink/navlink.component';
 import { HeaderComponent } from './header.component';
@@ -13,32 +14,33 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 
 
 
+
 @NgModule({
   declarations: [
     LogoComponent,
-    NavlinkComponent,
-    HeaderComponent,
+    NavlinkComponent,    
     LoginComponent,
     SearchComponent,
     WishlistComponent,
     ShopcartComponent,
     RegisterComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    HeaderComponent
   ],
   imports: [
     CommonModule,
-    HeaderRoutingModule 
-
+    HeaderRoutingModule,
+    
   ],
   exports: [
     LogoComponent,
-    NavlinkComponent,
-    HeaderComponent,
+    NavlinkComponent,   
     LoginComponent,
     SearchComponent,
     WishlistComponent,
     ShopcartComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent
   ]
 })
 export class HeaderModule { }

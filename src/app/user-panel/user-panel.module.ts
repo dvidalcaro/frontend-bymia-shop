@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MyDataComponent } from './my-data/my-data.component';
 import { OrdersComponent } from './orders/orders.component';
 import { PanelComponent } from './panel/panel.component';
+import { HelpComponent } from './help/help.component';
+import { UserPanelRoutingModule } from './user-panel-routing.module';
 
 
 
@@ -10,15 +12,18 @@ import { PanelComponent } from './panel/panel.component';
   declarations: [
     MyDataComponent,
     OrdersComponent,
-    PanelComponent
+    PanelComponent,
+    HelpComponent
   ],
   exports:[
     MyDataComponent,
     OrdersComponent,
-    PanelComponent
+    PanelComponent,
+    UserPanelRoutingModule    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    UserPanelRoutingModule
   ]
 })
 export class UserPanelModule { }

@@ -13,6 +13,10 @@ import { BlocksModule } from '../blocks/blocks.module';
 import { AuthComponent } from './auth/auth.component';
 import { AuthModule } from './auth/auth.module';
 import { UserPanelModule } from "../user-panel/user-panel.module";
+import { HeaderComponent } from '../shared/header/header.component';
+import { HeaderModule } from '../shared/header/header.module';
+import { RouterOutlet, RouterModule } from '@angular/router';
+
 
 
 
@@ -42,13 +46,16 @@ import { UserPanelModule } from "../user-panel/user-panel.module";
         LaunchComponent,
         FlashSalesComponent,
         WishListComponent,
-        ShopCartComponent
+        ShopCartComponent,
     ],
     imports: [
         CommonModule,
         BlocksModule,
         AuthModule,
         UserPanelModule,
+        HeaderModule,
+        RouterModule
+        
         
     ]
 })

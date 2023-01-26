@@ -13,6 +13,10 @@ import { WishListComponent } from './pages/wish-list/wish-list.component';
 import { LoginComponent } from './shared/header/login/login.component';
 import { RegisterComponent } from './shared/header/register/register.component';
 import { ForgetPasswordComponent } from './shared/header/forget-password/forget-password.component';
+import { MyDataComponent } from './user-panel/my-data/my-data.component';
+import { OrdersComponent } from './user-panel/orders/orders.component';
+import { PanelComponent } from './user-panel/panel/panel.component';
+import { HelpComponent } from './user-panel/help/help.component';
 
 const routes: Routes = [
   {
@@ -72,6 +76,31 @@ const routes: Routes = [
   },
 
   {
+    path: 'user-panel',
+    loadChildren: () => import('./user-panel/user-panel.module').then(m => m.UserPanelModule)
+  },
+
+ /*  {
+    path: 'panel',
+    component: PanelComponent
+  },
+
+  {
+    path: 'my-data',
+    component: MyDataComponent
+  },
+
+  {
+    path: 'orders',
+    component: OrdersComponent
+  },
+
+  {
+    path: 'help',
+    component: HelpComponent
+  }, */
+
+  {
     path: '**',
     redirectTo: '',
   },
@@ -81,4 +110,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
