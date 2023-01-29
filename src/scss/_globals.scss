@@ -18,10 +18,18 @@ body {
   box-sizing: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
 /* *, ::after, ::before {
     box-sizing: content-box;
 } */
+
+.bg-secundary {
+  display: flex;
+  justify-content: center;
+  background-color: #15fed4;
+  color: #000;
+  align-items: center;
+}

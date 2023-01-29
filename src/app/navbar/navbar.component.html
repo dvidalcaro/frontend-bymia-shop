@@ -1,0 +1,207 @@
+<nav
+  class="navbar sticky-top navbar-custom navbar-expand-lg navbar-dark bg-black py-4 px-3">
+  <div class="container-fluid header__container">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarBymia"
+      aria-controls="navbarBymia"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+      <img
+        class="logo"
+        src="{{ urlLogo }}"
+        alt="Bymia shop"
+        [routerLink]="['/']" />
+    </a>
+    <div class="collapse navbar-collapse" id="navbarBymia">
+      <ul class="navbar-nav ms-auto p-2" *ngFor="let link of linksHeader">
+        <div *ngIf="link.label; else elseLabel">
+          <li
+            class="nav-item"
+            data-bs-toggle="collapse"
+            data-bs-target=".navbar-collapse.show"
+            routerLinkActive="active">
+            <div *ngIf="!link.links; else elseLink">
+              <a
+                class="nav-link"
+                *ngIf="link.reference === 'listPrice'"
+                (click)="toogleListPrice()"
+                ><strong>{{ link.label }}</strong></a
+              >
+            </div>
+            <ng-template #elseLink>
+              <a class="nav-link" [routerLink]="[link.links]"
+                ><strong>{{ link.label }}</strong></a
+              >
+            </ng-template>
+          </li>
+        </div>
+        <ng-template #elseLabel>
+          <li
+            class="nav-item"
+            data-bs-toggle="collapse"
+            data-bs-target=".navbar-collapse.show"
+            routerLinkActive="active">
+            <div *ngIf="link.reference === 'search'">
+              <div (click)="toogleBarSearch()">
+                <i class="{{ link.icon }}"> </i>
+              </div>
+            </div>
+
+            <div *ngIf="link.links === 'login'">
+              <button
+                class="badge rounded-pill bg-secundary px-3 py-2"
+                [routerLink]="[link.links]">
+                <i class="{{ link.icon }}"></i>
+                Ingresar
+              </button>
+              <!-- <a class="nav-link">
+                <span class="px-4 pb-2 mt-0"
+                  ><i class="{{ link.icon }}"> </i> Ingresar</span
+                >
+              </a> -->
+            </div>
+
+            <div *ngIf="link.links === 'wish-list'">
+              <a class="nav-link position-relative" [routerLink]="[link.links]">
+                <i class="{{ link.icon }}"> </i>
+                <span
+                  *ngIf="WishNotifications > 0"
+                  class="position-absolute top-0 start-100 translate-middle badge bg-secundary rounded-circle"
+                  >{{ WishNotifications }}</span
+                >
+              </a>
+            </div>
+
+            <div *ngIf="link.links === 'shop-cart'">
+              <a class="nav-link position-relative" [routerLink]="[link.links]">
+                <i class="{{ link.icon }}"> </i>
+                <span
+                  *ngIf="CartNotifications > 0"
+                  class="position-absolute top-0 start-100 translate-middle badge bg-secundary rounded-circle"
+                  >{{ CartNotifications }}</span
+                >
+              </a>
+            </div>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+
+  <!-- searchBar -->
+  <form class="search__form mt-3" action="" *ngIf="switchBar">
+    <select name="" id="">
+      <option value="">Categorías</option>
+      <!-- //<option value="" >Por categorías de productos</option> -->
+      <optgroup label="Por categorías de productos">
+        <option value="">Todos</option>
+        <option value="">Accesorios</option>
+        <option value="">Laptops</option>
+        <option value="">Celulares</option>
+        <option value="">Audio</option>
+        <option value="">Tablets</option>
+        <option value="">Desktop</option>
+      </optgroup>
+      <optgroup label="Por Marcas">
+        <option value="">Todas</option>
+        <option value="">Asus</option>
+        <option value="">Apple</option>
+        <option value="">Hp</option>
+        <option value="">Logitech</option>
+        <option value="">msi</option>
+        <option value="">Samsung</option>
+      </optgroup>
+      <option value="">Ofertas</option>
+      <option value="">Lanzamientos</option>
+      <option value="">Flash Sales</option>
+      <option value="">Destacados</option>
+      <option value="">Más Vendidos</option>
+    </select>
+    <img
+      class="search__img"
+      src="/assets/img/icon_search_black.png"
+      alt="Buscar" />
+    <input type="text" placeholder="Buscar por producto, marca, color, etc." />
+    <img
+      class="close__img"
+      src="/assets/img/icon_closed_black.png"
+      alt="Cerrar"
+      (click)="toogleBarSearch()" />
+  </form>
+</nav>
+
+<!-- Modal Price list -->
+<div
+  class="container__modal animate__animated animate__zoomIn animate__faster"
+  *ngIf="showListPrice">
+  <div class="container__form container__form__pricelist">
+    <img
+      (click)="toogleListPrice()"
+      src="../assets/img/icon_closed_black.png"
+      alt="cerrar" />
+
+    <div class="container__platform">
+      <h1 class="platform__h1">
+        Suscríbete al precio de lista y accede a cientos de ofertas
+      </h1>
+      <p class="platform__p">
+        Te brindamos acceso a cientos de ofertas diarias a precios super
+        convenientes en teléfonos móviles (celulares), computadoras portátiles,
+        computadoras de escritorio, tablets, dispositivos de juego, consolas y
+        muchos más, tanto nuevos como reacondicionados. Por favor ingresá tu
+        correo electrónico para acceder a nuestra Lista de precios.
+      </p>
+    </div>
+
+    <form action="">
+      <input type="email" placeholder="Dirección de email" />
+      <input type="email" placeholder="Confirmar dirección de email" />
+
+      <button class="button_modal" (click)="openConfirm()">Suscribite</button>
+    </form>
+
+    <p class="condition__p">
+      Al Entrar o Registrarte , aceptas las
+      <a href=""><strong>Condiciones de servicio </strong> </a> y la
+      <a href=""><strong>Política de privacidad</strong> </a>
+    </p>
+  </div>
+</div>
+
+<!-- Modal Confirm add newletter -->
+
+<div
+  class="container__modal animate__animated animate__zoomIn animate__faster"
+  *ngIf="showConfirm">
+  <div class="container__form">
+    <img
+      (click)="closeConfirm()"
+      src="../assets/img/icon_closed_black.png"
+      alt="cerrar" />
+
+    <div class="container__platform">
+      <p class="platform__p">Crear copy de gracias por suscribirte</p>
+    </div>
+
+    <!--  <div class="container__line">
+            <hr>
+            <img src="../assets/svg/elipse.svg" alt="elipse">
+            <hr>
+        </div>
+        <form action="">
+            <input type="email" placeholder="Dirección de email">
+
+            <button class="button_modal">Suscribite</button>
+        </form>
+
+        <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio
+                </strong> </a>
+            y la <a href=""><strong>Política de privacidad</strong> </a> </p> -->
+  </div>
+</div>
