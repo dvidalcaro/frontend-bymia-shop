@@ -12,7 +12,7 @@ import { InterceptorsModule } from './interceptors/interceptors.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BymiaService } from './services/bymia.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -25,7 +25,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PagesModule,
     UserPanelModule,
     HeaderModule,
-    FontAwesomeModule,
+    
   ],
   exports: [],
   providers: [BymiaService],

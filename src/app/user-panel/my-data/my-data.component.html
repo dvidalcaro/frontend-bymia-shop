@@ -2,15 +2,16 @@
     <div class="container__goback">
         <div class="goback">
             <!-- Router link no configurado -->
-          <a href="#/panel"><img src="../assets/svg/Icon-arrow-back.svg" alt=""></a>  
-            <p><a href="#/panel">Volver a la página anterior</a> </p>
+          <a [routerLink]="['/user-panel/panel']"><img src="../assets/svg/Icon-arrow-back.svg" alt=""></a>  
+            <p><a [routerLink]="['/user-panel/panel']">Volver a la página anterior</a> </p>
         </div>
     </div>
 
     <div class="contain__mydata">
-
+        <div>
+            <!--My data  -->
         <div class="contain__data">
-            <h3>Mis Datos</h3>
+            <h3>Mis datos</h3>
             <div class="container__panel__mydata">
 
                 <div class="panel__mydata">
@@ -54,6 +55,21 @@
 
 
                     </div>
+
+                    <div class="information">
+
+                        <p class="title__information">Sexo:</p>
+                        <p class="mydat__information">Masculino</p>
+
+                    </div>
+
+                    <div class="information">
+
+                        <p class="title__information">Fecha de nacimiento:</p>
+                        <p class="mydat__information">10/06/2004</p>
+
+                    </div>
+
                     <div class="information">
 
                         <p class="title__information">Seguridad</p>
@@ -69,12 +85,111 @@
                 </div>
             </div>
         </div>
+
+        <!--My billing information  -->
+
+        <div class="contain__data">
+            <h3 class="contain__data__h3">Mis datos de facturación</h3>
+            <div class="container__panel__mydata">
+
+                <div class="panel__mydata">
+                    <div class="information information__button">
+                        <div>
+                            <p class="title__information">Nombre y apellido / Nombre de la empresa:</p>
+                            <p class="mydat__information">24354634654</p>
+                        </div>
+                        <div class="information__button">
+                        <button >Editar</button>
+                    </div>
+                    </div>
+
+                    <div class="information">
+
+                        <p class="title__information">Tipo de cliente:</p>
+                        <p class="mydat__information">persona</p>
+
+
+                    </div>
+
+                    <div class="information">
+
+                        <p class="title__information">E-Mail:</p>
+                        <p class="mydat__information">sebastiancardama1@gmail.com</p>
+
+
+                    </div>
+
+                    <div class="information">
+
+                        <p class="title__information">Telefono:</p>
+                        <p class="mydat__information">+5491162964723</p>
+
+
+                    </div>
+                    <div class="information">
+
+                        <p class="title__information">Tipo de identificación:</p>
+                        <p class="mydat__information">DNI</p>
+
+
+                    </div>
+                    <div class="information">
+
+                        <p class="title__information">Número de identificación:</p>
+                        <p class="mydat__information">90.123.456</p>
+
+                    </div>
+
+                    <div class="information">
+
+                        <p class="title__information">País:</p>
+                        <p class="mydat__information">Argentina</p>
+
+                    </div>
+                   
+                    <div class="information">
+
+                        <p class="title__information">Estado o provincia:</p>
+                        <p class="mydat__information">Buenos Aires</p>
+
+                    </div>
+
+                    <div class="information">
+
+                        <p class="title__information">Ciudad</p>
+                        <p class="mydat__information">CABA</p>
+
+                    </div>
+
+                    <div class="information">
+
+                        <p class="title__information">Dirección:</p>
+                        <p class="mydat__information">Avenidad siempre viva</p>
+
+                    </div>
+                    
+                    <div class="information">
+
+                        <p class="title__information">Código Postal:</p>
+                        <p class="mydat__information">205897</p>
+
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- My adress -->
+
         <div class="container__adress">
 
             <div class="contain__adress">
                 <h3>Mis direcciones</h3>
             </div>
             
+            <button>Agregá una nueva dirección: podés cargar hasta 5</button>
 
             <div class="adress">
 
@@ -110,7 +225,31 @@
 
             </div>
 
-            <button>Agregar dirección</button>
+            <div class="adress">
+
+                <p class="addressee">Sebastian Cardama</p>
+
+                <p class="direction__p">Estados Unidos, MIAMI, FL, WAREHOUSE 7953
+                    NW 64TH ST, 33166, +541162964723</p>
+
+                <a href="">Editar dirección</a> <span> | </span>
+                <a href="">Eliminar</a>
+
+            </div>
+
+            <div class="adress">
+
+                <p class="addressee">Sebastian Cardama</p>
+
+                <p class="direction__p">Estados Unidos, MIAMI, FL, WAREHOUSE 7953
+                    NW 64TH ST, 33166, +541162964723</p>
+
+                <a href="">Editar dirección</a> <span> | </span>
+                <a href="">Eliminar</a>
+
+            </div>
+
+            
 
         </div>
     </div>
