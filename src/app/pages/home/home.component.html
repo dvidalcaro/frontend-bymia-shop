@@ -1,544 +1,539 @@
-
 <app-hero></app-hero>
 
-
-
 <div class="container__product__outstanding" id="destacados">
-    <!-- Header nav outstanding -->
-    <div class="header__outstanding">
+  <!-- Header nav outstanding -->
+  <div class="header__outstanding">
+    <p>Productos destacados</p>
 
-        <p>Productos destacados</p>
+    <hr />
 
-        <hr>
+    <div class="categories__outstanding">
+      <ul>
+        <li (click)="showLaptopsNav()" ngClass="selected__nav">Laptops</li>
+        <li (click)="showSmarphoneNav()">Celulares</li>
+        <li (click)="showVideoCardNav()">Placa de video</li>
+      </ul>
+    </div>
+  </div>
 
-        <div class="categories__outstanding">
-            <ul>
-                <li (click)="showLaptopsNav()" ngClass="selected__nav">Laptops</li>
-                <li (click)="showSmarphoneNav()">Celulares</li>
-                <li (click)="showVideoCardNav()">Placa de video</li>
-            </ul>
+  <!-- product outstanding -->
+  <!-- Laptops -->
+  <div
+    class="container__product animate__animated animate__slideInLeft"
+    *ngIf="showLaptops">
+    <!-- Product 1 -->
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
 
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
         </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+        <div style="padding-bottom: 26px">
+          <img src="./assets/svg/Icon_shopping_car_greent.svg" alt="" />
+          <span style="margin-left: 10px">Agregar</span>
+        </div>
+      </div>
     </div>
 
-    <!-- product outstanding -->
-    <!-- Laptops -->
-    <div class="container__product animate__animated animate__slideInLeft" *ngIf="showLaptops">
+    <!-- Product 2 -->
 
-        <!-- Product 1 -->
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
 
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
 
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                                       
-                </div>
-                <div style="padding-bottom: 26px;">
-                    <img src="./assets/svg/Icon_shopping_car_greent.svg" alt=""> <span style="margin-left:10px ;">Agregar</span>
-                </div>
-            </div>
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
         </div>
 
-        <!-- Product 2 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
         </div>
-
-        <!-- Product 3 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 4 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
-        </div>
-
-
+      </div>
     </div>
 
-    <!-- smartphone -->
-    <div class="container__product animate__animated animate__zoomInUp " *ngIf="showSmartphone">
+    <!-- Product 3 -->
 
-        <!-- Product 1 -->
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/MSI.svg" alt="">
-            </div>
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
 
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
 
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
         </div>
 
-        <!-- Product 2 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
         </div>
-
-        <!-- Product 3 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Product 4 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
-        </div>
-
-
+      </div>
     </div>
 
-    <!-- Video Card -->
-    <div class="container__product animate__animated animate__zoomInRight" *ngIf="showVideoCard">
+    <!-- Product 4 -->
 
-        <!-- Product 1 -->
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/NVIDIA.svg" alt="">
-            </div>
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
 
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1700</p>
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
 
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
         </div>
 
-        <!-- Product 2 -->
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
+  <!-- smartphone -->
+  <div
+    class="container__product animate__animated animate__zoomInUp"
+    *ngIf="showSmartphone">
+    <!-- Product 1 -->
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/MSI.svg" alt="" />
+      </div>
 
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
 
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
         </div>
 
-        <!-- Product 3 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
         </div>
-
-        <!-- Product 4 -->
-
-        <div class="product">
-            <div class="product__img">
-                <img class="favorite" src="./assets/svg/Icon-favorite.svg" alt="favorito">
-                <img src="./assets/svg/HP-Pavilion-156.svg" alt="">
-            </div>
-
-            <div class="description__product">
-                <p>Drill Series 3 Brandix KS
-                    R4590PQS 1500</p>
-
-
-                <div class="rating">
-                    <div class="star">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                        <img src="./assets/svg/Icon-star.svg" alt="">
-                    </div>
-                    <p>18 Reviews</p>
-                </div>
-
-                <div class="price">
-                    <p>$1,009.00</p>
-                    <span>$1,009.00</span>
-                </div>
-            </div>
-        </div>
-
-
+      </div>
     </div>
 
+    <!-- Product 2 -->
 
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
 
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
+        </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
+
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
+        </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
+
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
+        </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Card -->
+  <div
+    class="container__product animate__animated animate__zoomInRight"
+    *ngIf="showVideoCard">
+    <!-- Product 1 -->
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/NVIDIA.svg" alt="" />
+      </div>
+
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1700</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
+        </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
+
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
+        </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
+
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
+        </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+
+    <div class="product">
+      <div class="product__img">
+        <img
+          class="favorite"
+          src="./assets/svg/Icon-favorite.svg"
+          alt="favorito" />
+        <img src="./assets/svg/HP-Pavilion-156.svg" alt="" />
+      </div>
+
+      <div class="description__product">
+        <p>Drill Series 3 Brandix KS R4590PQS 1500</p>
+
+        <div class="rating">
+          <div class="star">
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+            <img src="./assets/svg/Icon-star.svg" alt="" />
+          </div>
+          <p>18 Reviews</p>
+        </div>
+
+        <div class="price">
+          <p>$1,009.00</p>
+          <span>$1,009.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Most Searched -->
 
 <div class="container__most__searched">
+  <h1>Las categorias mas buscadas de todo el e-commerce</h1>
 
-    <h1>
-        Las categorias mas buscadas de todo
-        el e-commerce
-    </h1>
+  <p>
+    Estas categorias fueron seleccionadas en funcion de la popularidad de sus
+    productos.
+  </p>
 
-    <p>Estas categorias fueron seleccionadas en funcion de la popularidad de sus productos.</p>
-
-    <!-- Accesorios -->
-    <div class="categories__contain">
-        <div class="most__searched">
-
-
-            <div class="searched">
-                <img src="./assets/svg/mouse-categories.svg" alt="">
-                <div class="description__searched">
-                    <p>Accesorios</p>
-                    <span>Lorem ipsum dolor sit amet, conta
-                        sectetur adipiscing elit.</span>
-                </div>
-            </div>
-
+  <!-- Accesorios -->
+  <div class="categories__contain">
+    <div class="most__searched">
+      <div class="searched">
+        <img src="./assets/svg/mouse-categories.svg" alt="" />
+        <div class="description__searched">
+          <p>Accesorios</p>
+          <span
+            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
+          >
         </div>
-
-        <!-- Laptops -->
-
-        <div class="most__searched">
-
-
-            <div class="searched">
-                <img class="img__out" src="./assets/svg/laptops-categories.svg" alt="">
-                <div class="description__searched">
-                    <p>Laptops</p>
-                    <span>Lorem ipsum dolor sit amet, conta
-                        sectetur adipiscing elit.</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Celulares -->
-
-        <div class="most__searched">
-
-
-            <div class="searched">
-                <img class="img__out" src="./assets/svg/smartphone-categories.svg" alt="">
-                <div class="description__searched">
-                    <p>Celulares</p>
-                    <span>Lorem ipsum dolor sit amet, conta
-                        sectetur adipiscing elit.</span>
-                </div>
-            </div>
-
-        </div>
+      </div>
     </div>
 
-    <div class="categories__contain">
-        <!-- Placa de Video -->
-        <div class="most__searched">
+    <!-- Laptops -->
 
-
-            <div class="searched">
-                <img class="img__out" src="./assets/svg/pc-categories.svg" alt="">
-                <div class="description__searched">
-                    <p>Placa de video</p>
-                    <span>Lorem ipsum dolor sit amet, conta
-                        sectetur adipiscing elit.</span>
-                </div>
-            </div>
-
+    <div class="most__searched">
+      <div class="searched">
+        <img
+          class="img__out"
+          src="./assets/svg/laptops-categories.svg"
+          alt="" />
+        <div class="description__searched">
+          <p>Laptops</p>
+          <span
+            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
+          >
         </div>
-
-        <!-- Tablet -->
-
-        <div class="most__searched">
-
-
-            <div class="searched">
-                <img class="img__out" src="./assets/svg/tablet-categories.svg" alt="">
-                <div class="description__searched">
-                    <p>Tablets</p>
-                    <span>Lorem ipsum dolor sit amet, conta
-                        sectetur adipiscing elit.</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Audio -->
-
-        <div class="most__searched">
-
-
-            <div class="searched">
-                <img class="img__out" src="./assets/svg/headphones-categories.svg" alt="">
-                <div class="description__searched">
-                    <p>Audio</p>
-                    <span>Lorem ipsum dolor sit amet, conta
-                        sectetur adipiscing elit.</span>
-                </div>
-            </div>
-
-        </div>
-
+      </div>
     </div>
-    <div class="see__more">
-        <ul class="animate__animated animate__slideInDown" *ngIf="showCategories">
-            <li *ngFor="let category of listCategories">
-                {{category}}
-            </li>
-            
-        </ul>
 
+    <!-- Celulares -->
 
-        <button class="see__more__button" (click)="showListCategories()">{{seeMore}}</button>
+    <div class="most__searched">
+      <div class="searched">
+        <img
+          class="img__out"
+          src="./assets/svg/smartphone-categories.svg"
+          alt="" />
+        <div class="description__searched">
+          <p>Celulares</p>
+          <span
+            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
+          >
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="categories__contain">
+    <!-- Placa de Video -->
+    <div class="most__searched">
+      <div class="searched">
+        <img class="img__out" src="./assets/svg/pc-categories.svg" alt="" />
+        <div class="description__searched">
+          <p>Placa de video</p>
+          <span
+            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Tablet -->
+
+    <div class="most__searched">
+      <div class="searched">
+        <img class="img__out" src="./assets/svg/tablet-categories.svg" alt="" />
+        <div class="description__searched">
+          <p>Tablets</p>
+          <span
+            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio -->
+
+    <div class="most__searched">
+      <div class="searched">
+        <img
+          class="img__out"
+          src="./assets/svg/headphones-categories.svg"
+          alt="" />
+        <div class="description__searched">
+          <p>Audio</p>
+          <span
+            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="see__more">
+    <ul class="animate__animated animate__slideInDown" *ngIf="showCategories">
+      <li *ngFor="let category of listCategories">
+        {{ category }}
+      </li>
+    </ul>
+
+    <button class="see__more__button" (click)="showListCategories()">
+      {{ seeMore }}
+    </button>
+  </div>
 </div>
-
 
 <!-- <iframe src='https://my.spline.design/retromonitor-8a8eda90f65fd5b73cc92e773b358f28/' frameborder='0' width='100%' height='100%'></iframe>
  -->

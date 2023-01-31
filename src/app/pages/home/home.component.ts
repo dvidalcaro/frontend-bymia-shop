@@ -1,21 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 
-
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class HomeComponent  {
-
-  showLaptops: boolean= true;
+export class HomeComponent {
+  showLaptops: boolean = true;
   showSmartphone: boolean = false;
   showVideoCard: boolean = false;
-  showCategories: boolean= false;
-  seeMore: string= 'Ver más';
-  listCategories: string []= [
+  showCategories: boolean = false;
+  seeMore: string = 'Ver más';
+  listCategories: string[] = [
     'Drones & Camcorders',
     'Gaming',
     'Graphics Cards',
@@ -27,44 +23,38 @@ export class HomeComponent  {
     'Printers',
     'TVs, Monitors Projectors',
     'Smart Watches',
-    'Surveillance'
-  ]
+    'Surveillance',
+  ];
 
+  constructor() {}
 
-  
+  ngOnInit(): void {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  showLaptopsNav(){
-    this.showLaptops= true;
+  showLaptopsNav() {
+    this.showLaptops = true;
     this.showSmartphone = false;
     this.showVideoCard = false;
   }
 
-  showSmarphoneNav(){
-    this.showLaptops= false;
+  showSmarphoneNav() {
+    this.showLaptops = false;
     this.showSmartphone = true;
     this.showVideoCard = false;
   }
 
-  showVideoCardNav(){
-    this.showLaptops= false;
+  showVideoCardNav() {
+    this.showLaptops = false;
     this.showSmartphone = false;
     this.showVideoCard = true;
   }
 
-  showListCategories(){
-    if(this.showCategories){
-      this.showCategories= false;
-      this.seeMore= 'Ver más';
-    }else{
-      this.showCategories= true;
-      this.seeMore= 'Ver menos';
+  showListCategories() {
+    if (this.showCategories) {
+      this.showCategories = false;
+      this.seeMore = 'Ver más';
+    } else {
+      this.showCategories = true;
+      this.seeMore = 'Ver menos';
     }
   }
-
-
 }
