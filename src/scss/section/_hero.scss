@@ -61,10 +61,10 @@
 }
 
 .carousel-indicators {
-  flex-direction: column;
-  left: -150px;
+  flex-direction: row;
+  left: 150px;
   row-gap: 25px;
-  top: -31px;
+  top: 100%;
 
   button {
     background-color: $primary-color !important;
