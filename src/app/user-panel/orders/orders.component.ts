@@ -19,6 +19,18 @@ export class OrdersComponent implements OnInit {
       total: '$185.000',
       sendTo: 'Sebastian Cardama',
       numberOrder: '123456789'
+    },
+    {
+      orderPlaced: 'febrero 1, 2022',
+      total: '$185.000',
+      sendTo: 'Sebastian Cardama',
+      numberOrder: '123456789'
+    },
+    {
+      orderPlaced: 'febrero 1, 2022',
+      total: '$185.000',
+      sendTo: 'Sebastian Cardama',
+      numberOrder: '123456789'
     }
   ]
 
