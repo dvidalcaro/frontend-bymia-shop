@@ -71,7 +71,10 @@
     border-radius: 50% !important;
     width: 10px !important;
     height: 10px !important;
-    border: 2px solid $secundary-color !important;
+    border: 10px solid black !important;
+  }
+  button.active {
+    outline: 2px solid $secundary-color !important;
   }
 }
 

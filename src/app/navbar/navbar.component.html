@@ -1,5 +1,5 @@
 <nav
-  class="navbar sticky-top navbar-custom navbar-expand-lg navbar-dark bg-black py-4 px-3">
+  class="navbar sticky-top navbar-custom navbar-expand-lg navbar-dark bg-black p-3">
   <div class="container-fluid header__container">
     <button
       class="navbar-toggler"
@@ -18,8 +18,10 @@
         alt="Bymia shop"
         [routerLink]="['/']" />
     </a>
-    <div class="collapse navbar-collapse" id="navbarBymia">
-      <ul class="navbar-nav ms-auto p-2" *ngFor="let link of linksHeader">
+    <div
+      class="collapse navbar-collapse navbar-collapse-custom"
+      id="navbarBymia">
+      <ul class="navbar-nav ms-auto p-2 mx-4" *ngFor="let link of linksHeader">
         <div *ngIf="link.label; else elseLabel">
           <li
             class="nav-item"
@@ -55,7 +57,7 @@
 
             <div *ngIf="link.links === 'login'">
               <button
-                class="badge rounded-pill bg-secundary px-3 py-2"
+                class="badge rounded-pill bg-secundary px-3 py-2 mx-4"
                 [routerLink]="[link.links]">
                 <i class="{{ link.icon }}"></i>
                 Ingresar
@@ -67,7 +69,9 @@
               </a> -->
             </div>
 
-            <div *ngIf="link.links === 'wish-list'">
+            <div
+              class="position-absolute top-0 m-2"
+              *ngIf="link.links === 'wish-list'">
               <a class="nav-link position-relative" [routerLink]="[link.links]">
                 <i class="{{ link.icon }}"> </i>
                 <span
@@ -78,7 +82,9 @@
               </a>
             </div>
 
-            <div *ngIf="link.links === 'shop-cart'">
+            <div
+              class="position-absolute top-0 m-2"
+              *ngIf="link.links === 'shop-cart'">
               <a class="nav-link position-relative" [routerLink]="[link.links]">
                 <i class="{{ link.icon }}"> </i>
                 <span
@@ -95,7 +101,7 @@
   </div>
 
   <!-- searchBar -->
-  <form class="search__form mt-3" action="" *ngIf="switchBar">
+  <form class="search__form mt-2" action="" *ngIf="switchBar">
     <select name="" id="">
       <option value="">Categorías</option>
       <!-- //<option value="" >Por categorías de productos</option> -->
