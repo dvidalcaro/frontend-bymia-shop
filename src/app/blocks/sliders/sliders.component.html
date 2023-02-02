@@ -1,4 +1,7 @@
-<div id="carouselSliders" class="carousel slide" data-bs-ride="true">
+<div
+  id="carouselSliders"
+  class="carousel slide vertical"
+  data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button
       type="button"
@@ -18,8 +21,11 @@
       data-bs-slide-to="2"
       aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner" *ngFor="let slider of sliders; let i = index">
-    <div class="carousel-item slider_hero" [ngClass]="{ active: i == 0 }">
+  <div class="carousel-inner">
+    <div
+      class="carousel-item slider_hero"
+      *ngFor="let slider of sliders; let i = index"
+      [ngClass]="{ active: i == 0 }">
       <p>{{ slider.volanta | uppercase }}</p>
       <h1>{{ slider.title }}</h1>
       <p class="subtitle">

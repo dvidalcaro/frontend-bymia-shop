@@ -5,7 +5,7 @@ import { Slider } from 'src/app/shared/interfaces/Slider';
 @Component({
   selector: 'app-sliders',
   templateUrl: './sliders.component.html',
-  styles: [],
+  styleUrls: ['./sliders.component.scss'],
 })
 export class SlidersComponent implements OnInit {
   public sliders: Slider[] = [];
