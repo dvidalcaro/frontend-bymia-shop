@@ -5,6 +5,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { PanelComponent } from './panel/panel.component';
 import { HelpComponent } from './help/help.component';
 import { UserPanelRoutingModule } from './user-panel-routing.module';
+import { ShippingStatusComponent } from './shipping-status/shipping-status.component';
 
 
 
@@ -13,7 +14,8 @@ import { UserPanelRoutingModule } from './user-panel-routing.module';
     MyDataComponent,
     OrdersComponent,
     PanelComponent,
-    HelpComponent
+    HelpComponent,
+    ShippingStatusComponent
   ],
   exports:[
     MyDataComponent,
