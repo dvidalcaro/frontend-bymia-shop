@@ -1,17 +1,59 @@
-<div class="container__zone">
-    <!-- My Data -->
+<div class="ctn-panel">
+    <div class="panel">
+        <div class="panel__menu">
+            <div class="panel__menu__img">
+                <img [routerLink]="['/user-panel/my-data']" src="./assets/svg/mydata_img.svg" alt="mis Datos" >
+            </div>
+            <div class="panel__menu__opt">
+                <h3 [routerLink]="['/user-panel/my-data']"> Mis datos </h3>
+                <p [routerLink]="['/user-panel/my-data']" >Información básica que 
+                    necesitamos para completar el 
+                    proceso.
+                    </p>
+            </div>
+
+        </div>
+        <div class="panel__menu">
+            <div class="panel__menu__img">
+                <img [routerLink]="['/user-panel/orders']" src="./assets/svg/order_img.svg" alt="Tus ordenes">
+            </div>
+            <div class="panel__menu__opt">
+                <h3 [routerLink]="['/user-panel/orders']">Mis ordenes</h3>
+            <p [routerLink]="['/user-panel/orders']" >Registro de cada compra que 
+                hiciste. Ordenanos y nos 
+                ordenamos. </p>
+            </div>
+
+        </div>
+        <div class="panel__menu">
+            <div class="panel__menu__img">
+                <img [routerLink]="['/user-panel/help']" src="./assets/svg/help_img.svg" alt="Ayuda" >
+            </div>
+            <div class="panel__menu__opt">
+                <h3 [routerLink]="['/user-panel/help']">Ayuda</h3>
+            <p [routerLink]="['/user-panel/help']" >Estamos a tu disposición para 
+                facilitar tu compra. Consultanos. 
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container__zone">
+    
     <div class="zone">
         <div class="zone__img">
             <img src="./assets/svg/mydata_img.svg" alt="" >
         </div>
         <div class="description">
-            <!-- Revisar el router link -->
+           
             <h4 routerLink="/user-panel/my-data"> Mis Datos </h4>
             <p>Lorem ipsum dolor sit amet, conta
                 sectetur adipiscing elit.</p>
         </div>
     </div>
-    <!-- Orders -->
+    
     <div class="zone">
         <div class="zone__img">
             <img src="./assets/svg/order_img.svg" alt="" srcset="">
@@ -24,7 +66,7 @@
     </div>
 
 
-    <!-- Helps -->
+   
 
     <div class="zone">
         <div class="zone__img">
@@ -36,4 +78,4 @@
                 sectetur adipiscing elit.</p>
         </div>
     </div>
-</div>
+</div> -->
