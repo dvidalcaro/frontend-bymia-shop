@@ -1,104 +1,77 @@
-<div class="shipping__status">
-    <!-- Header shipping status -->
-    <div class="header__shipping__status">
-        <div class="title__status">
-            <h3>Estado de envío</h3>
-            <p>Seguí la trayectoria de tu pedido 
-                hasta que lo tengás en tus manos.</p>
-        </div>
-        <div class="goback goback__status">
-           
-            <a [routerLink]="['/user-panel/panel']">
-                <img src="../assets/svg/Icon-arrow-back.svg" alt=""></a>  
-              <p><a [routerLink]="['/user-panel/panel']">Volver a la página anterior</a> </p>
-          </div>
-    </div>
-    <!-- Traking orders -->
+<div class="ctn">
+    <div class="ctn-shipping">
 
-    <!-- content shipping status -->
+        <!-- Header shipping status -->
+        <div class="header-shp">
+            <div class="header-shp__status">
+                <h3>Estado de envío</h3>
+                <p>Seguí la trayectoria de tu pedido
+                    hasta que lo tengás en tus manos.</p>
+            </div>
+            <div class="header-shp__back">
 
-    <div class="content__shipping__status">
-        <div class="shipping__guia">
-            <div class="card card__style">
-                <h3>Enviado con UPS</h3>
-                <p class="card__p">Información de rastreo proporcionada por UPS</p>
-                <p>Si tenés un problema con tu envío podés 
-                    contactarnos haciendo clic <a href="http://">aquí.</a>  </p>
-            </div>
-            <div class="card card__style tracking__id">
-                
-                <p>ID de rastreo: 123244566643432323</p>
-                <p class="card__view">Ver todas las actualizaciones</p>
-            </div>
-            <div class="card card__style tracking__id">
-                
-                <p>ID de rastreo: 123244566643432323</p>
-                <p class="card__view">Ver todas las actualizaciones</p>
+                <a [routerLink]="['/user-panel/panel']">
+                    <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back"></a>
+                <a [routerLink]="['/user-panel/panel']">Volver a la página anterior</a>
             </div>
         </div>
-        <div class="shipping__addres shipping__guia">
-            <div class="card card__style ">
+        <!--  -->
+        <div class="guide-data">
+            <div class="guide-data__tracking">
+                <div class="guide-data__tracking__cpn">
+                    <h3>Enviado con UPS</h3>
+                    <p class="guide-data__tracking__cpn__p">Información de rastreo proporcionada por UPS</p>
+                    <p>Si tenés un problema con tu envío podés
+                        contactarnos haciendo clic <a class="guide-data__tracking__cpn__a" href="http://">aquí.</a> </p>
+                </div>
+                <div class="guide-data__tracking__track">
+
+                    <p>ID de rastreo: 123244566643432323</p>
+                    <p class="guide-data__tracking__track__p">Ver todas las actualizaciones</p>
+                </div>
+                <div class="guide-data__tracking__track">
+
+                    <p>ID de rastreo: 123244566643432323</p>
+                    <p class="guide-data__tracking__track__p">Ver todas las actualizaciones</p>
+                </div>
+            </div>
+            <div class="guide-data__address">
                 <h3>Dirección de envío</h3>
-                <div class="card__addres">
-
-                    <div>
-                        <p>Franco Montanucci</p>
-                        <p>Pasaporte</p>
-                        <p>AAH45644743</p>
-                    </div>
-
-                    <div>
-                        <p>Estados Unidos</p>
-                        <p>7953 NW 64TH ST</p>
-                        <p>MIAMI, FL 33166-2771</p>
-                    </div>
-                    <div>
-                        <p>+541162964723</p>
-                        <p>francomontanucci@gmail.com</p>
-                        
-                    </div>
-
-                    <div>
-                        <p>Casa negra de Frente amplio, dejar 
-                            en la puerta</p>
-                                              
-                    </div>
-
-                    <div>
-                        <button>Editar</button>
-                    </div>
-
-                
-               
-            </div>
-                
-            </div>
-        </div>
-        <div class="shipping__others shipping__guia">
-            <div class="card card__style">
-
                 <div>
-                    <i class='bx bxs-notepad bx-tada-hover' ></i>
-                    <p>Ver detalles de 
-                        pedido </p>                    
+                    <p>Franco Montanucci</p>
+                    <p>Pasaporte</p>
+                    <p>AAH45644743</p>
                 </div>
 
-                
-            </div>
-            <div class="card card__style">
-
                 <div>
-                    <i class='bx bxs-error-circle bx-tada-hover' ></i>
-                    <p>Necesito 
-                        ayuda</p>                    
+                    <p>Estados Unidos</p>
+                    <p>7953 NW 64TH ST</p>
+                    <p>MIAMI, FL 33166-2771</p>
+                </div>
+                <div>
+                    <p>+541162964723</p>
+                    <p>francomontanucci@gmail.com</p>
+                </div>
+                <div>
+                    <p>Casa negra de Frente amplio, dejar en la puerta</p>
                 </div>
 
-                
+                <div>
+                    <button>Editar</button>
+                </div>
             </div>
+            <div class="guide-data__detail">
+                <div class="guide-data__detail__option">
+                     <i class='bx bxs-notepad bx-tada-hover'></i>
+                     <p>Ver detalles de pedido </p>
+                </div>
+                <div class="guide-data__detail__option">
+                        <i class='bx bxs-error-circle bx-tada-hover'></i>
+                        <p>Necesito ayuda</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
-
-
 </div>
-
