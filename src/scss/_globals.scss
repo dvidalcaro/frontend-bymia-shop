@@ -3,6 +3,11 @@ html,
 body {
   font-family: $primary-font, Helvetica, sans-serif !important;
   background-color: $background-color;
+  background-image: url('../assets/img/bymia-background.svg') !important;
+  background-repeat: repeat-y;
+  background-position: 50% 120%;
+  background-size: 100%;
+  background-size: 150%;
   color: $primary-color;
   padding: 0;
   margin: 0;
