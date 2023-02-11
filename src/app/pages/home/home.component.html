@@ -425,112 +425,37 @@
     productos.
   </p>
 
-  <!-- Accesorios -->
-  <div class="categories__contain">
-    <div class="most__searched">
-      <div class="searched">
-        <img src="./assets/svg/mouse-categories.svg" alt="" />
-        <div class="description__searched">
-          <p>Accesorios</p>
-          <span
-            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <!-- Laptops -->
-
-    <div class="most__searched">
-      <div class="searched">
-        <img
-          class="img__out"
-          src="./assets/svg/laptops-categories.svg"
-          alt="" />
-        <div class="description__searched">
-          <p>Laptops</p>
-          <span
-            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <!-- Celulares -->
-
-    <div class="most__searched">
-      <div class="searched">
-        <img
-          class="img__out"
-          src="./assets/svg/smartphone-categories.svg"
-          alt="" />
-        <div class="description__searched">
-          <p>Celulares</p>
-          <span
-            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
-          >
+  <div class="d-flex p-5 m-5 justify-content-center flex-wrap">
+    <div *ngFor="let category of categoriesList">
+      <div class="most__searched m-4">
+        <div class="searched">
+          <img
+            [src]="[category.image]"
+            [alt]="[category.name]"
+            class="img__out" />
+          <div class="description__searched">
+            <p>{{ category.name | titlecase }}</p>
+            <span>{{ category.description_es }}.</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="categories__contain">
-    <!-- Placa de Video -->
-    <div class="most__searched">
-      <div class="searched">
-        <img class="img__out" src="./assets/svg/pc-categories.svg" alt="" />
-        <div class="description__searched">
-          <p>Placa de video</p>
-          <span
-            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <!-- Tablet -->
-
-    <div class="most__searched">
-      <div class="searched">
-        <img class="img__out" src="./assets/svg/tablet-categories.svg" alt="" />
-        <div class="description__searched">
-          <p>Tablets</p>
-          <span
-            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
-          >
-        </div>
-      </div>
-    </div>
-
-    <!-- Audio -->
-
-    <div class="most__searched">
-      <div class="searched">
-        <img
-          class="img__out"
-          src="./assets/svg/headphones-categories.svg"
-          alt="" />
-        <div class="description__searched">
-          <p>Audio</p>
-          <span
-            >Lorem ipsum dolor sit amet, conta sectetur adipiscing elit.</span
-          >
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="see__more">
+  <div class="see__more d-flex justify-content-center flex-wrap">
     <ul class="animate__animated animate__slideInDown" *ngIf="showCategories">
       <li *ngFor="let category of listCategories">
         {{ category }}
       </li>
     </ul>
 
-    <button class="see__more__button" (click)="showListCategories()">
+    <button
+      class="see__more__button d-flex justify-content-center flex-wrap"
+      (click)="showListCategories()">
       {{ seeMore }}
     </button>
   </div>
-</div>
 
-<!-- <iframe src='https://my.spline.design/retromonitor-8a8eda90f65fd5b73cc92e773b358f28/' frameborder='0' width='100%' height='100%'></iframe>
+  <!-- <iframe src='https://my.spline.design/retromonitor-8a8eda90f65fd5b73cc92e773b358f28/' frameborder='0' width='100%' height='100%'></iframe>
  -->
+</div>

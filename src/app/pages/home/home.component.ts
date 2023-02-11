@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BymiaService } from 'src/app/services/bymia.service';
+import { Categories } from 'src/app/shared/interfaces/Categories';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +28,14 @@ export class HomeComponent {
     'Surveillance',
   ];
 
-  constructor() {}
+  categoriesList: Categories[] = [];
+
+  constructor(public bymiaService: BymiaService) {
+    bymiaService
+      .getCategoriesList()
+      .subscribe(resp => (this.categoriesList = resp));
+    console.log(this.categoriesList);
+  }
 
   ngOnInit(): void {}
 
