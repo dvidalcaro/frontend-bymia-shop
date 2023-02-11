@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, switchMap } from 'rxjs/operators';
 import { About } from '../shared/interfaces/About';
+import { Categories } from '../shared/interfaces/Categories';
 import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
 
@@ -19,6 +20,7 @@ export class BymiaService {
   private sliders: Slider[] = [];
   private about: About = {};
   private faqs: TopLevel[] = [];
+  private categoriesList: Categories[] = [];
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
@@ -49,6 +51,20 @@ export class BymiaService {
       return this.http
         .get<TopLevel[]>(`${url}/faqs`, { headers })
         .pipe(tap(faqs => (this.faqs = faqs)));
+    }
+  }
+  public getCategoriesList() {
+    if (this.categoriesList.length > 0) {
+      return of(this.categoriesList);
+    } else {
+      return this.http
+        .get<Categories[]>(`${url}/categoriesList`, { headers })
+        .pipe(
+          switchMap(categoriesList =>
+            of(categoriesList.filter(category => category.principal))
+          ),
+          tap(categ => (this.categoriesList = categ))
+        );
     }
   }
 }
