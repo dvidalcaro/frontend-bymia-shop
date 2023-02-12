@@ -43,6 +43,8 @@ export class NavbarComponent implements OnInit {
       label: 'Precio De Lista',
       reference: 'listPrice',
     },
+  ];
+  linksIcon = [
     {
       icon: 'bx bx-tada-hover bx-sm bx-search',
       reference: 'search',

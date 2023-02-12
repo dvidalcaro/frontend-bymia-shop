@@ -1,6 +1,6 @@
 <nav
-  class="navbar sticky-top navbar-custom navbar-expand-lg navbar-dark bg-black p-3">
-  <div class="container-fluid header__container">
+  class="navbar sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
+  <div class="container-fluid">
     <button
       class="navbar-toggler"
       type="button"
@@ -11,135 +11,148 @@
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" [routerLink]="['/']">
       <img
-        class="logo"
+        class="navbar-nav ms-5 me-auto mb-2 py-4"
         src="{{ urlLogo }}"
-        alt="Bymia shop"
-        [routerLink]="['/']" />
+        alt="Bymia shop" />
     </a>
     <div
-      class="collapse navbar-collapse navbar-collapse-custom"
+      class="collapse navbar-collapse justify-content-center"
       id="navbarBymia">
-      <ul class="navbar-nav ms-auto p-2 mx-4" *ngFor="let link of linksHeader">
-        <div *ngIf="link.label; else elseLabel">
+      <!-- SearchBar2 -->
+      <div class="container" *ngIf="switchBar">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col">
+            <div
+              class="input-group d-flex justify-content-center position-relative">
+              <button
+                class="btn btn-bymia rounded-start dropdown-toggle bg-secundary"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bx bx-tada-hover bx-search"></i>
+                <strong>&nbsp;Categorías&nbsp;</strong>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <h5 class="dropdown-header"><strong>Categorías</strong></h5>
+                </li>
+                <li><a class="dropdown-item" href="#">Todos</a></li>
+                <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                <li><a class="dropdown-item" href="#">Laptops</a></li>
+                <li><a class="dropdown-item" href="#">Celulares</a></li>
+                <li><a class="dropdown-item" href="#">Audio</a></li>
+                <li><a class="dropdown-item" href="#">Tablets</a></li>
+                <li><a class="dropdown-item" href="#">Desktop</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <h5 class="dropdown-header"><strong>Marcas</strong></h5>
+                </li>
+                <li><a class="dropdown-item" href="#">Todas</a></li>
+                <li><a class="dropdown-item" href="#">Asus</a></li>
+                <li><a class="dropdown-item" href="#">Apple</a></li>
+                <li><a class="dropdown-item" href="#">Hp</a></li>
+                <li><a class="dropdown-item" href="#">Logitech</a></li>
+                <li><a class="dropdown-item" href="#">msi</a></li>
+                <li><a class="dropdown-item" href="#">Samsung</a></li>
+                <li><hr class="dropdown-divider" /></li>
+
+                <li><a class="dropdown-item" href="#">Ofertas</a></li>
+                <li><a class="dropdown-item" href="#">Lanzamientos</a></li>
+                <li><a class="dropdown-item" href="#">Flash Sales</a></li>
+                <li><a class="dropdown-item" href="#">Destacados</a></li>
+                <li><a class="dropdown-item" href="#">Más Vendidos</a></li>
+              </ul>
+              <input
+                type="text"
+                class="form-control rounded-end"
+                aria-label="Text input with dropdown button"
+                placeholder="Buscar..." />
+
+              <span
+                class="position-absolute top-50 end-0 translate-middle text-dark">
+                <i
+                  class="bx bx-tada-hover bx-sm bx-x-circle py-2"
+                  (click)="toogleBarSearch()"></i>
+              </span>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+      <!-- SearchBar2 -->
+      <ul class="navbar-nav m-auto mb-2 py-4" *ngIf="!switchBar">
+        <div *ngFor="let link of linksHeader">
           <li
-            class="nav-item"
+            class="nav-item mx-2"
             data-bs-toggle="collapse"
             data-bs-target=".navbar-collapse.show"
             routerLinkActive="active">
-            <div *ngIf="!link.links; else elseLink">
-              <a
-                class="nav-link"
-                *ngIf="link.reference === 'listPrice'"
-                (click)="toogleListPrice()"
+            <div *ngIf="link.reference === 'listPrice'; else elseLink">
+              <a class="nav-link" (click)="toogleListPrice()"
                 ><strong>{{ link.label }}</strong></a
               >
             </div>
             <ng-template #elseLink>
-              <a class="nav-link" [routerLink]="[link.links]"
-                ><strong>{{ link.label }}</strong></a
-              >
+              <div>
+                <a class="nav-link" [routerLink]="[link.links]"
+                  ><strong>{{ link.label }}</strong></a
+                >
+              </div>
             </ng-template>
           </li>
         </div>
-        <ng-template #elseLabel>
-          <li
-            class="nav-item"
-            data-bs-toggle="collapse"
-            data-bs-target=".navbar-collapse.show"
-            routerLinkActive="active">
-            <div *ngIf="link.reference === 'search'">
-              <div (click)="toogleBarSearch()">
-                <i class="{{ link.icon }}"> </i>
-              </div>
+      </ul>
+      <ul class="navbar-nav ms-auto me-5 mb-2 py-4">
+        <li
+          class="nav-item"
+          data-bs-toggle="collapse"
+          data-bs-target=".navbar-collapse.show"
+          routerLinkActive="active"
+          *ngFor="let icon of linksIcon">
+          <div *ngIf="icon.reference === 'search'">
+            <div class="nav-link position-relative" (click)="toogleBarSearch()">
+              <i class="{{ icon.icon }}"> </i>
             </div>
-
-            <div *ngIf="link.links === 'login'">
-              <button
-                class="badge rounded-pill bg-secundary px-3 py-2 mx-4"
-                [routerLink]="[link.links]">
-                <i class="{{ link.icon }}"></i>
-                Ingresar
-              </button>
-              <!-- <a class="nav-link">
-                <span class="px-4 pb-2 mt-0"
-                  ><i class="{{ link.icon }}"> </i> Ingresar</span
-                >
-              </a> -->
-            </div>
-
-            <div
-              class="position-absolute top-0 m-2"
-              *ngIf="link.links === 'wish-list'">
-              <a class="nav-link position-relative" [routerLink]="[link.links]">
-                <i class="{{ link.icon }}"> </i>
-                <span
-                  *ngIf="WishNotifications > 0"
-                  class="position-absolute top-0 start-100 translate-middle badge bg-secundary rounded-circle"
-                  >{{ WishNotifications }}</span
-                >
-              </a>
-            </div>
-
-            <div
-              class="position-absolute top-0 m-2"
-              *ngIf="link.links === 'shop-cart'">
-              <a class="nav-link position-relative" [routerLink]="[link.links]">
-                <i class="{{ link.icon }}"> </i>
-                <span
-                  *ngIf="CartNotifications > 0"
-                  class="position-absolute top-0 start-100 translate-middle badge bg-secundary rounded-circle"
-                  >{{ CartNotifications }}</span
-                >
-              </a>
-            </div>
-          </li>
-        </ng-template>
+          </div>
+          <div *ngIf="icon.links === 'wish-list'">
+            <a
+              class="nav-link position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="WishNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ WishNotifications }}</span
+              >
+            </a>
+          </div>
+          <div *ngIf="icon.links === 'shop-cart'">
+            <a
+              class="nav-link position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="CartNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ CartNotifications }}</span
+              >
+            </a>
+          </div>
+          <div *ngIf="icon.links === 'login'">
+            <button
+              class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"></i>
+              Ingresar
+            </button>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
-
-  <!-- searchBar -->
-  <form class="search__form mt-2" action="" *ngIf="switchBar">
-    <select name="" id="">
-      <option value="">Categorías</option>
-      <!-- //<option value="" >Por categorías de productos</option> -->
-      <optgroup label="Por categorías de productos">
-        <option value="">Todos</option>
-        <option value="">Accesorios</option>
-        <option value="">Laptops</option>
-        <option value="">Celulares</option>
-        <option value="">Audio</option>
-        <option value="">Tablets</option>
-        <option value="">Desktop</option>
-      </optgroup>
-      <optgroup label="Por Marcas">
-        <option value="">Todas</option>
-        <option value="">Asus</option>
-        <option value="">Apple</option>
-        <option value="">Hp</option>
-        <option value="">Logitech</option>
-        <option value="">msi</option>
-        <option value="">Samsung</option>
-      </optgroup>
-      <option value="">Ofertas</option>
-      <option value="">Lanzamientos</option>
-      <option value="">Flash Sales</option>
-      <option value="">Destacados</option>
-      <option value="">Más Vendidos</option>
-    </select>
-    <img
-      class="search__img"
-      src="/assets/img/icon_search_black.png"
-      alt="Buscar" />
-    <input type="text" placeholder="Buscar por producto, marca, color, etc." />
-    <img
-      class="close__img"
-      src="/assets/img/icon_closed_black.png"
-      alt="Cerrar"
-      (click)="toogleBarSearch()" />
-  </form>
 </nav>
 
 <!-- Modal Price list -->

@@ -34,7 +34,7 @@ export class HomeComponent {
     bymiaService
       .getCategoriesList()
       .subscribe(resp => (this.categoriesList = resp));
-    console.log(this.categoriesList);
+    // console.log(this.categoriesList);
   }
 
   ngOnInit(): void {}
