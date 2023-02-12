@@ -1,14 +1,10 @@
-// a:hover {
-//   color: #15fed4;
-// }
-
-// svg {
-//   color: #15fed4;
-// }
-
 /* change the background color */
 .navbar-custom {
   background-color: #000;
+  // width: 90%;
+  // justify-items: center;
+  // align-items: center;
+  // left: 5%;
 }
 
 /* change the brand and text color */
@@ -30,8 +26,23 @@
   border-bottom: 2px solid #15fed4;
 }
 
-.navbar-collapse-custom {
-  flex-grow: 0;
-  align-items: center;
-  position: sticky;
-}
+// TODO: analizar el comportamiento en version Mobile
+// @media (max-width: 1200px) {
+// .navbar-brand {
+//   transform: translateX(-50%);
+//   left: 50%;
+//   position: absolute;
+// }
+// .brand-centered {
+//   display: flex;
+//   justify-content: center;
+//   position: absolute;
+//   width: 100%;
+//   left: 0;
+//   top: 0;
+// }
+// .navbar-brand {
+//   display: flex;
+//   align-items: center;
+// }
+// }
