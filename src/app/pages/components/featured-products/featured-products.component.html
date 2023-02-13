@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col">
+          <h5><strong>Productos Destacados</strong></h5>
+        </div>
+        <div class="col"><hr /></div>
+        <div class="col">
+          <ul class="nav nav-tabs justify-content-end">
+            <li
+              class="nav-item"
+              *ngFor="let fp of featuredProducts; let i = index">
+              <a
+                *ngIf="fp.products.length > 0"
+                class="nav-link m-1"
+                [ngClass]="{ active: i == 0 }"
+                aria-current="page"
+                data-bs-toggle="tab"
+                [href]="['#' + fp.category | lowercase]"
+                >{{ fp.category | titlecase }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-content">
+        <div
+          class="tab-pane"
+          [ngClass]="{ active: i == 0 }"
+          id="{{ fp.category | lowercase }}"
+          *ngFor="let fp of featuredProducts; let i = index">
+          <div class="row row-cols-1 row-cols-xl-4 g-4 mt-2">
+            <div class="col" *ngFor="let item of fp.products">
+              <div class="card text-white bg-dark mb-3">
+                <div class="div-image text-black text-center">
+                  <div class="text-end me-4">
+                    <i class="bx bx-tada-hover bx-sm bx-heart"></i>
+                  </div>
+                  <img
+                    [src]="[item.image]"
+                    class="card-img-top w-75"
+                    [alt]="[item.name]" />
+                </div>
+                <div class="card-body">
+                  <h6 class="card-title">
+                    {{ item.name }}
+                  </h6>
+                  <div
+                    class="d-flex justify-content-start align-items-baseline text-light mt-2 mb-2"
+                    [innerHTML]="getRating(item.rating, item.reviews)"></div>
+                  <div class="row mb-4">
+                    <div class="col">
+                      <h3 class="card-text text-start">${{ item.price }}</h3>
+                    </div>
+                    <div class="col">
+                      <p
+                        class="text-center text-decoration-line-through"
+                        *ngIf="item.old_price">
+                        {{ item.old_price }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

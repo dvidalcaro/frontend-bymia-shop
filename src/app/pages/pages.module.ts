@@ -12,51 +12,43 @@ import { ShopCartComponent } from './shop-cart/shop-cart.component';
 import { BlocksModule } from '../blocks/blocks.module';
 import { AuthComponent } from './auth/auth.component';
 import { AuthModule } from './auth/auth.module';
-import { UserPanelModule } from "../user-panel/user-panel.module";
+import { UserPanelModule } from '../user-panel/user-panel.module';
 import { HeaderComponent } from '../shared/header/header.component';
 import { HeaderModule } from '../shared/header/header.module';
 import { RouterOutlet, RouterModule } from '@angular/router';
-
-
-
-
-
-
-
+import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 
 @NgModule({
-    declarations: [
-        HomeComponent,
-        NotFoundComponent,
-        AboutUsComponent,
-        FaqComponent,
-        OffersComponent,
-        LaunchComponent,
-        FlashSalesComponent,
-        WishListComponent,
-        ShopCartComponent,
-        
-    ],
-    exports: [
-        HomeComponent,
-        NotFoundComponent,
-        AboutUsComponent,
-        FaqComponent,
-        OffersComponent,
-        LaunchComponent,
-        FlashSalesComponent,
-        WishListComponent,
-        ShopCartComponent,
-    ],
-    imports: [
-        CommonModule,
-        BlocksModule,
-        AuthModule,
-        UserPanelModule,
-        HeaderModule,
-        RouterModule
-        
-        
-    ]
+  declarations: [
+    HomeComponent,
+    NotFoundComponent,
+    AboutUsComponent,
+    FaqComponent,
+    OffersComponent,
+    LaunchComponent,
+    FlashSalesComponent,
+    WishListComponent,
+    ShopCartComponent,
+    FeaturedProductsComponent,
+  ],
+  exports: [
+    HomeComponent,
+    NotFoundComponent,
+    AboutUsComponent,
+    FaqComponent,
+    OffersComponent,
+    LaunchComponent,
+    FlashSalesComponent,
+    WishListComponent,
+    ShopCartComponent,
+  ],
+  imports: [
+    CommonModule,
+    BlocksModule,
+    AuthModule,
+    UserPanelModule,
+    HeaderModule,
+    RouterModule,
+  ],
 })
-export class PagesModule { }
+export class PagesModule {}
