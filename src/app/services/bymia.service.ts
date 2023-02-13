@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { About } from '../shared/interfaces/About';
 import { Categories } from '../shared/interfaces/Categories';
+import { FeaturedProduct } from '../shared/interfaces/FeaturedProduct';
 import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
 
@@ -21,6 +22,7 @@ export class BymiaService {
   private about: About = {};
   private faqs: TopLevel[] = [];
   private categoriesList: Categories[] = [];
+  private featuredProducts: FeaturedProduct[] = [];
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
@@ -65,6 +67,15 @@ export class BymiaService {
           ),
           tap(categ => (this.categoriesList = categ))
         );
+    }
+  }
+  public getFeaturedProducts() {
+    if (this.featuredProducts.length > 0) {
+      return of(this.featuredProducts);
+    } else {
+      return this.http
+        .get<FeaturedProduct[]>(`${url}/products/tag/destacados`, { headers })
+        .pipe(tap(fp => (this.featuredProducts = fp)));
     }
   }
 }
