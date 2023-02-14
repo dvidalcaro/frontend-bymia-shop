@@ -9,7 +9,6 @@ import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
 import { MsgContactForm } from '../shared/interfaces/contactForm';
 
-
 const url = 'http://back-test.bymiashop.com/api/front';
 const headers = new HttpHeaders({
   Authorization:
@@ -82,7 +81,7 @@ export class BymiaService {
     }
   }
 
-  public sendContactForm(body:MsgContactForm):Observable<any>{
-    return this.http.post(`${url}/contact`, body , { headers })
+  public sendContactForm(body: MsgContactForm): Observable<any> {
+    return this.http.post(`${url}/contact`, body, { headers });
   }
 }

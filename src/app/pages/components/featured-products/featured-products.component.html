@@ -17,7 +17,7 @@
                 [ngClass]="{ active: i == 0 }"
                 aria-current="page"
                 data-bs-toggle="tab"
-                [href]="['#' + fp.category | lowercase]"
+                [href]="['#category' + i]"
                 >{{ fp.category | titlecase }}</a
               >
             </li>
@@ -28,7 +28,7 @@
         <div
           class="tab-pane"
           [ngClass]="{ active: i == 0 }"
-          id="{{ fp.category | lowercase }}"
+          id="category{{ i }}"
           *ngFor="let fp of featuredProducts; let i = index">
           <div class="row row-cols-1 row-cols-xl-4 g-4 mt-2">
             <div class="col" *ngFor="let item of fp.products">
@@ -57,7 +57,7 @@
                       <p
                         class="text-center text-decoration-line-through"
                         *ngIf="item.old_price">
-                        {{ item.old_price }}
+                        $ {{ item.old_price }}
                       </p>
                     </div>
                   </div>
