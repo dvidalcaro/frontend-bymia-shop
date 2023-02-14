@@ -1,12 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
 import { tap, switchMap } from 'rxjs/operators';
 import { About } from '../shared/interfaces/About';
 import { Categories } from '../shared/interfaces/Categories';
 import { FeaturedProduct } from '../shared/interfaces/FeaturedProduct';
 import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
+import { MsgContactForm } from '../shared/interfaces/contactForm';
+
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const headers = new HttpHeaders({
@@ -23,6 +25,7 @@ export class BymiaService {
   private faqs: TopLevel[] = [];
   private categoriesList: Categories[] = [];
   private featuredProducts: FeaturedProduct[] = [];
+  //private msgContactForm: MsgContactForm;
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
@@ -77,5 +80,9 @@ export class BymiaService {
         .get<FeaturedProduct[]>(`${url}/products/tag/destacados`, { headers })
         .pipe(tap(fp => (this.featuredProducts = fp)));
     }
+  }
+
+  public sendContactForm(body:MsgContactForm):Observable<any>{
+    return this.http.post(`${url}/contact`, body , { headers })
   }
 }
