@@ -1,34 +1,10 @@
-<app-hero></app-hero>
-
+<!-- <app-hero></app-hero> -->
+<app-home-slider></app-home-slider>
 <app-featured-products></app-featured-products>
 
 <!-- Most Searched -->
-
+<app-categories></app-categories>
 <div class="container__most__searched">
-  <h1>Las categorias mas buscadas de todo el e-commerce</h1>
-
-  <p>
-    Estas categorias fueron seleccionadas en funcion de la popularidad de sus
-    productos.
-  </p>
-
-  <div class="d-flex p-5 m-5 justify-content-center flex-wrap">
-    <div class="categoria__wh" *ngFor="let category of categoriesList">
-      <div class="most__searched m-4">
-        <div class="searched">
-          <img
-            [src]="[category.image]"
-            [alt]="[category.name]"
-            class="img__out" />
-          <div class="description__searched">
-            <p>{{ category.name | titlecase }}</p>
-            <span>{{ category.description_es }}.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="see__more d-flex justify-content-center flex-wrap">
     <ul class="animate__animated animate__slideInDown" *ngIf="showCategories">
       <li *ngFor="let category of listCategories">
