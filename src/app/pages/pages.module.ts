@@ -17,6 +17,8 @@ import { HeaderComponent } from '../shared/header/header.component';
 import { HeaderModule } from '../shared/header/header.module';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { HomeSliderComponent } from './components/home-slider/home-slider.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { FeaturedProductsComponent } from './components/featured-products/featur
     WishListComponent,
     ShopCartComponent,
     FeaturedProductsComponent,
+    CategoriesComponent,
+    HomeSliderComponent,
   ],
   exports: [
     HomeComponent,
