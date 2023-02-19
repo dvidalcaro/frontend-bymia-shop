@@ -19,6 +19,10 @@ import { RouterOutlet, RouterModule } from '@angular/router';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HomeSliderComponent } from './components/home-slider/home-slider.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { BrandsComponent } from './components/brands/brands.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { HomeSliderComponent } from './components/home-slider/home-slider.compon
     FeaturedProductsComponent,
     CategoriesComponent,
     HomeSliderComponent,
+    LoadingComponent,
+    BannerComponent,
+    BrandsComponent,
+    FooterComponent,
   ],
   exports: [
     HomeComponent,
