@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { BymiaService } from 'src/app/services/bymia.service';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
 
 @Component({
@@ -8,15 +7,15 @@ import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
   styleUrls: ['./featured-products.component.scss'],
 })
 export class FeaturedProductsComponent implements OnInit {
-  featuredProducts: FeaturedProduct[] = [];
+  @Input() title: string = '';
+  @Input() category: string = 'category';
+  @Input() featuredProducts: FeaturedProduct[] = [];
+
+  loading: boolean = true;
 
   tempRating = '<i class="bx bx-tada-hover bx-sm bxs-star"></i>';
 
-  constructor(bymiaService: BymiaService) {
-    bymiaService
-      .getFeaturedProducts()
-      .subscribe(resp => (this.featuredProducts = resp));
-  }
+  constructor() {}
   getRating(stars: number, reviews: string) {
     let result = '';
     while (stars > 0) {
@@ -31,5 +30,11 @@ export class FeaturedProductsComponent implements OnInit {
 
     return `${result} &nbsp;&nbsp;&nbsp; ${reviews} Reviews`;
   }
-  ngOnInit(): void {}
+  public ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.featuredProducts) {
+      this.loading = false;
+      // console.log(changes);
+    }
+  }
 }

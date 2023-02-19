@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div class="row">
+    <div>
+      <app-loading [loading]="loading"></app-loading>
+    </div>
+    <div *ngIf="!loading">
+      <div class="col" id="divMobile">
+        <img
+          class="img-fluid"
+          [src]="[bannerMobile.image]"
+          [alt]="[bannerMobile.id + bannerMobile.format]"
+          draggable="false" />
+      </div>
+      <div class="col" id="divDesktop">
+        <img
+          class="img-fluid"
+          [src]="[bannerDesktop.image]"
+          [alt]="[bannerDesktop.id + bannerDesktop.format]"
+          draggable="false" />
+      </div>
+    </div>
+  </div>
+</div>

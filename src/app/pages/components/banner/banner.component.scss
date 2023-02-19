@@ -1,0 +1,10 @@
+@media (min-width: 0px) and (max-width: 507px) {
+  #divDesktop {
+    display: none;
+  }
+}
+@media (min-width: 508px) and (max-width: 13200px) {
+  #divMobile {
+    display: none;
+  }
+}

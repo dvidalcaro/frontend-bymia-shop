@@ -1,10 +1,55 @@
 <!-- <app-hero></app-hero> -->
 <app-home-slider></app-home-slider>
-<app-featured-products></app-featured-products>
+<app-featured-products
+  [title]="'Productos destacados'"
+  [category]="'featured'"
+  [featuredProducts]="featuredProducts"></app-featured-products>
 
 <!-- Most Searched -->
 <app-categories></app-categories>
-<div class="container__most__searched">
+
+<!-- Most Solded -->
+<app-featured-products
+  [title]="'Más vendidos'"
+  [category]="'most-solded'"
+  [featuredProducts]="soldedProducts"></app-featured-products>
+
+<!-- Banner-1 -->
+<app-banner
+  [bannerDesktop]="banners[0]"
+  [bannerMobile]="banners[1]"
+  *ngIf="showBanners"></app-banner>
+
+<!-- Mejores Ofertas -->
+<app-featured-products
+  [title]="'Mejores ofertas'"
+  [category]="'mejores-ofertas'"
+  [featuredProducts]="bestOfferProducts"></app-featured-products>
+
+<!-- Marcas -->
+<app-brands></app-brands>
+
+<!-- Mejores Ofertas -->
+<app-featured-products
+  [title]="'Últimos lanzamientos'"
+  [category]="'ultimos-lanzamientos'"
+  [featuredProducts]="lastLaunchProducts"></app-featured-products>
+
+<!-- Banner-2 -->
+<app-banner
+  [bannerDesktop]="banners[2]"
+  [bannerMobile]="banners[3]"
+  *ngIf="showBanners"></app-banner>
+
+<!-- More productos without category -->
+<app-featured-products
+  [title]="''"
+  [category]="'more-products'"
+  [featuredProducts]="moreProducts"></app-featured-products>
+
+<app-footer></app-footer>
+
+<!-- <div class="container__most__searched">
   <div class="see__more d-flex justify-content-center flex-wrap">
     <ul class="animate__animated animate__slideInDown" *ngIf="showCategories">
       <li *ngFor="let category of listCategories">
@@ -19,6 +64,6 @@
     </button>
   </div>
 
-  <!-- <iframe src='https://my.spline.design/retromonitor-8a8eda90f65fd5b73cc92e773b358f28/' frameborder='0' width='100%' height='100%'></iframe>
- -->
-</div>
+  <iframe src='https://my.spline.design/retromonitor-8a8eda90f65fd5b73cc92e773b358f28/' frameborder='0' width='100%' height='100%'></iframe>
+
+</div> -->

@@ -8,8 +8,13 @@ import { FeaturedProduct } from '../shared/interfaces/FeaturedProduct';
 import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
 import { MsgContactForm } from '../shared/interfaces/contactForm';
+import { Banner } from '../shared/interfaces/Banner';
+import { Brand } from '../shared/interfaces/Brand';
 
 const url = 'http://back-test.bymiashop.com/api/front';
+const urlBannerMock = 'assets/banners.json';
+const urlBrandsMock = 'assets/brands.json';
+
 const headers = new HttpHeaders({
   Authorization:
     'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
@@ -24,6 +29,8 @@ export class BymiaService {
   private faqs: TopLevel[] = [];
   private categoriesList: Categories[] = [];
   private featuredProducts: FeaturedProduct[] = [];
+  private banners: Banner[] = [];
+  private brands: Brand[] = [];
   //private msgContactForm: MsgContactForm;
 
   constructor(private http: HttpClient) {
@@ -71,17 +78,42 @@ export class BymiaService {
         );
     }
   }
-  public getFeaturedProducts() {
+  public getFeaturedProducts(
+    feature: string = 'destacados',
+    index: number = 0,
+    limit: number = 4
+  ) {
     if (this.featuredProducts.length > 0) {
       return of(this.featuredProducts);
     } else {
       return this.http
-        .get<FeaturedProduct[]>(`${url}/products/tag/destacados`, { headers })
+        .get<FeaturedProduct[]>(
+          `${url}/products/tag/${feature}?i=${index}&l=${limit}`,
+          { headers }
+        )
         .pipe(tap(fp => (this.featuredProducts = fp)));
     }
   }
 
   public sendContactForm(body: MsgContactForm): Observable<any> {
     return this.http.post(`${url}/contact`, body, { headers });
+  }
+  public getBanners(): Observable<any> {
+    if (this.banners.length > 0) {
+      return of(this.banners);
+    } else {
+      return this.http
+        .get<Banner[]>(`${urlBannerMock}`)
+        .pipe(tap(banners => (this.banners = banners)));
+    }
+  }
+  public getBrands(): Observable<any> {
+    if (this.brands.length > 0) {
+      return of(this.brands);
+    } else {
+      return this.http
+        .get<Brand[]>(`${urlBrandsMock}`)
+        .pipe(tap(brands => (this.brands = brands)));
+    }
   }
 }
