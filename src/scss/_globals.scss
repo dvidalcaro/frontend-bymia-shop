@@ -334,3 +334,7 @@ fieldset:disabled .btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+.no-border {
+  border: 1px solid transparent;
+}
