@@ -11,6 +11,7 @@ import { ShopcartComponent } from './shopcart/shopcart.component';
 import { HeaderRoutingModule } from './header-routing.module';
 import { RegisterComponent } from './register/register.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -30,6 +31,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
   imports: [
     CommonModule,
     HeaderRoutingModule,
+    ReactiveFormsModule
     
   ],
   exports: [

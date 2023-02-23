@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { NgForm, Validators } from '@angular/forms';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BymiaService } from 'src/app/services/bymia.service';

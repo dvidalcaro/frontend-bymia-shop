@@ -8,6 +8,7 @@ import { FeaturedProduct } from '../shared/interfaces/FeaturedProduct';
 import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
 import { MsgContactForm } from '../shared/interfaces/contactForm';
+import { CountryCode } from '../shared/interfaces/countryCode-interface';
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const headers = new HttpHeaders({
@@ -25,6 +26,7 @@ export class BymiaService {
   private categoriesList: Categories[] = [];
   private featuredProducts: FeaturedProduct[] = [];
   //private msgContactForm: MsgContactForm;
+  private countryCode: CountryCode[]=[];
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
@@ -83,5 +85,16 @@ export class BymiaService {
 
   public sendContactForm(body: MsgContactForm): Observable<any> {
     return this.http.post(`${url}/contact`, body, { headers });
+  }
+
+  public registerNewUser():Observable<any>{
+    return this.http.post(`${url}/contact`, { headers });
+  }
+
+  public getCountryCode(){
+    return this.http.get<CountryCode[]>(`${url}/country-code`, {headers})
+    .pipe(tap(cod => (this.countryCode=cod)))
+    
+    
   }
 }
