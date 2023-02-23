@@ -112,7 +112,7 @@ export class BymiaService {
   public getCountryCode(){
     return this.http.get<CountryCode[]>(`${url}/country-code`, {headers})
     .pipe(tap(cod => (this.countryCode=cod)))
-    
+  }
     
 
   public getBanners(): Observable<any> {
