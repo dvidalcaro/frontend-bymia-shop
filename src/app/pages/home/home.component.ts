@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
     bymiaService
       .getCategoriesList()
       .subscribe(resp => (this.categoriesList = resp));
+
     bymiaService
       .getFeaturedProducts('destacados', this.index, this.limit)
       .subscribe(resp => {
@@ -75,6 +76,7 @@ export class HomeComponent implements OnInit {
       .subscribe(resp => {
         this.moreProducts = resp;
       });
+
   }
 
   ngOnInit(): void {}

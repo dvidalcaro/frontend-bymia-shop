@@ -1,32 +1,138 @@
+<div class="container__modal">
+   <div class="container  bg-white rounded-3 justify-content-center frm-register">
+      <div class="row mb-3 mt-3">
+         <div class="col">
+            <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
+               alt="cerrar">
+         </div>
+      </div>
+      <form class="frm-register__form row g-3 p-3 pb-4" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+         <div class="col-12">
+            <select class="form-select frm-register__select p-2" formControlName="userRol">
+               <option value="" disabled [selected]="true">Selecciona Persona o Empresa</option>
+               <option value="1">Persona</option>
+               <option value="2">Empresa</option>
+            </select>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert"
+             *ngIf="validateUserRol()">
+               <i class='bx bx-error  frm-register__i'></i>
+               Debes selecionar una opción.
+            </div>
+         </div>
+         <div class="col-12 frm-register__input">
+            <input type="text" class="form-control" formControlName="name" placeholder="{{placeholderName}}">
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateNameRequired()">
+               <i class='bx bx-error  frm-register__i'>El Nombre es requerido.</i>
+            </div>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf=" validatenameminength()">
+               <i class='bx bx-error  frm-register__i'>El Nombre debe tener minimo {{registerForm.get('name')?.errors?.['minlength'].requiredLength}} caracteres.</i>
+            </div>
+         </div>
+         <div class="col-12 frm-register__input">
+            <input type="email" class="form-control" formControlName="email" placeholder="Dirección de email">
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateEmailRequired()">
+               <i class='bx bx-error frm-register__i'></i>
+               El email es requerido.
+            </div>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert"  *ngIf=" validateEmailFormat()">
+               <i class='bx bx-error frm-register__i'></i>Formato de email no es valido.
+            </div>
+            <!-- <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="false">
+               <i class='bx bx-error frm-register__i'>El email ya esta registrado.</i>
+            </div> -->
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateemailMinLength()">
+               <i class='bx bx-error  frm-register__i'></i>
+               El Email debe tener minimo {{registerForm.get('email')?.errors?.['minlength'].requiredLength}} caracteres.
+            </div>
+         </div>
+         <div class="col-12 frm-register__input">
+            <input type="password" class="form-control frm-register__ico" formControlName="password" placeholder="Password">
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf=" validatePasswordRequiered()">
+               <i class='bx bx-error frm-register__i'>
+                  El password es requerido. </i>
+            </div>
 
-<div class="container__modal animate__animated animate__zoomIn animate__faster">
-    <div class="container__form">
-       <img  routerLink="/"  src="../assets/img/icon_closed_black.png" alt="cerrar">
- 
-       
-       <p class="title__registerMail__p">Seleccione si eres Persona o Empresa</p>
-       
-       <form class="form__register__mail" action="">
-          <select name="" id="">
-             <option value="">Persona</option>
-             <option value="">Empresa</option>
-          </select>
-          
-          <input type="email" placeholder="Nombre y Apellido">
-          <input type="email" placeholder="Dirección de email">
-          <input type="password"  placeholder="Contraseña">
-          <input type="password"  placeholder="Confirmar Contraseña">
-          <input type="tel"  placeholder="Código del pais +xx ">
-          <input type="tel"  placeholder="Celular (xxx) xxx-xxxx">
-          <p class="condition__p register__p">Si deseas recibir las notificaciones de tu envío por WhatsApp, hace click  <a href=""><strong>acá.</strong> </a>
-             </p>
-          
-          </form>
-          <button class="button_modal" (click)="registerUser()" >Registrarse</button>
-       
-       
-       <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
-          y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
-    </div>
- </div>
- 
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validatePassword()">
+               <i class='bx bx-error frm-register__i'> La contraseña debe tener al menos 8 caracteres de longitud,
+                  al menos una letra minúscula,
+                  al menos una letra mayúscula, al menos un número y al menos un caracter especial</i>
+            </div>
+         </div>
+         <div class="col-12 frm-register__input" *ngIf="showField" >
+            <input type="text" placeholder="Fecha de nacimiento: DD/MM/AAAA" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" max="2021-08-31" formControlName="birthday">
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateDateRequiered()">
+               <i class='bx bx-error frm-register__i'> La Fecha es requerida.</i>
+            </div>
+         </div>
+         <div class="col-12" *ngIf="showField" >
+            <select class="form-select frm-register__select-bg" formControlName="sexo">
+               <option [ngValue]="null" disabled [selected]="true">Sexo</option>
+               <option value="1">Femenino</option>
+               <option value="2">Masculino</option>
+               <option value="3">Prefiero no decirlo</option>
+            </select>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateSexoRequiered()">
+               <i class='bx bx-error frm-register__i'></i>
+               El sexo es requerido.
+            </div>
+         </div>
+         <div class="col-12">
+
+            <div class="row gx-1">
+               <div class="col-5">
+                  <select class="form-select frm-register__select-bg" formControlName="codeCountry">
+                     <option value="" disabled>+xx</option>
+                     <option *ngFor="let item of phoneCode" [value]="item.id"> {{item.phonecode}} </option>
+                     
+                  </select>
+               </div>
+               <div class="col-7 frm-register__input">
+                  <input type="text" class="form-control" formControlName="phone" placeholder="Teléfono">
+
+               </div>
+            </div>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateCodeRequiered()">
+               <i class='bx bx-error frm-register__i'></i>
+               El código de países requerido.
+            </div>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validatePhoneRequiered()">
+               <i class='bx bx-error  frm-register__i'></i>
+               El teléfono es requerido.
+            </div>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validatePhoneFormat()">
+               <i class='bx bx-error  frm-register__i'></i>
+               El formato de teléfonono no es valido solo acepta numeros y debe contener 10 numeros.
+            </div>
+
+
+         </div>
+         <div class="col-12  d-flex justify-content-center align-items-center">
+            <div class="row">
+               <div class="col-1 frm-register__checkbox">
+                  <input type="checkbox" required class="form-check-input" formControlName="accept">
+
+               </div>
+               <div class="col-11">
+                  <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href="">
+                        <strong>Condiciones de servicio </strong> </a>y la
+                     <a href=""><strong>Política de privacidad</strong> </a>
+                  </p>
+               </div>
+              
+            </div>
+         </div>
+         <div class="alert alert-danger p-1 mt-1 text-dark col-12" role="alert" *ngIf="validateAcceptRequiered()">
+            <i class='bx bx-error  frm-register__i'></i>
+            Debes aceptar las concidiones y políticas.
+         </div>
+         <div class="col-12">
+            <button class="button_modal  col-12 "  [disabled]="!registerForm.valid">Registrarse</button>
+         </div>
+        
+
+      </form>
+
+   </div>
+   <pre> Valid: {{registerForm.valid}}  </pre>
+   <pre> Value: {{registerForm.value | json }}  </pre>
+</div>
