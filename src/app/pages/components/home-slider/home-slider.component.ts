@@ -9,8 +9,13 @@ import { Slider } from 'src/app/shared/interfaces/Slider';
 })
 export class HomeSliderComponent implements OnInit {
   sliders: Slider[] = [];
+  loading: boolean = true;
+
   constructor(private bymiaService: BymiaService) {
-    bymiaService.getSliders().subscribe(resp => (this.sliders = resp));
+    bymiaService.getSliders().subscribe(resp => {
+      this.sliders = resp;
+      this.loading = false;
+    });
   }
 
   ngOnInit(): void {}

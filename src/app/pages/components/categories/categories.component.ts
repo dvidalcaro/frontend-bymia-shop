@@ -9,11 +9,13 @@ import { Categories } from 'src/app/shared/interfaces/Categories';
 })
 export class CategoriesComponent implements OnInit {
   categoriesList: Categories[] = [];
+  loading: boolean = true;
 
   constructor(bymiaService: BymiaService) {
-    bymiaService
-      .getCategoriesList()
-      .subscribe(resp => (this.categoriesList = resp));
+    bymiaService.getCategoriesList().subscribe(resp => {
+      this.categoriesList = resp;
+      this.loading = false;
+    });
   }
 
   ngOnInit(): void {}

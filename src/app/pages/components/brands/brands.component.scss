@@ -33,11 +33,11 @@
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #15fed4;
+  background-color: #101010;
   // background-clip: border-box;
-  // border: 1px solid #15fed4;
+  // border: 1px solid #101010;
   border-radius: 2rem;
-  height: 12rem;
+  height: 15rem;
 }
 
 .card-body {
@@ -50,13 +50,6 @@
   background-clip: border-box;
   border: 1rem solid #101010;
   border-radius: 1.5rem;
-  border-top-right-radius: 5rem;
-  height: 12rem;
-}
-
-.img-out {
-  max-width: 12rem;
-  max-height: 9rem;
-  min-height: 8rem;
-  margin-top: -3rem !important;
+  // border-top-right-radius: 5rem;
+  height: 15rem;
 }
