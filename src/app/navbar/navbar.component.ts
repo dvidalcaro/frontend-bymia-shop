@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BymiaService } from '../services/bymia.service';
 import { navLink } from '../shared/interfaces/navlink';
+import { SearchType } from '../shared/interfaces/SearchType';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +16,7 @@ export class NavbarComponent implements OnInit {
   switchBar: boolean = false;
   showListPrice: boolean = false;
   showConfirm: boolean = false;
+  searchTypeList: SearchType[] = [];
 
   linksHeader: navLink[] = [
     {
@@ -62,9 +66,18 @@ export class NavbarComponent implements OnInit {
       links: 'login',
     },
   ];
-  constructor() {}
+  constructor(bymiaService: BymiaService, public router: Router) {
+    bymiaService.getSearchTypeList().subscribe(resp => {
+      this.searchTypeList = resp;
+    });
+  }
 
   toogleBarSearch() {
+    if (!this.switchBar) {
+      this.router.navigate(['search']);
+    } else {
+      this.router.navigate(['/']);
+    }
     this.switchBar = !this.switchBar;
   }
   toogleListPrice() {

@@ -17,12 +17,18 @@ import { MyDataComponent } from './user-panel/my-data/my-data.component';
 import { OrdersComponent } from './user-panel/orders/orders.component';
 import { PanelComponent } from './user-panel/panel/panel.component';
 import { HelpComponent } from './user-panel/help/help.component';
+import { SearchComponent } from './pages/search/search.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     pathMatch: 'full',
+  },
+
+  {
+    path: 'search',
+    component: SearchComponent,
   },
 
   {
@@ -77,10 +83,11 @@ const routes: Routes = [
 
   {
     path: 'user-panel',
-    loadChildren: () => import('./user-panel/user-panel.module').then(m => m.UserPanelModule)
+    loadChildren: () =>
+      import('./user-panel/user-panel.module').then(m => m.UserPanelModule),
   },
 
- /*  {
+  /*  {
     path: 'panel',
     component: PanelComponent
   },
@@ -110,4 +117,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
