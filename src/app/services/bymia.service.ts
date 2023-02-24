@@ -13,7 +13,7 @@ import { CountryCode } from '../shared/interfaces/countryCode-interface';
 
 import { Banner } from '../shared/interfaces/Banner';
 import { Brand } from '../shared/interfaces/Brand';
-
+import { SearchType } from '../shared/interfaces/SearchType';
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const urlBannerMock = 'assets/banners.json';
@@ -35,8 +35,9 @@ export class BymiaService {
   private featuredProducts: FeaturedProduct[] = [];
   private banners: Banner[] = [];
   private brands: Brand[] = [];
+  private searchTypeList: SearchType[] = [];
   //private msgContactForm: MsgContactForm;
-  private countryCode: CountryCode[]=[];
+  private countryCode: CountryCode[] = [];
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
@@ -104,16 +105,15 @@ export class BymiaService {
     return this.http.post(`${url}/contact`, body, { headers });
   }
 
-
-  public registerNewUser():Observable<any>{
+  public registerNewUser(): Observable<any> {
     return this.http.post(`${url}/contact`, { headers });
   }
 
-  public getCountryCode(){
-    return this.http.get<CountryCode[]>(`${url}/country-code`, {headers})
-    .pipe(tap(cod => (this.countryCode=cod)))
+  public getCountryCode() {
+    return this.http
+      .get<CountryCode[]>(`${url}/country-code`, { headers })
+      .pipe(tap(cod => (this.countryCode = cod)));
   }
-    
 
   public getBanners(): Observable<any> {
     if (this.banners.length > 0) {
@@ -132,6 +132,14 @@ export class BymiaService {
         .get<Brand[]>(`${urlBrandsMock}`)
         .pipe(tap(brands => (this.brands = brands)));
     }
-
+  }
+  public getSearchTypeList() {
+    if (this.searchTypeList.length > 0) {
+      return of(this.searchTypeList);
+    } else {
+      return this.http
+        .get<SearchType[]>(`${url}/searchTypeList`, { headers })
+        .pipe(tap(searchTypeList => (this.searchTypeList = searchTypeList)));
+    }
   }
 }
