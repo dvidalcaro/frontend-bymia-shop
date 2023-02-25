@@ -114,7 +114,7 @@ export class BymiaService {
   // Falta enviar el body
   public registerNewUser(body: RegisterUser ):Observable<any>{
     return this.http.post(`${url}/register`, body, { headers });
-
+  }
  
 
   public getCountryCode() {
