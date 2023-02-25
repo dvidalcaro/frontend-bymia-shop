@@ -14,91 +14,98 @@
      --webkit-backdrop-filter: blur(15px);
      background-color: rgba(255, 255, 255, 0.01);
      transition: all 5s step-start;
-    padding: 0 15px 0 15px;
+     padding: 0 15px 0 15px;
  }
 
- .frm-register{
-    width: 21.4375rem;    
-    border-radius: .9375rem;
+ .frm-register {
+     width: 21.4375rem;
+     border-radius: .9375rem;
  }
 
- .frm-register__img{
-    width: 1rem;
-    height: 1rem;
-    cursor: pointer;
+ .frm-register__img {
+     width: 1rem;
+     height: 1rem;
+     cursor: pointer;
  }
 
- .frm-register__select{
-    background-color: $background-color;
-    color: $primary-color;
-    border-radius: .75rem;
-    background-image: url('/assets/svg/Icon-arrow-down.svg');
-    cursor: pointer;
-    
+ .frm-register__select {
+     background-color: $background-color;
+     color: $primary-color;
+     border-radius: .75rem;
+     background-image: url('/assets/svg/Icon-arrow-down.svg');
+     cursor: pointer;
+
  }
 
- .frm-register__select-bg{
-    
-    cursor: pointer;
-    border: 1px solid $background-color;
-    border-radius: .75rem;
+ .frm-register__select-bg {
+     cursor: pointer;
+     border: 1px solid $background-color;
+     border-radius: .75rem;
  }
 
-
-
- .form-select:focus, .form-control ,.frm-register__select-bg {
-    box-shadow: none; 
-    border-color: $background-color;
+ .form-select:focus,
+ .form-control,
+ .frm-register__select-bg {
+     box-shadow: none;
+     border-color: $background-color;
  }
 
+ .frm-register__input {
 
+     input {
+         border: 1px solid $background-color;
+         border-radius: .75rem;
+     }
 
- .frm-register__input{
-
-    input{
-
-        border: 1px solid $background-color;
-        border-radius: .75rem;
-    }
-    input:focus{
-        border-color: $background-color;
-        box-shadow: none;
-    }
+     input:focus {
+         border-color: $background-color;
+         box-shadow: none;
+     }
  }
- .frm-register__i{
-    color: $background-color;
-    margin-top: .3rem;
-    
+
+ .frm-register__i {
+     color: $background-color;
+     margin-top: .3rem;
  }
 
  .form-check-input {
+     border-color: $background-color;
+ }
+
+ .form-check-input:checked {
+     background-color: $background-color;
+     border-color: $background-color;
+ }
+
+ .form-check-input:focus {
+     box-shadow: none;
+     border-color: $background-color;
+ }
+
+.frm-register__view {
+     margin-top: -35px;
+     cursor: pointer;
+     z-index: 2;     
+}
+.frm-login__strong{
+           
+      cursor: pointer;
+      font-size: .875rem !important;
     
-    border-color: $background-color;
 }
 
-    .form-check-input:checked {
-        background-color: $background-color;
-        border-color: $background-color;
-    }
-    .form-check-input:focus {
-       box-shadow: none;
-       border-color: $background-color;
-    }
- 
- 
-    .frm-register__ico{
-            margin-right: -50px;
-            //padding-left: 50px; /* Espacio para el icono */
-            background-image: url('../../../src/assets/img/icon_closed_black.png');
-            background-repeat: no-repeat;
-            background-position: right center; /* Alineación vertical centrada */
-            background-size: 16px;
-            background-position-x: 260px;
-            cursor: pointer;
-          
-    }
+.modal__i{
+  color: $secundary-color;
+  font-size: 5rem;
+  
+}
 
- .container__form {
+.modal__p{
+    font-size: 1.25rem;
+}
+
+
+.container__form {
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -175,12 +182,14 @@
 
  .button_modal {
      border-radius: 0.75rem;
-     
+
      background-color: $secundary-color;
      border: none;
      font-weight: bold;
+     padding: 8px 0;
+
      //font-size: 1.1875rem;
-  /*   &:hover{
+     /*   &:hover{
         background-color: $secundary-color;
         color: $background-color;
     } */
@@ -469,6 +478,6 @@
 
      }
 
-     
+
 
  }
