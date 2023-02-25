@@ -23,6 +23,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FooterComponent } from './components/footer/footer.component';
     BannerComponent,
     BrandsComponent,
     FooterComponent,
+    SearchComponent,
   ],
   exports: [
     HomeComponent,

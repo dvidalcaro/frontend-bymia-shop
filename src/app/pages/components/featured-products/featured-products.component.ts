@@ -20,15 +20,15 @@ export class FeaturedProductsComponent implements OnInit {
     let result = '';
     while (stars > 0) {
       if (stars <= 0.5) {
-        result += '<i class="bx bx-tada-hover bx-sm bxs-star-half"></i>';
+        result += '<i class="bx bx-tada-hover bxs-star-half"></i>';
       }
       if (stars > 0.5) {
-        result += '<i class="bx bx-tada-hover bx-sm bxs-star"></i>';
+        result += '<i class="bx bx-tada-hover bxs-star"></i>';
       }
       stars -= 1;
     }
 
-    return `${result} &nbsp;&nbsp;&nbsp; ${reviews} Reviews`;
+    return `<div class="row"><div class="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-nowrap">${result}</div><div class="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 text-nowrap">${reviews} Reviews</div></div>`;
   }
   public ngOnInit() {}
   ngOnChanges(changes: SimpleChanges): void {
