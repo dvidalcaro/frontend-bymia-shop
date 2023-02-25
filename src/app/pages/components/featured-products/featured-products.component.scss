@@ -85,3 +85,16 @@ hr:not([size]) {
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
 }
+
+@media (min-width: 0px) {
+  h6 {
+    font-size: 0.8rem;
+    font-weight: 300;
+  } /*1rem = 16px*/
+}
+@media (min-width: 540px) {
+  h6 {
+    font-size: 1rem;
+    font-weight: 400;
+  } /*1rem = 16px*/
+}

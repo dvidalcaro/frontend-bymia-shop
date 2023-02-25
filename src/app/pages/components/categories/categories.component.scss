@@ -37,7 +37,7 @@
   // background-clip: border-box;
   // border: 1px solid #15fed4;
   border-radius: 2rem;
-  height: 12rem;
+  max-height: 12rem;
 }
 
 .card-body {
@@ -51,12 +51,40 @@
   border: 1rem solid #101010;
   border-radius: 1.5rem;
   border-top-right-radius: 5rem;
-  height: 12rem;
+  max-height: 12rem;
 }
 
-.img-out {
-  max-width: 12rem;
-  max-height: 9rem;
-  min-height: 8rem;
-  margin-top: -3rem !important;
+@media (min-width: 0px) {
+  .img-out {
+    max-width: 6rem;
+    max-height: 3rem;
+    min-height: 4rem;
+    margin-top: -3rem !important;
+  }
+  h5,
+  .h5 {
+    font-size: 0.8rem;
+  }
+
+  h6,
+  .h6 {
+    font-size: 0.65rem;
+  }
+}
+@media (min-width: 540px) {
+  .img-out {
+    max-width: 12rem;
+    max-height: 9rem;
+    min-height: 8rem;
+    margin-top: -3rem !important;
+  }
+  h5,
+  .h5 {
+    font-size: 1.25rem;
+  }
+
+  h6,
+  .h6 {
+    font-size: 1rem;
+  }
 }
