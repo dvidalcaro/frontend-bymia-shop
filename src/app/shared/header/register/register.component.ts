@@ -1,7 +1,9 @@
+import { JsonPipe } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { BymiaService } from '../../../services/bymia.service';
 import { CountryCode } from '../../interfaces/countryCode-interface';
+import { RegisterUser } from '../../interfaces/register-interface';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +15,22 @@ export class RegisterComponent implements OnInit {
   private emailPattern: any = /^[a-zA-Z0-9]{3,}@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
   private passwordPattern: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+|~\-=?{}[\]:";'<>?,./])(?=.*[a-zA-Z]).{8,}$/;
   private phonePattern: RegExp = /^\d{10}$/;
+  private newUser!: RegisterUser;
+  optionPassword: string='password'
+  flag:string='';
+  codeCountry:string='Cod País'
+  today = new Date();
+  minDate = new Date(this.today.getFullYear() - 18, this.today.getMonth(), this.today.getDate());
+  maxDate = new Date(this.today.getFullYear() - 100, this.today.getMonth(), this.today.getDate());
+  opciones:{} = {  day: 'numeric', month: 'numeric' , year: 'numeric'  };
+  fechaFormateada = this.minDate.toLocaleDateString('en-EN', this.opciones);
+  fechaFormateadaMaxDate = this.maxDate.toLocaleDateString('en-EN', this.opciones);
+  fechaObj = new Date(this.fechaFormateada.split("-").reverse().join("-"));
+  fechaObjMax = new Date(this.fechaFormateadaMaxDate.split("-").reverse().join("-"));
+  fechaISO = this.fechaObj.toISOString().slice(0,10); // "2005-02-25"
+  fechaISOMax = this.fechaObjMax.toISOString().slice(0,10); // "2005-02-25"
+  closeRegister:boolean=true;
+  showCreatedUser: boolean=false;
   
 
   public phoneCode: CountryCode[] = [];
@@ -25,7 +43,7 @@ export class RegisterComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.emailPattern)]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(this.passwordPattern)]],
-      birthday: [''],
+      birthday: ['',Validators.required],
       sexo: [''],
       codeCountry: ['', [Validators.required]],
       phone: ['', [Validators.required, Validators.pattern(this.phonePattern)]],
@@ -40,9 +58,10 @@ export class RegisterComponent implements OnInit {
     
     bymiaservice.getCountryCode()
       .subscribe((resp: CountryCode[]) => (this.phoneCode = resp));
-    console.log(this.phoneCode);
+    
+      }
 
-  }
+     
 
   ngOnInit(): void {
     this.registerForm = this.createFormGroup();
@@ -50,6 +69,11 @@ export class RegisterComponent implements OnInit {
     this.registerForm.get('userRol')?.valueChanges
     .subscribe(rolValue =>{
       this.disabledField(rolValue);     
+    })
+
+    this.registerForm.get('codeCountry')?.valueChanges
+    .subscribe(country =>{
+      this.getCodeCountryFlag(country);
     })
 
   }
@@ -150,18 +174,30 @@ export class RegisterComponent implements OnInit {
 
 
   registerUser() {
-    console.log(this.registerForm)
+    
 
-    this.bymiaservice.registerNewUser().subscribe(resp => {
-      alert('Usuario registrado con exito')
-      console.log(resp)
+    this.newUser={      
+        customer_type_role:    this.registerForm.get('userRol')?.value, 
+        name:                  this.registerForm.get('name')?.value, 
+        email:                 this.registerForm.get('email')?.value, 
+        password:              this.registerForm.get('password')?.value, 
+        country_phone_code:    this.registerForm.get('codeCountry')?.value, 
+        cel_phone:             this.registerForm.get('phone')?.value, 
+        /* gender_type:          this.registerForm.get('sexo')?.value, 
+        date_of_birth:        this.registerForm.get('birthday')?.value,   */       
+    }
+       
+
+    this.bymiaservice.registerNewUser(this.newUser).subscribe(resp => {
+      this.userCreated();
+      this.registerForm.reset();
     }, (err) => {
 
       if (err === 400) {
         alert('Usuario ya registrado')
       }
-      console.log('El status es: ' + err)
-      console.log('Message: ' + err.error);
+      console.log('El status es: ' , )
+      console.log("Message:"+ err.error);
 
     })
   }
@@ -171,6 +207,7 @@ export class RegisterComponent implements OnInit {
   disabledField(rol: string): boolean {
     const dateForm = this.registerForm.get('birthday') as AbstractControl;
     const sexoForm = this.registerForm.get('sexo') as AbstractControl;
+    
     if (rol == '1') {
       this.placeholderName = "Nombre y Apellido"
       dateForm.setValidators([Validators.required]);
@@ -195,6 +232,32 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  viewPassword(){
+    
+    
+    if (this.optionPassword == 'password') {
+      this.optionPassword='text'
+      setTimeout(() => {
+        this.optionPassword='password'
+      }, 5000); 
+      
+    }else{
+      this.optionPassword='password'
+      
+    }
+    
+  }
+
+  getCodeCountryFlag(id:any){    
+    const index:number= this.phoneCode.findIndex(p => p.id == id);
+    this.flag=this.phoneCode[index].flag;
+    this.codeCountry= this.phoneCode[index].phonecode;
+  }
+
+  userCreated(){
+    this.closeRegister=false;
+    return this.showCreatedUser=true
+  }
 
   get userRol() { return this.registerForm.get('userRol') }
 

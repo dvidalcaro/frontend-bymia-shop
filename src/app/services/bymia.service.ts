@@ -13,7 +13,12 @@ import { CountryCode } from '../shared/interfaces/countryCode-interface';
 
 import { Banner } from '../shared/interfaces/Banner';
 import { Brand } from '../shared/interfaces/Brand';
+
+import { RegisterUser } from '../shared/interfaces/register-interface';
+
+
 import { SearchType } from '../shared/interfaces/SearchType';
+
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const urlBannerMock = 'assets/banners.json';
@@ -105,9 +110,12 @@ export class BymiaService {
     return this.http.post(`${url}/contact`, body, { headers });
   }
 
-  public registerNewUser(): Observable<any> {
-    return this.http.post(`${url}/contact`, { headers });
-  }
+
+  // Falta enviar el body
+  public registerNewUser(body: RegisterUser ):Observable<any>{
+    return this.http.post(`${url}/register`, body, { headers });
+
+ 
 
   public getCountryCode() {
     return this.http

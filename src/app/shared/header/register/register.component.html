@@ -1,4 +1,4 @@
-<div class="container__modal">
+<div class="container__modal" *ngIf="closeRegister">
    <div class="container  bg-white rounded-3 justify-content-center frm-register">
       <div class="row mb-3 mt-3">
          <div class="col">
@@ -46,7 +46,8 @@
             </div>
          </div>
          <div class="col-12 frm-register__input">
-            <input type="password" class="form-control frm-register__ico" formControlName="password" placeholder="Password">
+            <input [type]="optionPassword"   class="form-control frm-register__pwd"  formControlName="password" placeholder="Password">
+            <img class="float-end me-2 frm-register__view" (click)="viewPassword()" src="../../../../assets/img/eye-pwd.png" alt="">
             <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf=" validatePasswordRequiered()">
                <i class='bx bx-error frm-register__i'>
                   El password es requerido. </i>
@@ -59,10 +60,15 @@
             </div>
          </div>
          <div class="col-12 frm-register__input" *ngIf="showField" >
-            <input type="text" placeholder="Fecha de nacimiento: DD/MM/AAAA" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" max="2021-08-31" formControlName="birthday">
+            <input type="text" placeholder="Fecha de nacimiento: DD/MM/AAAA"
+            [max]="fechaISO" [min]="fechaISOMax"
+            onfocus="(this.type='date')" onblur="(this.type='text')"
+            class="form-control"  formControlName="birthday">
+             
             <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateDateRequiered()">
                <i class='bx bx-error frm-register__i'> La Fecha es requerida.</i>
             </div>
+            
          </div>
          <div class="col-12" *ngIf="showField" >
             <select class="form-select frm-register__select-bg" formControlName="sexo">
@@ -78,27 +84,34 @@
          </div>
          <div class="col-12">
 
-            <div class="row gx-1">
-               <div class="col-5">
+            <div class="row">
+
+               <div class="mb-3">
+                  
                   <select class="form-select frm-register__select-bg" formControlName="codeCountry">
-                     <option value="" disabled>+xx</option>
-                     <option *ngFor="let item of phoneCode" [value]="item.id"> {{item.phonecode}} </option>
+                     <option value="" disabled>País</option>
+                     <option *ngFor="let item of phoneCode" [value]="item.id">  {{item.name}} </option>
                      
                   </select>
                </div>
-               <div class="col-7 frm-register__input">
+               
+            </div>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateCodeRequiered()">
+               <i class='bx bx-error frm-register__i'></i>
+               Debes seleccionar un país.
+            </div>
+
+            <div class="row gx-1">
+               
+               <div class="col  input-group frm-register__input">
+                  <span class="input-group-text bg-white border-1 border-dark frm-register__input"><img width="32px" crossorigin="anonymous" [src]="flag" alt=""></span>
+                  <span class="input-group-text bg-white border-1 border-dark frm-register__input"> {{codeCountry}} </span>
+
                   <input type="text" class="form-control" formControlName="phone" placeholder="Teléfono">
 
                </div>
             </div>
-            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateCodeRequiered()">
-               <i class='bx bx-error frm-register__i'></i>
-               El código de países requerido.
-            </div>
-            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validatePhoneRequiered()">
-               <i class='bx bx-error  frm-register__i'></i>
-               El teléfono es requerido.
-            </div>
+            
             <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validatePhoneFormat()">
                <i class='bx bx-error  frm-register__i'></i>
                El formato de teléfonono no es valido solo acepta numeros y debe contener 10 numeros.
@@ -126,13 +139,50 @@
             Debes aceptar las concidiones y políticas.
          </div>
          <div class="col-12">
-            <button class="button_modal  col-12 "  [disabled]="!registerForm.valid">Registrarse</button>
+            <button class="button_modal  col-12"  [disabled]="!registerForm.valid">Registrarse</button>
          </div>
         
 
       </form>
 
    </div>
-  <!--  <pre> Valid: {{registerForm.valid}}  </pre>
+   <!-- <pre> Valid: {{registerForm.valid}}  </pre>
    <pre> Value: {{registerForm.value | json }}  </pre> -->
 </div>
+
+<!-- Modal message user cretated -->
+
+<div class="container__modal" *ngIf="showCreatedUser" >
+   <div class="container  bg-white rounded-3 justify-content-center frm-register">
+      <div class="row mb-3 mt-4">
+         <div class="col">
+            <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
+               alt="cerrar">
+         </div>
+      </div>
+
+      <div class="row">
+         <div class="col text-center">
+            <p class="text-dark modal__p" > <strong>Usuario creado con exito</strong> </p>
+            
+         </div>
+      </div>
+      <div class="row">
+         <div class="col text-center ps-5 pe-5">
+            <p class="text-dark fw-bold" > Te enviamos un correo electronico para que valides tu cuenta si no lo ves en tu bandeja de entrada revisa en la carpeta de spam </p>
+
+         </div>
+      </div>
+      <div class="row pb-4">
+         <div class="col text-center">
+            <i class='bx bxs-check-circle bx-tada-hover modal__i text-center' width="160px" ></i>
+         </div>
+      </div>
+      
+
+   </div>
+   
+</div>
+
+<!-- Modal message user cretated -->
+

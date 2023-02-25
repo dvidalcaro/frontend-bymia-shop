@@ -1,13 +1,81 @@
+<div class="container__modal">
+   <div class="container  bg-white rounded-3 justify-content-center frm-register">
+      <div class="row mb-3 mt-3">
+         <div class="col">
+            <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
+               alt="cerrar">
+         </div>
+      </div>
+      <form class="frm-register__form row g-3 p-3 pb-4" [formGroup]="loginForm" (ngSubmit)="registerUser()">
+         
+         
+         <div class="col-12 frm-register__input">
+            <input type="email" class="form-control" formControlName="email" placeholder="Dirección de email">
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateEmailRequired()">
+               <i class='bx bx-error frm-register__i'></i>
+               El email es requerido.
+            </div>
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert"  *ngIf=" validateEmailFormat()">
+               <i class='bx bx-error frm-register__i'></i>Formato de email no es valido.
+            </div>
+            <!-- <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="false">
+               <i class='bx bx-error frm-register__i'>El email ya esta registrado.</i>
+            </div> -->
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateemailMinLength()">
+               <i class='bx bx-error  frm-register__i'></i>
+               El Email debe tener minimo {{loginForm.get('email')?.errors?.['minlength'].requiredLength}} caracteres.
+            </div>
+         </div>
+         <div class="col-12 frm-register__input">
+            <input [type]="optionPassword"   class="form-control frm-register__pwd"  formControlName="password" placeholder="Password">
+            <img class="float-end me-2 frm-register__view" (click)="viewPassword()" src="../../../../assets/img/eye-pwd.png" alt="">
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf=" validatePasswordRequiered()">
+               <i class='bx bx-error frm-register__i'>
+                  El password es requerido. </i>
+            </div>
+
+            <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validatePassword()">
+               <i class='bx bx-error frm-register__i'> La contraseña debe tener al menos 8 caracteres de longitud,
+                  al menos una letra minúscula,
+                  al menos una letra mayúscula, al menos un número y al menos un caracter especial</i>
+            </div>
+         </div>
+         
+         
+         
+        
+         
+         <div class="col-12">
+            <button class="button_modal  col-12 mb-2 "  [disabled]="!loginForm.valid">Entrar</button>
+            <button class="button_modal  col-12 " routerLink="/register" >Registrate</button>
+         </div>
+         <div class="col-12">
+            <div >
+               <p class="condition__p text-center"  >
+                  Si te olvidaste o querés cambiar tu contraseña hacé clic  <strong class="frm-login__strong"  routerLink="/forget-password">aquí</strong>
+                  y  te enviaremos un email. </p>
+            </div>
+            
+         </div>
+        
+
+      </form>
+
+   </div>
+  <!--  <pre> Valid: {{registerForm.valid}}  </pre>
+   <pre> Value: {{registerForm.value | json }}  </pre> -->
+</div>
+
 <!-- <div class="login__container">
    <img (click)="openLogin()" src="../assets/svg/icon_user.svg" alt="Ingresar"><span  routerLink="/login" >Ingresar</span> 
 
 </div> -->
 
 <!-- Modal login and registrr -->
-<div class="container__modal animate__animated animate__zoomIn animate__faster">
+<!-- <div class="container__modal animate__animated animate__zoomIn animate__faster">
    <div class="container__form">
       <img  routerLink="/" src="../assets/img/icon_closed_black.png" alt="cerrar">
-      <!-- <div class="container__platform">
+      <div class="container__platform">
          <div class="platform icon__google">
            
             <img src="../assets/svg/Icon-google.svg" alt="Logueate con Google">
@@ -30,7 +98,7 @@
          <hr>
          <img src="../assets/svg/elipse.svg" alt="elipse">
          <hr>
-      </div> -->
+      </div>
       <form action="">
          <input type="email"  placeholder="Dirección de email">
          <input type="password"  placeholder="Contraseña">        
@@ -42,7 +110,7 @@
       <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio </strong> </a>
          y la <a href=""><strong>Política de privacidad</strong> </a>  </p>
    </div>
-</div>
+</div> -->
 
 <!-- Modal Forget Password -->
 

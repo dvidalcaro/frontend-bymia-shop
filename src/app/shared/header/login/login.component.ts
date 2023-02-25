@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 import { RegisterService } from 'src/app/services/register.service';
@@ -13,6 +14,9 @@ import { RegisterService } from 'src/app/services/register.service';
   ]
 })
 export class LoginComponent implements OnInit {
+  private emailPattern: any = /^[a-zA-Z0-9]{3,}@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+  private passwordPattern: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+|~\-=?{}[\]:";'<>?,./])(?=.*[a-zA-Z]).{8,}$/;
+  optionPassword: string='password'
 
   showLogin: boolean= false;
   showRegister: boolean= false;
@@ -20,7 +24,18 @@ export class LoginComponent implements OnInit {
   showForgetPassword: boolean =false;
   showConfirmMail: boolean= false;
 
-  constructor( private registerService: RegisterService) { }
+  createFormGroupLogin(): FormGroup {
+    return this.fb.group({     
+      
+      email: ['', [Validators.required, Validators.minLength(3), Validators.pattern(this.emailPattern)]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(this.passwordPattern)]],
+      
+    })
+  }
+
+  loginForm!: FormGroup;
+
+  constructor(private registerService: RegisterService,  private fb: FormBuilder) { }
 
   registerUser(){
     console.log('jhhjksad')
@@ -65,9 +80,54 @@ export class LoginComponent implements OnInit {
     this.showForgetPassword=false;
   }
 
+  // Validate mail
+  validateEmailRequired(): boolean {
+    if (this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors?.['required']) {
+      return true
+    } else return false
+  }
+
+  validateEmailFormat(): boolean {
+    if (this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors?.['pattern']) {
+      return true
+    } else return false
+  }
+
+  validateemailMinLength(): boolean {
+    if (this.loginForm.get('email')?.touched && this.loginForm.get('email')?.errors?.['minlength']) {
+      return true
+    } else return false
+  }
+  //validate Password
+  validatePasswordRequiered(): boolean {
+    if (this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['required']) {
+      return true
+    } else return false
+  }
+
+  validatePassword(): boolean {
+    if (this.loginForm.get('password')?.touched && this.loginForm.get('password')?.errors?.['pattern']) {
+      return true
+    } else return false
+  }
+  viewPassword(){    
+    
+    if (this.optionPassword == 'password') {
+      this.optionPassword='text'
+      setTimeout(() => {
+        this.optionPassword='password'
+      }, 5000); 
+      
+    }else{
+      this.optionPassword='password'
+      
+    }
+    
+  }
  
 
   ngOnInit(): void {
+    this.loginForm = this.createFormGroupLogin();
   }
 
 }
