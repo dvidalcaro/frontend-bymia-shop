@@ -32,6 +32,7 @@ const headers = new HttpHeaders({
   providedIn: 'root',
 })
 export class BymiaService {
+  public loading: boolean = false;
   private sliders: Slider[] = [];
   private about: About = {};
   private faqs: TopLevel[] = [];
@@ -94,16 +95,17 @@ export class BymiaService {
     index: number = 0,
     limit: number = 4
   ) {
-    if (this.featuredProducts.length > 0) {
-      return of(this.featuredProducts);
-    } else {
-      return this.http
-        .get<FeaturedProduct[]>(
-          `${url}/products/tag/${feature}?i=${index}&l=${limit}`,
-          { headers }
-        )
-        .pipe(tap(fp => (this.featuredProducts = fp)));
+    if (this.loading) {
+      return of([]);
     }
+    this.loading = true;
+    return this.http
+      .get<FeaturedProduct[]>(
+        `${url}/products/tag/${feature}?i=${index}&l=${limit}`,
+        { headers }
+      )
+      .pipe(tap(() => (this.loading = false)));
+    // .pipe(tap(fp => (this.featuredProducts = fp)));
   }
 
   public sendContactForm(body: MsgContactForm): Observable<any> {
@@ -135,7 +137,7 @@ export class BymiaService {
       return of(this.brands);
     } else {
       return this.http
-        .get<Brand[]>(`${urlBrandsMock}`)
+        .get<Brand[]>(`${url}/brands`, { headers })
         .pipe(tap(brands => (this.brands = brands)));
     }
   }
