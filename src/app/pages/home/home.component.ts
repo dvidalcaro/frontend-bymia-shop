@@ -3,6 +3,7 @@ import { BymiaService } from 'src/app/services/bymia.service';
 import { Banner } from 'src/app/shared/interfaces/Banner';
 import { Categories } from 'src/app/shared/interfaces/Categories';
 import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
+import { HomeSection } from 'src/app/shared/interfaces/HomeSection';
 
 @Component({
   selector: 'app-home',
@@ -34,10 +35,8 @@ export class HomeComponent implements OnInit {
 
   categoriesList: Categories[] = [];
 
-  featuredProducts: FeaturedProduct[] = [];
-  soldedProducts: FeaturedProduct[] = [];
-  bestOfferProducts: FeaturedProduct[] = [];
-  lastLaunchProducts: FeaturedProduct[] = [];
+  homeSections: HomeSection[] = [];
+
   moreProducts: FeaturedProduct[] = [];
   index: number = 0;
   limit: number = 4;
@@ -47,36 +46,20 @@ export class HomeComponent implements OnInit {
       .getCategoriesList()
       .subscribe(resp => (this.categoriesList = resp));
 
-    bymiaService
-      .getFeaturedProducts('destacados', this.index, this.limit)
-      .subscribe(resp => {
-        this.featuredProducts = resp;
-      });
-    bymiaService
-      .getFeaturedProducts('destacados', this.index, this.limit)
-      .subscribe(resp => {
-        this.soldedProducts = resp;
-      });
-    bymiaService
-      .getFeaturedProducts('destacados', this.index, this.limit)
-      .subscribe(resp => {
-        this.bestOfferProducts = resp;
-      });
+    bymiaService.getSections().subscribe(resp => {
+      this.homeSections = resp;
+    });
+
     bymiaService.getBanners().subscribe(resp => {
       this.banners = resp;
       this.showBanners = true;
     });
-    bymiaService
-      .getFeaturedProducts('destacados', this.index, this.limit)
-      .subscribe(resp => {
-        this.lastLaunchProducts = resp;
-      });
+
     bymiaService
       .getFeaturedProducts('destacados', this.index, this.limit)
       .subscribe(resp => {
         this.moreProducts = resp;
       });
-
   }
 
   ngOnInit(): void {}

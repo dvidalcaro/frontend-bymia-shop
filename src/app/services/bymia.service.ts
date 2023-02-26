@@ -13,12 +13,11 @@ import { CountryCode } from '../shared/interfaces/countryCode-interface';
 
 import { Banner } from '../shared/interfaces/Banner';
 import { Brand } from '../shared/interfaces/Brand';
+import { HomeSection } from '../shared/interfaces/HomeSection';
 
 import { RegisterUser } from '../shared/interfaces/register-interface';
 
-
 import { SearchType } from '../shared/interfaces/SearchType';
-
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const urlBannerMock = 'assets/banners.json';
@@ -43,6 +42,7 @@ export class BymiaService {
   private searchTypeList: SearchType[] = [];
   //private msgContactForm: MsgContactForm;
   private countryCode: CountryCode[] = [];
+  private homeSections: HomeSection[] = [];
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
@@ -110,12 +110,10 @@ export class BymiaService {
     return this.http.post(`${url}/contact`, body, { headers });
   }
 
-
   // Falta enviar el body
-  public registerNewUser(body: RegisterUser ):Observable<any>{
+  public registerNewUser(body: RegisterUser): Observable<any> {
     return this.http.post(`${url}/register`, body, { headers });
   }
- 
 
   public getCountryCode() {
     return this.http
@@ -148,6 +146,15 @@ export class BymiaService {
       return this.http
         .get<SearchType[]>(`${url}/searchTypeList`, { headers })
         .pipe(tap(searchTypeList => (this.searchTypeList = searchTypeList)));
+    }
+  }
+  public getSections() {
+    if (this.homeSections.length > 0) {
+      return of(this.homeSections);
+    } else {
+      return this.http
+        .get<HomeSection[]>(`${url}/products/sections`, { headers })
+        .pipe(tap(homeSections => (this.homeSections = homeSections)));
     }
   }
 }
