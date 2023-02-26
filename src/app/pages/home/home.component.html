@@ -1,18 +1,20 @@
 <!-- <app-hero></app-hero> -->
 <app-home-slider></app-home-slider>
 <app-featured-products
-  [title]="'Productos destacados'"
-  [category]="'featured'"
-  [featuredProducts]="featuredProducts"></app-featured-products>
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[0].title"
+  [category]="homeSections[0].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[0].categories"></app-featured-products>
 
 <!-- Most Searched -->
 <app-categories></app-categories>
 
 <!-- Most Solded -->
 <app-featured-products
-  [title]="'Más vendidos'"
-  [category]="'most-solded'"
-  [featuredProducts]="soldedProducts"></app-featured-products>
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[1].title"
+  [category]="homeSections[1].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[1].categories"></app-featured-products>
 
 <!-- Banner-1 -->
 <app-banner
@@ -22,18 +24,20 @@
 
 <!-- Mejores Ofertas -->
 <app-featured-products
-  [title]="'Mejores ofertas'"
-  [category]="'mejores-ofertas'"
-  [featuredProducts]="bestOfferProducts"></app-featured-products>
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[2].title"
+  [category]="homeSections[2].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[2].categories"></app-featured-products>
 
 <!-- Marcas -->
 <app-brands></app-brands>
 
 <!-- Mejores Ofertas -->
 <app-featured-products
-  [title]="'Últimos lanzamientos'"
-  [category]="'ultimos-lanzamientos'"
-  [featuredProducts]="lastLaunchProducts"></app-featured-products>
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[3].title"
+  [category]="homeSections[3].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[3].categories"></app-featured-products>
 
 <!-- Banner-2 -->
 <app-banner
