@@ -126,7 +126,7 @@ export class BymiaService {
       return of(this.banners);
     } else {
       return this.http
-        .get<Banner[]>(`${urlBannerMock}`)
+        .get<Banner[]>(`${url}/banners`, { headers })
         .pipe(tap(banners => (this.banners = banners)));
     }
   }
