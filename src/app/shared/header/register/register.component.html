@@ -1,12 +1,16 @@
-<div class="container__modal" *ngIf="closeRegister">
-   <div class="container  bg-white rounded-3 justify-content-center frm-register">
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="closeRegister">
+   <div class="text-center text-bymia container__modal" *ngIf="loading">
+      <i class="bx bx-md bx-loader-alt bx-spin"></i>
+    </div>
+   <div class="container  bg-white rounded-3 justify-content-center frm-register" *ngIf="showForm">
+     
       <div class="row mb-3 mt-3">
          <div class="col">
             <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
                alt="cerrar">
          </div>
       </div>
-      <form class="frm-register__form row g-3 p-3 pb-4" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <form  class="frm-register__form row g-3 p-3 pb-4" [formGroup]="registerForm" (ngSubmit)="registerUser()">
          <div class="col-12">
             <select class="form-select frm-register__select p-2" formControlName="userRol">
                <option value="" disabled [selected]="true">Selecciona Persona o Empresa</option>
@@ -114,7 +118,7 @@
             
             <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validatePhoneFormat()">
                <i class='bx bx-error  frm-register__i'></i>
-               El formato de teléfonono no es valido solo acepta numeros y debe contener 10 numeros.
+               El formato de teléfonono no es valido solo acepta numeros y debe contener entre 6 y 15 numeros.
             </div>
 
 
@@ -152,7 +156,7 @@
 
 <!-- Modal message user cretated -->
 
-<div class="container__modal" *ngIf="showCreatedUser" >
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showCreatedUser" >
    <div class="container  bg-white rounded-3 justify-content-center frm-register">
       <div class="row mb-3 mt-4">
          <div class="col">

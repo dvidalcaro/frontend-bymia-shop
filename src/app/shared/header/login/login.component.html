@@ -1,12 +1,15 @@
-<div class="container__modal">
-   <div class="container  bg-white rounded-3 justify-content-center frm-register">
+<div class="container__modal animate__animated animate__zoomIn animate__faster">
+   
+   <div class="container  bg-white rounded-3 justify-content-center frm-register" >
       <div class="row mb-3 mt-3">
          <div class="col">
             <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
                alt="cerrar">
          </div>
+         
       </div>
-      <form class="frm-register__form row g-3 p-3 pb-4" [formGroup]="loginForm" (ngSubmit)="registerUser()">
+      
+      <form   class="frm-register__form row g-3 p-3 pb-4" [formGroup]="loginForm" (ngSubmit)="registerUser()">
          
          
          <div class="col-12 frm-register__input">
