@@ -18,6 +18,7 @@ import { OrdersComponent } from './user-panel/orders/orders.component';
 import { PanelComponent } from './user-panel/panel/panel.component';
 import { HelpComponent } from './user-panel/help/help.component';
 import { SearchComponent } from './pages/search/search.component';
+import { ValidateComponent } from './pages/validate/validate.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,10 @@ const routes: Routes = [
   {
     path: 'forget-password',
     component: ForgetPasswordComponent,
+  },
+  {
+    path: 'validate',
+    component: ValidateComponent,
   },
 
   {

@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { BymiaService } from '../../../services/bymia.service';
 import { CountryCode } from '../../interfaces/countryCode-interface';
 import { RegisterUser } from '../../interfaces/register-interface';
@@ -14,7 +15,7 @@ import { RegisterUser } from '../../interfaces/register-interface';
 export class RegisterComponent implements OnInit {
   private emailPattern: any = /^[a-zA-Z0-9]{3,}@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
   private passwordPattern: RegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+|~\-=?{}[\]:";'<>?,./])(?=.*[a-zA-Z]).{8,}$/;
-  private phonePattern: RegExp = /^\d{10}$/;
+  private phonePattern: RegExp = /^[0-9]{6,15}$/;
   private newUser!: RegisterUser;
   optionPassword: string='password'
   flag:string='';
@@ -31,7 +32,8 @@ export class RegisterComponent implements OnInit {
   fechaISOMax = this.fechaObjMax.toISOString().slice(0,10); // "2005-02-25"
   closeRegister:boolean=true;
   showCreatedUser: boolean=false;
-  
+  loading: boolean= false;
+  showForm: boolean= true;
 
   public phoneCode: CountryCode[] = [];
   showField: boolean = true;
@@ -54,7 +56,9 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
   placeholderName: string = "Nombre y Apellido";
 
-  constructor(private bymiaservice: BymiaService, private fb: FormBuilder) {
+  constructor(private bymiaservice: BymiaService, 
+              private fb: FormBuilder,
+               private route: ActivatedRoute) {
     
     bymiaservice.getCountryCode()
       .subscribe((resp: CountryCode[]) => (this.phoneCode = resp));
@@ -65,6 +69,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.createFormGroup();
+
+    
 
     this.registerForm.get('userRol')?.valueChanges
     .subscribe(rolValue =>{
@@ -189,8 +195,15 @@ export class RegisterComponent implements OnInit {
        
 
     this.bymiaservice.registerNewUser(this.newUser).subscribe(resp => {
-      this.userCreated();
-      this.registerForm.reset();
+      console.log(resp);
+      
+      this.showForm=false;
+      this.loading=true
+      setTimeout(() => {
+        this.userCreated();
+        this.registerForm.reset();
+      }, 2000);
+      
     }, (err) => {
 
       if (err === 400) {

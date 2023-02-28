@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
-import { tap, switchMap } from 'rxjs/operators';
+import { tap, switchMap, map, catchError } from 'rxjs/operators';
 import { About } from '../shared/interfaces/About';
 import { Categories } from '../shared/interfaces/Categories';
 import { FeaturedProduct } from '../shared/interfaces/FeaturedProduct';
@@ -18,6 +18,7 @@ import { HomeSection } from '../shared/interfaces/HomeSection';
 import { RegisterUser } from '../shared/interfaces/register-interface';
 
 import { SearchType } from '../shared/interfaces/SearchType';
+import { ValidateResponse } from '../shared/interfaces/validateResponse-interfaces';
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const urlBannerMock = 'assets/banners.json';
@@ -112,9 +113,21 @@ export class BymiaService {
     return this.http.post(`${url}/contact`, body, { headers });
   }
 
-  // Falta enviar el body
+ 
   public registerNewUser(body: RegisterUser): Observable<any> {
     return this.http.post(`${url}/register`, body, { headers });
+  }
+
+   public   validateUser(body:any):Observable<any>{
+      return this.http.post<ValidateResponse>(`${url}/validate`, body,{ headers})
+      .pipe(
+        tap(resp =>{
+          console.log(resp);
+          
+        }),
+        map( resp => resp.message),
+        catchError( err => of (false))
+      )
   }
 
   public getCountryCode() {
@@ -159,4 +172,6 @@ export class BymiaService {
         .pipe(tap(homeSections => (this.homeSections = homeSections)));
     }
   }
+
+
 }

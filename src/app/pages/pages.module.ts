@@ -24,6 +24,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './search/search.component';
+import { ValidateComponent } from './validate/validate.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SearchComponent } from './search/search.component';
     BrandsComponent,
     FooterComponent,
     SearchComponent,
+    ValidateComponent,
   ],
   exports: [
     HomeComponent,
