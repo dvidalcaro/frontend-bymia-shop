@@ -12,7 +12,7 @@ import { InterceptorsModule } from './interceptors/interceptors.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BymiaService } from './services/bymia.service';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent],
@@ -25,7 +25,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     PagesModule,
     UserPanelModule,
     HeaderModule,
-    
+    FormsModule,
   ],
   exports: [],
   providers: [BymiaService],
