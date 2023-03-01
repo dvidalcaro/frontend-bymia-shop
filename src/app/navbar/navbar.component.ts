@@ -17,6 +17,8 @@ export class NavbarComponent implements OnInit {
   showListPrice: boolean = false;
   showConfirm: boolean = false;
   searchTypeList: SearchType[] = [];
+  query: string = '';
+  filter: string = 'all';
 
   linksHeader: navLink[] = [
     {
@@ -73,13 +75,39 @@ export class NavbarComponent implements OnInit {
   }
 
   toogleBarSearch() {
-    if (!this.switchBar) {
-      this.router.navigate(['search']);
-    } else {
-      this.router.navigate(['/']);
-    }
+    // if (!this.switchBar) {
+    //   this.router.navigate(['search']);
+    // } else {
+    //   this.router.navigate(['/']);
+    // }
     this.switchBar = !this.switchBar;
   }
+
+  setFilter(filter: string) {
+    this.filter = filter.toLowerCase();
+    // console.log('filter', this.filter);
+    this.router.navigate(['/search', this.filter, this.query.trim()]);
+  }
+
+  clearInput() {
+    this.query = '';
+    this.filter = '';
+    this.router.navigate(['/home']);
+  }
+
+  onSeaching(event: any) {
+    let key = event.target.value.trim();
+    // console.log(key);
+    if (key.length > 2) {
+      this.router.navigate(['/search', this.filter, key]);
+    }
+  }
+  onSeachingButton() {
+    if (this.query.length > 2) {
+      this.router.navigate(['/search', this.filter, this.query.trim()]);
+    }
+  }
+
   toogleListPrice() {
     this.showListPrice = !this.showListPrice;
   }
@@ -92,5 +120,8 @@ export class NavbarComponent implements OnInit {
     this.showConfirm = false;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.filter = '';
+    this.query = '';
+  }
 }

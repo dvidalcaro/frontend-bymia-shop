@@ -306,6 +306,7 @@ fieldset:disabled .btn {
   > .form-select {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  border: 1px solid #15fed4;
 }
 .input-group.has-validation
   > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu):not(

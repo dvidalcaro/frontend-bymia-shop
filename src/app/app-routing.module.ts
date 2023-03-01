@@ -28,7 +28,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'search',
+    path: 'search/:filter/:key',
     component: SearchComponent,
   },
 
