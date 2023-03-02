@@ -99,11 +99,24 @@
   font-size: 5rem;
   
 }
+.modal__i__bg{
+    color: red;
+    font-size: 5rem;
+  }
+  
 
 .modal__p{
     font-size: 1.25rem;
 }
 
+//modal price list
+.pricelist__h1{
+    font-size: 1.2rem;
+}
+
+.container__price{
+    z-index: 1082;
+}
 
 .container__form {
      display: flex;

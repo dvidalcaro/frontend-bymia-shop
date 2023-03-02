@@ -15,7 +15,7 @@ import { Banner } from '../shared/interfaces/Banner';
 import { Brand } from '../shared/interfaces/Brand';
 import { HomeSection } from '../shared/interfaces/HomeSection';
 
-import { RegisterUser } from '../shared/interfaces/register-interface';
+import { PriceList, RegisterUser } from '../shared/interfaces/register-interface';
 
 import { SearchType } from '../shared/interfaces/SearchType';
 import { ValidateResponse } from '../shared/interfaces/validateResponse-interfaces';
@@ -45,7 +45,7 @@ export class BymiaService {
   //private msgContactForm: MsgContactForm;
   private countryCode: CountryCode[] = [];
   private homeSections: HomeSection[] = [];
-
+  
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
   }
@@ -118,7 +118,7 @@ export class BymiaService {
     return this.http.post(`${url}/register`, body, { headers });
   }
 
-   public   validateUser(body:any):Observable<any>{
+   public validateUser(body:any):Observable<any>{
       return this.http.post<ValidateResponse>(`${url}/validate`, body,{ headers})
       .pipe(
         tap(resp =>{
@@ -128,6 +128,15 @@ export class BymiaService {
         map( resp => resp.message),
         catchError( err => of (false))
       )
+  }
+
+  public sendPriceList(body:any):Observable<any>{
+    return this.http.post<PriceList>(`${url}/listPrice`, body , {headers} )
+    .pipe(
+      tap(resp => {resp}),
+      map(resp => resp.message),
+      catchError(err => of (false))
+    )
   }
 
   public getCountryCode() {

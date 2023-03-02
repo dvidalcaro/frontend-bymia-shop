@@ -1,4 +1,4 @@
-<nav class="nav__container">
+<!-- <nav class="nav__container">
   <div class="link__container">
     <div *ngFor="let link of linksHeader">
       <div class="nav__links">
@@ -20,7 +20,7 @@
 <form class="search__form" action="" *ngIf="switchBar">
   <select name="" id="">
     <option value="">Categorías</option>
-    <!-- //<option value="" >Por categorías de productos</option> -->
+/<option value="" >Por categorías de productos</option>
     <optgroup label="Por categorías de productos">
       <option value="">Todos</option>
       <option value="">Accesorios</option>
@@ -57,7 +57,68 @@
     (click)="closeBarSearch()" />
 </form>
 
-<!-- Modal Price list -->
+Modal Price list
+
+<div class="container__modal animate__animated animate__zoomIn animate__faster"
+*ngIf="showPriceList"
+    >
+   
+  <div class="container  bg-white rounded-3 justify-content-center frm-register" >
+     <div class="row mb-3 mt-3">
+        <div class="col">
+           <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
+              alt="cerrar">
+        </div>
+        
+     </div>
+     
+     <form   class="frm-register__form row g-3 p-3 pb-4" [formGroup]="pricelistform" (ngSubmit)="sendPriceList()">
+        
+        
+        <div class="col-12 frm-register__input">
+           <input type="email" class="form-control" formControlName="email" placeholder="Dirección de email">
+           <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateEmailRequired()">
+              <i class='bx bx-error frm-register__i'></i>
+              El email es requerido.
+           </div>
+           <div class="alert alert-danger p-1 mt-1 text-dark" role="alert"  *ngIf=" validateEmailFormat()">
+              <i class='bx bx-error frm-register__i'></i>Formato de email no es valido.
+           </div>
+           <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="false">
+              <i class='bx bx-error frm-register__i'>El email ya esta registrado.</i>
+           </div>
+           <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateemailMinLength()">
+              <i class='bx bx-error  frm-register__i'></i>
+              El Email debe tener minimo {{pricelistform.get('email')?.errors?.['minlength'].requiredLength}} caracteres.
+           </div>
+        </div> 
+        
+        
+       
+        
+        <div class="col-12">
+           <button class="button_modal  col-12 mb-2 "  [disabled]="!pricelistform.valid">Entrar</button>
+           <button class="button_modal  col-12 " routerLink="/register" >Suscribite</button>
+        </div>
+        <div class="col-12">
+           <div >
+              <p class="condition__p text-center"  >
+                Al suscribirte, <strong> aceptás los Términos y Condiciones 
+                y la Política de privacidad.</strong> </p>
+           </div>
+           
+        </div>
+       
+
+     </form>
+
+  </div>
+  <pre> Valid: {{registerForm.valid}}  </pre>
+  <pre> Value: {{registerForm.value | json }}  </pre>
+</div>
+
+
+old price list
 
 <div
   class="container__modal animate__animated animate__zoomIn animate__faster"
@@ -96,7 +157,7 @@
   </div>
 </div>
 
-<!-- Modal Confirm add newletter -->
+
 
 <div
   class="container__modal animate__animated animate__zoomIn animate__faster"
@@ -111,7 +172,7 @@
       <p class="platform__p">Crear copy de gracias por suscribirte</p>
     </div>
 
-    <!--  <div class="container__line">
+     <div class="container__line">
             <hr>
             <img src="../assets/svg/elipse.svg" alt="elipse">
             <hr>
@@ -124,6 +185,7 @@
 
         <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio
                 </strong> </a>
-            y la <a href=""><strong>Política de privacidad</strong> </a> </p> -->
+            y la <a href=""><strong>Política de privacidad</strong> </a> </p>
   </div>
 </div>
+ -->

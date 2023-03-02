@@ -1,37 +1,21 @@
-<nav
-  class="navbar sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
+<nav class="navbar sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
   <div class="container-fluid">
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarBymia"
-      aria-controls="navbarBymia"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBymia"
+      aria-controls="navbarBymia" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" [routerLink]="['/']">
-      <img
-        class="navbar-nav ms-5 me-auto mb-2 py-4"
-        src="{{ urlLogo }}"
-        alt="Bymia shop" />
+      <img class="navbar-nav ms-5 me-auto mb-2 py-4" src="{{ urlLogo }}" alt="Bymia shop" />
     </a>
-    <div
-      class="collapse navbar-collapse justify-content-center"
-      id="navbarBymia">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarBymia">
       <!-- SearchBar2 -->
       <div class="container" *ngIf="switchBar">
         <div class="row">
           <div class="col-1"></div>
           <div class="col">
-            <div
-              class="input-group d-flex justify-content-center position-relative">
-              <button
-                class="btn btn-bymia rounded-start dropdown-toggle bg-secundary"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false">
+            <div class="input-group d-flex justify-content-center position-relative">
+              <button class="btn btn-bymia rounded-start dropdown-toggle bg-secundary" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
                 <strong>&nbsp;Categorías&nbsp;</strong>
               </button>
               <ul class="dropdown-menu">
@@ -46,9 +30,21 @@
                     (click)="setFilter(item.name)">
                     <a class="dropdown-item">{{ item.name | titlecase }}</a>
                   </li>
-                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
                 </div>
               </ul>
+
+              <button class="btn btn-bymia bg-secundary no-border" [routerLink]="['search']">
+                <i class="bx bx-tada-hover bx-search"></i>
+              </button>
+              <input type="text" class="form-control rounded-end" aria-label="Text input with dropdown button"
+                placeholder="Buscar..." />
+
+              <span class="position-absolute top-50 end-0 translate-middle text-dark">
+                <i class="bx bx-tada-hover bx-sm bx-x-circle py-2" (click)="toogleBarSearch()"></i>
+
               <button
                 (click)="onSeachingButton()"
                 class="btn btn-bymia bg-secundary no-border"
@@ -67,6 +63,7 @@
                 (click)="clearInput()"
                 class="position-absolute top-50 end-0 translate-middle text-dark">
                 <i class="bx bx-tada-hover bx-sm bx-x-circle py-2"></i>
+
               </span>
             </div>
           </div>
@@ -76,32 +73,21 @@
       <!-- SearchBar2 -->
       <ul class="navbar-nav m-auto mb-2 py-4" *ngIf="!switchBar">
         <div *ngFor="let link of linksHeader">
-          <li
-            class="nav-item mx-2"
-            data-bs-toggle="collapse"
-            data-bs-target=".navbar-collapse.show"
+          <li class="nav-item mx-2" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
             routerLinkActive="active">
             <div *ngIf="link.reference === 'listPrice'; else elseLink">
-              <a class="nav-link" (click)="toogleListPrice()"
-                ><strong>{{ link.label }}</strong></a
-              >
+              <a class="nav-link" (click)="toogleListPrice()"><strong>{{ link.label }}</strong></a>
             </div>
             <ng-template #elseLink>
               <div>
-                <a class="nav-link" [routerLink]="[link.links]"
-                  ><strong>{{ link.label }}</strong></a
-                >
+                <a class="nav-link" [routerLink]="[link.links]"><strong>{{ link.label }}</strong></a>
               </div>
             </ng-template>
           </li>
         </div>
       </ul>
       <ul class="navbar-nav ms-auto me-5 mb-2 py-4">
-        <li
-          class="nav-item"
-          data-bs-toggle=""
-          data-bs-target=".navbar-collapse.show"
-          routerLinkActive="active"
+        <li class="nav-item" data-bs-toggle="" data-bs-target=".navbar-collapse.show" routerLinkActive="active"
           *ngFor="let icon of linksIcon">
           <div *ngIf="icon.reference === 'search'">
             <div class="nav-link position-relative" (click)="toogleBarSearch()">
@@ -109,32 +95,23 @@
             </div>
           </div>
           <div *ngIf="icon.links === 'wish-list'">
-            <a
-              class="nav-link position-relative col-xl-12 col-1"
-              [routerLink]="[icon.links]">
+            <a class="nav-link position-relative col-xl-12 col-1" [routerLink]="[icon.links]">
               <i class="{{ icon.icon }}"> </i>
-              <span
-                *ngIf="WishNotifications > 0"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
-                >{{ WishNotifications }}</span
-              >
+              <span *ngIf="WishNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary">{{
+                WishNotifications }}</span>
             </a>
           </div>
           <div *ngIf="icon.links === 'shop-cart'">
-            <a
-              class="nav-link position-relative col-xl-12 col-1"
-              [routerLink]="[icon.links]">
+            <a class="nav-link position-relative col-xl-12 col-1" [routerLink]="[icon.links]">
               <i class="{{ icon.icon }}"> </i>
-              <span
-                *ngIf="CartNotifications > 0"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
-                >{{ CartNotifications }}</span
-              >
+              <span *ngIf="CartNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary">{{
+                CartNotifications }}</span>
             </a>
           </div>
           <div *ngIf="icon.links === 'login'">
-            <button
-              class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
+            <button class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
               [routerLink]="[icon.links]">
               <i class="{{ icon.icon }}"></i>
               Ingresar
@@ -147,7 +124,140 @@
 </nav>
 
 <!-- Modal Price list -->
-<div
+
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showListPrice">
+
+  <div class="container  bg-white rounded-3 justify-content-center frm-register container__price">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img class="frm-register__img float-end"  (onclick)="closelist()" src="../assets/img/icon_closed_black.png"
+          alt="cerrar">
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1 class="text-black text-center fw-bold p-3 pricelist__h1">
+          Suscríbete al precio de lista y accede a cientos de ofertas
+        </h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p class="text-dark text-center ps-3 pe-3">
+          Por favor ingresá tu
+          correo electrónico para acceder a nuestra Lista de precios.
+        </p>
+      </div>
+    </div>
+
+    <form class="frm-register__form row g-3 p-3 pb-4" [formGroup]="priceListform" (ngSubmit)="sendPriceList()">
+
+      <div class="col-12 frm-register__input">
+        <input type="email" class="form-control" formControlName="email" placeholder="Dirección de email">
+        <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateEmailRequired()">
+          <i class='bx bx-error frm-register__i'></i>
+          El email es requerido.
+        </div>
+        <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf=" validateEmailFormat()">
+          <i class='bx bx-error frm-register__i'></i>Formato de email no es valido.
+        </div>
+        <!-- <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="false">
+              <i class='bx bx-error frm-register__i'>El email ya esta registrado.</i>
+           </div> -->
+        <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateemailMinLength()">
+          <i class='bx bx-error  frm-register__i'></i>
+          El Email debe tener minimo {{priceListform.get('email')?.errors?.['minlength'].requiredLength}} caracteres.
+        </div>
+      </div>
+      <div class="col-12 frm-register__input">
+        <input type="email" class="form-control" formControlName="confirmEmail"
+          placeholder="Confirmar dirección de email">
+        <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateConfirmEmailRequired()">
+          <i class='bx bx-error frm-register__i'></i>
+          El email es requerido.
+        </div>
+        <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf=" validateConfirmEmailFormat()">
+          <i class='bx bx-error frm-register__i'></i>Formato de email no es valido.
+        </div>
+        <!-- <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="false">
+              <i class='bx bx-error frm-register__i'>El email ya esta registrado.</i>
+           </div> -->
+        <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateConfirmEmailMinLength()">
+          <i class='bx bx-error  frm-register__i'></i>
+          El Email debe tener minimo {{priceListform.get('email')?.errors?.['minlength'].requiredLength}} caracteres.
+        </div>
+        <div class="alert alert-danger p-1 mt-1 text-dark" role="alert" *ngIf="validateEqual()">
+          <i class='bx bx-error  frm-register__i'></i>
+          Los campos de email deben ser iguales.
+        </div>
+      </div>
+
+
+
+
+      <div class="col-12">
+
+        <button type="submit" class="button_modal col-12" [disabled]="priceListform.invalid">Suscribite</button>
+      </div>
+      <div class="col-12">
+        <div>
+          <p class="condition__p text-center">
+            Al suscribirte, <strong> aceptás los Términos y Condiciones
+              y la Política de privacidad.</strong> </p>
+        </div>
+
+      </div>
+
+
+    </form>
+
+  </div>
+
+</div>
+
+<!-- confirmation of mailing of list price -->
+
+<div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="confirmRequest">
+  <div class="container  bg-white rounded-3 justify-content-center frm-register">
+    <div class="row mb-3 mt-4">
+      <div class="col">
+        <img class="frm-register__img float-end" (onclick)="closeConfirm()" src="../assets/img/icon_closed_black.png" alt="cerrar">
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col text-center">
+        <p class="text-dark modal__p"> <strong>Solicitud enviada con exito</strong> </p>
+
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col text-center ps-5 pe-5">
+        <p class="text-dark fw-bold">
+          Hemos recibido tu solicitud:
+          Un representante de atención
+          al cliente te contactará a la
+          brevedad.
+        </p>
+
+      </div>
+    </div>
+    <div class="row pb-4">
+      <div class="col text-center">
+        <i class='bx bxs-check-circle bx-tada-hover modal__i text-center' width="160px"></i>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<!-- old Modal Price list -->
+
+<!-- <div
   class="container__modal animate__animated animate__zoomIn animate__faster"
   *ngIf="showListPrice">
   <div class="container__form container__form__pricelist">
@@ -182,24 +292,19 @@
       <a href=""><strong>Política de privacidad</strong> </a>
     </p>
   </div>
-</div>
+</div> -->
 
 <!-- Modal Confirm add newletter -->
 
-<div
-  class="container__modal animate__animated animate__zoomIn animate__faster"
-  *ngIf="showConfirm">
+<!-- <div class="container__modal animate__animated animate__zoomIn animate__faster" *ngIf="showConfirm">
   <div class="container__form">
-    <img
-      (click)="closeConfirm()"
-      src="../assets/img/icon_closed_black.png"
-      alt="cerrar" />
+    <img (click)="closeConfirm()" src="../assets/img/icon_closed_black.png" alt="cerrar" />
 
     <div class="container__platform">
       <p class="platform__p">Crear copy de gracias por suscribirte</p>
-    </div>
+    </div> -->
 
-    <!--  <div class="container__line">
+<!--  <div class="container__line">
             <hr>
             <img src="../assets/svg/elipse.svg" alt="elipse">
             <hr>
@@ -213,5 +318,5 @@
         <p class="condition__p">Al Entrar o Registrarte , aceptas las <a href=""><strong>Condiciones de servicio
                 </strong> </a>
             y la <a href=""><strong>Política de privacidad</strong> </a> </p> -->
-  </div>
-</div>
+<!--   </div>
+</div> -->
