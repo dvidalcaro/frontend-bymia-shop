@@ -11,3 +11,8 @@ export interface RegisterUser {
     identity_number?:        string;
     accept?:                 string;
 }
+
+export interface PriceList{
+    
+    message: string;
+}

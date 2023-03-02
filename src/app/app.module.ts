@@ -12,6 +12,7 @@ import { InterceptorsModule } from './interceptors/interceptors.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BymiaService } from './services/bymia.service';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     PagesModule,
     UserPanelModule,
     HeaderModule,
+    ReactiveFormsModule
     
   ],
   exports: [],

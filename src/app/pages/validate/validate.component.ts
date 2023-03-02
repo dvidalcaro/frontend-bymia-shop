@@ -14,6 +14,7 @@ import { ValidateResponse } from 'src/app/shared/interfaces/validateResponse-int
 export class ValidateComponent implements OnInit {
   showMessage:boolean= false;
   message: string='';
+  classIco:string='bx bxs-check-circle bx-tada-hover modal__i text-center';
   constructor( private bymiaService: BymiaService, private route: ActivatedRoute, private router: Router) {} 
 
 
@@ -21,18 +22,21 @@ export class ValidateComponent implements OnInit {
   ngOnInit(): void {
      this.route.queryParams.subscribe(params => {
       
-      console.log(params);
+     
       this.bymiaService.validateUser(params).subscribe(resp => {
         
         if(resp){
           this.showMessage=true;
-          this.message= 'Cuenta verificada con éxito'
+          this.message= 'Cuenta verificada con éxito';
+          this.classIco= 'bx bxs-check-circle bx-tada-hover modal__i text-center';
           setTimeout(() => {
             this.router.navigateByUrl('/login')            
           }, 4000);
         }else{
+          console.log(params.message);
           this.showMessage=true;
-          this.message= 'Cuenta no fue verificada'
+          this.message= 'Cuenta no fue verificada';
+          this.classIco= 'bx bxs-x-circle bx-tada-hover modal__i__bg text-center';
           setTimeout(() => {
             this.router.navigateByUrl('/register')            
           }, 4000);
