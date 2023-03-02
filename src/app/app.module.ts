@@ -31,7 +31,7 @@ import { FormsModule } from '@angular/forms';
     UserPanelModule,
     HeaderModule,
 
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
     FormsModule,
 

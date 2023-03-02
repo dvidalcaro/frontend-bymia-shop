@@ -222,11 +222,10 @@ export class NavbarComponent implements OnInit {
     })
   }
    submitPrice(){}
-  ngOnInit(): void {
-    this.priceListform = this.createFormGroup();
-    
+  
 
   ngOnInit(): void {
+    this.priceListform = this.createFormGroup();
     this.filter = '';
     this.query = '';
 
