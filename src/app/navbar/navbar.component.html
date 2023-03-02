@@ -20,12 +20,14 @@
               </button>
               <ul class="dropdown-menu">
                 <div *ngFor="let sti of searchTypeList">
-                  <li>
+                  <li (click)="setFilter(sti.title)">
                     <h5 class="dropdown-header">
                       <strong>{{ sti.title }}</strong>
                     </h5>
                   </li>
-                  <li *ngFor="let item of sti.items">
+                  <li
+                    *ngFor="let item of sti.items"
+                    (click)="setFilter(item.name)">
                     <a class="dropdown-item">{{ item.name | titlecase }}</a>
                   </li>
                   <li>
@@ -33,6 +35,7 @@
                   </li>
                 </div>
               </ul>
+
               <button class="btn btn-bymia bg-secundary no-border" [routerLink]="['search']">
                 <i class="bx bx-tada-hover bx-search"></i>
               </button>
@@ -41,6 +44,26 @@
 
               <span class="position-absolute top-50 end-0 translate-middle text-dark">
                 <i class="bx bx-tada-hover bx-sm bx-x-circle py-2" (click)="toogleBarSearch()"></i>
+
+              <button
+                (click)="onSeachingButton()"
+                class="btn btn-bymia bg-secundary no-border"
+                [routerLink]="['search']">
+                <i class="bx bx-tada-hover bx-search"></i>
+              </button>
+              <input
+                [(ngModel)]="query"
+                type="text"
+                class="form-control rounded-end"
+                aria-label="Text input with dropdown button"
+                placeholder="Buscar..."
+                (keyup)="onSeaching($event)" />
+
+              <span
+                (click)="clearInput()"
+                class="position-absolute top-50 end-0 translate-middle text-dark">
+                <i class="bx bx-tada-hover bx-sm bx-x-circle py-2"></i>
+
               </span>
             </div>
           </div>

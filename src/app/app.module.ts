@@ -12,7 +12,11 @@ import { InterceptorsModule } from './interceptors/interceptors.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BymiaService } from './services/bymia.service';
 import { NavbarComponent } from './navbar/navbar.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
+
+
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,8 +30,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     PagesModule,
     UserPanelModule,
     HeaderModule,
+
     ReactiveFormsModule
     
+    FormsModule,
+
   ],
   exports: [],
   providers: [BymiaService],
