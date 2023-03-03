@@ -19,6 +19,7 @@ import { PriceList, RegisterUser } from '../shared/interfaces/register-interface
 
 import { SearchType } from '../shared/interfaces/SearchType';
 import { ValidateResponse } from '../shared/interfaces/validateResponse-interfaces';
+import { LoginAuthResponse } from '../shared/interfaces/loginAuthResponse-interface';
 
 const url = 'http://back-test.bymiashop.com/api/front';
 const urlBannerMock = 'assets/banners.json';
@@ -45,7 +46,7 @@ export class BymiaService {
   //private msgContactForm: MsgContactForm;
   private countryCode: CountryCode[] = [];
   private homeSections: HomeSection[] = [];
-  
+
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
   }
@@ -113,30 +114,30 @@ export class BymiaService {
     return this.http.post(`${url}/contact`, body, { headers });
   }
 
- 
+
   public registerNewUser(body: RegisterUser): Observable<any> {
     return this.http.post(`${url}/register`, body, { headers });
   }
 
-   public validateUser(body:any):Observable<any>{
-      return this.http.post<ValidateResponse>(`${url}/validate`, body,{ headers})
+  public validateUser(body: any): Observable<any> {
+    return this.http.post<ValidateResponse>(`${url}/validate`, body, { headers })
       .pipe(
-        tap(resp =>{
+        tap(resp => {
           console.log(resp);
-          
+
         }),
-        map( resp => resp.message),
-        catchError( err => of (false))
+        map(resp => resp.message),
+        catchError(err => of(false))
       )
   }
 
-  public sendPriceList(body:any):Observable<any>{
-    return this.http.post<PriceList>(`${url}/listPrice`, body , {headers} )
-    .pipe(
-      tap(resp => {resp}),
-      map(resp => resp.message),
-      catchError(err => of (false))
-    )
+  public sendPriceList(body: any): Observable<any> {
+    return this.http.post<PriceList>(`${url}/listPrice`, body, { headers })
+      .pipe(
+        tap(resp => { resp }),
+        map(resp => resp.message),
+        catchError(err => of(false))
+      )
   }
 
   public getCountryCode() {
@@ -181,6 +182,12 @@ export class BymiaService {
         .pipe(tap(homeSections => (this.homeSections = homeSections)));
     }
   }
+  //login
+  login(body: any) {
+    return this.http.post<LoginAuthResponse>(`${url}/login`, body, { headers })
+  }
 
 
+  
 }
+
