@@ -30,11 +30,8 @@ import { FormsModule } from '@angular/forms';
     PagesModule,
     UserPanelModule,
     HeaderModule,
-
-    ReactiveFormsModule,
-    
+    ReactiveFormsModule,    
     FormsModule,
-
   ],
   exports: [],
   providers: [BymiaService],

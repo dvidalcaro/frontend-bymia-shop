@@ -19,6 +19,7 @@ import { PanelComponent } from './user-panel/panel/panel.component';
 import { HelpComponent } from './user-panel/help/help.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ValidateComponent } from './pages/validate/validate.component';
+import { PricelistComponent } from './pages/pricelist/pricelist.component';
 
 const routes: Routes = [
   {
@@ -84,6 +85,10 @@ const routes: Routes = [
   {
     path: 'validate',
     component: ValidateComponent,
+  },
+  {
+    path: 'pricelist',
+    component: PricelistComponent,
   },
 
   {

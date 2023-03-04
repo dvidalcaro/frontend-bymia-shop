@@ -25,6 +25,9 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './search/search.component';
 import { ValidateComponent } from './validate/validate.component';
+import { PricelistComponent } from './pricelist/pricelist.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { ValidateComponent } from './validate/validate.component';
     FooterComponent,
     SearchComponent,
     ValidateComponent,
+    PricelistComponent
+    
   ],
   exports: [
     HomeComponent,
@@ -57,6 +62,7 @@ import { ValidateComponent } from './validate/validate.component';
     FlashSalesComponent,
     WishListComponent,
     ShopCartComponent,
+    PricelistComponent
   ],
   imports: [
     CommonModule,
@@ -65,6 +71,7 @@ import { ValidateComponent } from './validate/validate.component';
     UserPanelModule,
     HeaderModule,
     RouterModule,
+    ReactiveFormsModule
   ],
 })
 export class PagesModule {}
