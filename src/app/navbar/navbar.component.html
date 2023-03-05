@@ -1,21 +1,37 @@
-<nav class="navbar sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
+<nav
+  class="navbar sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
   <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBymia"
-      aria-controls="navbarBymia" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarBymia"
+      aria-controls="navbarBymia"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" [routerLink]="['/']">
-      <img class="navbar-nav ms-5 me-auto mb-2 py-4" src="{{ urlLogo }}" alt="Bymia shop" />
+      <img
+        class="navbar-nav ms-5 me-auto mb-2 py-4"
+        src="{{ urlLogo }}"
+        alt="Bymia shop" />
     </a>
-    <div class="collapse navbar-collapse justify-content-center" id="navbarBymia">
+    <div
+      class="collapse navbar-collapse justify-content-center"
+      id="navbarBymia">
       <!-- SearchBar2 -->
       <div class="container" *ngIf="switchBar">
         <div class="row">
           <div class="col-1"></div>
           <div class="col">
-            <div class="input-group d-flex justify-content-center position-relative">
-              <button class="btn btn-bymia rounded-start dropdown-toggle bg-secundary" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
+            <div
+              class="input-group d-flex justify-content-center position-relative">
+              <button
+                class="btn btn-bymia rounded-start dropdown-toggle bg-secundary"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
                 <strong>&nbsp;Categorías&nbsp;</strong>
               </button>
               <ul class="dropdown-menu">
@@ -25,7 +41,9 @@
                       <strong>{{ sti.title }}</strong>
                     </h5>
                   </li>
-                  <li *ngFor="let item of sti.items" (click)="setFilter(item.name)">
+                  <li
+                    *ngFor="let item of sti.items"
+                    (click)="setFilter(item.name)">
                     <a class="dropdown-item">{{ item.name | titlecase }}</a>
                   </li>
                   <li>
@@ -33,14 +51,23 @@
                   </li>
                 </div>
               </ul>
-              <button (click)="onSeachingButton()" class="btn btn-bymia bg-secundary no-border"
+              <button
+                (click)="onSeachingButton()"
+                class="btn btn-bymia bg-secundary no-border"
                 [routerLink]="['search']">
                 <i class="bx bx-tada-hover bx-search"></i>
               </button>
-              <input [(ngModel)]="query" type="text" class="form-control rounded-end"
-                aria-label="Text input with dropdown button" placeholder="Buscar..." (keyup)="onSeaching($event)" />
+              <input
+                [(ngModel)]="query"
+                type="text"
+                class="form-control rounded-end"
+                aria-label="Text input with dropdown button"
+                placeholder="Buscar..."
+                (keyup)="onSeaching($event)" />
 
-              <span (click)="clearInput()" class="position-absolute top-50 end-0 translate-middle text-dark">
+              <span
+                (click)="clearInput()"
+                class="position-absolute top-50 end-0 translate-middle text-dark">
                 <i class="bx bx-tada-hover bx-sm bx-x-circle py-2"></i>
               </span>
             </div>
@@ -51,21 +78,32 @@
       <!-- SearchBar2 -->
       <ul class="navbar-nav m-auto mb-2 py-4" *ngIf="!switchBar">
         <div *ngFor="let link of linksHeader">
-          <li class="nav-item mx-2" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show"
+          <li
+            class="nav-item mx-2"
+            data-bs-toggle="collapse"
+            data-bs-target=".navbar-collapse.show"
             routerLinkActive="active">
             <div *ngIf="link.reference === 'listPrice'; else elseLink">
-              <a class="nav-link"><strong>{{ link.label }}</strong></a>
+              <a class="nav-link"
+                ><strong>{{ link.label }}</strong></a
+              >
             </div>
             <ng-template #elseLink>
               <div>
-                <a class="nav-link" [routerLink]="[link.links]"><strong>{{ link.label }}</strong></a>
+                <a class="nav-link" [routerLink]="[link.links]"
+                  ><strong>{{ link.label }}</strong></a
+                >
               </div>
             </ng-template>
           </li>
         </div>
       </ul>
       <ul class="navbar-nav ms-auto me-5 mb-2 py-4">
-        <li class="nav-item" data-bs-toggle="" data-bs-target=".navbar-collapse.show" routerLinkActive="active"
+        <li
+          class="nav-item"
+          data-bs-toggle=""
+          data-bs-target=".navbar-collapse.show"
+          routerLinkActive="active"
           *ngFor="let icon of linksIcon">
           <div *ngIf="icon.reference === 'search'">
             <div class="nav-link position-relative" (click)="toogleBarSearch()">
@@ -73,27 +111,46 @@
             </div>
           </div>
           <div *ngIf="icon.links === 'wish-list'">
-            <a class="nav-link position-relative col-xl-12 col-1" [routerLink]="[icon.links]">
+            <a
+              class="nav-link position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
               <i class="{{ icon.icon }}"> </i>
-              <span *ngIf="WishNotifications > 0"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary">{{
-                WishNotifications }}</span>
+              <span
+                *ngIf="WishNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ WishNotifications }}</span
+              >
             </a>
           </div>
           <div *ngIf="icon.links === 'shop-cart'">
-            <a class="nav-link position-relative col-xl-12 col-1" [routerLink]="[icon.links]">
+            <a
+              class="nav-link position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
               <i class="{{ icon.icon }}"> </i>
-              <span *ngIf="CartNotifications > 0"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary">{{
-                CartNotifications }}</span>
+              <span
+                *ngIf="CartNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ CartNotifications }}</span
+              >
             </a>
           </div>
           <div *ngIf="icon.links === 'login'">
-            <button class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
-              [routerLink]="[icon.links]">
-              <i class="{{ icon.icon }}"></i>
-              Ingresar
-            </button>
+            <div *ngIf="user == ''; else withUser">
+              <button
+                class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
+                [routerLink]="[icon.links]">
+                <i class="{{ icon.icon }}"></i>
+                Ingresar
+              </button>
+            </div>
+            <ng-template #withUser>
+              <button
+                class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
+                (click)="logout()">
+                <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
+                {{ user }}
+              </button>
+            </ng-template>
           </div>
         </li>
       </ul>

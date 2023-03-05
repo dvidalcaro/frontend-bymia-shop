@@ -9,9 +9,9 @@ import { OffersComponent } from './pages/offers/offers.component';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { AboutUsComponent } from 'src/app/pages/about-us/about-us.component';
 import { ShopCartComponent } from './pages/shop-cart/shop-cart.component';
-import { WishListComponent } from './pages/wish-list/wish-list.component';
-import { LoginComponent } from './shared/header/login/login.component';
-import { RegisterComponent } from './shared/header/register/register.component';
+// import { WishListComponent } from './pages/wish-list/wish-list.component';
+// import { LoginComponent } from './shared/header/login/login.component';
+// import { RegisterComponent } from './shared/header/register/register.component';
 import { ForgetPasswordComponent } from './shared/header/forget-password/forget-password.component';
 import { MyDataComponent } from './user-panel/my-data/my-data.component';
 import { OrdersComponent } from './user-panel/orders/orders.component';
@@ -58,25 +58,25 @@ const routes: Routes = [
     component: FlashSalesComponent,
   },
 
-  {
-    path: 'shop-cart',
-    component: ShopCartComponent,
-  },
+  // {
+  //   path: 'shop-cart',
+  //   component: ShopCartComponent,
+  // },
 
-  {
-    path: 'wish-list',
-    component: WishListComponent,
-  },
+  // {
+  //   path: 'wish-list',
+  //   component: WishListComponent,
+  // },
 
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
+  // {
+  //   path: 'login',
+  //   component: LoginComponent,
+  // },
 
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
+  // {
+  //   path: 'register',
+  //   component: RegisterComponent,
+  // },
 
   {
     path: 'forget-password',
@@ -91,11 +91,11 @@ const routes: Routes = [
     component: PricelistComponent,
   },
 
-  {
-    path: 'user-panel',
-    loadChildren: () =>
-      import('./user-panel/user-panel.module').then(m => m.UserPanelModule),
-  },
+  // {
+  //   path: 'user-panel',
+  //   loadChildren: () =>
+  //     import('./user-panel/user-panel.module').then(m => m.UserPanelModule),
+  // },
 
   /*  {
     path: 'panel',

@@ -15,7 +15,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserPanelModule } from '../user-panel/user-panel.module';
 import { HeaderComponent } from '../shared/header/header.component';
 import { HeaderModule } from '../shared/header/header.module';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { HomeSliderComponent } from './components/home-slider/home-slider.component';
@@ -27,7 +27,6 @@ import { SearchComponent } from './search/search.component';
 import { ValidateComponent } from './validate/validate.component';
 import { PricelistComponent } from './pricelist/pricelist.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -49,8 +48,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     SearchComponent,
     ValidateComponent,
-    PricelistComponent
-    
+    PricelistComponent,
   ],
   exports: [
     HomeComponent,
@@ -62,16 +60,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     FlashSalesComponent,
     WishListComponent,
     ShopCartComponent,
-    PricelistComponent
+    PricelistComponent,
   ],
   imports: [
     CommonModule,
-    BlocksModule,
-    AuthModule,
-    UserPanelModule,
-    HeaderModule,
+    // BlocksModule,
+    // AuthModule,
+    // UserPanelModule,
+    // HeaderModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
 })
 export class PagesModule {}
