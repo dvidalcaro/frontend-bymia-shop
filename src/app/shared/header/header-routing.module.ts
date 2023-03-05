@@ -13,74 +13,71 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
-
-
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 
   {
     path: 'nosotros',
-    component: AboutUsComponent
+    component: AboutUsComponent,
   },
 
   {
     path: 'faqs',
-    component: FaqComponent
+    component: FaqComponent,
   },
 
   {
     path: 'ofertas',
-    component: OffersComponent
+    component: OffersComponent,
   },
 
   {
     path: 'lanzamientos',
-    component: LaunchComponent
+    component: LaunchComponent,
   },
 
   {
     path: 'flash-sales',
-    component: FlashSalesComponent
+    component: FlashSalesComponent,
   },
 
   {
     path: 'shop-cart',
-    component: ShopCartComponent
+    component: ShopCartComponent,
   },
 
   {
     path: 'wish-list',
-    component: WishListComponent
+    component: WishListComponent,
   },
 
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
-  
+
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
 
   {
     path: 'forget-password',
-    component: ForgetPasswordComponent
+    component: ForgetPasswordComponent,
   },
-  
+
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HeaderRoutingModule { }
+export class HeaderRoutingModule {}
