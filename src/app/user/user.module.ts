@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 import { UserRoutingModule } from './user-routing.module';
+import { UserPanelModule } from '../user-panel/user-panel.module';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],

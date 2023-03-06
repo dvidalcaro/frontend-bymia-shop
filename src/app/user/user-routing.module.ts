@@ -21,6 +21,13 @@ const routes: Routes = [
     component: ShopCartComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'user-panel',
+    loadChildren: () =>
+       import('../user-panel/user-panel.module').then(m => m.UserPanelModule),
+       canActivate:[AuthGuard]
+   },
+  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

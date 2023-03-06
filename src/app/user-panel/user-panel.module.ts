@@ -14,9 +14,9 @@ import { ShippingStatusComponent } from './shipping-status/shipping-status.compo
 
 @NgModule({
   declarations: [
+    PanelComponent,
     MyDataComponent,
     OrdersComponent,
-    PanelComponent,
     HelpComponent,
     ShippingStatusComponent
   ],
