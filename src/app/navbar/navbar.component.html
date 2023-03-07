@@ -135,7 +135,7 @@
             </a>
           </div>
           <div *ngIf="icon.links === 'login'">
-            <div *ngIf="user == ''; else withUser">
+            <div *ngIf="username == ''; else withUser">
               <button
                 class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
                 [routerLink]="[icon.links]">
@@ -148,7 +148,11 @@
                 class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
                 (click)="logout()">
                 <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
-                {{ user }}
+                {{
+                  username.length > 8
+                    ? (username | slice : 0 : 8) + '...'
+                    : username
+                }}
               </button>
             </ng-template>
           </div>
