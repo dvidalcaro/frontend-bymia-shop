@@ -1,13 +1,19 @@
-<div class="container__about mt-4">
-  <div class="about xxl col-6 mt-4">
-    <div class="hero__img">
-      <img src="../assets/img/hero-img-about.png" alt="nosotros" />
+<div class="container lg-p-5">
+  <div class="row about">
+    <div class="col-12">
+      <img
+        class="img-fluid about__img"
+        src="../assets/img/hero-img-about.png"
+        alt="nosotros" />
     </div>
+  </div>
 
-    <div class="description__about">
-      <h4>Nosotros</h4>
-      <div class="about__p" [innerHTML]="about.description"></div>
+  <div class="row">
+    <div class="col-12">
+      <div class="about__bg p-4">
+        <h4 class="pt-3">Nosotros</h4>
+        <div class="" [innerHTML]="about.description"></div>
+      </div>
     </div>
   </div>
 </div>
-<!-- <app-panel></app-panel> -->
