@@ -141,7 +141,7 @@ export class NavbarComponent implements OnInit {
       // this.CartNotifications = user?.shop_cart ? user.shop_cart.length : 0;
 
       this.userService.currentWishlist.subscribe(resp => {
-        console.log('navbar resp', resp);
+        //console.log('navbar resp', resp);
         this.WishNotifications = resp == null ? 0 : resp.wish_list.length;
       });
 
@@ -151,7 +151,7 @@ export class NavbarComponent implements OnInit {
         this.WishNotifications = 0;
       }
 
-      console.log('user logeado', this.user);
+      //console.log('user logeado', this.user);
     });
     this.authService.isUserValid();
   }

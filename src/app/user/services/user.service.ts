@@ -29,7 +29,7 @@ export class UserService {
   notifyWishToAll() {
     this.prepareHeaders();
     this.http.get(`${url}/favorite/list`, { headers }).subscribe(resp => {
-      console.log('notfifyAll', resp);
+      // console.log('notfifyAll', resp);
       this.currentWishlistSubject.next(resp);
     });
   }
@@ -45,12 +45,13 @@ export class UserService {
   }
 
   removeProductToWishlist(product_id: number) {
-    return this.http.delete(`${url}/favorite/remove`, {
-      headers,
-      body: {
+    return this.http.post(
+      `${url}/favorite/remove`,
+      {
         product_id,
       },
-    });
+      { headers }
+    );
   }
 
   addProductToWishlist(product_id: number) {

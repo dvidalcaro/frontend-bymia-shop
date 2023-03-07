@@ -41,8 +41,11 @@
               <div class="col" *ngFor="let item of fp.products">
                 <div class="card text-white bg-dark mb-3">
                   <div class="div-image text-black text-center">
-                    <div class="text-end me-4">
-                      <i class="bx bx-tada-hover bx-sm bx-heart"></i>
+                    <div
+                      (click)="toggleProduct(item.id)"
+                      class="text-end me-4"
+                      [innerHTML]="isInWishList(item.id)">
+                      <!-- <i class="bx bx-tada-hover bx-sm bx-heart"></i> -->
                     </div>
                     <img
                       [src]="[item.image]"

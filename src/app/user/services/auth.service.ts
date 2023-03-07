@@ -19,7 +19,7 @@ export class AuthService {
   private userToken: string = '';
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser: Observable<User | null>;
-  public user: User;
+  private user: User;
 
   constructor(private http: HttpClient, private router: Router) {
     this.user = new User();
@@ -63,7 +63,9 @@ export class AuthService {
     localStorage.removeItem('bymiaexpire');
     localStorage.removeItem('bymiauser');
     this.user = new User();
-    this.router.navigateByUrl('/');
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });
   }
 
   getToken() {

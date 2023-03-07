@@ -30,14 +30,14 @@ export class WishListComponent implements OnInit {
 
   addProduct() {
     this.user.addProductToWishlist(1467).subscribe(resp => {
-      console.log(resp);
+      // console.log(resp);
       this.user.notifyWishToAll();
     });
   }
   removeProduct() {
-    this.user
-      .removeProductToWishlist(1467)
-      .subscribe(resp => console.log(resp));
-    this.user.notifyWishToAll();
+    this.user.removeProductToWishlist(1467).subscribe(resp => {
+      // console.log(resp);
+      this.user.notifyWishToAll();
+    });
   }
 }

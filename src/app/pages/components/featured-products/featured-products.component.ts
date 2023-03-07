@@ -1,5 +1,11 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
+import {
+  Product,
+  FeaturedProduct,
+} from 'src/app/shared/interfaces/FeaturedProduct';
+import { UserService } from 'src/app/user/services/user.service';
+import { AuthService } from 'src/app/user/services/auth.service';
+import { User } from 'src/app/user/models/user.model';
 
 @Component({
   selector: 'app-featured-products',
@@ -11,11 +17,66 @@ export class FeaturedProductsComponent implements OnInit {
   @Input() category: string = 'category';
   @Input() featuredProducts: FeaturedProduct[] = [];
 
+  wishList: Product[] = [];
+
+  private user: User | null = null;
+
   loading: boolean = true;
 
   tempRating = '<i class="bx bx-tada-hover bx-sm bxs-star"></i>';
 
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) {
+    this.authService.currentUser.subscribe(user => {
+      this.user = user;
+    });
+    this.userService.currentWishlist.subscribe(resp => {
+      if (resp) {
+        this.wishList = resp.wish_list as Product[];
+        // console.log(this.wishList);
+        // this.whishList.forEach(e => console.log(e));
+      }
+    });
+  }
+
+  isInWishList(idProduct: number) {
+    if (this.wishList.find(e => e.id == idProduct)) {
+      return `<i class="bx bx-tada-hover bx-sm bxs-heart"></i>`;
+    } else {
+      return `<i class="bx bx-tada-hover bx-sm bx-heart"></i>`;
+    }
+  }
+
+  toggleProduct(idProduct: number) {
+    // console.log('toggleProduct()', idProduct);
+    if (this.wishList.find(e => e.id == idProduct)) {
+      this.removeProduct(idProduct);
+    } else {
+      this.addProduct(idProduct);
+    }
+  }
+
+  addProduct(idProduct: number) {
+    // console.log(idProduct, this.user);
+    if (this.user !== null) {
+      this.userService.addProductToWishlist(idProduct).subscribe(resp => {
+        // console.log(resp);
+        this.userService.notifyWishToAll();
+      });
+    }
+  }
+  removeProduct(idProduct: number) {
+    // console.log(idProduct, this.user);
+    if (this.user !== null) {
+      this.userService.removeProductToWishlist(idProduct).subscribe(resp => {
+        // console.log(resp);
+        this.userService.notifyWishToAll();
+      });
+    }
+  }
+
   getRating(stars: number, reviews: string) {
     let result = '';
     while (stars > 0) {

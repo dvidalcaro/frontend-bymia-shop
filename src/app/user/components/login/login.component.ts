@@ -18,13 +18,10 @@ export class LoginComponent implements OnInit {
     password: 'Debe ingresar una password de al menos 6 caracteres',
   };
   errorServer = false;
-  
 
   constructor(private auth: AuthService, private router: Router) {
     this.user = new User();
   }
-
-  
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
@@ -39,13 +36,13 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(this.user).subscribe(
       resp => {
-        console.log(resp);
+        // console.log(resp);
         Swal.close();
 
         this.router.navigateByUrl('/home');
       },
       err => {
-        console.log(err);
+        // console.log(err);
         Swal.fire({
           icon: 'error',
           title: 'Error al autenticar',
