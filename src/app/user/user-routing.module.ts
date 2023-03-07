@@ -4,8 +4,10 @@ import { AuthGuard } from './guards/auth.guard';
 
 import { LoginComponent } from './components/login/login.component';
 import { WishListComponent } from '../pages/wish-list/wish-list.component';
-import { RegisterComponent } from './components/register/register.component';
+
 import { ShopCartComponent } from '../pages/shop-cart/shop-cart.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 AuthGuard;
 const routes: Routes = [
@@ -21,12 +23,7 @@ const routes: Routes = [
     component: ShopCartComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: 'user-panel',
-    loadChildren: () =>
-       import('../user-panel/user-panel.module').then(m => m.UserPanelModule),
-       canActivate:[AuthGuard]
-   },
+  
   
 ];
 @NgModule({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
 import { BymiaService } from 'src/app/services/bymia.service';
@@ -18,10 +18,13 @@ export class LoginComponent implements OnInit {
     password: 'Debe ingresar una password de al menos 6 caracteres',
   };
   errorServer = false;
+  
 
   constructor(private auth: AuthService, private router: Router) {
     this.user = new User();
   }
+
+  
 
   onSubmit(form: NgForm) {
     if (form.invalid) {

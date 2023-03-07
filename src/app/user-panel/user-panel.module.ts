@@ -22,14 +22,14 @@ import { ShippingStatusComponent } from './shipping-status/shipping-status.compo
   ],
   imports: [
     CommonModule,
-    UserPanelRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserPanelRoutingModule
   ],
   exports:[
-    MyDataComponent,
-    OrdersComponent,
+    /* MyDataComponent,
+    OrdersComponent, */
     PanelComponent,
-    UserPanelRoutingModule    
+    /* UserPanelRoutingModule   */  
   ]
 })
 export class UserPanelModule { }

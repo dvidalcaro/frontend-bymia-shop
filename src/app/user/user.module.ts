@@ -10,7 +10,7 @@ import { UserPanelModule } from '../user-panel/user-panel.module';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
-  imports: [CommonModule, FormsModule, UserRoutingModule],
+  imports: [CommonModule, FormsModule, UserPanelModule, UserRoutingModule],
   exports: [LoginComponent, RegisterComponent],
 })
 export class UserModule {}

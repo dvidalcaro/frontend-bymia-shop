@@ -1,4 +1,88 @@
-<div class="container mt-5">
+<div class="container__modal animate__animated animate__zoomIn animate__faster">
+   
+  <div class="container  bg-white rounded-3 justify-content-center frm-register" >
+     <div class="row mb-3 mt-3">
+        <div class="col">
+           <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
+              alt="cerrar">
+        </div>
+        
+     </div>
+     
+     <form   class="frm-register__form row g-3 p-3 pb-4" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        
+        
+        <div class="col-12 frm-register__input">
+           <input
+           [(ngModel)]="user.email"
+           type="email"
+           name="email"
+           class="form-control"
+           id="email"
+           required
+           email
+           aria-describedby="emailHelp"
+           placeholder="Dirección de email" />
+           <div
+           *ngIf="(f.submitted && f.controls['email'].errors) || errorServer"
+           id="emailHelp"
+           class="form-text text-danger">
+           {{ errorResponse.email }}
+         </div>
+        </div>
+        <div class="col-12 frm-register__input">
+           <input
+           [(ngModel)]="user.password"
+           type="password"
+           name="password"
+           class="form-control"
+           id="password"
+           minlength="6"
+           required
+           aria-describedby="passwordHelp" 
+           placeholder="Password"/>
+         <div
+           *ngIf="
+             (f.submitted && f.controls['password'].errors) || errorServer
+           "
+           id="passwordHelp"
+           class="form-text text-danger">
+           {{ errorResponse.password }}
+         </div>
+        </div>  
+        
+        
+       
+        
+        <div class="col-12">
+          <div>
+            <button class="button_modal  col-12 mb-2 "  type="submit">Entrar</button>
+
+          </div>
+          <div>
+
+            <button class="button_modal  col-12 " routerLink="/register" type="button" >Registrate</button>
+          </div>
+        </div>
+        <div class="col-12">
+           <div >
+              <p class="condition__p text-center"  >
+                 Si te olvidaste o querés cambiar tu contraseña hacé clic  <strong class="frm-login__strong"  routerLink="/forget-password">aquí</strong>
+                 y  te enviaremos un email. </p>
+           </div>
+           
+        </div>
+       
+
+     </form>
+
+  </div>
+  
+</div>
+
+
+<!-- ///////////////////////////////// -->
+<!-- <div class="container mt-5">
   <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
@@ -54,3 +138,6 @@
     </div>
   </div>
 </div>
+ -->
+
+ 

@@ -14,7 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 const routes: Routes = [
-  {
+  /* {
     path: '',
     component: HomeComponent,
     pathMatch: 'full',
@@ -73,7 +73,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '',
-  },
+  }, */
 ];
 
 @NgModule({

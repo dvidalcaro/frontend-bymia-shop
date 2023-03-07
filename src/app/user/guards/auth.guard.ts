@@ -22,6 +22,8 @@ export class AuthGuard implements CanActivate , CanActivateChild {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | boolean {
       if (this.auth.isUserValid()) {
+        console.log('asdas');
+        
         return true;
       } else {
         this.router.navigateByUrl('/login');

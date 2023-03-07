@@ -79,6 +79,8 @@ export class RegisterComponent implements OnInit {
       icon: 'info',
       title: 'Registrando a ' + this.user.name,
       text: 'Espere por favor...',
+      
+      
     });
     Swal.showLoading();
     this.auth.register(this.user).subscribe(
@@ -88,7 +90,8 @@ export class RegisterComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Usuario creado correctamente',
-          text: 'Por favor verifica tu correo',
+          text: 'Te enviamos un correo electronico para que valides tu cuenta si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
+          
         }).then(result => {
           if (result.isConfirmed) {
             this.router.navigateByUrl('/');
