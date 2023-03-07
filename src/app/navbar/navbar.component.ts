@@ -7,6 +7,7 @@ import { PriceList } from '../shared/interfaces/register-interface';
 import { SearchType } from '../shared/interfaces/SearchType';
 import { User } from '../user/models/user.model';
 import { AuthService } from '../user/services/auth.service';
+import { UserService } from '../user/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,8 +16,8 @@ import { AuthService } from '../user/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   urlLogo: string = '../assets/img/logo_bymia.png';
-  WishNotifications: number = 1;
-  CartNotifications: number = 2;
+  WishNotifications: number = 0;
+  CartNotifications: number = 0;
   switchBar: boolean = false;
   searchTypeList: SearchType[] = [];
 
@@ -24,7 +25,8 @@ export class NavbarComponent implements OnInit {
   confirmRequest: boolean = false;
   private emailPattern: any = /^[a-zA-Z0-9]{3,}@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
 
-  public user: string = '';
+  public username: string = '';
+  public user: User | null = null;
 
   matchValues(field1: string, field2: string) {
     return (formGroup: FormGroup) => {
@@ -125,19 +127,37 @@ export class NavbarComponent implements OnInit {
     private bymiaService: BymiaService,
     public router: Router,
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {
-    bymiaService.getSearchTypeList().subscribe(resp => {
+    this.bymiaService.getSearchTypeList().subscribe(resp => {
       this.searchTypeList = resp;
     });
+
     this.authService.currentUser.subscribe(user => {
-      this.user = user?.name || '';
-      console.log('user logeado', user);
+      this.user = user;
+      this.username = user?.name || '';
+      // this.WishNotifications = user?.wish_list ? user.wish_list.length : 0;
+      // this.CartNotifications = user?.shop_cart ? user.shop_cart.length : 0;
+
+      this.userService.currentWishlist.subscribe(resp => {
+        console.log('navbar resp', resp);
+        this.WishNotifications = resp == null ? 0 : resp.wish_list.length;
+      });
+
+      if (user !== null) {
+        this.userService.notifyWishToAll();
+      } else {
+        this.WishNotifications = 0;
+      }
+
+      console.log('user logeado', this.user);
     });
+    this.authService.isUserValid();
   }
 
   logout() {
-    this.user = '';
+    this.username = '';
     this.authService.logout();
   }
 

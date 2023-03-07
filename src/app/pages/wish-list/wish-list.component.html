@@ -1,3 +1,6 @@
+<!-- <button class="btn btn-bymia" (click)="addProduct()">Add</button>
+<button class="btn btn-bymia" (click)="removeProduct()">Remove</button> -->
+
 <div class="container-fluid mt-4">
   <!-- Producto -->
   <div class="container container__wishlist animate__animated animate__zoomIn">
@@ -19,163 +22,16 @@
 
     <!-- Producto -->
 
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
+    <div class="container__product__wishlist" *ngFor="let product of products">
+      <img width="125px" [src]="[product.image]" [alt]="[product.name]" />
       <div class="product__wishlist">
         <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
+        <p>{{ product.name }}</p>
       </div>
 
       <div class="product__wishlist">
         <h3>PRE X UNI</h3>
-        <p>$432</p>
-      </div>
-
-      <div class="col button__product__wishlist">
-        <button>Eliminar</button>
-        <button>Ver producto</button>
-        <button class="addcart">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <!-- Producto -->
-
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
-      <div class="product__wishlist">
-        <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
-      </div>
-
-      <div class="product__wishlist">
-        <h3>PRE X UNI</h3>
-        <p>$432</p>
-      </div>
-
-      <div class="col button__product__wishlist">
-        <button>Eliminar</button>
-        <button>Ver producto</button>
-        <button class="addcart">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <!-- Producto -->
-
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
-      <div class="product__wishlist">
-        <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
-      </div>
-
-      <div class="product__wishlist">
-        <h3>PRE X UNI</h3>
-        <p>$432</p>
-      </div>
-
-      <div class="col button__product__wishlist">
-        <button>Eliminar</button>
-        <button>Ver producto</button>
-        <button class="addcart">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <!-- Producto -->
-
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
-      <div class="product__wishlist">
-        <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
-      </div>
-
-      <div class="product__wishlist">
-        <h3>PRE X UNI</h3>
-        <p>$432</p>
-      </div>
-
-      <div class="col button__product__wishlist">
-        <button>Eliminar</button>
-        <button>Ver producto</button>
-        <button class="addcart">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <!-- Producto -->
-
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
-      <div class="product__wishlist">
-        <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
-      </div>
-
-      <div class="product__wishlist">
-        <h3>PRE X UNI</h3>
-        <p>$432</p>
-      </div>
-
-      <div class="col button__product__wishlist">
-        <button>Eliminar</button>
-        <button>Ver producto</button>
-        <button class="addcart">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <!-- Producto -->
-
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
-      <div class="product__wishlist">
-        <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
-      </div>
-
-      <div class="product__wishlist">
-        <h3>PRE X UNI</h3>
-        <p>$432</p>
-      </div>
-
-      <div class="col button__product__wishlist">
-        <button>Eliminar</button>
-        <button>Ver producto</button>
-        <button class="addcart">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <!-- Producto -->
-
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
-      <div class="product__wishlist">
-        <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
-      </div>
-
-      <div class="product__wishlist">
-        <h3>PRE X UNI</h3>
-        <p>$432</p>
-      </div>
-
-      <div class="col button__product__wishlist">
-        <button>Eliminar</button>
-        <button>Ver producto</button>
-        <button class="addcart">Agregar al carrito</button>
-      </div>
-    </div>
-
-    <!-- Producto -->
-
-    <div class="container__product__wishlist">
-      <img src="../assets/img/desktophp.png" alt="" />
-      <div class="product__wishlist">
-        <h3>Nombre de producto:</h3>
-        <p>HP Elite Dragonfly G3. The best HP laptop overall</p>
-      </div>
-
-      <div class="product__wishlist">
-        <h3>PRE X UNI</h3>
-        <p>$432</p>
+        <p>{{ product.price }}</p>
       </div>
 
       <div class="col button__product__wishlist">

@@ -42,10 +42,15 @@ export class AuthService {
   login(user: User) {
     return this.http.post<UserResponse>(`${url}/login`, user, { headers }).pipe(
       map(resp => {
-        console.log(resp);
-        this.setToken(resp.token, resp.expires_in);
+        // console.log(resp);
+        this.userToken = resp.token;
         this.user = resp.user_data;
-        console.log(this.user);
+        this.setUserInformation(
+          resp.token,
+          resp.expires_in,
+          JSON.stringify(this.user)
+        );
+        // console.log(this.user);
         this.currentUserSubject.next(this.user);
         return resp;
       })
@@ -56,40 +61,51 @@ export class AuthService {
     this.currentUserSubject.next(null);
     localStorage.removeItem('bymiatoken');
     localStorage.removeItem('bymiaexpire');
+    localStorage.removeItem('bymiauser');
     this.user = new User();
     this.router.navigateByUrl('/');
   }
 
   getToken() {
-    if (localStorage.getItem('bymiatoken')) {
-      this.userToken = localStorage.getItem('bymiatoken') || '';
+    if (this.userToken !== '') {
+      return this.userToken;
     } else {
-      this.userToken = '';
+      if (localStorage.getItem('bymiatoken')) {
+        this.userToken = localStorage.getItem('bymiatoken') || '';
+      } else {
+        this.userToken = '';
+      }
+      return this.userToken;
     }
-
-    return this.userToken;
   }
 
-  setToken(token: string, expire: number) {
+  setUserInformation(token: string, expire: number, user: string) {
     this.userToken = token;
     localStorage.setItem('bymiatoken', token);
     let today = new Date();
     today.setSeconds(expire);
     localStorage.setItem('bymiaexpire', today.getTime().toString());
+    localStorage.setItem('bymiauser', user);
   }
+
   isUserValid(): boolean {
-    if (this.userToken.length < 2) {
+    if (this.getToken() == '') {
       return false;
     }
-
     const expira = Number(localStorage.getItem('bymiaexpire'));
     const expiraDate = new Date();
     expiraDate.setTime(expira);
 
     if (expiraDate > new Date()) {
+      this.user = JSON.parse(localStorage.getItem('bymiauser') || '');
+      this.currentUserSubject.next(this.user);
       return true;
-    } else {
-      return false;
     }
+    this.currentUserSubject.next(null);
+    localStorage.removeItem('bymiatoken');
+    localStorage.removeItem('bymiaexpire');
+    localStorage.removeItem('bymiauser');
+    this.user = new User();
+    return false;
   }
 }
