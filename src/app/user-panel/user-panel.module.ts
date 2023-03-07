@@ -9,27 +9,18 @@ import { PanelComponent } from './panel/panel.component';
 import { HelpComponent } from './help/help.component';
 import { ShippingStatusComponent } from './shipping-status/shipping-status.component';
 
-
-
-
 @NgModule({
   declarations: [
     PanelComponent,
     MyDataComponent,
     OrdersComponent,
     HelpComponent,
-    ShippingStatusComponent
+    ShippingStatusComponent,
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    UserPanelRoutingModule
-  ],
-  exports:[
-    /* MyDataComponent,
-    OrdersComponent, */
+  imports: [CommonModule, ReactiveFormsModule, UserPanelRoutingModule],
+  exports: [
     PanelComponent,
-    /* UserPanelRoutingModule   */  
-  ]
+    /* UserPanelRoutingModule   */
+  ],
 })
-export class UserPanelModule { }
+export class UserPanelModule {}
