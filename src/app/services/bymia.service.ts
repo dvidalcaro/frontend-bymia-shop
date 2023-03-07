@@ -15,7 +15,10 @@ import { Banner } from '../shared/interfaces/Banner';
 import { Brand } from '../shared/interfaces/Brand';
 import { HomeSection } from '../shared/interfaces/HomeSection';
 
-import { PriceList, RegisterUser } from '../shared/interfaces/register-interface';
+import {
+  PriceList,
+  RegisterUser,
+} from '../shared/interfaces/register-interface';
 
 import { SearchType } from '../shared/interfaces/SearchType';
 import { ValidateResponse } from '../shared/interfaces/validateResponse-interfaces';
@@ -114,30 +117,33 @@ export class BymiaService {
     return this.http.post(`${url}/contact`, body, { headers });
   }
 
-
   public registerNewUser(body: RegisterUser): Observable<any> {
     return this.http.post(`${url}/register`, body, { headers });
   }
 
   public validateUser(body: any): Observable<any> {
-    return this.http.post<ValidateResponse>(`${url}/validate`, body, { headers })
+    return this.http
+      .post<ValidateResponse>(`${url}/validate`, body, { headers })
       .pipe(
-        tap(resp => {
-          console.log(resp);
+        // tap(resp => {
+        //   console.log(resp);
 
-        }),
+        // }),
         map(resp => resp.message),
         catchError(err => of(false))
-      )
+      );
   }
 
   public sendPriceList(body: any): Observable<any> {
-    return this.http.post<PriceList>(`${url}/listPrice`, body, { headers })
+    return this.http
+      .post<PriceList>(`${url}/listPrice`, body, { headers })
       .pipe(
-        tap(resp => { resp }),
+        tap(resp => {
+          resp;
+        }),
         map(resp => resp.message),
         catchError(err => of(false))
-      )
+      );
   }
 
   public getCountryCode() {
@@ -184,10 +190,6 @@ export class BymiaService {
   }
   //login
   login(body: any) {
-    return this.http.post<LoginAuthResponse>(`${url}/login`, body, { headers })
+    return this.http.post<LoginAuthResponse>(`${url}/login`, body, { headers });
   }
-
-
-  
 }
-

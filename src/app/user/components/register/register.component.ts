@@ -68,8 +68,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log(this.user);
-    console.log(form.invalid);
+    // console.log(this.user);
+    // console.log(form.invalid);
     if (form.invalid) {
       return;
     }
@@ -79,19 +79,16 @@ export class RegisterComponent implements OnInit {
       icon: 'info',
       title: 'Registrando a ' + this.user.name,
       text: 'Espere por favor...',
-      
-      
     });
     Swal.showLoading();
     this.auth.register(this.user).subscribe(
       resp => {
         this.errorServer = false;
-        console.log(resp);
+        // console.log(resp);
         Swal.fire({
           icon: 'success',
           title: 'Usuario creado correctamente',
           text: 'Te enviamos un correo electronico para que valides tu cuenta si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
-          
         }).then(result => {
           if (result.isConfirmed) {
             this.router.navigateByUrl('/');
@@ -107,7 +104,7 @@ export class RegisterComponent implements OnInit {
           date_of_birth: '',
           cel_phone: '',
         };
-        console.log(err);
+        // console.log(err);
         this.errorResponse = err.error.validation;
         Swal.fire({
           icon: 'error',
