@@ -1,4 +1,103 @@
-.container__product__shopcart{
+.container__bg {
+  background-color: #101010;
+  border-radius: 1.375rem;
+}
+
+.cart__header {
+  background-color: $primary-color;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+.cart__h3 {
+  font-family: 'PP Neue Montreal';
+  font-weight: bold;
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  line-height: 1.125rem;
+  color: $background-color;
+}
+.cart__h3-title {
+  font-size: 1.125rem;
+  line-height: 0.9375rem;
+  letter-spacing: 0.02em;
+}
+.cart__h3-ligth {
+  font-weight: 500;
+  margin: 0;
+}
+.cart__button {
+  font-size: 0.575rem;
+  font-weight: bold;
+  color: $primary-color;
+  background-color: $background-color;
+  border-radius: 0.5625rem;
+  padding: 0.3rem 0.75rem;
+}
+
+.cart__button-product {
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 101px;
+  height: 25px;
+  border-radius: 12.5px;
+  background: $secundary-color;
+  border: none;
+}
+.cart__button-product-black {
+  background: $background-color;
+  color: $primary-color;
+}
+
+.cart__p {
+  font-family: 'PP Neue Montreal';
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  line-height: 14px;
+  color: $background-color;
+}
+.cart__p-ctd {
+  font-family: 'PP Neue Montreal';
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  line-height: 14px;
+  color: $background-color;
+}
+.cart__p-bold {
+  font-weight: bolder;
+  margin: 0;
+}
+
+.cart__product-bg {
+  background-color: $primary-color;
+  border-radius: 0.625rem;
+}
+
+@media screen and(max-width:992px) {
+  .cart__button-mobile {
+    display: none;
+  }
+  .cart__h3-center {
+    text-align: center;
+  }
+  .cart__p-center {
+    text-align: center;
+  }
+  .cart__h3 {
+    margin: 0px;
+  }
+  .cart__p-mobile {
+    padding: 0 64px;
+  }
+  .cart__mg {
+    margin-bottom: 8px;
+  }
+  .cart__dflex {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+/* .container__product__shopcart{
     justify-content: space-between;
 }
 .container__subtotal{
@@ -90,9 +189,7 @@
     margin-top: 0.4rem;
 }
 
-/* .container__modal__confirm{
-    height: 70vh;
-} */
+
 
 .confirm__p{
     text-align: center;
@@ -138,3 +235,4 @@
     }
 
 }
+ */
