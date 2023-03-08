@@ -89,7 +89,7 @@
 
 <!-- <div class="container-fluid">
 
-    
+
     <div class="container container__wishlist animate__animated animate__zoomIn">
 
         <div class="container__wishlist__header">
@@ -98,7 +98,7 @@
                 <button class="button__deleteallproduct" (click)="openConfirm()">Anular la seleccion de todos los elementos</button>
             </div>
 
-            
+
 
             <div class="container__subtotal">
                 <div class="button__addproduct">
@@ -112,9 +112,9 @@
             </div>
         </div>
 
-        
 
-        <div class="container__product__wishlist container__product__shopcart" 
+
+        <div class="container__product__wishlist container__product__shopcart"
             *ngFor="let product of products index as id"
         >
             <img [src]=[product.img_url] [alt]=[product.nameProduct]>
@@ -134,7 +134,7 @@
                     <img src="../assets/svg/icon_subtract.svg" alt="Restar" (click)="subtractProduct(id)">
                     <p> {{product.productQuantity}} </p>
                     <img src="../assets/svg/icon_plus.svg" alt="Adicionar" (click)="addProduct(id)">
-                    
+
                 </div>
             </div>
 
@@ -154,7 +154,7 @@
 
         </div>
 
-        <div class="container__product__wishlist container__product__shopcart container__product__noproduct" 
+        <div class="container__product__wishlist container__product__shopcart container__product__noproduct"
             *ngIf="noProduct"
         >
 

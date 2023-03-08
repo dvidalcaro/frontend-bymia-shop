@@ -8,7 +8,7 @@
   border-radius: 1.25rem 1.25rem 0 0;
 }
 .cart__h3 {
-  font-family: 'PP Neue Montreal';
+  // font-family: 'PP Neue Montreal';
   font-weight: bold;
   font-size: 0.75rem;
   letter-spacing: 0.07em;
@@ -48,7 +48,7 @@
 }
 
 .cart__p {
-  font-family: 'PP Neue Montreal';
+  // font-family: 'PP Neue Montreal';
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.07em;
@@ -56,7 +56,7 @@
   color: $background-color;
 }
 .cart__p-ctd {
-  font-family: 'PP Neue Montreal';
+  // font-family: 'PP Neue Montreal';
   font-weight: 500;
   font-size: 12px;
   letter-spacing: 0.07em;
@@ -111,7 +111,7 @@
         padding: 0.75rem 1.125rem;
 
     }
-    
+
 }
 
 .subtotal{
@@ -120,7 +120,7 @@
     height: 3.0625rem;
     flex-direction: column;
     justify-content: center;
-   
+
     h6{
         font-size:0.75rem ;
         font-weight: medium;
@@ -130,7 +130,7 @@
     }
 
     p{
-        
+
         font-size:1.25rem ;
         font-weight: bold;
         color: $background-color;
@@ -138,7 +138,7 @@
         padding: 0;
     }
 
-   
+
 }
 
 .product__shopcart{
@@ -152,12 +152,12 @@
     p{
         font-size: 0.75rem ;
         font-weight: bold;
-        color: $background-color; 
+        color: $background-color;
         margin: 0;
         text-align: center;
     }
 
-   
+
 }
 
 .product__shopcart__quantity{
@@ -169,7 +169,7 @@
         font-weight: bold;
     }
 
-   
+
 }
 
 .button__product__shopcart{
@@ -222,7 +222,7 @@
         border-radius: 0.5675rem;
         padding: 0.5rem 1rem;
         border: none;
-        
+
     }
 }
 
