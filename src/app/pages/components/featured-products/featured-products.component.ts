@@ -1,11 +1,9 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import {
-  Product,
-  FeaturedProduct,
-} from 'src/app/shared/interfaces/FeaturedProduct';
+import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
 import { UserService } from 'src/app/user/services/user.service';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { User } from 'src/app/user/models/user.model';
+import { Product } from 'src/app/user/models/wishlist.model';
 
 @Component({
   selector: 'app-featured-products',
@@ -17,7 +15,7 @@ export class FeaturedProductsComponent implements OnInit {
   @Input() category: string = 'category';
   @Input() featuredProducts: FeaturedProduct[] = [];
 
-  wishList: Product[] = [];
+  products: Product[] = [];
 
   private user: User | null = null;
 
@@ -32,17 +30,16 @@ export class FeaturedProductsComponent implements OnInit {
     this.authService.currentUser.subscribe(user => {
       this.user = user;
     });
+
     this.userService.currentWishlist.subscribe(resp => {
-      if (resp) {
-        this.wishList = resp.wish_list as Product[];
-        // console.log(this.wishList);
-        // this.whishList.forEach(e => console.log(e));
-      }
+      this.products =
+        resp.wish_list && resp.wish_list.length > 0 ? resp.wish_list : [];
     });
   }
 
   isInWishList(idProduct: number) {
-    if (this.wishList.find(e => e.id == idProduct)) {
+    // console.log('isInWishList()', idProduct, this.products);
+    if (this.products.find(e => e.id == idProduct)) {
       return `<i class="bx bx-tada-hover bx-sm bxs-heart"></i>`;
     } else {
       return `<i class="bx bx-tada-hover bx-sm bx-heart"></i>`;
@@ -50,8 +47,8 @@ export class FeaturedProductsComponent implements OnInit {
   }
 
   toggleProduct(idProduct: number) {
-    // console.log('toggleProduct()', idProduct);
-    if (this.wishList.find(e => e.id == idProduct)) {
+    // console.log('toggleProduct()', idProduct, this.products);
+    if (this.products.find(e => e.id == idProduct)) {
       this.removeProduct(idProduct);
     } else {
       this.addProduct(idProduct);
@@ -77,7 +74,7 @@ export class FeaturedProductsComponent implements OnInit {
     }
   }
 
-  getRating(stars: number, reviews: string) {
+  getRating(stars: number, reviews: number) {
     let result = '';
     while (stars > 0) {
       if (stars <= 0.5) {

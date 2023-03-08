@@ -137,12 +137,11 @@ export class NavbarComponent implements OnInit {
     this.authService.currentUser.subscribe(user => {
       this.user = user;
       this.username = user?.name || '';
-      // this.WishNotifications = user?.wish_list ? user.wish_list.length : 0;
       // this.CartNotifications = user?.shop_cart ? user.shop_cart.length : 0;
 
       this.userService.currentWishlist.subscribe(resp => {
         //console.log('navbar resp', resp);
-        this.WishNotifications = resp == null ? 0 : resp.wish_list.length;
+        this.WishNotifications = resp.wish_list?.length || 0;
       });
 
       if (user !== null) {
