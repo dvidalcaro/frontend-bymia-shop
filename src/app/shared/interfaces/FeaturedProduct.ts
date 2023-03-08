@@ -3,9 +3,9 @@ export interface Product {
   name: string;
   image: string;
   rating: number;
-  reviews: string;
-  old_price: number;
-  price: number;
+  reviews: number;
+  old_price: string;
+  price: string;
 }
 
 export interface FeaturedProduct {

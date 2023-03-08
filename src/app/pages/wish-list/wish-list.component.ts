@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Wishlist } from 'src/app/user/models/wishlist.interface';
+import { User } from 'src/app/user/models/user.model';
+import { Product } from 'src/app/user/models/wishlist.model';
 import { UserService } from 'src/app/user/services/user.service';
-
-interface Product {
-  id: number;
-  image: string;
-  name: string;
-  price: string;
-  rating: number;
-  review: number;
-}
 
 @Component({
   selector: 'app-wish-list',
@@ -17,27 +9,25 @@ interface Product {
   styles: [],
 })
 export class WishListComponent implements OnInit {
-  products: any[] = [];
+  products: Product[] = [];
 
-  constructor(private user: UserService) {
-    this.user.currentWishlist.subscribe(resp => {
-      console.log(resp.wish_list.length);
-      this.products = resp.wish_list;
+  constructor(
+    // private authService: AuthService,
+    private userService: UserService
+  ) {
+    this.userService.currentWishlist.subscribe(resp => {
+      // console.log(resp);
+      this.products =
+        resp.wish_list && resp.wish_list.length > 0 ? resp.wish_list : [];
     });
   }
 
   ngOnInit(): void {}
 
-  addProduct() {
-    this.user.addProductToWishlist(1467).subscribe(resp => {
+  removeProduct(productId: number) {
+    this.userService.removeProductToWishlist(productId).subscribe(resp => {
       // console.log(resp);
-      this.user.notifyWishToAll();
-    });
-  }
-  removeProduct() {
-    this.user.removeProductToWishlist(1467).subscribe(resp => {
-      // console.log(resp);
-      this.user.notifyWishToAll();
+      this.userService.notifyWishToAll();
     });
   }
 }

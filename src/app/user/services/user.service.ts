@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Wishlist } from '../models/wishlist.interface';
+import { Wishlist } from '../models/wishlist.model';
 import { AuthService } from './auth.service';
 
 const url = 'http://back-test.bymiashop.com/api/customer';
@@ -12,11 +12,13 @@ let headers: HttpHeaders;
   providedIn: 'root',
 })
 export class UserService {
-  private currentWishlistSubject: BehaviorSubject<any>;
-  public currentWishlist: Observable<any>;
+  private currentWishlistSubject: BehaviorSubject<Wishlist>;
+  public currentWishlist: Observable<Wishlist>;
+  // private wishlist: Wishlist;
 
   constructor(private http: HttpClient, private authService: AuthService) {
-    this.currentWishlistSubject = new BehaviorSubject<any>(null);
+    // this.wishlist = new Wishlist();
+    this.currentWishlistSubject = new BehaviorSubject<Wishlist>(new Wishlist());
     this.currentWishlist = this.currentWishlistSubject.asObservable();
   }
 
@@ -28,17 +30,23 @@ export class UserService {
 
   notifyWishToAll() {
     this.prepareHeaders();
-    this.http.get(`${url}/favorite/list`, { headers }).subscribe(resp => {
-      // console.log('notfifyAll', resp);
-      this.currentWishlistSubject.next(resp);
-    });
+    this.http.get<Wishlist>(`${url}/favorite/list`, { headers }).subscribe(
+      resp => {
+        // console.log('notfifyAll', resp);
+        this.currentWishlistSubject.next(resp);
+      },
+      err => {
+        // console.log(err);
+        this.currentWishlistSubject.next(new Wishlist());
+      }
+    );
   }
 
   getWishList() {
     this.prepareHeaders();
-    return this.http.get(`${url}/favorite/list`, { headers }).pipe(
+    return this.http.get<Wishlist>(`${url}/favorite/list`, { headers }).pipe(
       map(resp => {
-        this.currentWishlistSubject.next(resp);
+        // this.currentWishlistSubject.next(resp);
         return resp;
       })
     );

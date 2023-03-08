@@ -8,8 +8,8 @@ export class User {
   country_id?: number;
   country_phone_code?: number;
   gender_type?: number;
-  wish_list?: string[];
-  shop_cart?: string[];
+  wish_list?: number[];
+  shop_cart?: number[];
   cel_phone?: string;
   date_of_birth?: string;
 

@@ -41,7 +41,7 @@
         <div
           class="col-12 col-lg-4 d-flex justify-content-evenly align-items-center button__product__wishlist">
           <div>
-            <button>Eliminar</button>
+            <button (click)="removeProduct(product.id || 0)">Eliminar</button>
           </div>
           <div>
             <button>Ver producto</button>
@@ -55,9 +55,9 @@
   </div>
 </div>
 
-<!-- 
+<!--
       <div class="product__wishlist">
-       
+
       </div>
 
       <div class="product__wishlist">
@@ -71,9 +71,9 @@
         <button class="addcart">Agregar al carrito</button>
       </div>
  -->
-<!-- 
+<!--
 <div class="container-fluid mt-4">
- 
+
   <div class="container container__wishlist animate__animated animate__zoomIn">
     <div class="container__wishlist__header">
       <div class="title__wishlist">
@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    
+
 
     <div class="container__product__wishlist" *ngFor="let product of products">
       <img width="125px" [src]="[product.image]" [alt]="[product.name]" />
