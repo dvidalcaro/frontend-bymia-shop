@@ -3,6 +3,7 @@ import { NgForm, Validators } from '@angular/forms';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BymiaService } from 'src/app/services/bymia.service';
 import { MsgContactForm } from 'src/app/shared/interfaces/contactForm';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-help',
@@ -18,7 +19,7 @@ export class HelpComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       country_id: new FormControl('', [
         Validators.required,
-        Validators.minLength(3),
+        Validators.minLength(1),
       ]),
       phone: new FormControl('', [
         Validators.required,
@@ -60,7 +61,13 @@ export class HelpComponent implements OnInit {
 
     // console.log('Saved', this.contactForm.value);
     this.bymiaService.sendContactForm(this.messages).subscribe(res => {
-      // console.log(res);
+      console.log('correo enviado');
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Usuario creado correctamente',
+        text: 'Hemos recibido tu solicitud: Un representante de atención al cliente te contactará a la brevedad.',
+      });
     });
     this.onResetForm();
   }

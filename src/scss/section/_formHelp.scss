@@ -2,6 +2,50 @@
   font-weight: 500;
   font-size: 0.85rem;
   line-height: 1.375rem;
+  color: $background-color;
+  border-radius: 0.75rem;
+}
+.container__bg {
+  background-color: #101010;
+  border-radius: 0.75rem;
+  height: 80vh;
+}
+.help__h1 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 31px;
+}
+.help__input {
+  @include placeholderFrm();
+}
+.help__textarea {
+  @include placeholderFrm();
+  resize: none;
+  &:focus {
+    border-color: rgba(21, 254, 212, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+      0 0 8px rgba(21, 254, 212, 0.6);
+    outline: 0 none;
+  }
+}
+.help__p {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+}
+
+.help__btn {
+  border-radius: 1.3125rem;
+  background-color: $secundary-color;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 2px 32px;
+  border: none;
+}
+/* @mixin placeholderFrm {
+  font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1.375rem;
   color: $primary-color;
 }
 .ctnform {
@@ -112,7 +156,7 @@
       width: 50%;
     }
   }
-  /* .frmphone {
+   .frmphone {
     width: 52%;
     select {
       width: 30%;
@@ -120,7 +164,7 @@
     input {
       width: 70%;
     }
-  } */
+  } 
 
   .frmhelp {
     max-width: 45rem;
@@ -135,3 +179,4 @@
     max-width: 50rem;
   }
 }
+ */
