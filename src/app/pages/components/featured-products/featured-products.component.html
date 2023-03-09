@@ -39,7 +39,7 @@
             <div
               class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4 mt-2">
               <div class="col" *ngFor="let item of fp.products">
-                <div class="card text-white bg-dark mb-3">
+                <div class="card text-white card__bg mb-3">
                   <div class="div-image text-black text-center">
                     <div
                       (click)="toggleProduct(item.id)"
@@ -49,7 +49,7 @@
                     </div>
                     <img
                       [src]="[item.image]"
-                      class="card-img-top w-75"
+                      class="card-img-top w-75 img__cursor"
                       [alt]="[item.name]"
                       draggable="false" />
                   </div>

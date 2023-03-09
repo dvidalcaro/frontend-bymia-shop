@@ -20,6 +20,7 @@ import { ShippingStatusComponent } from './shipping-status/shipping-status.compo
   imports: [CommonModule, ReactiveFormsModule, UserPanelRoutingModule],
   exports: [
     PanelComponent,
+    HelpComponent,
     /* UserPanelRoutingModule   */
   ],
 })

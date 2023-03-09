@@ -47,7 +47,7 @@ hr:not([size]) {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #fff;
-  background-color: #000;
+  background-color: #101010;
   border-color: #15fed4;
 }
 .nav-tabs .dropdown-menu {
@@ -72,6 +72,13 @@ hr:not([size]) {
 .card-img-top,
 .card-img-bottom {
   width: 100%;
+}
+.card__bg {
+  background-color: #101010;
+}
+
+.img__cursor {
+  cursor: pointer;
 }
 
 .div-image {

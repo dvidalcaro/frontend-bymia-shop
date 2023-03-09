@@ -1,143 +1,137 @@
-@mixin placeholderFrm{
-    font-weight: 500;
-    font-size: .85rem;
-    line-height: 1.375rem;
-    color: $primary-color;
+@mixin placeholderFrm {
+  font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1.375rem;
+  color: $primary-color;
 }
-.ctnform{
-    display: flex;
-    flex-direction: column;  
-    justify-content: center;
-    padding: 2rem 1.2rem;
-    h2{
-        font-weight: bold;
-        font-size: 1.25rem;
-        line-height: 31px;
-        text-align: center; 
-    }
+.ctnform {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 1.2rem;
+  h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 31px;
+    text-align: center;
+  }
 }
 
-.frmhelp{
-   display: flex;
-   flex-direction: column;
-   gap: 1rem;
-   input, select, textarea{
-    border-radius:.75rem ;
+.frmhelp {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  input,
+  select,
+  textarea {
+    border-radius: 0.75rem;
     background-color: transparent;
     border: 1px solid $primary-color;
     color: $primary-color;
-    padding: .3125rem 1rem;
+    padding: 0.3125rem 1rem;
     outline: none;
-    
-   }
-   min-width: 21.25rem;
+  }
+  //min-width: 21.25rem;
 
-   button{
+  button {
     border-radius: 1.3125rem;
     background-color: $secundary-color;
-    font-size:1rem;
+    font-size: 1rem;
     font-weight: bold;
     width: 35%;
     border: none;
     align-self: center;
-   }
-   select{
-       option{
-        color:$background-color;
-    }
-   }
+  }
 
-   textarea{
+  textarea {
     resize: none;
-    &:focus{
+    &:focus {
+      border-color: rgba(21, 254, 212, 0.8);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset,
+        0 0 8px rgba(21, 254, 212, 0.6);
+      outline: 0 none;
+    }
+  }
 
-        border-color: rgba(21, 254, 212, 0.8);
-        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(21, 254, 212, 0.6);
-        outline: 0 none;
-    }
-   }
-   
-   ::-webkit-input-placeholder {
-        @include placeholderFrm();
-    }
-    ::-moz-placeholder {
-        @include placeholderFrm();
-    }
-    :-ms-input-placeholder {
-        @include placeholderFrm();
-    }
+  ::-webkit-input-placeholder {
+    @include placeholderFrm();
+  }
+  ::-moz-placeholder {
+    @include placeholderFrm();
+  }
+  :-ms-input-placeholder {
+    @include placeholderFrm();
+  }
 }
-.frmdata{
+.frmdata {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.frmphone {
+  display: flex;
+  //gap: 1rem;
+}
+
+.error-message {
+  font-size: 0.8125rem;
+  color: red;
+  p {
+    font-size: 0.75rem;
+    margin: 0;
+    padding: 0;
+  }
+  i {
+    color: red;
+    padding-right: 0.2rem;
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 28.125rem) and(max-width:35.9375rem) {
+  .ctnform {
+    padding: 3rem 2rem;
+  }
+}
+
+@media screen and (min-width: 36rem) {
+  .ctnform {
+    padding-top: 3rem;
+    h2 {
+      font-size: 1.6875rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+  .ctnfrm {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.frmphone{
-    display: flex;
-    gap: 1rem;
-}
+    justify-content: center;
+  }
+  .frmdata {
+    flex-direction: row;
+    justify-content: space-between;
+    input {
+      width: 50%;
+    }
+  }
+  /* .frmphone {
+    width: 52%;
+    select {
+      width: 30%;
+    }
+    input {
+      width: 70%;
+    }
+  } */
 
-.error-message{
-    font-size: .8125rem;
-    color: $secundary-color;
-    p{
-        margin: 0;
-        padding: 0 0 0 .5rem;
-    }
-    i{
-        color: red;
-        padding-right: 0.2rem;
-        font-size: 1rem;
-    }
-
-}
-@media screen and (min-width:28.125rem) and(max-width:35.9375rem) {
-    .ctnform{
-        padding: 3rem 2rem;
-    }
-    
+  .frmhelp {
+    max-width: 45rem;
+  }
 }
 
-@media screen and (min-width:36rem) {
-    .ctnform{
-        padding-top: 3rem;
-        h2{
-            font-size: 1.6875rem;
-            margin-bottom: 1.5rem;
-        }
-    }
-    .ctnfrm{
-        display: flex;
-        justify-content: center;
-    }
-    .frmdata{
-        flex-direction: row;
-        justify-content: space-between;
-        input{
-            width: 50%;
-        }
-    }
-    .frmphone{
-        width: 52%;
-        select{
-            width: 30%;
-        }
-        input{
-            width:70%
-        }
-    }
-
-    .frmhelp{
-        max-width: 45rem ;
-    }
-    
-}
-
-@media screen and (min-width:75rem) {
-        .ctnform{
-        padding-top: 8rem;
-    }
-    .frmhelp{
-         max-width: 50rem ;
-     }
+@media screen and (min-width: 75rem) {
+  .ctnform {
+    padding-top: 8rem;
+  }
+  .frmhelp {
+    max-width: 50rem;
+  }
 }
