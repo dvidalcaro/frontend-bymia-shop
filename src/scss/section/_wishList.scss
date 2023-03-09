@@ -9,7 +9,6 @@
 }
 
 .btn__addAll {
-  font-family: $primary-font;
   font-size: 0.575rem;
   font-weight: bold;
   color: #ffffff;
@@ -21,7 +20,6 @@
 
 .title__wishlist {
   h3 {
-    font-family: $primary-font;
     font-size: 1.125rem;
     font-weight: bold;
     color: $background-color;
@@ -29,7 +27,6 @@
   }
 
   p {
-    font-family: $primary-font;
     font-size: 0.75rem;
     font-weight: medium;
     color: $background-color;
@@ -40,7 +37,6 @@
 
 .button__addproduct {
   button {
-    font-family: $primary-font;
     color: $background-color;
     font-size: 0.875rem;
     font-weight: bolder;
@@ -58,7 +54,6 @@
 
 .product__wishlist {
   h3 {
-    font-family: $primary-font;
     font-size: 0.75rem;
     font-weight: bold;
     color: $background-color;
@@ -66,7 +61,6 @@
   }
 
   p {
-    font-family: $primary-font;
     font-size: 0.75rem;
     font-weight: medium;
     color: $background-color;
@@ -76,7 +70,6 @@
 
 .button__product__wishlist {
   button {
-    font-family: $primary-font;
     font-size: 0.75rem;
     font-weight: bold;
     height: 25px;
@@ -93,7 +86,6 @@
   }
 }
 .button__deleteallproduct {
-  font-family: $primary-font;
   font-size: 0.575rem;
   font-weight: bold;
   color: $primary-color;
