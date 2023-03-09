@@ -67,8 +67,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     // BlocksModule,
     // AuthModule,
     // UserPanelModule,
-    // HeaderModule,
+    //HeaderModule,
+
     RouterModule,
+    UserPanelModule,
     ReactiveFormsModule,
   ],
 })

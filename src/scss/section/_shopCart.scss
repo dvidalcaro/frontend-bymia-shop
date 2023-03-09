@@ -18,22 +18,25 @@
 .cart__h3-title {
   font-size: 1.125rem;
   line-height: 0.9375rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
 }
 .cart__h3-ligth {
   font-weight: 500;
   margin: 0;
 }
 .cart__button {
+  font-family: 'PP Neue Montreal';
   font-size: 0.575rem;
   font-weight: bold;
   color: $primary-color;
   background-color: $background-color;
   border-radius: 0.5625rem;
   padding: 0.3rem 0.75rem;
+  border: none;
 }
 
 .cart__button-product {
+  font-family: 'PP Neue Montreal';
   font-size: 0.75rem;
   font-weight: bold;
   width: 101px;
@@ -45,6 +48,12 @@
 .cart__button-product-black {
   background: $background-color;
   color: $primary-color;
+}
+
+.cart__button-bg {
+  background-color: $secundary-color;
+  color: $background-color;
+  font-weight: bold;
 }
 
 .cart__p {
@@ -72,6 +81,9 @@
   background-color: $primary-color;
   border-radius: 0.625rem;
 }
+.cart__img-pointer {
+  cursor: pointer;
+}
 
 @media screen and(max-width:992px) {
   .cart__button-mobile {
@@ -95,6 +107,12 @@
   .cart__dflex {
     display: flex;
     justify-content: space-evenly;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .cart__button-bg {
+    font-size: 12px;
   }
 }
 /* .container__product__shopcart{

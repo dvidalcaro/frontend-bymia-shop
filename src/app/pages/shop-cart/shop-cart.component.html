@@ -10,16 +10,18 @@
           Carrito
           <img src="../assets/svg/Icon_shopping_cart.svg" alt="favoritos" />
         </h3>
-        <button
+        <!-- <button
           class="cart__button cart__button-mobile"
           (click)="openConfirm()">
           Anular la seleccion de todos los elementos
-        </button>
+        </button> -->
       </div>
       <!--colum2  -->
       <div class="col-7 d-flex justify-content-end align-items-center">
         <div class="me-1">
-          <button class="cart__button">Proceder al envio</button>
+          <button class="cart__button cart__button-bg">
+            Proceder al envio
+          </button>
         </div>
         <div class="d-flex flex-column align-content-center">
           <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
@@ -52,7 +54,7 @@
           <h3 class="cart__h3">CANTIDAD</h3>
           <div class="d-flex justify-content-center align-content-center">
             <img
-              class="me-1"
+              class="me-1 cart__img-pointer"
               src="../assets/svg/icon_subtract.svg"
               alt="Restar"
               (click)="subtractProduct(id)" />
@@ -60,7 +62,7 @@
               {{ product.productQuantity }}
             </p>
             <img
-              class="ms-1"
+              class="ms-1 cart__img-pointer"
               src="../assets/svg/icon_plus.svg"
               alt="Adicionar"
               (click)="addProduct(id)" />
@@ -173,7 +175,7 @@
 
 <!-- Modal Confimation -->
 
-<div
+<!-- <div
   class="container__modal container__modal__confirm animate__animated animate__zoomIn animate__faster"
   *ngIf="showConfirmation">
   <div class="container__form">
@@ -203,3 +205,4 @@
     </form>
   </div>
 </div>
+ -->

@@ -21,7 +21,7 @@ export class FeaturedProductsComponent implements OnInit {
 
   loading: boolean = true;
 
-  tempRating = '<i class="bx bx-tada-hover bx-sm bxs-star"></i>';
+  tempRating = '<i class="bx bx-tada-hover bx-sm bxs-star img__cursor"></i>';
 
   constructor(
     private authService: AuthService,
@@ -40,9 +40,9 @@ export class FeaturedProductsComponent implements OnInit {
   isInWishList(idProduct: number) {
     // console.log('isInWishList()', idProduct, this.products);
     if (this.products.find(e => e.id == idProduct)) {
-      return `<i class="bx bx-tada-hover bx-sm bxs-heart"></i>`;
+      return `<i class="bx bx-tada-hover bx-sm bxs-heart img__cursor"></i>`;
     } else {
-      return `<i class="bx bx-tada-hover bx-sm bx-heart"></i>`;
+      return `<i class="bx bx-tada-hover bx-sm bx-heart img__cursor"></i>`;
     }
   }
 
