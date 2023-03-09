@@ -3,7 +3,7 @@ import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
 import { UserService } from 'src/app/user/services/user.service';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { User } from 'src/app/user/models/user.model';
-import { Product } from 'src/app/user/models/wishlist.model';
+import { Product } from 'src/app/user/models/product.model';
 
 @Component({
   selector: 'app-featured-products',

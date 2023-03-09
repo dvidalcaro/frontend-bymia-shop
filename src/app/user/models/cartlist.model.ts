@@ -1,7 +1,7 @@
 import { Product } from './product.model';
 
-export class Wishlist {
-  wish_list?: Product[];
+export class Cartlist {
+  shop_cart_list?: Product[];
 
   constructor() {}
 }
