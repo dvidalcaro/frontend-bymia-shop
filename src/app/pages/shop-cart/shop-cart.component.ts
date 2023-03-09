@@ -9,7 +9,7 @@ import { UserService } from 'src/app/user/services/user.service';
 export class ShopCartComponent implements OnInit {
   products: Product[] = [];
   productQuantity: number = 0;
-  priceTotal: number = 0;
+  total: number = 0;
   priceProduct: number = 432;
   showConfirmation: boolean = false;
   messageConfirm: string =
@@ -18,7 +18,6 @@ export class ShopCartComponent implements OnInit {
   showCancel: boolean = true;
 
   constructor(private userService: UserService) {
-    this.getPriceTotal();
     this.userService.currentCartlist.subscribe(resp => {
       // console.log(resp);
       this.products =
@@ -28,21 +27,20 @@ export class ShopCartComponent implements OnInit {
       if (this.products.length > 0) {
         this.products.forEach(e => {
           e.quantity = 1;
+          e.subtotal = e.price * e.quantity;
         });
+        this.getTotal();
       }
     });
   }
 
   ngOnInit(): void {}
 
-  getPriceTotal() {
-    // this.products.forEach((priceTotal, index) => {
-    //   priceTotal.priceTotal =
-    //     priceTotal.priceByUnit * priceTotal.productQuantity;
-    //   this.priceTotal = this.priceTotal + priceTotal.priceTotal;
-    // });
-    // // console.log(this.products)
-    // // console.log(this.priceTotal)
+  getTotal() {
+    this.total = 0;
+    this.products.forEach(p => {
+      this.total += p.price * p.quantity;
+    });
   }
   getPriceTotalProduct(index: number) {
     // this.products[index].priceTotal =
@@ -53,6 +51,9 @@ export class ShopCartComponent implements OnInit {
     // console.log(index);
     if (this.products[index] != null && this.products[index] != undefined) {
       this.products[index].quantity += 1;
+      this.products[index].subtotal =
+        this.products[index].price * this.products[index].quantity;
+      this.getTotal();
     }
   }
 
@@ -64,6 +65,9 @@ export class ShopCartComponent implements OnInit {
       this.products[index].quantity > 1
     ) {
       this.products[index].quantity -= 1;
+      this.products[index].subtotal =
+        this.products[index].price * this.products[index].quantity;
+      this.getTotal();
     }
   }
 

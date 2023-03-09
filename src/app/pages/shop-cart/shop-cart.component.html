@@ -25,7 +25,9 @@
         </div>
         <div class="d-flex flex-column align-content-center">
           <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
-          <p class="cart__p cart__p-bold">US$ {{ priceTotal }}</p>
+          <p class="cart__p cart__p-bold">
+            {{ total | currency : 'USD' }}
+          </p>
         </div>
       </div>
     </div>
@@ -45,7 +47,9 @@
       <div class="col-12 col-lg-6 p-0 d-flex justify-content-between">
         <div class="col-4 p-0 text-center cart__mg">
           <h3 class="cart__h3">PRE X UNI</h3>
-          <p class="cart__p m-0 cart__p-bold">$ {{ product.price }}</p>
+          <p class="cart__p m-0 cart__p-bold">
+            {{ product.price | currency : 'USD' }}
+          </p>
         </div>
         <div class="col-4 p-0 text-center cart__mg">
           <h3 class="cart__h3">CANTIDAD</h3>
@@ -67,7 +71,9 @@
         </div>
         <div class="col-4 p-0 text-center cart__mg">
           <h3 class="cart__h3">SUB TOTAL</h3>
-          <p class="cart__p m-0 cart__p-bold">$ {{ product.price }}</p>
+          <p class="cart__p m-0 cart__p-bold">
+            {{ product.subtotal | currency : 'USD' }}
+          </p>
         </div>
       </div>
       <div class="col-12 col-lg-2 p-0 text-center cart__mg cart__dflex">

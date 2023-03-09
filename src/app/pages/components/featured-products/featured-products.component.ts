@@ -4,6 +4,7 @@ import { UserService } from 'src/app/user/services/user.service';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { User } from 'src/app/user/models/user.model';
 import { Product } from 'src/app/user/models/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-featured-products',
@@ -25,7 +26,8 @@ export class FeaturedProductsComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
     this.authService.currentUser.subscribe(user => {
       this.user = user;
@@ -62,6 +64,8 @@ export class FeaturedProductsComponent implements OnInit {
         // console.log(resp);
         this.userService.notifyWishToAll();
       });
+    } else {
+      this.router.navigateByUrl('/login');
     }
   }
   removeProduct(idProduct: number) {
@@ -71,6 +75,8 @@ export class FeaturedProductsComponent implements OnInit {
         // console.log(resp);
         this.userService.notifyWishToAll();
       });
+    } else {
+      this.router.navigateByUrl('/login');
     }
   }
 
