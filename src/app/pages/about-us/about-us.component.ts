@@ -15,6 +15,6 @@ export class AboutUsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // console.log(this.about);
+    //console.log(this.about);
   }
 }
