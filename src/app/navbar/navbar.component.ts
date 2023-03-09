@@ -143,11 +143,17 @@ export class NavbarComponent implements OnInit {
         //console.log('navbar resp', resp);
         this.WishNotifications = resp.wish_list?.length || 0;
       });
+      this.userService.currentCartlist.subscribe(resp => {
+        // console.log('navbar resp', resp);
+        this.CartNotifications = resp.shop_cart_list?.length || 0;
+      });
 
       if (user !== null) {
         this.userService.notifyWishToAll();
+        this.userService.notifyCartToAll();
       } else {
         this.WishNotifications = 0;
+        this.CartNotifications = 0;
       }
 
       //console.log('user logeado', this.user);
