@@ -65,7 +65,7 @@ export class HelpComponent implements OnInit {
 
       Swal.fire({
         icon: 'success',
-        title: 'Usuario creado correctamente',
+        title: 'Solicitud enviada con éxito',
         text: 'Hemos recibido tu solicitud: Un representante de atención al cliente te contactará a la brevedad.',
       });
     });

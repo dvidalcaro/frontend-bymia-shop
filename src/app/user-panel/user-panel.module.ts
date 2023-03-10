@@ -8,6 +8,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { PanelComponent } from './panel/panel.component';
 import { HelpComponent } from './help/help.component';
 import { ShippingStatusComponent } from './shipping-status/shipping-status.component';
+import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step-one.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ShippingStatusComponent } from './shipping-status/shipping-status.compo
     OrdersComponent,
     HelpComponent,
     ShippingStatusComponent,
+    SaleOrderStepOneComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, UserPanelRoutingModule],
   exports: [

@@ -1,0 +1,40 @@
+.sale__h3 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0;
+}
+.sale__h3-ligth {
+  font-size: 0.75rem;
+}
+.sale__h3-md {
+  font-weight: 500;
+}
+.sale__p {
+  font-size: 0.75rem;
+  margin: 0;
+}
+.sale__p-bold {
+  font-weight: bold;
+  color: $background-color;
+}
+.sale__p-xs {
+  font-size: 0.625rem;
+  margin: 0;
+  line-height: 12px;
+}
+.sale__p-lg {
+  font-size: 1.25rem;
+  margin: 0;
+}
+.sale__btn {
+  border-radius: 0.5625rem;
+  background-color: $secundary-color;
+  font-size: 1.125rem;
+  font-weight: bold;
+  padding: 2px 32px;
+  border: none;
+}
+
+.container__bg-hg {
+  height: auto;
+}

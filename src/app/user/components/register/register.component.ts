@@ -52,9 +52,7 @@ export class RegisterComponent implements OnInit {
       // console.log(this.user.country_id);
       this.countryFlag = this.countryCodes[this.user.country_id].flag;
       this.countryAlt = this.countryCodes[this.user.country_id].name;
-      this.user.country_phone_code = parseInt(
-        this.countryCodes[this.user.country_id].phonecode
-      );
+      this.user.country_phone_code = this.countryCodes[this.user.country_id].id;
     }
   }
 
@@ -68,7 +66,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    // console.log(this.user);
+    console.log(this.user);
     // console.log(form.invalid);
     if (form.invalid) {
       return;
