@@ -27,6 +27,8 @@ import { SearchComponent } from './search/search.component';
 import { ValidateComponent } from './validate/validate.component';
 import { PricelistComponent } from './pricelist/pricelist.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PoliticasComponent } from './politicas/politicas.component';
+import { RmaGarantiaComponent } from './rma-garantia/rma-garantia.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SearchComponent,
     ValidateComponent,
     PricelistComponent,
+    PoliticasComponent,
+    RmaGarantiaComponent,
   ],
   exports: [
     HomeComponent,

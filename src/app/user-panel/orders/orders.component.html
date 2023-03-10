@@ -1,66 +1,72 @@
 <div class="container__orders">
-    <!-- Header Order -->
-    <div class="header__orders">
-        <span>Pedidos realizados en</span>
-        <div class="btn-group">
-            <button class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header"
-                type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Últimos 2 meses
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Últimos 3 meses</a></li>
-                <li><a class="dropdown-item" href="#">Últimos 4 meses</a></li>
-                <li><a class="dropdown-item" href="#">Últimos 5 meses</a></li>
-            </ul>
-        </div>
+  <!-- Header Order -->
 
+  <div class="header__orders">
+    <span>Pedidos realizados en</span>
+    <div class="btn-group">
+      <button
+        class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Últimos 2 meses
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Últimos 3 meses</a></li>
+        <li><a class="dropdown-item" href="#">Últimos 4 meses</a></li>
+        <li><a class="dropdown-item" href="#">Últimos 5 meses</a></li>
+      </ul>
     </div>
-    <div class="header__orders">
+  </div>
 
-        <form class="form__header" role="search">
-            <i class="{{ iconSearch }}"> </i>
-            <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
-        </form>
-    </div>
-    <!-- Order -->
-    <div class="container__order" *ngFor="let order of orders">
-        <div class="container__order__information" >
-            <div class="order__information">
-                <div class="header__information">
-                    <h3> PEDIDO REALIZADO </h3>
-                    <p> {{order.orderPlaced}} </p>
-                </div>
-                <div class="header__information">
-                    <h3>TOTAL</h3>
-                    <p> {{ order.total }} </p>
-                </div>
-                <div class="header__information">
-                    <h3>ENVIAR A</h3>
-                    <p> {{ order.sendTo }} </p>
-                </div>
+  <div class="header__orders">
+    <form class="form__header" role="search">
+      <i class="{{ iconSearch }}"> </i>
+      <input
+        class="form-control"
+        type="search"
+        placeholder="Buscar"
+        aria-label="Buscar" />
+    </form>
+  </div>
 
-            </div>
-
-            <div class="container__ordernumber">
-                <div class="order">
-                    <h3>ORDEN N.</h3>
-                    <p> {{order.numberOrder}} </p>
-                </div>
-                <div class="ordernumber__button">
-                    <button>Ver detalle</button>
-                    <button>Ver recibo</button>
-                    <button class="btn__bill">Ver factura</button>
-                </div>
-            </div>
+  <!-- Order -->
+  <div class="container__order" *ngFor="let order of orders">
+    <div class="container__order__information">
+      <div class="order__information">
+        <div class="header__information">
+          <h3>PEDIDO REALIZADO</h3>
+          <p>{{ order.orderPlaced }}</p>
         </div>
-        <div class="ordernumber__button__requests">
-            <button [routerLink]="['/user-panel/shipping-status']" >Seguí tu envío</button>
-            <button>Anular orden</button>
-            <button >Devolución producto</button>
-            <button>Escribir opinión</button>
-            <button>Realizar pago</button>
-            <button>Cargar pago</button>
+        <div class="header__information">
+          <h3>TOTAL</h3>
+          <p>{{ order.total }}</p>
         </div>
-    </div>
+        <div class="header__information">
+          <h3>ENVIAR A</h3>
+          <p>{{ order.sendTo }}</p>
+        </div>
+      </div>
 
+      <div class="container__ordernumber">
+        <div class="order">
+          <h3>ORDEN N.</h3>
+          <p>{{ order.numberOrder }}</p>
+        </div>
+        <div class="ordernumber__button">
+          <button>Ver detalle</button>
+          <button>Ver recibo</button>
+          <button class="btn__bill">Ver factura</button>
+        </div>
+      </div>
+    </div>
+    <div class="ordernumber__button__requests">
+      <button [routerLink]="['/shipping-status']">Seguí tu envío</button>
+      <button>Anular orden</button>
+      <button>Devolución producto</button>
+      <button>Escribir opinión</button>
+      <button>Realizar pago</button>
+      <button>Cargar pago</button>
+    </div>
+  </div>
 </div>

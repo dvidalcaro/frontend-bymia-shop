@@ -20,6 +20,8 @@ import { HelpComponent } from './user-panel/help/help.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ValidateComponent } from './pages/validate/validate.component';
 import { PricelistComponent } from './pages/pricelist/pricelist.component';
+import { PoliticasComponent } from './pages/politicas/politicas.component';
+import { RmaGarantiaComponent } from './pages/rma-garantia/rma-garantia.component';
 
 const routes: Routes = [
   {
@@ -61,6 +63,14 @@ const routes: Routes = [
     path: 'flash-sales',
     component: FlashSalesComponent,
   },
+  {
+    path: 'politicas-privacidad-y-servcios',
+    component: PoliticasComponent,
+  },
+  {
+    path: 'politicas-rma-y-garantia',
+    component: RmaGarantiaComponent,
+  },
 
   // {
   //   path: 'shop-cart',
@@ -82,10 +92,10 @@ const routes: Routes = [
   //   component: RegisterComponent,
   // },
 
-  {
+  /* {
     path: 'forget-password',
     component: ForgetPasswordComponent,
-  },
+  }, */
   {
     path: 'validate',
     component: ValidateComponent,

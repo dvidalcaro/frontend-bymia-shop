@@ -1,44 +1,48 @@
-
- <div class="ctn-panel">
-    <div class="panel">
-        <div class="panel__menu">
-            <div class="panel__menu__img">
-                <img [routerLink]="['/user-panel/my-data']" src="./assets/svg/mydata_img.svg" alt="mis Datos" >
-            </div>
-            <div class="panel__menu__opt">
-                <h3 [routerLink]="['/user-panel/my-data']"> Mis datos </h3>
-                <p [routerLink]="['/user-panel/my-data']" >Información básica que 
-                    necesitamos para completar el 
-                    proceso.
-                    </p>
-            </div>
-
-        </div>
-        <div class="panel__menu">
-            <div class="panel__menu__img">
-                <img [routerLink]="['/user-panel/orders']" src="./assets/svg/order_img.svg" alt="Tus ordenes">
-            </div>
-            <div class="panel__menu__opt">
-                <h3 [routerLink]="['/user-panel/orders']">Mis ordenes</h3>
-            <p [routerLink]="['/user-panel/orders']" >Registro de cada compra que 
-                hiciste. Ordenanos y nos 
-                ordenamos. </p>
-            </div>
-
-        </div>
-        <div class="panel__menu">
-            <div class="panel__menu__img">
-                <img [routerLink]="['/user-panel/help']" src="./assets/svg/help_img.svg" alt="Ayuda" >
-            </div>
-            <div class="panel__menu__opt">
-                <h3 [routerLink]="['/user-panel/help']">Ayuda</h3>
-            <p [routerLink]="['/user-panel/help']" >Estamos a tu disposición para 
-                facilitar tu compra. Consultanos. 
-                </p>
-            </div>
-
-        </div>
+<div class="ctn-panel">
+  <div class="panel">
+    <div class="panel__menu">
+      <div class="panel__menu__img">
+        <img
+          [routerLink]="['/my-data']"
+          src="./assets/svg/mydata_img.svg"
+          alt="mis Datos" />
+      </div>
+      <div class="panel__menu__opt">
+        <h3 [routerLink]="['/my-data']">Mis datos</h3>
+        <p [routerLink]="['/my-data']">
+          Información básica que necesitamos para completar el proceso.
+        </p>
+      </div>
     </div>
+    <div class="panel__menu">
+      <div class="panel__menu__img">
+        <img
+          [routerLink]="['/orders']"
+          src="./assets/svg/order_img.svg"
+          alt="Tus ordenes" />
+      </div>
+      <div class="panel__menu__opt">
+        <h3 [routerLink]="['/orders']">Mis ordenes</h3>
+        <p [routerLink]="['/orders']">
+          Registro de cada compra que hiciste. Ordenanos y nos ordenamos.
+        </p>
+      </div>
+    </div>
+    <div class="panel__menu">
+      <div class="panel__menu__img">
+        <img
+          [routerLink]="['/help']"
+          src="./assets/svg/help_img.svg"
+          alt="Ayuda" />
+      </div>
+      <div class="panel__menu__opt">
+        <h3 [routerLink]="['/help']">Ayuda</h3>
+        <p [routerLink]="['/help']">
+          Estamos a tu disposición para facilitar tu compra. Consultanos.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- <div class="container__zone">
@@ -79,4 +83,4 @@
                 sectetur adipiscing elit.</p>
         </div>
     </div>
-</div> --> 
+</div> -->

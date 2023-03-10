@@ -1,0 +1,17 @@
+.container__pbg {
+  background-color: #101010;
+  border-radius: 0.75rem;
+  height: auto;
+}
+.politic__p {
+  text-justify: distribute;
+}
+
+@media screen and (max-width: 992px) {
+  .container__pbg {
+    padding: 16px;
+  }
+  .politic__h3 {
+    font-size: 20px;
+  }
+}
