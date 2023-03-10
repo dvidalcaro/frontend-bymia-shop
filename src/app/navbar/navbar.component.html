@@ -144,16 +144,61 @@
               </button>
             </div>
             <ng-template #withUser>
-              <button
-                class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
-                (click)="logout()">
-                <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
-                {{
-                  username.length > 8
-                    ? (username | slice : 0 : 8) + '...'
-                    : username
-                }}
-              </button>
+              <div
+                class="input-group d-flex justify-content-center position-relative">
+                <button
+                  class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
+                  {{
+                    username.length > 8
+                      ? (username | slice : 0 : 8) + '...'
+                      : username
+                  }}
+                </button>
+                <ul class="dropdown-menu">
+                  <div>
+                    <li routerLink="/panel">
+                      <h5 class="dropdown-header">
+                        <strong>Mi Panel</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li routerLink="/my-data">
+                      <h5 class="dropdown-header">
+                        <strong>Mi Perfil</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li routerLink="/orders">
+                      <h5 class="dropdown-header">
+                        <strong>Mis órdenes</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li routerLink="/shipping-status">
+                      <h5 class="dropdown-header">
+                        <strong>Estado de envíos</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li (click)="logout()">
+                      <h5 class="dropdown-header">
+                        <strong>Salir</strong>
+                      </h5>
+                    </li>
+                  </div>
+                </ul>
+              </div>
             </ng-template>
           </div>
         </li>
