@@ -7,12 +7,13 @@ import { WishListComponent } from '../pages/wish-list/wish-list.component';
 
 import { ShopCartComponent } from '../pages/shop-cart/shop-cart.component';
 import { RegisterComponent } from './components/register/register.component';
-
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 
 AuthGuard;
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'forget-password', component: ForgetPasswordComponent },
   {
     path: 'wish-list',
     component: WishListComponent,
@@ -23,8 +24,6 @@ const routes: Routes = [
     component: ShopCartComponent,
     canActivate: [AuthGuard],
   },
-  
-  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

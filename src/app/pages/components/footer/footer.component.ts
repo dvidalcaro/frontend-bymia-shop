@@ -11,7 +11,7 @@ export class FooterComponent implements OnInit {
   links: navLink[] = [
     {
       label: 'Términos y condiciones',
-      links: '/',
+      links: '/politicas-privacidad-y-servcios',
     },
     {
       label: 'Envíos',
@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit {
     },
     {
       label: 'Devolución',
-      links: '/',
+      links: '/politicas-rma-y-garantia',
     },
     {
       label: 'Atención al Cliente',

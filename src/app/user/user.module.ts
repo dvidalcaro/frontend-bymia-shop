@@ -7,9 +7,10 @@ import { RegisterComponent } from './components/register/register.component';
 
 import { UserRoutingModule } from './user-routing.module';
 import { UserPanelModule } from '../user-panel/user-panel.module';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ForgetPasswordComponent],
   imports: [CommonModule, FormsModule, UserPanelModule, UserRoutingModule],
   exports: [LoginComponent, RegisterComponent],
 })

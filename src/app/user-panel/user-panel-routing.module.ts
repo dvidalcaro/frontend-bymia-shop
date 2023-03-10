@@ -10,7 +10,6 @@ import { ShippingStatusComponent } from './shipping-status/shipping-status.compo
 import { AuthGuard } from '../user/guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'user-panel', component: PanelComponent, canActivate: [AuthGuard] },
   { path: 'my-data', component: MyDataComponent, canActivate: [AuthGuard] },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
