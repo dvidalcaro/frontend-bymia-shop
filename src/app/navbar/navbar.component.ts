@@ -73,7 +73,7 @@ export class NavbarComponent implements OnInit {
   priceListform!: FormGroup;
 
   query: string = '';
-  filter: string = 'all';
+  filters: string[] = [];
 
   linksHeader: navLink[] = [
     {
@@ -171,14 +171,28 @@ export class NavbarComponent implements OnInit {
   }
 
   setFilter(filter: string) {
-    this.filter = filter.toLowerCase();
-    // console.log('filter', this.filter);
-    this.router.navigate(['/search', this.filter, this.query.trim()]);
+    // console.log('pedido de', filter);
+    let index = this.filters.findIndex(e => e == filter);
+    if (index >= 0) {
+      this.filters.splice(index, 1);
+    } else {
+      this.filters.push(filter);
+    }
+    // console.log('the filters:', this.filters);
+    // this.filter = filter.toLowerCase();
+    // , this.filter, this.query.trim()
+    if (this.filters.length > 0 || this.query.length > 2) {
+      this.router.navigate(['/search'], {
+        queryParams: { query: this.query, filters: this.filters },
+      });
+    } else {
+      this.router.navigateByUrl('/');
+    }
   }
 
   clearInput() {
     this.query = '';
-    this.filter = '';
+    this.filters = [];
     this.router.navigate(['/home']);
   }
 
@@ -186,17 +200,23 @@ export class NavbarComponent implements OnInit {
     let key = event.target.value.trim();
     // console.log(key);
     if (key.length > 2) {
-      this.router.navigate(['/search', this.filter, key]);
+      // , this.filter, key
+      this.router.navigate(['/search'], {
+        queryParams: { query: this.query, filters: this.filters },
+      });
     }
   }
   onSeachingButton() {
     if (this.query.length > 2) {
-      this.router.navigate(['/search', this.filter, this.query.trim()]);
+      // , this.filter, this.query.trim()
+      this.router.navigate(['/search'], {
+        queryParams: { query: this.query, filters: this.filters },
+      });
     }
   }
 
   ngOnInit(): void {
-    this.filter = '';
+    this.filters = [];
     this.query = '';
   }
 }
