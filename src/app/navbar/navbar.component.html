@@ -36,14 +36,14 @@
               </button>
               <ul class="dropdown-menu">
                 <div *ngFor="let sti of searchTypeList">
-                  <li (click)="setFilter(sti.title)">
+                  <li>
                     <h5 class="dropdown-header">
                       <strong>{{ sti.title }}</strong>
                     </h5>
                   </li>
                   <li
                     *ngFor="let item of sti.items"
-                    (click)="setFilter(item.name)">
+                    (click)="setFilter(sti.slug + item.name.toLowerCase())">
                     <a class="dropdown-item">{{ item.name | titlecase }}</a>
                   </li>
                   <li>

@@ -8,8 +8,8 @@ import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  public queryString: string = '';
-  public filter: string = '';
+  public query: string = '';
+  public filters: string[] = [];
   searchProducts: FeaturedProduct[] = [];
   index: number = 0;
   limit: number = 4;
@@ -30,36 +30,54 @@ export class SearchComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private bymiaService: BymiaService
-  ) {}
-
-  moreProducts() {
-    // this.index += 1;
-    this.bymiaService
-      .getFeaturedProducts('destacados', this.index, this.limit)
-      .subscribe(resp => {
-        resp.forEach(element => {
+  ) {
+    this.bymiaService.currentSearchlist.subscribe(result => {
+      if (this.searchProducts.length > 0) {
+        result.forEach(element => {
           this.searchProducts.find(eo => {
             if (eo.category === element.category) {
               eo.products = [...eo.products, ...element.products];
             }
           });
         });
-      });
+      } else {
+        this.searchProducts = result;
+      }
+      // console.log(this.searchProducts);
+    });
+  }
+
+  moreProducts() {
+    this.index += 1;
+    this.bymiaService.getSearchedProducts(
+      this.query,
+      this.filters?.join('&'),
+      this.index,
+      this.limit
+    );
   }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      this.queryString = params.key;
-      this.filter = params.filter;
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.query = params.query;
+      this.filters = params.filters;
 
-      // console.log('Search receive', params.key);
-      this.bymiaService
-        .getFeaturedProducts('destacados', this.index, this.limit)
-        .subscribe(resp => {
-          this.searchProducts = resp;
-        });
-      setTimeout(() => this.moreProducts(), 1000);
-      // setTimeout(() => this.moreProducts(), 1000);
+      // console.log('Search receive', params);
+      // console.log('filters join', this.filters?.join('&'));
+      this.searchProducts = [];
+      // console.log(typeof this.filters);
+      if (typeof this.filters == 'string') {
+        this.filters = [this.filters];
+      }
+      this.bymiaService.getSearchedProducts(
+        this.query,
+        this.filters?.join('&'),
+        this.index,
+        this.limit
+      );
     });
+    setTimeout(() => {
+      this.moreProducts();
+    }, 1000);
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { of, Observable, BehaviorSubject } from 'rxjs';
 import { tap, switchMap, map, catchError } from 'rxjs/operators';
 import { About } from '../shared/interfaces/About';
 import { Categories } from '../shared/interfaces/Categories';
@@ -50,8 +50,13 @@ export class BymiaService {
   private countryCode: CountryCode[] = [];
   private homeSections: HomeSection[] = [];
 
+  private currentSearchSubject: BehaviorSubject<FeaturedProduct[]>;
+  public currentSearchlist: Observable<FeaturedProduct[]>;
+
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
+    this.currentSearchSubject = new BehaviorSubject<FeaturedProduct[]>([]);
+    this.currentSearchlist = this.currentSearchSubject.asObservable();
   }
 
   public getSliders() {
@@ -111,6 +116,28 @@ export class BymiaService {
       )
       .pipe(tap(() => (this.loading = false)));
     // .pipe(tap(fp => (this.featuredProducts = fp)));
+  }
+  public getSearchedProducts(
+    key: string,
+    filter: string = '',
+    index: number = 0,
+    limit: number = 4
+  ): void {
+    if (this.loading) {
+      this.currentSearchSubject.next([]);
+    }
+    this.loading = true;
+    this.http
+      .get<FeaturedProduct[]>(
+        `${url}/products/search?k=${key}i=${index}&l=${limit}${
+          filter != '' ? '&' + filter : filter
+        }`,
+        { headers }
+      )
+      .subscribe(result => {
+        this.loading = false;
+        this.currentSearchSubject.next(result);
+      });
   }
 
   public sendContactForm(body: MsgContactForm): Observable<any> {
