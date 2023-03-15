@@ -1,6 +1,6 @@
 /* change the background color */
 .navbar-custom {
-   background-color: #000;
+  background-color: #000;
   // width: 90%;
   // justify-items: center;
   // align-items: center;
@@ -24,6 +24,33 @@
 .navbar-custom .nav-item:hover .nav-link {
   color: #15fed4;
   border-bottom: 2px solid #15fed4;
+}
+
+.nav__btn {
+  background-color: #15fed4;
+  padding: 3px 6px;
+}
+.nav__ul {
+  background-color: #101010;
+  &:hover {
+    background-color: #101010;
+  }
+}
+.nav__hr {
+  color: #15fed4;
+}
+.nav__mobile {
+  display: none;
+  background-color: #000;
+}
+@media screen and (max-width: 1200px) {
+  .nav__desktop {
+    display: none;
+  }
+
+  .nav__mobile {
+    display: block;
+  }
 }
 
 // TODO: analizar el comportamiento en version Mobile

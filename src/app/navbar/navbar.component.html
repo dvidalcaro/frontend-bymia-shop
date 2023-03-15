@@ -1,5 +1,5 @@
 <nav
-  class="navbar sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
+  class="navbar nav__desktop sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
   <div class="container-fluid">
     <button
       class="navbar-toggler"
@@ -200,6 +200,124 @@
                 </ul>
               </div>
             </ng-template>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Nav Mobile -->
+<nav class="navbar nav__mobile sticky-top navbar-expand-xxl pt-3 pb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img class="navbar-nav" src="{{ urlLogo }}" alt="Bymia shop" />
+    </a>
+    <button
+      class="navbar-toggler nav__btn"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-light rounded-3 nav__ul">
+        <li class="nav-item pt-1" *ngFor="let icon of linksIcon">
+          <div *ngIf="icon.links === 'login'">
+            <div class="me-2" *ngIf="username == ''; else withUser">
+              <button
+                class="badge rounded-pill bg-secundary"
+                [routerLink]="[icon.links]">
+                <i class="{{ icon.icon }}"></i>
+                Ingresar
+              </button>
+            </div>
+            <ng-template #withUser>
+              <div class="input-group d-flex flex-column">
+                <button
+                  class="badge rounded-pill bg-secundary col-4 col-md-2 ms-2"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
+                  {{
+                    username.length > 8
+                      ? (username | slice : 0 : 8) + '...'
+                      : username
+                  }}
+                </button>
+                <ul class="dropdown-menu nav__ul">
+                  <div>
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" routerLink="/panel"
+                        ><strong>Mi panel</strong></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" routerLink="/my-data"
+                        ><strong>Mi perfil</strong></a
+                      >
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" routerLink="/orders"
+                        ><strong>Mis órdenes</strong></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link text-light ps-3"
+                        routerLink="/shipping-status"
+                        ><strong>Estado de envíos</strong></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" (click)="logout()"
+                        ><strong>Salir</strong></a
+                      >
+                    </li>
+                    <li>
+                      <hr class="nav__hr" />
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </ng-template>
+          </div>
+        </li>
+
+        <li class="nav-item" *ngFor="let link of linksHeader">
+          <a class="nav-link text-light ps-3" [routerLink]="[link.links]"
+            ><strong>{{ link.label }}</strong></a
+          >
+        </li>
+
+        <li class="nav-item ms-3 mt-1" *ngFor="let icon of linksIcon">
+          <div *ngIf="icon.links === 'wish-list'">
+            <a
+              class="nav-link col-3 text-light position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="WishNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ WishNotifications }}</span
+              >
+            </a>
+          </div>
+
+          <div *ngIf="icon.links === 'shop-cart'">
+            <a
+              class="nav-link text-light position-relative col-sm-12 col-md-1 col-xl-10 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="CartNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ CartNotifications }}</span
+              >
+            </a>
           </div>
         </li>
       </ul>
