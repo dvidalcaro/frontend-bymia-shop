@@ -101,7 +101,7 @@ export class NavbarComponent implements OnInit {
       links: 'flash-sales',
     },
     {
-      label: 'Precio De Lista',
+      label: 'Precio de lista',
       links: 'pricelist',
     },
   ];
