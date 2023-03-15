@@ -1,3 +1,33 @@
+.sale__info {
+  height: 98px;
+  background-color: $secundary-color;
+  i {
+    font-size: 42px;
+  }
+}
+.sale__bg-black {
+  background-color: $background-color;
+}
+.sale__bg-black {
+  background-color: $background-color;
+}
+.sale__bg-black-ligth {
+  background-color: #10101059;
+}
+.sale__i {
+  font-size: 42px;
+  color: $primary-color;
+}
+.sale__span {
+  color: $secundary-color;
+}
+
+.sale__input-radio {
+  .form-check-input:checked {
+    background-color: $secundary-color;
+    border-color: #11cf37;
+  }
+}
 .sale__h3 {
   font-size: 1.125rem;
   font-weight: bold;
@@ -37,4 +67,8 @@
 
 .container__bg-hg {
   height: auto;
+}
+
+.cart__button-bg-black {
+  background-color: $background-color;
 }
