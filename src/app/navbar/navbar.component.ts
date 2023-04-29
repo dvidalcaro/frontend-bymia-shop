@@ -72,8 +72,11 @@ export class NavbarComponent implements OnInit {
   }
   priceListform!: FormGroup;
 
-  query: string = '';
-  filters: string[] = [];
+  k: string = '';
+
+  c: string[] = [];
+  b: string[] = [];
+  t: string[] = [];
 
   linksHeader: navLink[] = [
     {
@@ -170,20 +173,47 @@ export class NavbarComponent implements OnInit {
     this.switchBar = !this.switchBar;
   }
 
-  setFilter(filter: string) {
-    // console.log('pedido de', filter);
-    let index = this.filters.findIndex(e => e == filter);
-    if (index >= 0) {
-      this.filters.splice(index, 1);
-    } else {
-      this.filters.push(filter);
+  setFilter(slug: string, filter: string) {
+    // console.log('slug', slug, 'filter', filter);
+    switch (slug.substring(0, 1)) {
+      case 'c':
+        if (this.c.filter(f => f == filter).length <= 0) {
+          this.c.push(filter);
+        } else {
+          this.c = this.c.filter(f => f != filter);
+        }
+        break;
+      case 'b':
+        if (this.b.filter(f => f == filter).length <= 0) {
+          this.b.push(filter);
+        } else {
+          this.b = this.b.filter(f => f != filter);
+        }
+        break;
+      case 't':
+        if (this.t.filter(f => f == filter).length <= 0) {
+          this.t.push(filter);
+        } else {
+          this.t = this.t.filter(f => f != filter);
+        }
+        break;
+      default:
+        break;
     }
-    // console.log('the filters:', this.filters);
-    // this.filter = filter.toLowerCase();
-    // , this.filter, this.query.trim()
-    if (this.filters.length > 0 || this.query.length > 2) {
+
+    if (
+      this.c.length > 0 ||
+      this.b.length > 0 ||
+      this.t.length > 0 ||
+      this.k.length > 2
+    ) {
       this.router.navigate(['/search'], {
-        queryParams: { query: this.query, filters: this.filters },
+        queryParams: {
+          k: this.k,
+          c: JSON.stringify(this.c),
+          b: JSON.stringify(this.b),
+          t: JSON.stringify(this.t),
+        },
       });
     } else {
       this.router.navigateByUrl('/');
@@ -191,8 +221,10 @@ export class NavbarComponent implements OnInit {
   }
 
   clearInput() {
-    this.query = '';
-    this.filters = [];
+    this.k = '';
+    this.c = [];
+    this.b = [];
+    this.t = [];
     this.router.navigate(['/home']);
   }
 
@@ -200,23 +232,62 @@ export class NavbarComponent implements OnInit {
     let key = event.target.value.trim();
     // console.log(key);
     if (key.length > 2) {
-      // , this.filter, key
       this.router.navigate(['/search'], {
-        queryParams: { query: this.query, filters: this.filters },
+        queryParams: {
+          k: this.k,
+          c: JSON.stringify(this.c),
+          b: JSON.stringify(this.b),
+          t: JSON.stringify(this.t),
+        },
       });
     }
   }
   onSeachingButton() {
-    if (this.query.length > 2) {
-      // , this.filter, this.query.trim()
+    if (this.k.length > 2) {
       this.router.navigate(['/search'], {
-        queryParams: { query: this.query, filters: this.filters },
+        queryParams: {
+          k: this.k,
+          c: JSON.stringify(this.c),
+          b: JSON.stringify(this.b),
+          t: JSON.stringify(this.t),
+        },
       });
     }
   }
 
   ngOnInit(): void {
-    this.filters = [];
-    this.query = '';
+    this.c = [];
+    this.b = [];
+    this.t = [];
+    this.k = '';
+  }
+
+  isSelected(list: string, value: string) {
+    switch (list.substring(0, 1)) {
+      case 'c':
+        if (this.c.filter(f => f == value).length <= 0) {
+          return false;
+        } else {
+          return true;
+        }
+        break;
+      case 'b':
+        if (this.b.filter(f => f == value).length <= 0) {
+          return false;
+        } else {
+          return true;
+        }
+        break;
+      case 't':
+        if (this.t.filter(f => f == value).length <= 0) {
+          return false;
+        } else {
+          return true;
+        }
+        break;
+      default:
+        return false;
+        break;
+    }
   }
 }

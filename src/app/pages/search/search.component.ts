@@ -8,7 +8,10 @@ import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  public query: string = '';
+  public k: string = '';
+  public c: string = '';
+  public b: string = '';
+  public t: string = '';
   public filters: string[] = [];
   searchProducts: FeaturedProduct[] = [];
   index: number = 0;
@@ -50,8 +53,10 @@ export class SearchComponent implements OnInit {
   moreProducts() {
     this.index += 1;
     this.bymiaService.getSearchedProducts(
-      this.query,
-      this.filters?.join('&'),
+      this.k,
+      this.c,
+      this.b,
+      this.t,
       this.index,
       this.limit
     );
@@ -59,19 +64,32 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
-      this.query = params.query;
-      this.filters = params.filters;
+      // console.log('Search receive');
+      // console.log('params.k', params.k);
+      // console.log('params.c', params.c);
+      // console.log('params.b', params.b);
+      // console.log('params.t', params.t);
 
-      // console.log('Search receive', params);
-      // console.log('filters join', this.filters?.join('&'));
+      this.k = params.k;
+      this.c = params.c;
+      this.b = params.b;
+      this.t = params.t;
+
+      this.filters = [
+        ...JSON.parse(params.c),
+        ...JSON.parse(params.b),
+        ...JSON.parse(params.t),
+      ];
+
+      // console.log(this.filters);
+
       this.searchProducts = [];
-      // console.log(typeof this.filters);
-      if (typeof this.filters == 'string') {
-        this.filters = [this.filters];
-      }
+
       this.bymiaService.getSearchedProducts(
-        this.query,
-        this.filters?.join('&'),
+        this.k,
+        this.c,
+        this.b,
+        this.t,
         this.index,
         this.limit
       );

@@ -118,8 +118,10 @@ export class BymiaService {
     // .pipe(tap(fp => (this.featuredProducts = fp)));
   }
   public getSearchedProducts(
-    key: string,
-    filter: string = '',
+    key: string = '',
+    categories: string = '',
+    brands: string = '',
+    tall: string = '',
     index: number = 0,
     limit: number = 4
   ): void {
@@ -129,9 +131,7 @@ export class BymiaService {
     this.loading = true;
     this.http
       .get<FeaturedProduct[]>(
-        `${url}/products/search?k=${key}i=${index}&l=${limit}${
-          filter != '' ? '&' + filter : filter
-        }`,
+        `${url}/products/search?k=${key}&c=${categories}&b=${brands}&t=${tall}&i=${index}&l=${limit}`,
         { headers }
       )
       .subscribe(result => {
