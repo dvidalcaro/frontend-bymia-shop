@@ -121,4 +121,8 @@ export class UserService {
       { headers }
     );
   }
+
+  endOrder() {
+    return this.http.post(`${url}/order`, {}, { headers });
+  }
 }
