@@ -3,23 +3,18 @@
     class="container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn">
     <!-- Header Cart -->
     <div
-      class="row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
+      class="header__order row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
       <!--colum1  -->
       <div class="col">
         <h3 class="cart__h3 cart__h3-title">
           Estás a 1 pasos de finalizar tu compra
           <img src="../assets/svg/Icon_shopping_cart.svg" alt="favoritos" />
         </h3>
-        <!-- <button
-          class="cart__button cart__button-mobile"
-          (click)="openConfirm()">
-          Anular la seleccion de todos los elementos
-        </button> -->
       </div>
       <!--colum2  -->
       <div class="col-7 d-flex justify-content-end align-items-center">
         <div class="me-1">
-          <button class="cart__button cart__button-bg">Continuar</button>
+          <button class="cart__button cart__button-bg">Finalizar orden</button>
         </div>
         <div class="d-flex flex-column align-content-center">
           <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
@@ -27,13 +22,13 @@
         </div>
       </div>
     </div>
-    <!-- sales order step 1 -->
+    <!-- sales order information -->
     <div class="row gap-2">
       <div class="col col-lg-8 text-dark m-0 p-0">
         <div
           class="sale__info d-flex gap-2 align-items-center p-lg-4 p-2 rounded-3">
           <i class="bx bxs-info-circle"></i>
-          <p class="sale__p sale__p-bold">
+          <p class="sale__p sale__p-bold mt-1 mb-1">
             Para pagos de hasta 2.500 dólares, podés utilizar tarjeta de
             crédito, PayPal o transferencia bancaria; para pagos superiores a
             2.500 dólares, solo se acepta transferencia bancaria.
@@ -41,14 +36,14 @@
         </div>
         <div class="p-lg-4 p-2 mt-2 rounded-3 bg-light">
           <div>
-            <h3 class="text-dark sale__h3 text-center pt-3">
+            <h3 class="text-dark sale__h3 text-md-center pt-3">
               Seleccioná el tipo de envío de tu preferencia
             </h3>
           </div>
           <div>
-            <div class="d-flex gap-2 mt-3">
+            <div class="d-md-flex gap-1 mt-3">
               <div
-                class="col form-check sale__bg-black rounded-3 d-flex align-items-center">
+                class="col col-md-6 form-check sale__bg-black rounded-3 d-flex align-items-center">
                 <div
                   class="d-flex align-items-center gap-2 p-3 sale__input-radio">
                   <input
@@ -64,10 +59,10 @@
                     <span class="sale__span">No incluye TAX</span>
                   </label>
                 </div>
-                <i class="bx bx-world sale__i ms-3"></i>
+                <i class="bx bx-world sale__i ms-3 me-1"></i>
               </div>
               <div
-                class="col form-check sale__bg-black rounded-3 d-flex align-items-center">
+                class="col col-md-6 form-check sale__bg-black rounded-3 d-flex align-items-center">
                 <div
                   class="d-flex align-items-center gap-2 p-3 sale__input-radio">
                   <input
@@ -88,12 +83,10 @@
             </div>
           </div>
           <div class="col mt-2">
-            <div
-              class="col form-check sale__bg-black rounded-3 d-flex align-items-center">
-              <div
-                class="d-flex align-items-center gap-2 p-3 sale__input-radio">
+            <div class="col form-check sale__bg-black rounded-3">
+              <div class="p-3 sale__input-radio">
                 <input
-                  class="form-check-input"
+                  class="form-check-input sale__mt mt-md-3"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1" />
@@ -111,10 +104,9 @@
           <div class="col mt-2">
             <div
               class="col form-check sale__bg-black rounded-3 d-flex align-items-center">
-              <div
-                class="d-flex align-items-center gap-2 p-3 sale__input-radio">
+              <div class="align-items-center gap-2 p-3 sale__input-radio">
                 <input
-                  class="form-check-input"
+                  class="form-check-input sale__mt mt-md-3"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1" />
@@ -129,20 +121,24 @@
               </div>
             </div>
           </div>
+          <!-- Add billing data -->
           <div>
             <h3 class="text-dark sale__h3 text-center pt-3">
               Agregar datos de facturación
             </h3>
           </div>
-          <!-- Add billing data -->
+          <!-- Form select shipping types -->
           <form class="mt-3 d-flex flex-column gap-2" action="">
-            <div class="d-flex gap-2">
-              <select class="form-select" name="" id="">
-                <option value="">Tipo de identificación</option>
-                <option value="">DNI</option>
-                <option value="">Pasaporte</option>
-              </select>
-
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="type-id"
+                placeholder="Tipo de identificación"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="type-id"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
               <input
                 type="text"
                 name="name"
@@ -153,8 +149,8 @@
                 required
                 aria-describedby="nameHelp" />
             </div>
-            <div class="d-flex gap-2">
-              <select class="form-select" name="" id="">
+            <div class="d-md-flex gap-2">
+              <select class="form-select mb-2 mb-md-0" name="" id="">
                 <option value="">País</option>
                 <option value="">Argentina</option>
                 <option value="">Estados unidos</option>
@@ -170,8 +166,8 @@
                 required
                 aria-describedby="nameHelp" />
             </div>
-            <div class="d-flex gap-2">
-              <select class="form-select" name="" id="">
+            <div class="d-md-flex gap-2">
+              <select class="form-select mb-2 mb-md-0" name="" id="">
                 <option value="">Estado o provincia</option>
                 <option value="">CABA</option>
                 <option value="">Buenos Aires</option>
@@ -193,29 +189,30 @@
                 required
                 aria-describedby="nameHelp" />
             </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Información adicional (ej, entre calle y calle)"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
           </form>
-          <div class="mt-5 d-flex justify-content-between align-items-center">
-            <div>
-              <h3 class="text-dark sale__h3">Agregar datos de destinatarios</h3>
-              <p class="sale__p-xs">
-                (Completar únicamente si los datos del destinatario son
-                distintos a los de facturación)
-              </p>
-            </div>
-            <div>
-              <button class="cart__button cart__button-bg">
-                Agregá una nueva dirección
-              </button>
-            </div>
+          <!--Add Pickup Data  -->
+          <div class="mt-5 mt-2">
+            <h3 class="text-dark sale__h3">Agregar datos de Pickup</h3>
           </div>
-          <!-- Form Destinatario -->
+          <!-- Form pickup -->
           <form class="mt-3 d-flex flex-column gap-2" action="">
-            <div class="d-flex gap-2">
+            <div class="d-md-flex gap-2">
               <input
                 type="text"
                 name="name"
                 placeholder="Nombre y apellido"
-                class="form-control frm-register__input"
+                class="form-control frm-register__input mb-2 mb-md-0"
                 id="name"
                 minlength="3"
                 required
@@ -232,13 +229,98 @@
                 aria-describedby="nameHelp" />
             </div>
 
-            <div class="d-flex gap-2">
-              <select class="form-select" name="" id="">
-                <option value="">Tipo de identificación</option>
-                <option value="">DNI</option>
-                <option value="">Pasaporte</option>
-              </select>
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="type-id"
+                placeholder="Tipo de identificación"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="type-id"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Número de identificación "
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
 
+            <div class="d-md-flex gap-2">
+              <input
+                type="email"
+                name="name"
+                placeholder="E-mail"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+          </form>
+
+          <!-- Add recipient data -->
+          <div class="mt-5 d-flex justify-content-between align-items-center">
+            <div>
+              <h3 class="text-dark sale__h3">Agregar datos de destinatarios</h3>
+              <p class="sale__p-xs">
+                (Completar únicamente si los datos del destinatario son
+                distintos a los de facturación)
+              </p>
+            </div>
+            <div>
+              <button class="cart__button cart__button-bg">
+                Agregá una nueva dirección
+              </button>
+            </div>
+          </div>
+          <!-- Form Destinatario -->
+          <form class="mt-3 d-flex flex-column gap-2" action="">
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="name"
+                placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Razón social destinatario"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="type-id"
+                placeholder="Tipo de identificación"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="type-id"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
               <input
                 type="text"
                 name="name"
@@ -256,8 +338,8 @@
                 <option value="">Estados unidos</option>
               </select>
             </div>
-            <div class="d-flex gap-2">
-              <select class="form-select" name="" id="">
+            <div class="d-md-flex gap-2">
+              <select class="form-select mb-2 mb-md-0" name="" id="">
                 <option value="">Estado o provincia</option>
                 <option value="">CABA</option>
                 <option value="">Buenos Aires</option>
@@ -279,7 +361,7 @@
                 required
                 aria-describedby="nameHelp" />
             </div>
-            <div class="d-flex gap-2">
+            <div class="d-md-flex gap-2">
               <input
                 type="text"
                 name="name"
@@ -370,19 +452,6 @@
               </div>
             </div>
           </div>
-
-          <!-- <div class="mydata__address__card">
-            <h3>Diego Vidal Caro</h3>
-            <p>
-              Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-              +541162964723
-            </p>
-            <div class="address__button">
-              <button>Editar dirección</button>
-              <p>|</p>
-              <button>Eliminar</button>
-            </div>
-          </div> -->
         </div>
       </div>
 
@@ -418,18 +487,17 @@
           <h3 class="sale__h3 text-center text-dark">Código promocional</h3>
         </div>
         <div class="d-flex">
-          <div class="col"></div>
+          <div class="col-1"></div>
           <form class="col col-lg-10" action="">
             <input
               type="text"
               name="name"
-              placeholder="Código Promocional Orden"
               class="form-control text-center mt-2"
               id="name"
               minlength="3"
               required
               aria-describedby="nameHelp" />
-            <input
+            <!-- <input
               type="text"
               name="name"
               placeholder="Código Promocional Envío"
@@ -437,14 +505,14 @@
               id="name"
               minlength="3"
               required
-              aria-describedby="nameHelp" />
+              aria-describedby="nameHelp" /> -->
             <div class="text-center mt-2">
               <button class="cart__button cart__button-bg-black">
                 Agregar
               </button>
             </div>
           </form>
-          <div class="col"></div>
+          <div class="col-1"></div>
         </div>
         <div class="pe-4 pt-4">
           <div class="d-flex justify-content-between">
@@ -466,14 +534,14 @@
           <div class="d-flex justify-content-between">
             <div>
               <p class="sale__p sale__p-bold text-dark">
-                Descuento promocional producto:
+                Descuento promocional:
               </p>
             </div>
             <div>
               <p class="sale__p text-dark">$140</p>
             </div>
           </div>
-          <div class="d-flex justify-content-between">
+          <!-- <div class="d-flex justify-content-between">
             <div>
               <p class="sale__p sale__p-bold text-dark">
                 Descuento promocional envio:
@@ -482,7 +550,7 @@
             <div>
               <p class="sale__p text-dark">$100</p>
             </div>
-          </div>
+          </div> -->
           <div class="d-flex justify-content-between">
             <div>
               <p class="sale__p sale__p-bold text-dark">Tax:</p>
@@ -524,6 +592,37 @@
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Popup -->
+<div
+  class="container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0"
+  *ngIf="true">
+  <div
+    class="container bg-white rounded-3 justify-content-center container-order">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end me-2"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center h3__popup">
+          Anteriormente seleccionaste {{ Popup[1].selection }}
+        </h3>
+      </div>
+    </div>
+    <div class="row m-2 m-md-3">
+      <div class="col bg-dark rounded-3 p-3 mb-3">
+        <h5 class="h5__popup">{{ Popup[1].title }}</h5>
+        <pre
+          class="p__popup text-light"> <p class="p__popup text-light">{{ Popup[1].description }}</p> </pre>
       </div>
     </div>
   </div>

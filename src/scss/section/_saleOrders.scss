@@ -72,3 +72,42 @@
 .cart__button-bg-black {
   background-color: $background-color;
 }
+
+.h3__popup {
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 0.07em;
+  line-height: 27px;
+  text-align: center;
+  color: #000;
+}
+.h5__popup {
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  line-height: 18px;
+  text-align: left;
+  color: #fff;
+}
+
+.p__popup {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  line-height: 18px;
+  text-align: left;
+  color: #fff;
+}
+
+@media screen and (max-width: 578px) {
+  .header__order {
+    display: none !important;
+  }
+  .sale__h3 {
+    font-size: 1rem;
+  }
+
+  .sale__mt {
+    margin-top: 4rem;
+  }
+}
