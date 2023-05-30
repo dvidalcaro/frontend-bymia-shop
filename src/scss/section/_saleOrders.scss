@@ -72,3 +72,16 @@
 .cart__button-bg-black {
   background-color: $background-color;
 }
+
+@media screen and (max-width: 578px) {
+  .header__order {
+    display: none !important;
+  }
+  .sale__h3 {
+    font-size: 1rem;
+  }
+
+  .sale__mt {
+    margin-top: 4rem;
+  }
+}
