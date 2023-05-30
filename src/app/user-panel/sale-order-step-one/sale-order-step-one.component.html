@@ -596,3 +596,34 @@
     </div>
   </div>
 </div>
+
+<!-- Popup -->
+<div
+  class="container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0"
+  *ngIf="true">
+  <div
+    class="container bg-white rounded-3 justify-content-center container-order">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end me-2"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center h3__popup">
+          Anteriormente seleccionaste {{ Popup[1].selection }}
+        </h3>
+      </div>
+    </div>
+    <div class="row m-2 m-md-3">
+      <div class="col bg-dark rounded-3 p-3 mb-3">
+        <h5 class="h5__popup">{{ Popup[1].title }}</h5>
+        <pre
+          class="p__popup text-light"> <p class="p__popup text-light">{{ Popup[1].description }}</p> </pre>
+      </div>
+    </div>
+  </div>
+</div>
