@@ -1,13 +1,14 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SliderInterface } from 'src/app/shared/interfaces/slider-interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlocksService {
   _response: any;
-  private url = 'http://back-test.bymiashop.com/api/front/';
+  private url = environment.url + '/api/front/';
 
   constructor(private http: HttpClient) {
     const headers = new HttpHeaders({
@@ -24,7 +25,7 @@ export class BlocksService {
   }
 
   showSlider() {
-    //  http://back-test.bymiashop.com/api/front/sliders
+    //  environment.url + '/api/front/sliders'
     const httpOptions = {
       headers: new HttpHeaders({
         /*  'Access-Control-Allow-Origin':'*',   */
@@ -35,7 +36,7 @@ export class BlocksService {
     };
 
     this.http
-      .get('http://back-test.bymiashop.com/api/front/sliders')
+      .get(environment.url + '/api/front/sliders')
       .subscribe((resp: any) => {
         console.log(resp);
 
