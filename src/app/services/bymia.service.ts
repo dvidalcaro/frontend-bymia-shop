@@ -23,8 +23,9 @@ import {
 import { SearchType } from '../shared/interfaces/SearchType';
 import { ValidateResponse } from '../shared/interfaces/validateResponse-interfaces';
 import { LoginAuthResponse } from '../shared/interfaces/loginAuthResponse-interface';
+import { environment } from 'src/environments/environment';
 
-const url = 'http://back-test.bymiashop.com/api/front';
+const url = environment.url + '/api/front';
 const urlBannerMock = 'assets/banners.json';
 const urlBrandsMock = 'assets/brands.json';
 

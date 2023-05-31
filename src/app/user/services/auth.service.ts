@@ -5,8 +5,9 @@ import { User } from '../models/user.model';
 import { UserResponse } from '../models/user-response.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
-const url = 'http://back-test.bymiashop.com/api/front';
+const url = environment.url + '/api/front';
 const headers = new HttpHeaders({
   Authorization:
     'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',

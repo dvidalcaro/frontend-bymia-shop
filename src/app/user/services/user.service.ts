@@ -5,8 +5,9 @@ import { map } from 'rxjs/operators';
 import { Wishlist } from '../models/wishlist.model';
 import { AuthService } from './auth.service';
 import { Cartlist } from '../models/cartlist.model';
+import { environment } from 'src/environments/environment';
 
-const url = 'http://back-test.bymiashop.com/api/customer';
+const url = environment.url + '/api/customer';
 let headers: HttpHeaders;
 
 @Injectable({
