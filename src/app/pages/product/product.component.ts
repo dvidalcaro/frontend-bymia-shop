@@ -9,6 +9,7 @@ import { HomeSection } from 'src/app/shared/interfaces/HomeSection';
 })
 export class ProductComponent implements OnInit {
   homeSections: HomeSection[] = [];
+
   constructor(public bymiaService: BymiaService) {
     bymiaService.getSections().subscribe(resp => {
       this.homeSections = resp;
