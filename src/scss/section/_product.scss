@@ -1,0 +1,134 @@
+.product__i {
+  font-size: 1.5rem;
+}
+
+.product__bread {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.07em;
+  line-height: 21px;
+  text-align: center;
+}
+
+.product__h1 {
+  font-weight: bold;
+  font-size: 2.8125rem;
+  line-height: 3.25rem;
+  text-align: left;
+  margin: 0;
+}
+.product__price {
+  font-weight: bold;
+  font-size: 2.1875rem;
+  letter-spacing: 0.07em;
+  line-height: 3.3125rem;
+}
+
+.product__tag {
+  border-radius: 7px;
+  background: #101010;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  text-align: center;
+  font-weight: bold;
+  padding: 1px 8px;
+  font-size: 14px;
+  letter-spacing: 0.07em;
+  line-height: 21px;
+}
+.product__tag:hover {
+  border: 2px solid #15fed4;
+}
+
+.product__p {
+  font-weight: 500;
+  font-size: 19px;
+  letter-spacing: 0.03em;
+  line-height: 20px;
+}
+
+.product__dimension {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.07em;
+  line-height: 21px;
+  text-align: left;
+  color: #15fed4;
+}
+
+.product__color {
+  width: 42px;
+  height: 35px;
+  background: #101010;
+  border-radius: 9px;
+}
+
+.circle__color {
+  width: 22px;
+  height: 22px;
+  border-radius: 100%;
+}
+.product__btn {
+}
+
+@media screen and (max-width: 1400px) {
+  .product__h1 {
+    font-size: 1.875rem;
+    line-height: 2rem;
+    margin-bottom: 5px;
+  }
+  .product__price {
+    font-size: 24px;
+    letter-spacing: 0.07em;
+    line-height: 26px;
+  }
+  .product__p {
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    line-height: 18px;
+    margin-top: 5px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .product__bread {
+    font-size: 8px;
+    letter-spacing: 0.07em;
+    line-height: 9px;
+  }
+  .product__h1 {
+    font-size: 0.75rem;
+    line-height: 0.8125rem;
+    margin: 0;
+  }
+  .product__price {
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    line-height: 26px;
+  }
+  .product__tag {
+    padding: 1px 8px;
+    font-size: 6px;
+    letter-spacing: 0.07em;
+    line-height: 9px;
+  }
+  .product__p {
+    font-size: 9px;
+    letter-spacing: 0.07em;
+    line-height: 12px;
+  }
+  .product__dimension {
+    font-size: 6px;
+    letter-spacing: 0.07em;
+    line-height: 9px;
+  }
+
+  .product__color {
+    width: 25px;
+    height: 22px;
+    background: #101010;
+  }
+
+  .circle__color {
+    width: 10px;
+    height: 10px;
+  }
+}
