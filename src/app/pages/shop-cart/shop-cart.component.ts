@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/user/models/product.model';
 import { UserService } from 'src/app/user/services/user.service';
 @Component({
@@ -17,7 +18,7 @@ export class ShopCartComponent implements OnInit {
   noProduct: boolean = false;
   showCancel: boolean = true;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.userService.currentCartlist.subscribe(resp => {
       // console.log(resp);
       this.products =
@@ -125,5 +126,11 @@ export class ShopCartComponent implements OnInit {
     // } else {
     //   this.noProduct = true;
     // }
+  }
+
+  sendProductsToOrder() {
+    // console.log('sendProductsToOrder',this.products);
+    this.userService.prepareOrder(this.products);
+    this.router.navigate(['/sales-order-step1']);
   }
 }
