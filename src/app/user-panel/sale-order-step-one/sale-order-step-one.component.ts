@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BillData } from 'src/app/user/models/bill-data.model';
+import { Product } from 'src/app/user/models/product.model';
+import { Recipient } from 'src/app/user/models/recipient.model';
 import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
@@ -8,6 +11,10 @@ import { UserService } from 'src/app/user/services/user.service';
 })
 export class SaleOrderStepOneComponent implements OnInit {
   open: boolean = false;
+  public products: Product[] | undefined = [];
+  public total: number | undefined = 0;
+  public billdata: BillData | undefined = undefined;
+  public recipients: Recipient[] | undefined = [];
   Popup: any[] = [
     {
       selection: 'Pickup',
@@ -22,7 +29,18 @@ export class SaleOrderStepOneComponent implements OnInit {
         '1) Envíos internacionales (no abonan tax) \n a) Destinos Argentina y República Dominicana: solo por MiaCargo. \n Tu envío será facturado y lo pagarás en destino. Desde tu panel podrás \n seguir su trayectoria con el número de tracking.\n b) Otros destinos internacionales Envío con DHL: abonarás tu envío \n junto con tu compra y podrás seguir su trayectoria con el número de \n tracking desde tu panel de cliente. \n Para conocer los costos del envío a tu país, consultale a uno de nuestros \n representantes de  atención al cliente. \n c) Envíos nacionales (abonan tax) \n + Entregas a domicilio en Miami por USPS. \n Pagás el envío junto con tu factura de compra. \n + Entregas a domicilio en USA, menos Miami por DHL. \n Abonás tu envío junto con la compra y podrás seguir su trayectoria \n con el número de tracking asignado desde tu panel de cliente.',
     },
   ];
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+    console.log('Order', this.userService.getOrder());
+    this.billdata = this.userService.getOrder().bill_data;
+    this.recipients = this.userService.getOrder().recipients;
+
+    this.products = this.userService.getOrder().items?.map(item => {
+      return { ...item, subtotal: item.quantity * item.price };
+    });
+    console.log('Products:', this.products);
+    this.total = this.products?.reduce((acc, cur) => acc + cur.subtotal, 0);
+    console.log('Total', this.total);
+  }
 
   endOrder() {
     this.userService.endOrder().subscribe(res => {
