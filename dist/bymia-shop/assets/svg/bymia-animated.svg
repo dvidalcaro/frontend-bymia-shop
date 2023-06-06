@@ -1,0 +1,66 @@
+<svg author="Cristian Gavilan" width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+    @keyframes move {
+        0% {
+            transform: rotateX(0deg);
+            transform: rotateY(0deg);
+        }
+        25% {
+            transform: rotateX(90deg);
+        }
+        50% {
+            transform: rotateY(90deg);
+        }
+        90% {
+            transform: rotateX(0deg);
+            transform: rotateY(0deg);
+        }
+        100% {
+            transform: rotateX(0deg);
+            transform: rotateY(0deg);
+        }
+    }
+    @-webkit-keyframes move {
+        0% {
+            transform: rotateX(0deg);
+            transform: rotateY(0deg);
+        }
+        25% {
+            transform: rotateX(90deg);
+        }
+        50% {
+            transform: rotateY(90deg);
+        }
+        90% {
+            transform: rotateX(0deg);
+            transform: rotateY(0deg);
+        }
+        100% {
+            transform: rotateX(0deg);
+            transform: rotateY(0deg);
+        }
+    }
+    .move {
+        -webkit-animation-name: move;
+        animation-name: move;
+
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+
+        -webkit-animation-duration: 6s;
+        animation-duration: 6s;
+
+        -webkit-animation-timing-function: ease-in-out;
+        animation-timing-function: ease-in-out;
+
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+    }
+</style>
+<g id="bymia">
+<g id="icon" class="move">
+<path id="external" d="M200 200V500V502.632H200.017C201.431 667.107 335.193 800 500 800C665.688 800 800 665.688 800 500C800 335.193 667.107 201.431 502.632 200.017V200H500H200ZM284.375 284.375H498.75H500.631V284.387C618.158 285.398 713.125 380.982 713.125 498.75C713.125 617.146 617.144 713.125 498.75 713.125C380.982 713.125 285.398 618.161 284.387 500.631H284.375V498.75V284.375Z" fill="#15FED4"/>
+<path id="internal" d="M386.885 386.885V498.76V499.741H386.897C387.425 561.075 437.301 610.635 498.76 610.635C560.547 610.635 610.635 560.547 610.635 498.76C610.635 437.301 561.076 387.425 499.741 386.897V386.885H498.76H386.885Z" fill="#15FED4"/>
+</g>
+</g>
+</svg>

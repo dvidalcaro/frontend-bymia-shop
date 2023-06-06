@@ -1,0 +1,50 @@
+.carousel-indicators {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  bottom: -4rem;
+  row-gap: 25px;
+  margin-bottom: 3rem;
+
+  button {
+    background-color: #fff !important;
+    border-radius: 50% !important;
+    width: 10px !important;
+    height: 10px !important;
+    border: 10px solid #000 !important;
+  }
+  button.active {
+    outline: 2px solid #15fed4 !important;
+  }
+}
+
+.display-1 {
+  font-size: calc(1.625rem + 4.5vw);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media (min-width: 1200px) {
+  .display-1 {
+    font-size: 5rem;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 540px) {
+  .display-1 {
+    font-size: calc(1rem + 4.5vw);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  #logo3d {
+    display: none;
+  }
+  .subtitle {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 541px) and (max-width: 1000px) {
+  #logo3d {
+    display: none;
+  }
+}

@@ -1,34 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
+
+import { NavbarComponent } from './navbar/navbar.component';
 import { AppComponent } from './app.component';
 
-import { HeaderModule } from './shared/header/header.module';
-import { BlocksModule } from './blocks/blocks.module';
+// import { UserPanelModule } from './user-panel/user-panel.module';
 import { PagesModule } from './pages/pages.module';
+// import { SharedModule } from './shared/shared.module';
+// import { HeaderModule } from './shared/header/header.module';
+// import { BlocksModule } from './blocks/blocks.module';
+// import { InterceptorsModule } from './interceptors/interceptors.module';
+// import { BymiaService } from './services/bymia.service';
 
-
+import { UserModule } from './user/user.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,  
-    
-  ],
+  declarations: [AppComponent, NavbarComponent],
   imports: [
-      BrowserModule, 
-      HttpClientModule,
-      AppRoutingModule,      
-     SharedModule,
-     HeaderModule,
-     BlocksModule,
-     PagesModule
-     
-     
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    // SharedModule,
+    // BlocksModule,
+    // UserPanelModule,
+    // HeaderModule,
+    ReactiveFormsModule,
+
+    PagesModule,
+    UserModule,
+    AppRoutingModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [UserModule],
+  providers: [
+    /*BymiaService*/
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

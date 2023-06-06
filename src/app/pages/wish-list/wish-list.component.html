@@ -1,1 +1,116 @@
-<p>wish-list works!</p>
+<div class="container">
+  <!-- header-whish -->
+  <div
+    class="container p-2 p-md-5 container__wishlist animate__animated animate__zoomIn">
+    <div
+      class="container__wishlist__header p-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
+      <div class="title__wishlist">
+        <h3>
+          Favoritos
+          <img src="../assets/svg/Icon_heartblack.svg" alt="favoritos" />
+        </h3>
+        <!-- <button class="button__deleteallproduct">
+          Anular la seleccion de todos los elementos
+        </button> -->
+      </div>
+
+      <div class="button__addproduct">
+        <button>Agregar todos al carrito</button>
+      </div>
+    </div>
+
+    <!-- Producto whish-->
+
+    <div
+      class="container__product__wishlist mb-2"
+      *ngFor="let product of products">
+      <div class="row">
+        <div class="col-12 col-lg-3 text-center">
+          <img width="125px" [src]="[product.image]" [alt]="[product.name]" />
+        </div>
+        <div
+          class="col-12 col-lg-3 d-flex flex-column justify-content-center product__wishlist center__whish">
+          <h3>Nombre de producto:</h3>
+          <p>{{ product.name }}</p>
+        </div>
+        <div
+          class="col-12 col-lg-2 d-flex flex-column justify-content-center product__wishlist center__whish">
+          <h3>PRE X UNI</h3>
+          <p>{{ product.price | currency : 'USD' }}</p>
+        </div>
+        <div
+          class="col-12 col-lg-4 d-flex justify-content-evenly align-items-center button__product__wishlist">
+          <div>
+            <button (click)="removeProduct(product.id)">Eliminar</button>
+          </div>
+          <div>
+            <button>Ver producto</button>
+          </div>
+          <div class="btn__center" (click)="addProductToCart(product.id)">
+            <button class="addcart">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+      <div class="product__wishlist">
+
+      </div>
+
+      <div class="product__wishlist">
+        <h3>PRE X UNI</h3>
+        <p>{{ product.price }}</p>
+      </div>
+
+      <div class="col button__product__wishlist">
+        <button>Eliminar</button>
+        <button>Ver producto</button>
+        <button class="addcart">Agregar al carrito</button>
+      </div>
+ -->
+<!--
+<div class="container-fluid mt-4">
+
+  <div class="container container__wishlist animate__animated animate__zoomIn">
+    <div class="container__wishlist__header">
+      <div class="title__wishlist">
+        <h3>
+          Favoritos
+          <img src="../assets/svg/Icon_heartblack.svg" alt="favoritos" />
+        </h3>
+        <button class="button__deleteallproduct">
+          Anular la seleccion de todos los elementos
+        </button>
+      </div>
+
+      <div class="button__addproduct">
+        <button>Agregar todos los productos al carrito</button>
+      </div>
+    </div>
+
+
+
+    <div class="container__product__wishlist" *ngFor="let product of products">
+      <img width="125px" [src]="[product.image]" [alt]="[product.name]" />
+      <div class="product__wishlist">
+        <h3>Nombre de producto:</h3>
+        <p>{{ product.name }}</p>
+      </div>
+
+      <div class="product__wishlist">
+        <h3>PRE X UNI</h3>
+        <p>{{ product.price }}</p>
+      </div>
+
+      <div class="col button__product__wishlist">
+        <button>Eliminar</button>
+        <button>Ver producto</button>
+        <button class="addcart">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+</div>
+ -->

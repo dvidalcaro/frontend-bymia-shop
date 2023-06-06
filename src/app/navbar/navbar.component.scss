@@ -1,0 +1,75 @@
+/* change the background color */
+.navbar-custom {
+  background-color: #000;
+  // width: 90%;
+  // justify-items: center;
+  // align-items: center;
+  // left: 5%;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: #fff;
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: #fff;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #15fed4;
+  border-bottom: 2px solid #15fed4;
+}
+
+.nav__btn {
+  background-color: #15fed4;
+  padding: 3px 6px;
+}
+.nav__ul {
+  background-color: #101010;
+  &:hover {
+    background-color: #101010;
+  }
+}
+.nav__hr {
+  color: #15fed4;
+}
+.nav__mobile {
+  display: none;
+  background-color: #000;
+}
+@media screen and (max-width: 1200px) {
+  .nav__desktop {
+    display: none;
+  }
+
+  .nav__mobile {
+    display: block;
+  }
+}
+
+// TODO: analizar el comportamiento en version Mobile
+// @media (max-width: 1200px) {
+// .navbar-brand {
+//   transform: translateX(-50%);
+//   left: 50%;
+//   position: absolute;
+// }
+// .brand-centered {
+//   display: flex;
+//   justify-content: center;
+//   position: absolute;
+//   width: 100%;
+//   left: 0;
+//   top: 0;
+// }
+// .navbar-brand {
+//   display: flex;
+//   align-items: center;
+// }
+// }

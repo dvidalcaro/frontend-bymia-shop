@@ -1,0 +1,66 @@
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<div class="mt-5">
+  <footer class="bg-dark text-lg-start text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row mt-4">
+        <!--Grid column-->
+        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12 mb-4 mb-md-0">
+          <img
+            class="img-fluid"
+            src="assets/img/logo_bymia.png"
+            alt="logo_bymia" />
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 mb-4 mb-md-0">
+          <ul class="list-unstyled d-flex align-content-stretch flex-wrap">
+            <li class="col-6" *ngFor="let link of links">
+              <a [routerLink]="[link.links]" class="text-white subtitle"
+                ><i class="bx bx-tada-hover bx-chevron-right"></i>
+                {{ link.label }}</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div
+          class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4 mb-md-0 subtitle">
+          <h6>7953 NW 64th Street</h6>
+          <h6>Miami FL, 33166</h6>
+          <h6>Teléfono 0000000090</h6>
+          <h6>Email info@bymiashop.com</h6>
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div
+          class="text-center col-xl-1 col-lg-1 col-md-12 col-sm-12 mb-4 mb-md-0">
+          <a href="https://www.facebook.com/people/Bymia_shop/100089604138254/">
+            <i class="bx bx-lg bx-tada-hover bxl-facebook-square"></i>
+          </a>
+          <a href="https://www.instagram.com/bymia_shop/">
+            <i class="bx bx-lg bx-tada-hover bxl-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/bymia-shop/about/">
+            <i class="bx bx-lg bx-tada-hover bxl-linkedin-square"></i>
+          </a>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="bg-dark text-center text-muted p-3 subtitle">
+      Copyright © {{ year }}
+      <a class="text-muted" [routerLink]="'/'">bymiashop.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+<!-- End of .container -->

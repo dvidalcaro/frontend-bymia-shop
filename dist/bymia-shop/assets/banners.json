@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "format": "desktop",
+    "image": "assets/banners/banner-1-desktop.jpg"
+  },
+  {
+    "id": 2,
+    "format": "mobile",
+    "image": "assets/banners/banner-1-mobile.jpg"
+  },
+  {
+    "id": 3,
+    "format": "desktop",
+    "image": "assets/banners/banner-2-desktop.jpg"
+  },
+  {
+    "id": 4,
+    "format": "mobile",
+    "image": "assets/banners/banner-2-mobile.jpg"
+  },
+  {
+    "id": 5,
+    "format": "desktop",
+    "image": "assets/banners/banner-3-desktop.jpg"
+  },
+  {
+    "id": 6,
+    "format": "mobile",
+    "image": "assets/banners/banner-3-mobile.jpg"
+  }
+]

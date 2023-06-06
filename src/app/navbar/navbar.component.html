@@ -1,0 +1,336 @@
+<nav
+  class="navbar nav__desktop sticky-top navbar-expand-xl navbar-dark bg-black navbar-custom">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarBymia"
+      aria-controls="navbarBymia"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img
+        class="navbar-nav ms-5 me-auto mb-2 py-4"
+        src="{{ urlLogo }}"
+        alt="Bymia shop" />
+    </a>
+    <div
+      class="collapse navbar-collapse justify-content-center"
+      id="navbarBymia">
+      <!-- SearchBar2 -->
+      <div class="container" *ngIf="switchBar">
+        <div class="row">
+          <div class="col-1"></div>
+          <div class="col">
+            <div
+              class="input-group d-flex justify-content-center position-relative">
+              <button
+                class="btn btn-bymia rounded-start dropdown-toggle bg-secundary"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <strong>&nbsp;Categorías&nbsp;</strong>
+              </button>
+              <ul class="dropdown-menu">
+                <div *ngFor="let sti of searchTypeList">
+                  <li>
+                    <h5 class="dropdown-header">
+                      <strong>{{ sti.title }}</strong>
+                    </h5>
+                  </li>
+                  <li
+                    *ngFor="let item of sti.items"
+                    (click)="setFilter(sti.slug, item.name.toLowerCase())">
+                    <a class="dropdown-item">
+                      <div class="row">
+                        <div class="col">
+                          {{ item.name | titlecase }}
+                        </div>
+                        <div
+                          class="col text-end"
+                          *ngIf="isSelected(sti.slug, item.name.toLowerCase())">
+                          <i class="bx bxs-x-circle"></i>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                </div>
+              </ul>
+              <button
+                (click)="onSeachingButton()"
+                class="btn btn-bymia bg-secundary no-border">
+                <i class="bx bx-tada-hover bx-search"></i>
+              </button>
+              <input
+                [(ngModel)]="k"
+                type="text"
+                class="form-control rounded-end"
+                aria-label="Text input with dropdown button"
+                placeholder="Buscar..."
+                (keyup)="onSeaching($event)" />
+
+              <span
+                (click)="clearInput()"
+                class="position-absolute top-50 end-0 translate-middle text-dark">
+                <i class="bx bx-tada-hover bx-sm bx-x-circle py-2"></i>
+              </span>
+            </div>
+          </div>
+          <div class="col-1"></div>
+        </div>
+      </div>
+      <!-- SearchBar2 -->
+      <ul class="navbar-nav m-auto mb-2 py-4" *ngIf="!switchBar">
+        <div *ngFor="let link of linksHeader">
+          <li
+            class="nav-item mx-2"
+            data-bs-toggle="collapse"
+            data-bs-target=".navbar-collapse.show"
+            routerLinkActive="active">
+            <div *ngIf="link.reference === 'listPrice'; else elseLink">
+              <a class="nav-link"
+                ><strong>{{ link.label }}</strong></a
+              >
+            </div>
+            <ng-template #elseLink>
+              <div>
+                <a class="nav-link" [routerLink]="[link.links]"
+                  ><strong>{{ link.label }}</strong></a
+                >
+              </div>
+            </ng-template>
+          </li>
+        </div>
+      </ul>
+      <ul class="navbar-nav ms-auto me-5 mb-2 py-4">
+        <li
+          class="nav-item"
+          data-bs-toggle=""
+          data-bs-target=".navbar-collapse.show"
+          routerLinkActive="active"
+          *ngFor="let icon of linksIcon">
+          <div *ngIf="icon.reference === 'search'">
+            <div class="nav-link position-relative" (click)="toogleBarSearch()">
+              <i class="{{ icon.icon }}"> </i>
+            </div>
+          </div>
+          <div *ngIf="icon.links === 'wish-list'">
+            <a
+              class="nav-link position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="WishNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ WishNotifications }}</span
+              >
+            </a>
+          </div>
+          <div *ngIf="icon.links === 'shop-cart'">
+            <a
+              class="nav-link position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="CartNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ CartNotifications }}</span
+              >
+            </a>
+          </div>
+          <div *ngIf="icon.links === 'login'">
+            <div *ngIf="username == ''; else withUser">
+              <button
+                class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
+                [routerLink]="[icon.links]">
+                <i class="{{ icon.icon }}"></i>
+                Ingresar
+              </button>
+            </div>
+            <ng-template #withUser>
+              <div
+                class="input-group d-flex justify-content-center position-relative">
+                <button
+                  class="position-relative badge rounded-pill bg-secundary px-3 py-2 mx-4"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
+                  {{
+                    username.length > 8
+                      ? (username | slice : 0 : 8) + '...'
+                      : username
+                  }}
+                </button>
+                <ul class="dropdown-menu">
+                  <div>
+                    <li routerLink="/panel">
+                      <h5 class="dropdown-header">
+                        <strong>Mi Panel</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li routerLink="/my-data">
+                      <h5 class="dropdown-header">
+                        <strong>Mi Perfil</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li routerLink="/orders">
+                      <h5 class="dropdown-header">
+                        <strong>Mis órdenes</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li routerLink="/shipping-status">
+                      <h5 class="dropdown-header">
+                        <strong>Estado de envíos</strong>
+                      </h5>
+                    </li>
+                    <li>
+                      <hr class="dropdown-divider" />
+                    </li>
+                    <li (click)="logout()">
+                      <h5 class="dropdown-header">
+                        <strong>Salir</strong>
+                      </h5>
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </ng-template>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Nav Mobile -->
+<nav class="navbar nav__mobile sticky-top navbar-expand-xxl pt-3 pb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">
+      <img class="navbar-nav" src="{{ urlLogo }}" alt="Bymia shop" />
+    </a>
+    <button
+      class="navbar-toggler nav__btn"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-light rounded-3 nav__ul">
+        <li class="nav-item pt-1" *ngFor="let icon of linksIcon">
+          <div *ngIf="icon.links === 'login'">
+            <div class="me-2" *ngIf="username == ''; else withUser">
+              <button
+                class="badge rounded-pill bg-secundary"
+                [routerLink]="[icon.links]">
+                <i class="{{ icon.icon }}"></i>
+                Ingresar
+              </button>
+            </div>
+            <ng-template #withUser>
+              <div class="input-group d-flex flex-column">
+                <button
+                  class="badge rounded-pill bg-secundary col-4 col-md-2 ms-2"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
+                  {{
+                    username.length > 8
+                      ? (username | slice : 0 : 8) + '...'
+                      : username
+                  }}
+                </button>
+                <ul class="dropdown-menu nav__ul">
+                  <div>
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" routerLink="/panel"
+                        ><strong>Mi panel</strong></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" routerLink="/my-data"
+                        ><strong>Mi perfil</strong></a
+                      >
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" routerLink="/orders"
+                        ><strong>Mis órdenes</strong></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link text-light ps-3"
+                        routerLink="/shipping-status"
+                        ><strong>Estado de envíos</strong></a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-light ps-3" (click)="logout()"
+                        ><strong>Salir</strong></a
+                      >
+                    </li>
+                    <li>
+                      <hr class="nav__hr" />
+                    </li>
+                  </div>
+                </ul>
+              </div>
+            </ng-template>
+          </div>
+        </li>
+
+        <li class="nav-item" *ngFor="let link of linksHeader">
+          <a class="nav-link text-light ps-3" [routerLink]="[link.links]"
+            ><strong>{{ link.label }}</strong></a
+          >
+        </li>
+
+        <li class="nav-item ms-3 mt-1" *ngFor="let icon of linksIcon">
+          <div *ngIf="icon.links === 'wish-list'">
+            <a
+              class="nav-link col-3 text-light position-relative col-xl-12 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="WishNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ WishNotifications }}</span
+              >
+            </a>
+          </div>
+
+          <div *ngIf="icon.links === 'shop-cart'">
+            <a
+              class="nav-link text-light position-relative col-sm-12 col-md-1 col-xl-10 col-1"
+              [routerLink]="[icon.links]">
+              <i class="{{ icon.icon }}"> </i>
+              <span
+                *ngIf="CartNotifications > 0"
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                >{{ CartNotifications }}</span
+              >
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

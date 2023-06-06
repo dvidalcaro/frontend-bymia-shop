@@ -1,36 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BlocksService } from '../services/blocks.service';
-
+import { BymiaService } from 'src/app/services/bymia.service';
+import { Slider } from 'src/app/shared/interfaces/Slider';
 
 @Component({
   selector: 'app-sliders',
   templateUrl: './sliders.component.html',
-  styles: [
-  ]
+  styleUrls: ['./sliders.component.scss'],
 })
-
-
 export class SlidersComponent implements OnInit {
-
- 
-
-
-  
-   
-  get sliders (){
-    
-    return this.sliderServices._response;
-   
-  }
- 
-  
-  constructor(private sliderServices: BlocksService ) {
-     
-   }
-    
-  ngOnInit(): void {
-    this.sliderServices.showSlider()
+  public sliders: Slider[] = [];
+  constructor(private bymiaService: BymiaService) {
+    bymiaService.getSliders().subscribe(resp => (this.sliders = resp));
   }
 
+  ngOnInit(): void {}
 }

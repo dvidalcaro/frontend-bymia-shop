@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col text-center">
+      <h1>Las marcas más buscadas en productos de tecnología</h1>
+      <p class="text-muted">
+        Las mejores empresas de todo el mundo a tu disposición en un solo lugar.
+      </p>
+    </div>
+  </div>
+  <app-loading [loading]="loading"></app-loading>
+  <div
+    class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 row-cols-xxl-3 g-5"
+    *ngIf="!loading">
+    <div class="col" *ngFor="let category of brandsList">
+      <div class="card">
+        <div class="card-body px-4">
+          <div class="text-center">
+            <img
+              [src]="[category.image]"
+              [alt]="[category.name]"
+              class="img-fluid"
+              draggable="false" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

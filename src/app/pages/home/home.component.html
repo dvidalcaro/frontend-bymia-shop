@@ -1,2 +1,73 @@
+<!-- <app-hero></app-hero> -->
+<app-home-slider></app-home-slider>
+<app-featured-products
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[0].title"
+  [category]="homeSections[0].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[0].categories"></app-featured-products>
 
-<app-hero></app-hero>
+<!-- Most Searched -->
+<app-categories></app-categories>
+
+<!-- Most Solded -->
+<app-featured-products
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[1].title"
+  [category]="homeSections[1].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[1].categories"></app-featured-products>
+
+<!-- Banner-1 -->
+<app-banner
+  [bannerDesktop]="banners[0]"
+  [bannerMobile]="banners[1]"
+  *ngIf="showBanners"></app-banner>
+
+<!-- Mejores Ofertas -->
+<app-featured-products
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[2].title"
+  [category]="homeSections[2].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[2].categories"></app-featured-products>
+
+<!-- Marcas -->
+<app-brands></app-brands>
+
+<!-- Mejores Ofertas -->
+<app-featured-products
+  *ngIf="homeSections.length > 0"
+  [title]="homeSections[3].title"
+  [category]="homeSections[3].title.trim().split(' ').join('')"
+  [featuredProducts]="homeSections[3].categories"></app-featured-products>
+
+<!-- Banner-2 -->
+<app-banner
+  [bannerDesktop]="banners[2]"
+  [bannerMobile]="banners[3]"
+  *ngIf="showBanners"></app-banner>
+
+<!-- More productos without category -->
+<app-featured-products
+  [title]="''"
+  [category]="'more-products'"
+  [featuredProducts]="moreProducts"></app-featured-products>
+
+<app-footer></app-footer>
+
+<!-- <div class="container__most__searched">
+  <div class="see__more d-flex justify-content-center flex-wrap">
+    <ul class="animate__animated animate__slideInDown" *ngIf="showCategories">
+      <li *ngFor="let category of listCategories">
+        {{ category }}
+      </li>
+    </ul>
+
+    <button
+      class="see__more__button d-flex justify-content-center flex-wrap"
+      (click)="showListCategories()">
+      {{ seeMore }}
+    </button>
+  </div>
+
+  <iframe src='https://my.spline.design/retromonitor-8a8eda90f65fd5b73cc92e773b358f28/' frameborder='0' width='100%' height='100%'></iframe>
+
+</div> -->

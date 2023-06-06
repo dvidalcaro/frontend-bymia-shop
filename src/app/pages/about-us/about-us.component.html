@@ -1,1 +1,20 @@
-<p>about-us works!</p>
+<div class="container lg-p-5">
+  <div class="row about">
+    <div class="col-12">
+      <img
+        class="img-fluid about__img"
+        src="../assets/img/hero-img-about.png"
+        alt="nosotros" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="about__bg p-5">
+        <h4 class="pt-3">Nosotros</h4>
+        <div class="" [innerHTML]="about.description"></div>
+        <app-help></app-help>
+      </div>
+    </div>
+  </div>
+</div>

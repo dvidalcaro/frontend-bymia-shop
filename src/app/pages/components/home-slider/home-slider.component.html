@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <app-loading [loading]="loading"></app-loading>
+
+      <div
+        id="homeSlider"
+        class="carousel slide"
+        data-bs-ride="carousel"
+        *ngIf="!loading">
+        <div class="carousel-inner">
+          <div
+            class="carousel-item"
+            *ngFor="let slider of sliders; let i = index"
+            [ngClass]="{ active: i == 0 }">
+            <p class="text-bymia">{{ slider.volanta | uppercase }}</p>
+            <h1 class="display-1">{{ slider.title }}</h1>
+            <p class="subtitle">
+              {{ slider.subtitle }}
+            </p>
+            <button class="badge rounded-pill bg-secundary px-3 py-2">
+              {{ slider.nameBtn }}
+            </button>
+          </div>
+        </div>
+        <div class="carousel-indicators mt-2">
+          <button
+            type="button"
+            data-bs-target="#homeSlider"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"></button>
+          <button
+            type="button"
+            data-bs-target="#homeSlider"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button
+            type="button"
+            data-bs-target="#homeSlider"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+    <div id="logo3d" class="col-md-6 col-lg-5 col-xl-4 col-xxl-3 text-end">
+      <img
+        class="img-fluid"
+        src="../../../../assets/img/logoBymia3d.png"
+        alt="logo-bymia"
+        draggable="false" />
+    </div>
+  </div>
+</div>

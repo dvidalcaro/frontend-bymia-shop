@@ -1,0 +1,647 @@
+<div class="container mt-3">
+  <div
+    class="container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn">
+    <!-- Header Cart -->
+    <div
+      class="header__order row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
+      <!--colum1  -->
+      <div class="col">
+        <h3 class="cart__h3 cart__h3-title">
+          Estás a 1 pasos de finalizar tu compra
+          <img src="../assets/svg/Icon_shopping_cart.svg" alt="favoritos" />
+        </h3>
+      </div>
+      <!--colum2  -->
+      <div class="col-7 d-flex justify-content-end align-items-center">
+        <div class="me-1">
+          <button class="cart__button cart__button-bg">Finalizar orden</button>
+        </div>
+        <div class="d-flex flex-column align-content-center">
+          <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
+          <p class="cart__p cart__p-bold">{{ total | currency : 'USD' }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- sales order information -->
+    <div class="row gap-2">
+      <div class="col col-lg-8 text-dark m-0 p-0">
+        <div
+          class="sale__info d-flex gap-2 align-items-center p-lg-4 p-2 rounded-3">
+          <i class="bx bxs-info-circle"></i>
+          <p class="sale__p sale__p-bold mt-1 mb-1">
+            Para pagos de hasta 2.500 dólares, podés utilizar tarjeta de
+            crédito, PayPal o transferencia bancaria; para pagos superiores a
+            2.500 dólares, solo se acepta transferencia bancaria.
+          </p>
+        </div>
+        <div class="p-lg-4 p-2 mt-2 rounded-3 bg-light">
+          <div>
+            <h3 class="text-dark sale__h3 text-md-center pt-3">
+              Seleccioná el tipo de envío de tu preferencia
+            </h3>
+          </div>
+          <div>
+            <div class="d-md-flex gap-1 mt-3">
+              <div
+                class="col col-md-6 form-check sale__bg-black rounded-3 d-flex align-items-center">
+                <div
+                  class="d-flex align-items-center gap-2 p-3 sale__input-radio">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1" />
+                  <label
+                    class="form-check-label text-light"
+                    for="flexRadioDefault1">
+                    Envíos internacionales <br />Entrega a domicilio, Pickup
+                    <br />
+                    <span class="sale__span">No incluye TAX</span>
+                  </label>
+                </div>
+                <i class="bx bx-world sale__i ms-3 me-1"></i>
+              </div>
+              <div
+                class="col col-md-6 form-check sale__bg-black rounded-3 d-flex align-items-center">
+                <div
+                  class="d-flex align-items-center gap-2 p-3 sale__input-radio">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1" />
+                  <label
+                    class="form-check-label text-light"
+                    for="flexRadioDefault1">
+                    Envíos nacionales <br />Entrega a domicilio, Pickup
+                    <br />
+                    <span class="sale__span">No incluye TAX</span>
+                  </label>
+                </div>
+                <i class="bx bxs-flag-alt sale__i ms-3"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col mt-2">
+            <div class="col form-check sale__bg-black rounded-3">
+              <div class="p-3 sale__input-radio">
+                <input
+                  class="form-check-input sale__mt mt-md-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1" />
+                <label
+                  class="form-check-label text-light"
+                  for="flexRadioDefault1">
+                  Pickup en el warehouse Bymia en Miami - Para envíos
+                  internacionales <br />
+                  Retiro en warehouse Bymia - Empresa de envio a cargo del
+                  cliente
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col mt-2">
+            <div
+              class="col form-check sale__bg-black rounded-3 d-flex align-items-center">
+              <div class="align-items-center gap-2 p-3 sale__input-radio">
+                <input
+                  class="form-check-input sale__mt mt-md-3"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="flexRadioDefault1" />
+                <label
+                  class="form-check-label text-light"
+                  for="flexRadioDefault1">
+                  Pickup en el warehouse Bymia en Miami - Para envíos nacionales
+                  <br />
+                  Retiro en warehouse Bymia - Empresa de envio a cargo del
+                  cliente
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Add billing data -->
+          <div>
+            <h3 class="text-dark sale__h3 text-center pt-3">
+              Agregar datos de facturación
+            </h3>
+          </div>
+          <!-- Form select shipping types -->
+          <form class="mt-3 d-flex flex-column gap-2" action="">
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="type-id"
+                placeholder="Tipo de identificación"
+                value="{{ billdata ? billdata.identity_type : '' }}"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="type-id"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Número de identificación"
+                value="{{ billdata ? billdata.identity_number : '' }}"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div class="d-md-flex gap-2">
+              <select class="form-select mb-2 mb-md-0" name="" id="">
+                <option value="" selected *ngIf="billdata">
+                  {{ billdata.country_name }}
+                </option>
+                <option value="">Argentina</option>
+                <option value="">Estados unidos</option>
+              </select>
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Código postal "
+                value="{{ billdata ? billdata.state_id : '' }}"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div class="d-md-flex gap-2">
+              <select class="form-select mb-2 mb-md-0" name="" id="">
+                <option value="" selected *ngIf="billdata">
+                  {{ billdata.state_name }}
+                </option>
+                <option value="">CABA</option>
+                <option value="">Buenos Aires</option>
+              </select>
+              <select class="form-select" name="" id="">
+                <option value="" selected *ngIf="billdata">
+                  {{ billdata.city_name }}
+                </option>
+                <option value="">CABA</option>
+                <option value="">Buenos Aires</option>
+              </select>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Dirección (incluye calle, altura y piso, de ser necesario)"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Información adicional (ej, entre calle y calle)"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+          </form>
+          <!--Add Pickup Data  -->
+          <div class="mt-5 mt-2">
+            <h3 class="text-dark sale__h3">Agregar datos de Pickup</h3>
+          </div>
+          <!-- Form pickup -->
+          <form class="mt-3 d-flex flex-column gap-2" action="">
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="name"
+                placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Razón social destinatario"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="type-id"
+                placeholder="Tipo de identificación"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="type-id"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Número de identificación "
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+
+            <div class="d-md-flex gap-2">
+              <input
+                type="email"
+                name="name"
+                placeholder="E-mail"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+          </form>
+
+          <!-- Add recipient data -->
+          <div class="mt-5 d-flex justify-content-between align-items-center">
+            <div>
+              <h3 class="text-dark sale__h3">Agregar datos de destinatarios</h3>
+              <p class="sale__p-xs">
+                (Completar únicamente si los datos del destinatario son
+                distintos a los de facturación)
+              </p>
+            </div>
+            <div>
+              <button class="cart__button cart__button-bg">
+                Agregá una nueva dirección
+              </button>
+            </div>
+          </div>
+          <!-- Form Destinatario -->
+          <form class="mt-3 d-flex flex-column gap-2" action="">
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="name"
+                placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Razón social destinatario"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="type-id"
+                placeholder="Tipo de identificación"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="type-id"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Número de identificación "
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div>
+              <select class="form-select" name="" id="">
+                <option value="">País</option>
+                <option value="">Argentina</option>
+                <option value="">Estados unidos</option>
+              </select>
+            </div>
+            <div class="d-md-flex gap-2">
+              <select class="form-select mb-2 mb-md-0" name="" id="">
+                <option value="">Estado o provincia</option>
+                <option value="">CABA</option>
+                <option value="">Buenos Aires</option>
+              </select>
+              <select class="form-select" name="" id="">
+                <option value="">Ciudad</option>
+                <option value="">CABA</option>
+                <option value="">Buenos Aires</option>
+              </select>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Dirección (incluye calle, altura y piso, de ser necesario)"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="name"
+                placeholder="Código postal"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Mail"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                placeholder="Información adicional (ej, entre calle y calle)"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div class="text-center">
+              <button class="cart__button cart__button-bg">Agregar</button>
+            </div>
+          </form>
+          <div>
+            <h3 class="text-dark text-center sale__h3 mt-5 mb-3">
+              Seleccionar otro destinatario
+            </h3>
+          </div>
+          <div class="d-flex flex-column gap-2">
+            <div
+              class="sale__bg-black p-3 rounded-3 d-flex flex-column gap-1"
+              *ngFor="let recipient of recipients">
+              <p class="sale__p text-light">{{ recipient.recipient_name }}</p>
+              <p class="sale__p text-light">
+                {{ recipient.country_name }}, {{ recipient.state_name }},
+                {{ recipient.city_name }}, {{ recipient.address }},{{
+                  recipient.recipient_phone
+                }}
+              </p>
+              <div class="d-flex gap-2">
+                <span class="sale__p sale__span">Editar dirección</span>
+                <p class="sale__p text-light">|</p>
+                <span class="sale__p sale__span">Eliminar</span>
+              </div>
+            </div>
+            <!-- <div
+              class="sale__bg-black-ligth p-3 rounded-3 d-flex flex-column gap-1">
+              <p class="sale__p text-light">Diego Vidal Caro</p>
+              <p class="sale__p text-light">
+                Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
+                +541162964723
+              </p>
+              <div class="d-flex gap-2">
+                <span class="sale__p sale__span">Editar dirección</span>
+                <p class="sale__p text-light">|</p>
+                <span class="sale__p sale__span">Eliminar</span>
+              </div>
+            </div>
+            <div
+              class="sale__bg-black-ligth p-3 rounded-3 d-flex flex-column gap-1">
+              <p class="sale__p text-light">Diego Vidal Caro</p>
+              <p class="sale__p text-light">
+                Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
+                +541162964723
+              </p>
+              <div class="d-flex gap-2">
+                <span class="sale__p sale__span">Editar dirección</span>
+                <p class="sale__p text-light">|</p>
+                <span class="sale__p sale__span">Eliminar</span>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Step confimation -->
+      <div class="col bg-light rounded-3 p-4 h-100">
+        <div class="text-center">
+          <h3 class="text-dark sale__h3 pt-4">Confirmación del Pedido:</h3>
+        </div>
+        <div class="pe-4 pt-2">
+          <p class="sale__p sale__p-bold">Ítems:</p>
+        </div>
+        <div *ngIf="total">
+          <div
+            class="d-flex justify-content-between pe-4 pt-1 gap-1"
+            *ngFor="let item of products">
+            <div>
+              <p class="sale__p text-dark">
+                (x{{ item.quantity }} Unit) {{ item.name }}
+              </p>
+            </div>
+            <div>
+              <p class="sale__p text-dark">
+                {{ item.subtotal | currency : 'USD' }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="d-flex justify-content-between pe-4 pt-2 gap-1">
+          <div>
+            <p class="sale__p text-dark">
+              (x20 Unit) Drill Series 3 Brandix KSR459 0PQS 1500
+            </p>
+          </div>
+          <div>
+            <p class="sale__p text-dark">$40032</p>
+          </div>
+        </div>-->
+        <div class="mt-4">
+          <h3 class="sale__h3 text-center text-dark">Código promocional</h3>
+        </div>
+        <div class="d-flex">
+          <div class="col-1"></div>
+          <form class="col col-lg-10" action="">
+            <input
+              type="text"
+              name="name"
+              class="form-control text-center mt-2"
+              id="name"
+              minlength="3"
+              required
+              aria-describedby="nameHelp" />
+            <!-- <input
+              type="text"
+              name="name"
+              placeholder="Código Promocional Envío"
+              class="form-control text-center mt-2"
+              id="name"
+              minlength="3"
+              required
+              aria-describedby="nameHelp" /> -->
+            <div class="text-center mt-2">
+              <button class="cart__button cart__button-bg-black">
+                Agregar
+              </button>
+            </div>
+          </form>
+          <div class="col-1"></div>
+        </div>
+        <div class="pe-4 pt-4">
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="sale__p sale__p-bold text-dark">Productos (2):</p>
+            </div>
+            <div>
+              <p class="sale__p text-dark">$80064</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="sale__p sale__p-bold text-dark">Descuento producto:</p>
+            </div>
+            <div>
+              <p class="sale__p text-dark">$640</p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="sale__p sale__p-bold text-dark">
+                Descuento promocional:
+              </p>
+            </div>
+            <div>
+              <p class="sale__p text-dark">$140</p>
+            </div>
+          </div>
+          <!-- <div class="d-flex justify-content-between">
+            <div>
+              <p class="sale__p sale__p-bold text-dark">
+                Descuento promocional envio:
+              </p>
+            </div>
+            <div>
+              <p class="sale__p text-dark">$100</p>
+            </div>
+          </div> -->
+          <div class="d-flex justify-content-between">
+            <div>
+              <p class="sale__p sale__p-bold text-dark">Tax:</p>
+            </div>
+            <div>
+              <p class="sale__p text-dark">$840</p>
+            </div>
+          </div>
+          <div class="mt-5">
+            <h3 class="sale__h3 sale__h3-md text-dark text-center">Subtotal</h3>
+            <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
+              US$81,784
+            </p>
+            <div class="d-flex justify-content-center">
+              <button class="sale__btn text-center" (click)="endOrder()">
+                Finalizar orden
+              </button>
+            </div>
+            <p class="sale__p sale__p-xs text-center text-dark mt-2 p-2">
+              Al Entrar o Registrarte, aceptás los
+              <strong
+                class="cursor__pointer"
+                routerLink="/politicas-privacidad-y-servcios"
+                >Términos y condiciones</strong
+              >
+              y la
+              <strong
+                class="cursor__pointer"
+                routerLink="/politicas-privacidad-y-servcios"
+                >Política de privacidad</strong
+              >
+              , y el envío de mails con ofertas,además de la
+              <strong>Política de garantía y RMA,</strong> que podés conocer
+              <strong
+                class="cursor__pointer"
+                routerLink="/politicas-rma-y-garantia"
+                >aquí.</strong
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Popup -->
+<div
+  class="container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0"
+  *ngIf="open">
+  <div
+    class="container bg-white rounded-3 justify-content-center container-order">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end me-2"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center h3__popup">
+          Anteriormente seleccionaste {{ Popup[0].selection }}
+        </h3>
+      </div>
+    </div>
+    <div class="row m-2 m-md-3">
+      <div class="col bg-dark rounded-3 p-3 mb-3">
+        <h5 class="h5__popup">{{ Popup[0].title }}</h5>
+        <p class="p__popup text-light">{{ Popup[0].description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

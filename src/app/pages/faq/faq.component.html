@@ -1,1 +1,40 @@
-<p>faq works!</p>
+<div class="container">
+  <div class="faq mt-5 p-sm-4 p-xxl-5">
+    <h1 class="">Preguntas frecuentes</h1>
+
+    <div
+      class="accordion"
+      id="accordionExample"
+      *ngFor="let top of topLevel; let i = index">
+      <div class="accordion-item">
+        <h2 class="accordion-header" [id]="['heading' + i]">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            [attr.data-bs-target]="['#collapse' + i]"
+            aria-expanded="true"
+            [attr.aria-controls]="['collapse' + i]">
+            {{ top.name }}
+          </button>
+        </h2>
+
+        <div
+          [id]="['collapse' + i]"
+          class="accordion-collapse collapse"
+          [ngClass]="{ show: i === 0 }"
+          [attr.aria-labelledby]="['heading' + i]"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div *ngFor="let faq of top.faqs">
+              <h5>
+                <strong>{{ faq.question }}</strong>
+              </h5>
+              <div [innerHTML]="faq.answer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
