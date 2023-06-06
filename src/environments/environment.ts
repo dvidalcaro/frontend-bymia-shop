@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://back-test.bymiashop.com',
+  url: 'https://back-test.bymiashop.com',
 };
 
 /*

@@ -29,6 +29,7 @@ import { PricelistComponent } from './pricelist/pricelist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoliticasComponent } from './politicas/politicas.component';
 import { RmaGarantiaComponent } from './rma-garantia/rma-garantia.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { RmaGarantiaComponent } from './rma-garantia/rma-garantia.component';
     PricelistComponent,
     PoliticasComponent,
     RmaGarantiaComponent,
+    ProductComponent,
   ],
   exports: [
     HomeComponent,
