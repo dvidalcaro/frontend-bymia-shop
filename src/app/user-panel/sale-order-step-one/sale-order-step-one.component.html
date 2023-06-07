@@ -54,17 +54,17 @@
                   <label
                     class="form-check-label text-light"
                     for="flexRadioDefault1">
-                    Envíos internacionales <br />Entrega a domicilio, Pickup
+                    Envíos internacionales <br />Entrega a domicilio
                     <br />
                     <span class="sale__span">No incluye TAX</span>
                   </label>
                 </div>
-                <i class="bx bx-world sale__i ms-3 me-1"></i>
+                <i class="bx bx-world sale__i ms-3 ms-md-4 ms-lg-5"></i>
               </div>
               <div
                 class="col col-md-6 form-check sale__bg-black rounded-3 d-flex align-items-center">
                 <div
-                  class="d-flex align-items-center gap-2 p-3 sale__input-radio">
+                  class="d-flex align-items-center gap-2 p-3 sale__input-radio ms-3 ms-md-0 ms-lg-5">
                   <input
                     class="form-check-input"
                     type="radio"
@@ -73,12 +73,12 @@
                   <label
                     class="form-check-label text-light"
                     for="flexRadioDefault1">
-                    Envíos nacionales <br />Entrega a domicilio, Pickup
+                    Envíos nacionales <br />Entrega a domicilio
                     <br />
-                    <span class="sale__span">No incluye TAX</span>
+                    <span class="sale__span">Incluye TAX</span>
                   </label>
                 </div>
-                <i class="bx bxs-flag-alt sale__i ms-3"></i>
+                <i class="bx bxs-flag-alt sale__i ms-4 ms-md-5 ms-lg-5"></i>
               </div>
             </div>
           </div>
@@ -86,37 +86,36 @@
             <div class="col form-check sale__bg-black rounded-3">
               <div class="p-3 sale__input-radio">
                 <input
-                  class="form-check-input sale__mt mt-md-3"
+                  class="form-check-input sale__mt mt-md-4"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1" />
                 <label
                   class="form-check-label text-light"
                   for="flexRadioDefault1">
-                  Pickup en el warehouse Bymia en Miami - Para envíos
+                  Pickup en el warehouse Bymia en Miami, para envíos
                   internacionales <br />
-                  Retiro en warehouse Bymia - Empresa de envio a cargo del
-                  cliente
+                  - Empresa de envio a cargo del cliente <br />
+                  <span class="sale__span">No incluye TAX</span>
                 </label>
               </div>
             </div>
           </div>
           <div class="col mt-2">
-            <div
-              class="col form-check sale__bg-black rounded-3 d-flex align-items-center">
-              <div class="align-items-center gap-2 p-3 sale__input-radio">
+            <div class="col form-check sale__bg-black rounded-3">
+              <div class="p-3 sale__input-radio">
                 <input
-                  class="form-check-input sale__mt mt-md-3"
+                  class="form-check-input sale__mt mt-md-4"
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1" />
                 <label
                   class="form-check-label text-light"
                   for="flexRadioDefault1">
-                  Pickup en el warehouse Bymia en Miami - Para envíos nacionales
+                  Pickup en el warehouse Bymia en Miami, para envíos nacionales
                   <br />
-                  Retiro en warehouse Bymia - Empresa de envio a cargo del
-                  cliente
+                  - Empresa de envio a cargo del cliente <br />
+                  <span class="sale__span">Incluye TAX</span>
                 </label>
               </div>
             </div>
@@ -129,6 +128,27 @@
           </div>
           <!-- Form select shipping types -->
           <form class="mt-3 d-flex flex-column gap-2" action="">
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="name"
+                placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Razón social destinatario"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
             <div class="d-md-flex gap-2">
               <input
                 type="text"
@@ -159,17 +179,6 @@
                 <option value="">Argentina</option>
                 <option value="">Estados unidos</option>
               </select>
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Código postal "
-                value="{{ billdata ? billdata.state_id : '' }}"
-                class="form-control frm-register__input"
-                id="name"
-                minlength="3"
-                required
-                aria-describedby="nameHelp" />
             </div>
             <div class="d-md-flex gap-2">
               <select class="form-select mb-2 mb-md-0" name="" id="">
@@ -192,6 +201,38 @@
                 type="text"
                 name="name"
                 placeholder="Dirección (incluye calle, altura y piso, de ser necesario)"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="name"
+                placeholder="Código postal "
+                value="{{ billdata ? billdata.state_id : '' }}"
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input"
+                id="name"
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div>
+              <input
+                type="mail"
+                name="name"
+                placeholder="E-mail"
                 class="form-control frm-register__input"
                 id="name"
                 minlength="3"
@@ -230,7 +271,7 @@
               <input
                 type="text"
                 name="name"
-                placeholder="Razón social destinatario"
+                placeholder="Razón social -Pickup"
                 class="form-control frm-register__input"
                 id="name"
                 minlength="3"
@@ -392,9 +433,9 @@
             </div>
             <div>
               <input
-                type="text"
+                type="mail"
                 name="name"
-                placeholder="Mail"
+                placeholder="E-mail"
                 class="form-control frm-register__input"
                 id="name"
                 minlength="3"
@@ -432,38 +473,7 @@
                   recipient.recipient_phone
                 }}
               </p>
-              <div class="d-flex gap-2">
-                <span class="sale__p sale__span">Editar dirección</span>
-                <p class="sale__p text-light">|</p>
-                <span class="sale__p sale__span">Eliminar</span>
-              </div>
             </div>
-            <!-- <div
-              class="sale__bg-black-ligth p-3 rounded-3 d-flex flex-column gap-1">
-              <p class="sale__p text-light">Diego Vidal Caro</p>
-              <p class="sale__p text-light">
-                Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-                +541162964723
-              </p>
-              <div class="d-flex gap-2">
-                <span class="sale__p sale__span">Editar dirección</span>
-                <p class="sale__p text-light">|</p>
-                <span class="sale__p sale__span">Eliminar</span>
-              </div>
-            </div>
-            <div
-              class="sale__bg-black-ligth p-3 rounded-3 d-flex flex-column gap-1">
-              <p class="sale__p text-light">Diego Vidal Caro</p>
-              <p class="sale__p text-light">
-                Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-                +541162964723
-              </p>
-              <div class="d-flex gap-2">
-                <span class="sale__p sale__span">Editar dirección</span>
-                <p class="sale__p text-light">|</p>
-                <span class="sale__p sale__span">Eliminar</span>
-              </div>
-            </div> -->
           </div>
         </div>
       </div>
