@@ -24,7 +24,7 @@ export class ValidateComponent implements OnInit {
       this.bymiaService.validateUser(params).subscribe(resp => {
         if (resp) {
           this.showMessage = true;
-          this.message = 'Cuenta verificada con éxito';
+          this.message = 'Cuenta validada correctamente';
           this.classIco =
             'bx bxs-check-circle bx-tada-hover modal__i text-center';
           setTimeout(() => {
