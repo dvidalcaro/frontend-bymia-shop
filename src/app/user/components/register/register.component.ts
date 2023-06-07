@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Usuario creado correctamente',
-          text: 'Te enviamos un correo electronico para que valides tu cuenta si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
+          text: 'Te enviamos un correo electrónico para que valides tu cuenta: si no lo ves en tu bandeja de entrada, revisa la carpeta de spam.',
         }).then(result => {
           if (result.isConfirmed) {
             this.router.navigateByUrl('/');
