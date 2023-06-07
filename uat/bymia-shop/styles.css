@@ -4282,6 +4282,9 @@ header .header__container {
   font-size: 42px;
   color: #ffffff;
 }
+/* .sale__i-flat {
+  margin-left: 80px;
+} */
 .sale__span {
   color: #15fed4;
 }
@@ -4309,7 +4312,7 @@ header .header__container {
   color: #000000;
 }
 .sale__p-xs {
-  font-size: 0.625rem;
+  font-size: 0.825rem;
   margin: 0;
   line-height: 12px;
 }
