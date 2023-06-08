@@ -10,13 +10,64 @@
       </div>
       <div class="row">
         <div class="col p-3 p-sm-5">
-          <img
+          <!-- prueba -->
+          <div
+            id="carouselExampleControlsNoTouching"
+            class="carousel slide carousel-dark"
+            data-bs-touch="false"
+            data-bs-interval="false">
+            <!-- <div class="carousel-indicators">
+              <button
+                *ngFor="let product of products; let i = index"
+                type="button"
+                data-bs-target="#carouselExampleControlsNoTouching"
+                data-bs-slide-to="i"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"></button>
+            </div> -->
+            <div class="carousel-inner">
+              <div
+                class="carousel-item"
+                *ngFor="let product of products; let i = index"
+                [ngClass]="{ active: i == 0 }">
+                >
+                <img
+                  [src]="product.image"
+                  class="d-block w-100 slide-product"
+                  alt="..." />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="prev">
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControlsNoTouching"
+              data-bs-slide="next">
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          <!-- fin prueba -->
+          <!-- <img
             class="img-fluid"
             src="../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png"
-            alt="" />
+            alt="" /> -->
         </div>
       </div>
     </div>
+
     <!-- Product description -->
     <div class="col col-md-6 p-3 p-sm-5">
       <!-- breadcrumbs -->
@@ -110,6 +161,52 @@
       </div>
     </div>
   </div>
+  <!-- Prueba -->
+  <!-- <div
+    class="ecommerce-gallery"
+    data-mdb-zoom-effect="true"
+    data-mdb-auto-height="true">
+    <div class="row py-3 shadow-5">
+      <div class="col-12 mb-1">
+        <div class="lightbox">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/14a.webp"
+            alt="Gallery image 1"
+            class="ecommerce-gallery-main-img active w-100" />
+        </div>
+      </div>
+      <div class="col-3 mt-1">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/14a.webp"
+          data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/14a.webp"
+          alt="Gallery image 1"
+          class="active w-100" />
+      </div>
+      <div class="col-3 mt-1">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+          data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/12a.webp"
+          alt="Gallery image 2"
+          class="w-100" />
+      </div>
+      <div class="col-3 mt-1">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+          data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/13a.webp"
+          alt="Gallery image 3"
+          class="w-100" />
+      </div>
+      <div class="col-3 mt-1">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/15a.webp"
+          data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Vertical/15a.webp"
+          alt="Gallery image 4"
+          class="w-100" />
+      </div>
+    </div>
+  </div> -->
+  <!-- Fin prueba -->
+
   <!-- Datail product -->
   <div class="row d-flex align-items-center mt-3 mt-sm-5">
     <div class="col-5 col-sm-3">
