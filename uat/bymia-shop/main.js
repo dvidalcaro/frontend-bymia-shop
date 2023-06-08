@@ -1844,11 +1844,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/services/bymia.service */ 2221);
 /* harmony import */ var _loading_loading_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../loading/loading.component */ 8178);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 4364);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 1258);
+
 
 
 
 
 const _c0 = function (a0) { return { active: a0 }; };
+const _c1 = function (a0) { return [a0]; };
 function HomeSliderComponent_div_4_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "p", 15);
@@ -1868,20 +1871,22 @@ function HomeSliderComponent_div_4_div_2_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const slider_r2 = ctx.$implicit;
     const i_r3 = ctx.index;
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](7, _c0, i_r3 == 0));
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](8, _c0, i_r3 == 0));
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](3, 5, slider_r2.volanta));
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpipeBind1"](3, 6, slider_r2.volanta));
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate"](slider_r2.title);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", slider_r2.subtitle, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](10, _c1, slider_r2.linkBtn));
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", slider_r2.nameBtn, " ");
 } }
 function HomeSliderComponent_div_4_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 7);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](2, HomeSliderComponent_div_4_div_2_Template, 10, 9, "div", 9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](2, HomeSliderComponent_div_4_div_2_Template, 10, 12, "div", 9);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 10);
     _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](4, "button", 11);
@@ -1907,7 +1912,7 @@ class HomeSliderComponent {
     ngOnInit() { }
 }
 HomeSliderComponent.ɵfac = function HomeSliderComponent_Factory(t) { return new (t || HomeSliderComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_0__.BymiaService)); };
-HomeSliderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: HomeSliderComponent, selectors: [["app-home-slider"]], decls: 7, vars: 2, consts: [[1, "container", "mt-5"], [1, "row"], [1, "col"], [3, "loading"], ["id", "homeSlider", "class", "carousel slide", "data-bs-ride", "carousel", 4, "ngIf"], ["id", "logo3d", 1, "col-md-6", "col-lg-5", "col-xl-4", "col-xxl-3", "text-end"], ["src", "../../../../assets/img/logoBymia3d.png", "alt", "logo-bymia", "draggable", "false", 1, "img-fluid"], ["id", "homeSlider", "data-bs-ride", "carousel", 1, "carousel", "slide"], [1, "carousel-inner"], ["class", "carousel-item", 3, "ngClass", 4, "ngFor", "ngForOf"], [1, "carousel-indicators", "mt-2"], ["type", "button", "data-bs-target", "#homeSlider", "data-bs-slide-to", "0", "aria-current", "true", "aria-label", "Slide 1", 1, "active"], ["type", "button", "data-bs-target", "#homeSlider", "data-bs-slide-to", "1", "aria-label", "Slide 2"], ["type", "button", "data-bs-target", "#homeSlider", "data-bs-slide-to", "2", "aria-label", "Slide 3"], [1, "carousel-item", 3, "ngClass"], [1, "text-bymia"], [1, "display-1"], [1, "subtitle"], [1, "badge", "rounded-pill", "bg-secundary", "px-3", "py-2"]], template: function HomeSliderComponent_Template(rf, ctx) { if (rf & 1) {
+HomeSliderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: HomeSliderComponent, selectors: [["app-home-slider"]], decls: 7, vars: 2, consts: [[1, "container", "mt-5"], [1, "row"], [1, "col"], [3, "loading"], ["id", "homeSlider", "class", "carousel slide", "data-bs-ride", "carousel", 4, "ngIf"], ["id", "logo3d", 1, "col-md-6", "col-lg-5", "col-xl-4", "col-xxl-3", "text-end"], ["src", "../../../../assets/img/logoBymia3d.png", "alt", "logo-bymia", "draggable", "false", 1, "img-fluid"], ["id", "homeSlider", "data-bs-ride", "carousel", 1, "carousel", "slide"], [1, "carousel-inner"], ["class", "carousel-item", 3, "ngClass", 4, "ngFor", "ngForOf"], [1, "carousel-indicators", "mt-2"], ["type", "button", "data-bs-target", "#homeSlider", "data-bs-slide-to", "0", "aria-current", "true", "aria-label", "Slide 1", 1, "active"], ["type", "button", "data-bs-target", "#homeSlider", "data-bs-slide-to", "1", "aria-label", "Slide 2"], ["type", "button", "data-bs-target", "#homeSlider", "data-bs-slide-to", "2", "aria-label", "Slide 3"], [1, "carousel-item", 3, "ngClass"], [1, "text-bymia"], [1, "display-1"], [1, "subtitle"], [1, "badge", "rounded-pill", "bg-secundary", "px-3", "py-2", 3, "routerLink"]], template: function HomeSliderComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
@@ -1924,7 +1929,7 @@ HomeSliderComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("loading", ctx.loading);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", !ctx.loading);
-    } }, directives: [_loading_loading_component__WEBPACK_IMPORTED_MODULE_1__.LoadingComponent, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.UpperCasePipe], styles: [".carousel-indicators[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  bottom: -4rem;\n  grid-row-gap: 25px;\n  row-gap: 25px;\n  margin-bottom: 3rem;\n}\n.carousel-indicators[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background-color: #fff !important;\n  border-radius: 50% !important;\n  width: 10px !important;\n  height: 10px !important;\n  border: 10px solid #000 !important;\n}\n.carousel-indicators[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  outline: 2px solid #15fed4 !important;\n}\n.display-1[_ngcontent-%COMP%] {\n  font-size: calc(1.625rem + 4.5vw);\n  font-weight: 600;\n  line-height: 1.2;\n}\n@media (min-width: 1200px) {\n  .display-1[_ngcontent-%COMP%] {\n    font-size: 5rem;\n  }\n}\n@media (min-width: 0px) and (max-width: 540px) {\n  .display-1[_ngcontent-%COMP%] {\n    font-size: calc(1rem + 4.5vw);\n    font-weight: 600;\n    line-height: 1.2;\n  }\n\n  #logo3d[_ngcontent-%COMP%] {\n    display: none;\n  }\n\n  .subtitle[_ngcontent-%COMP%] {\n    font-size: 0.8rem;\n  }\n}\n@media (min-width: 541px) and (max-width: 1000px) {\n  #logo3d[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWUtc2xpZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsdUJBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFBQSxhQUFBO0VBQ0EsbUJBQUE7QUFDRjtBQUNFO0VBQ0UsaUNBQUE7RUFDQSw2QkFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSxrQ0FBQTtBQUNKO0FBQ0U7RUFDRSxxQ0FBQTtBQUNKO0FBR0E7RUFDRSxpQ0FBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7QUFBRjtBQUdBO0VBQ0U7SUFDRSxlQUFBO0VBQUY7QUFDRjtBQUdBO0VBQ0U7SUFDRSw2QkFBQTtJQUNBLGdCQUFBO0lBQ0EsZ0JBQUE7RUFERjs7RUFHQTtJQUNFLGFBQUE7RUFBRjs7RUFFQTtJQUNFLGlCQUFBO0VBQ0Y7QUFDRjtBQUNBO0VBQ0U7SUFDRSxhQUFBO0VBQ0Y7QUFDRiIsImZpbGUiOiJob21lLXNsaWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJvdXNlbC1pbmRpY2F0b3JzIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYm90dG9tOiAtNHJlbTtcclxuICByb3ctZ2FwOiAyNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDNyZW07XHJcblxyXG4gIGJ1dHRvbiB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCUgIWltcG9ydGFudDtcclxuICAgIHdpZHRoOiAxMHB4ICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDEwcHggIWltcG9ydGFudDtcclxuICAgIGJvcmRlcjogMTBweCBzb2xpZCAjMDAwICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIGJ1dHRvbi5hY3RpdmUge1xyXG4gICAgb3V0bGluZTogMnB4IHNvbGlkICMxNWZlZDQgIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuXHJcbi5kaXNwbGF5LTEge1xyXG4gIGZvbnQtc2l6ZTogY2FsYygxLjYyNXJlbSArIDQuNXZ3KTtcclxuICBmb250LXdlaWdodDogNjAwO1xyXG4gIGxpbmUtaGVpZ2h0OiAxLjI7XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcclxuICAuZGlzcGxheS0xIHtcclxuICAgIGZvbnQtc2l6ZTogNXJlbTtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAwcHgpIGFuZCAobWF4LXdpZHRoOiA1NDBweCkge1xyXG4gIC5kaXNwbGF5LTEge1xyXG4gICAgZm9udC1zaXplOiBjYWxjKDFyZW0gKyA0LjV2dyk7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgbGluZS1oZWlnaHQ6IDEuMjtcclxuICB9XHJcbiAgI2xvZ28zZCB7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG4gIH1cclxuICAuc3VidGl0bGUge1xyXG4gICAgZm9udC1zaXplOiAwLjhyZW07XHJcbiAgfVxyXG59XHJcbkBtZWRpYSAobWluLXdpZHRoOiA1NDFweCkgYW5kIChtYXgtd2lkdGg6IDEwMDBweCkge1xyXG4gICNsb2dvM2Qge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcbn1cclxuIl19 */"] });
+    } }, directives: [_loading_loading_component__WEBPACK_IMPORTED_MODULE_1__.LoadingComponent, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass, _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterLink], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.UpperCasePipe], styles: [".carousel-indicators[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  bottom: -4rem;\n  grid-row-gap: 25px;\n  row-gap: 25px;\n  margin-bottom: 3rem;\n}\n.carousel-indicators[_ngcontent-%COMP%]   button[_ngcontent-%COMP%] {\n  background-color: #fff !important;\n  border-radius: 50% !important;\n  width: 10px !important;\n  height: 10px !important;\n  border: 10px solid #000 !important;\n}\n.carousel-indicators[_ngcontent-%COMP%]   button.active[_ngcontent-%COMP%] {\n  outline: 2px solid #15fed4 !important;\n}\n.display-1[_ngcontent-%COMP%] {\n  font-size: calc(1.625rem + 4.5vw);\n  font-weight: 600;\n  line-height: 1.2;\n}\n@media (min-width: 1200px) {\n  .display-1[_ngcontent-%COMP%] {\n    font-size: 5rem;\n  }\n}\n@media (min-width: 0px) and (max-width: 540px) {\n  .display-1[_ngcontent-%COMP%] {\n    font-size: calc(1rem + 4.5vw);\n    font-weight: 600;\n    line-height: 1.2;\n  }\n\n  #logo3d[_ngcontent-%COMP%] {\n    display: none;\n  }\n\n  .subtitle[_ngcontent-%COMP%] {\n    font-size: 0.8rem;\n  }\n}\n@media (min-width: 541px) and (max-width: 1000px) {\n  #logo3d[_ngcontent-%COMP%] {\n    display: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImhvbWUtc2xpZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsdUJBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7RUFBQSxhQUFBO0VBQ0EsbUJBQUE7QUFDRjtBQUNFO0VBQ0UsaUNBQUE7RUFDQSw2QkFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSxrQ0FBQTtBQUNKO0FBQ0U7RUFDRSxxQ0FBQTtBQUNKO0FBR0E7RUFDRSxpQ0FBQTtFQUNBLGdCQUFBO0VBQ0EsZ0JBQUE7QUFBRjtBQUdBO0VBQ0U7SUFDRSxlQUFBO0VBQUY7QUFDRjtBQUdBO0VBQ0U7SUFDRSw2QkFBQTtJQUNBLGdCQUFBO0lBQ0EsZ0JBQUE7RUFERjs7RUFHQTtJQUNFLGFBQUE7RUFBRjs7RUFFQTtJQUNFLGlCQUFBO0VBQ0Y7QUFDRjtBQUNBO0VBQ0U7SUFDRSxhQUFBO0VBQ0Y7QUFDRiIsImZpbGUiOiJob21lLXNsaWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJvdXNlbC1pbmRpY2F0b3JzIHtcclxuICBkaXNwbGF5OiBmbGV4O1xyXG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYm90dG9tOiAtNHJlbTtcclxuICByb3ctZ2FwOiAyNXB4O1xyXG4gIG1hcmdpbi1ib3R0b206IDNyZW07XHJcblxyXG4gIGJ1dHRvbiB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCUgIWltcG9ydGFudDtcclxuICAgIHdpZHRoOiAxMHB4ICFpbXBvcnRhbnQ7XHJcbiAgICBoZWlnaHQ6IDEwcHggIWltcG9ydGFudDtcclxuICAgIGJvcmRlcjogMTBweCBzb2xpZCAjMDAwICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG4gIGJ1dHRvbi5hY3RpdmUge1xyXG4gICAgb3V0bGluZTogMnB4IHNvbGlkICMxNWZlZDQgIWltcG9ydGFudDtcclxuICB9XHJcbn1cclxuXHJcbi5kaXNwbGF5LTEge1xyXG4gIGZvbnQtc2l6ZTogY2FsYygxLjYyNXJlbSArIDQuNXZ3KTtcclxuICBmb250LXdlaWdodDogNjAwO1xyXG4gIGxpbmUtaGVpZ2h0OiAxLjI7XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAxMjAwcHgpIHtcclxuICAuZGlzcGxheS0xIHtcclxuICAgIGZvbnQtc2l6ZTogNXJlbTtcclxuICB9XHJcbn1cclxuXHJcbkBtZWRpYSAobWluLXdpZHRoOiAwcHgpIGFuZCAobWF4LXdpZHRoOiA1NDBweCkge1xyXG4gIC5kaXNwbGF5LTEge1xyXG4gICAgZm9udC1zaXplOiBjYWxjKDFyZW0gKyA0LjV2dyk7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgbGluZS1oZWlnaHQ6IDEuMjtcclxuICB9XHJcbiAgI2xvZ28zZCB7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG4gIH1cclxuICAuc3VidGl0bGUge1xyXG4gICAgZm9udC1zaXplOiAwLjhyZW07XHJcbiAgfVxyXG59XHJcbkBtZWRpYSAobWluLXdpZHRoOiA1NDFweCkgYW5kIChtYXgtd2lkdGg6IDEwMDBweCkge1xyXG4gICNsb2dvM2Qge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxuICB9XHJcbn1cclxuIl19 */"] });
 
 
 /***/ }),
@@ -3105,24 +3110,64 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function ProductComponent_app_featured_products_119_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "app-featured-products", 40);
+const _c0 = function (a0) { return { active: a0 }; };
+function ProductComponent_div_11_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 47);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1, " > ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](2, "img", 48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("title", ctx_r0.homeSections[1].title)("category", ctx_r0.homeSections[1].title.trim().split(" ").join(""))("featuredProducts", ctx_r0.homeSections[1].categories);
+    const product_r2 = ctx.$implicit;
+    const i_r3 = ctx.index;
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵpureFunction1"](2, _c0, i_r3 == 0));
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("src", product_r2.image, _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵsanitizeUrl"]);
+} }
+function ProductComponent_app_featured_products_129_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](0, "app-featured-products", 49);
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("title", ctx_r1.homeSections[1].title)("category", ctx_r1.homeSections[1].title.trim().split(" ").join(""))("featuredProducts", ctx_r1.homeSections[1].categories);
 } }
 class ProductComponent {
     constructor(bymiaService) {
         this.bymiaService = bymiaService;
         this.homeSections = [];
+        this.isZoomed = false;
+        this.products = [
+            {
+                name: 'Producto 1',
+                description: 'Descripción del producto 1',
+                image: '../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png',
+            },
+            {
+                name: 'Producto 2',
+                description: 'Descripción del producto 2',
+                image: '../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png',
+            },
+            {
+                name: 'Producto 3',
+                description: 'Descripción del producto 3',
+                image: '../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png',
+            },
+            {
+                name: 'Producto 4',
+                description: 'Descripción del producto 3',
+                image: '../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png',
+            },
+        ];
+        this.productGroups = [];
         bymiaService.getSections().subscribe(resp => {
             this.homeSections = resp;
         });
     }
+    toggleZoom() {
+        this.isZoomed = !this.isZoomed;
+    }
     ngOnInit() { }
 }
 ProductComponent.ɵfac = function ProductComponent_Factory(t) { return new (t || ProductComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_0__.BymiaService)); };
-ProductComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: ProductComponent, selectors: [["app-product"]], decls: 120, vars: 1, consts: [[1, "container"], [1, "row", "ms-2", "me-2", "mt-3"], [1, "col-12", "col-md-6", "bg-light", "rounded-3", "p-3", "p-sm-4", "mt-3", "mt-sm-0"], [1, "row"], [1, "col", "d-flex", "justify-content-between", "align-items-center"], [1, "bx", "bx-zoom-in", "text-dark", "product__i"], [1, "bx", "bxs-heart", "text-dark", "product__i"], [1, "col", "p-3", "p-sm-5"], ["src", "../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png", "alt", "", 1, "img-fluid"], [1, "col", "col-md-6", "p-3", "p-sm-5"], [1, "col"], [1, "text-light", "me-2", "product__bread"], [1, "text-light", "product__h1"], [1, "col", "d-flex", "align-items-center"], [1, "text-light", "me-2", "product__price"], [1, "text-light", "me-2", "product__tag"], [1, "text-light", "product__p"], [1, "row", "mt-2", "mb-2"], [1, "product__dimension"], [1, "d-flex", "justify-content-center", "align-items-center", "text-light", "me-2", "product__color"], [1, "circle__color", 2, "background-color", "yellow"], [1, "circle__color", 2, "background-color", "blue"], [1, "circle__color", 2, "background-color", "red"], [1, "circle__color", 2, "background-color", "rgb(246, 232, 232)"], [1, "btn", "bg-light", "rounded-2", "mt-3"], [1, "bx", "bx-cart-add"], [1, "row", "d-flex", "align-items-center", "mt-3", "mt-sm-5"], [1, "col-5", "col-sm-3"], [1, "product__h5"], [1, "product__hr"], [1, "row", "mt-3"], [1, "d-flex", "flex-wrap"], [1, "col-12", "col-sm-3"], ["href", "", 1, "product__a", "text-white"], [1, "row", "mt-3", "mt-sm-4"], [1, "row", "mb-2"], [1, "product__p", "ms-2"], [1, "col", "d-flex", "justify-content-center"], [1, "product__btn"], [3, "title", "category", "featuredProducts", 4, "ngIf"], [3, "title", "category", "featuredProducts"]], template: function ProductComponent_Template(rf, ctx) { if (rf & 1) {
+ProductComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: ProductComponent, selectors: [["app-product"]], decls: 130, vars: 2, consts: [[1, "container"], [1, "row", "ms-2", "me-2", "mt-3"], [1, "col-12", "col-md-6", "bg-light", "rounded-3", "p-3", "p-sm-4", "mt-3", "mt-sm-0"], [1, "row"], [1, "col", "d-flex", "justify-content-between", "align-items-center"], [1, "bx", "bx-zoom-in", "text-dark", "product__i"], [1, "bx", "bxs-heart", "text-dark", "product__i"], [1, "col", "p-3", "p-sm-5"], ["id", "carouselExampleControlsNoTouching", "data-bs-touch", "false", "data-bs-interval", "false", 1, "carousel", "slide", "carousel-dark"], [1, "carousel-inner"], ["class", "carousel-item", 3, "ngClass", 4, "ngFor", "ngForOf"], ["type", "button", "data-bs-target", "#carouselExampleControlsNoTouching", "data-bs-slide", "prev", 1, "carousel-control-prev"], ["aria-hidden", "true", 1, "carousel-control-prev-icon"], [1, "visually-hidden"], ["type", "button", "data-bs-target", "#carouselExampleControlsNoTouching", "data-bs-slide", "next", 1, "carousel-control-next"], ["aria-hidden", "true", 1, "carousel-control-next-icon"], [1, "col", "col-md-6", "p-3", "p-sm-5"], [1, "col"], [1, "text-light", "me-2", "product__bread"], [1, "text-light", "product__h1"], [1, "col", "d-flex", "align-items-center"], [1, "text-light", "me-2", "product__price"], [1, "text-light", "me-2", "product__tag"], [1, "text-light", "product__p"], [1, "row", "mt-2", "mb-2"], [1, "product__dimension"], [1, "d-flex", "justify-content-center", "align-items-center", "text-light", "me-2", "product__color"], [1, "circle__color", 2, "background-color", "yellow"], [1, "circle__color", 2, "background-color", "blue"], [1, "circle__color", 2, "background-color", "red"], [1, "circle__color", 2, "background-color", "rgb(246, 232, 232)"], [1, "btn", "bg-light", "rounded-2", "mt-3"], [1, "bx", "bx-cart-add"], [1, "row", "d-flex", "align-items-center", "mt-3", "mt-sm-5"], [1, "col-5", "col-sm-3"], [1, "product__h5"], [1, "product__hr"], [1, "row", "mt-3"], [1, "d-flex", "flex-wrap"], [1, "col-12", "col-sm-3"], ["href", "", 1, "product__a", "text-white"], [1, "row", "mt-3", "mt-sm-4"], [1, "row", "mb-2"], [1, "product__p", "ms-2"], [1, "col", "d-flex", "justify-content-center"], [1, "product__btn"], [3, "title", "category", "featuredProducts", 4, "ngIf"], [1, "carousel-item", 3, "ngClass"], ["alt", "...", 1, "d-block", "w-100", "slide-product", 3, "src"], [3, "title", "category", "featuredProducts"]], template: function ProductComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
@@ -3134,204 +3179,222 @@ ProductComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2_
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "div", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "div", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](9, "img", 8);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](9, "div", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "div", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](12, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "span", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](14, "Laptop >");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](11, ProductComponent_div_11_Template, 3, 4, "div", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](15, "span", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](16, "Gamer >");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "span", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](18, "Samsung >");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](12, "button", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](13, "span", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "span", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](15, "Previous");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](19, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "h1", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](21, " Drill Screwdriver Brandix ALX7054 200 Watts-20 ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](23, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](24, "span", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](25, "US$5,129.96");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](26, "span", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](27, "Gamer");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](28, "span", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](29, "Samsung");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](30, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](31, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](32, "p", 16);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](33, " acked with 57 billion transistors, the Apple M1 Max integrates the CPU, GPU, Neural Engine, I/O, and more into a single system on a chip (SoC). Built with 5nm process technology, the Apple M1 Pro delivers the performance you need without sacrificing power efficiency. The 10-Core CPU features eight performance cores and two ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "div", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](35, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](36, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](37, "span", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](38, "Tama\u00F1o: 125GB");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](16, "button", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](17, "span", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](18, "span", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](19, "Next");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](39, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](40, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](41, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](42, "1TB");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](43, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](44, "500GB");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](45, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](46, "256GB");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](47, "div", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](48, "128GB");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "div", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](21, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](22, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](23, "span", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](24, "Laptop >");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](49, "div", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](50, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](51, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](52, "span", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](53, "Color: Azul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](25, "span", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](26, "Gamer >");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](27, "span", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](28, "Samsung >");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](29, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](30, "h1", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](31, " Drill Screwdriver Brandix ALX7054 200 Watts-20 ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](54, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](55, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](56, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](57, "div", 20);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](58, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](59, "div", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](32, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](33, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](34, "span", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](35, "US$5,129.96");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](60, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](61, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](36, "span", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](37, "Gamer");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](62, "div", 19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](63, "div", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](38, "span", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](39, "Samsung");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](40, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](41, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](42, "p", 23);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](43, " acked with 57 billion transistors, the Apple M1 Max integrates the CPU, GPU, Neural Engine, I/O, and more into a single system on a chip (SoC). Built with 5nm process technology, the Apple M1 Pro delivers the performance you need without sacrificing power efficiency. The 10-Core CPU features eight performance cores and two ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](44, "div", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](45, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](46, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](47, "span", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](48, "Tama\u00F1o: 125GB");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](49, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](50, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](51, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](52, "1TB");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](53, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](54, "500GB");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](55, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](56, "256GB");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](57, "div", 22);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](58, "128GB");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](59, "div", 24);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](60, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](61, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](62, "span", 25);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](63, "Color: Azul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](64, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](65, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](66, "button", 24);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](67, "i", 25);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](68, " Agregar a Carrito ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](65, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](66, "div", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](67, "div", 27);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](68, "div", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](69, "div", 28);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](70, "div", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](71, "div", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](72, "div", 26);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](73, "div", 30);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](74, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](75, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](76, "button", 31);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](77, "i", 32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](78, " Agregar a Carrito ");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](69, "div", 26);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](70, "div", 27);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](71, "h5", 28);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](72, "Detalle del producto");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](79, "div", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](80, "div", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](81, "h5", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](82, "Detalle del producto");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](73, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](74, "hr", 29);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](83, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](84, "hr", 36);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](75, "div", 30);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](76, "div", 31);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](77, "div", 32);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](78, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](79, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](80, "a", 33);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](81, "Modelo: Apple M1 Max 10-Core Chip");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](82, "div", 32);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](83, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](84, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](85, "a", 33);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](86, "Modelo: Apple M1 Max 10-Core Chip");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](87, "div", 32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](85, "div", 37);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](86, "div", 38);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](87, "div", 39);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](88, "ul");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](89, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](90, "a", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](90, "a", 40);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](91, "Modelo: Apple M1 Max 10-Core Chip");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](92, "div", 32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](92, "div", 39);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](93, "ul");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](94, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](95, "a", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](95, "a", 40);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](96, "Modelo: Apple M1 Max 10-Core Chip");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](97, "div", 32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](97, "div", 39);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](98, "ul");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](99, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](100, "a", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](100, "a", 40);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](101, "Modelo: Apple M1 Max 10-Core Chip");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](102, "div", 32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](102, "div", 39);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](103, "ul");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](104, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](105, "a", 33);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](105, "a", 40);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](106, "Modelo: Apple M1 Max 10-Core Chip");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](107, "div", 34);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](108, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](109, "div", 35);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](110, "h5", 28);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](111, " Drill Screwdriver Brandix ALX7054 200 Watts-20 ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](112, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](113, "p", 36);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](114, " acked with 57 billion transistors, the Apple M1 Max integrates the CPU, GPU, Neural Engine, I/O, and more into a single system on a chip (SoC). Built with 5nm process technology, the Apple M1 Pro delivers the performance you need without sacrificing power efficiency. The 10-Core CPU features eight performance cores and two high-efficiency cores. The 16-Core Neural Engine provides support for on-device machine learning acceleration and improved camera performance. The M1 Pro offers up to 400 GB/s of memory bandwidth as well as support for up to 64GB of unified memory. The efficient architecture of M1 Pro means they deliver the same level of performance whether MacBook Pro is plugged in or using the battery. With up to a 32-Core GPU, the M1 Max can provide up to four times faster GPU performance than the M1. M1 Max also offers an enhanced media engine that features two ProRes accelerators for even higher multi-stream performance. As a result, professionals can edit up to 30 streams of 4K ProRes video or up to seven streams of 8K ProRes video in Final Cut Pro. Video editors can even grade color in HDR on 8K ProRes 4444 video while on battery. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](107, "div", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](108, "ul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](109, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](110, "a", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](111, "Modelo: Apple M1 Max 10-Core Chip");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](115, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](116, "div", 37);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](117, "button", 38);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](118, "Ver m\u00E1s");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](112, "div", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](113, "ul");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](114, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](115, "a", 40);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](116, "Modelo: Apple M1 Max 10-Core Chip");
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](119, ProductComponent_app_featured_products_119_Template, 1, 3, "app-featured-products", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](117, "div", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](118, "div", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](119, "div", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](120, "h5", 35);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](121, " Drill Screwdriver Brandix ALX7054 200 Watts-20 ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](122, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](123, "p", 43);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](124, " acked with 57 billion transistors, the Apple M1 Max integrates the CPU, GPU, Neural Engine, I/O, and more into a single system on a chip (SoC). Built with 5nm process technology, the Apple M1 Pro delivers the performance you need without sacrificing power efficiency. The 10-Core CPU features eight performance cores and two high-efficiency cores. The 16-Core Neural Engine provides support for on-device machine learning acceleration and improved camera performance. The M1 Pro offers up to 400 GB/s of memory bandwidth as well as support for up to 64GB of unified memory. The efficient architecture of M1 Pro means they deliver the same level of performance whether MacBook Pro is plugged in or using the battery. With up to a 32-Core GPU, the M1 Max can provide up to four times faster GPU performance than the M1. M1 Max also offers an enhanced media engine that features two ProRes accelerators for even higher multi-stream performance. As a result, professionals can edit up to 30 streams of 4K ProRes video or up to seven streams of 8K ProRes video in Final Cut Pro. Video editors can even grade color in HDR on 8K ProRes 4444 video while on battery. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](125, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](126, "div", 44);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](127, "button", 45);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](128, "Ver m\u00E1s");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](129, ProductComponent_app_featured_products_129_Template, 1, 3, "app-featured-products", 46);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](119);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngForOf", ctx.products);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](118);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", ctx.homeSections.length > 0);
-    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _components_featured_products_featured_products_component__WEBPACK_IMPORTED_MODULE_1__.FeaturedProductsComponent], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9kdWN0LmNvbXBvbmVudC5zY3NzIn0= */"] });
+    } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgClass, _components_featured_products_featured_products_component__WEBPACK_IMPORTED_MODULE_1__.FeaturedProductsComponent], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9kdWN0LmNvbXBvbmVudC5zY3NzIn0= */"] });
 
 
 /***/ }),

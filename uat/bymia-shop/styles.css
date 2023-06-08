@@ -4463,6 +4463,29 @@ header .header__container {
   display: none;
   color: #000;
 }
+.carousel-control-next {
+  right: -45px;
+}
+.carousel-control-prev {
+  left: -45px;
+}
+.slide-product:hover {
+  transform: scale(1.1);
+}
+.carousel-indicators {
+  position: absolute;
+  right: 0;
+  bottom: -35px;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin-right: 15%;
+  margin-bottom: 1rem;
+  margin-left: 15%;
+  list-style: none;
+}
 @media screen and (max-width: 1400px) {
   .product__h1 {
     font-size: 1.875rem;
