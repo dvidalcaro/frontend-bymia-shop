@@ -18,7 +18,9 @@
             <p class="subtitle">
               {{ slider.subtitle }}
             </p>
-            <button class="badge rounded-pill bg-secundary px-3 py-2">
+            <button
+              [routerLink]="[slider.linkBtn]"
+              class="badge rounded-pill bg-secundary px-3 py-2">
               {{ slider.nameBtn }}
             </button>
           </div>
