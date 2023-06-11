@@ -138,12 +138,19 @@ export class UserService {
     let billdata = {
       identity_type: 'DNI',
       identity_number: '34987273',
+      name: 'Jane Doe',
+      corporate_name: 'Jane Doe Inc.',
       country_id: 11,
       country_name: 'Argentina',
       state_id: 4545,
       state_name: 'Buenos Aires',
       city_id: 42022,
       city_name: 'Ciudad Autonoma de Buenos Aires',
+      code_zip: 'abc123',
+      additional_info: 'informacion adicional de Jane Doe',
+      address: 'Calle 123 4to A',
+      phone: '+549113637878',
+      email: 'janedoe@gmail.com',
     } as BillData;
     this.order.bill_data = billdata;
     //TODO: buscar la data real
