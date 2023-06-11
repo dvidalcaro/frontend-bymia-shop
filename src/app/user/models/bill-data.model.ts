@@ -8,6 +8,13 @@ export class BillData {
   state_name?: string;
   city_id?: number;
   city_name?: string;
+  code_zip?: string;
+  additional_info?: string;
+  address?: string;
+  name?: string;
+  corporate_name?: string;
+  phone?: string;
+  email?: string;
 
   constructor() {}
 }
