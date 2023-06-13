@@ -15,6 +15,13 @@ export class SaleOrderStepOneComponent implements OnInit {
   public total: number | undefined = 0;
   public billdata: BillData | undefined = undefined;
   public recipients: Recipient[] | undefined = [];
+
+  public pickupData: boolean = false;
+  public shippingData: boolean = false;
+
+  public quantityProducts: number | undefined = 0;
+  public tax: number = 0;
+  public totalSale: number = 0;
   Popup: any[] = [
     {
       selection: 'Pickup',
@@ -38,7 +45,14 @@ export class SaleOrderStepOneComponent implements OnInit {
       return { ...item, subtotal: item.quantity * item.price };
     });
     console.log('Products:', this.products);
+
+    this.quantityProducts = this.products?.reduce(
+      (acc, cur) => acc + cur.quantity,
+      0
+    );
     this.total = this.products?.reduce((acc, cur) => acc + cur.subtotal, 0);
+
+    this.tax = 0;
     console.log('Total', this.total);
   }
 
@@ -46,6 +60,22 @@ export class SaleOrderStepOneComponent implements OnInit {
     this.userService.endOrder().subscribe(res => {
       console.log('resp:', res);
     });
+  }
+
+  selectRadio(value: string) {
+    this.pickupData = value.indexOf('Pickup') > 0;
+    this.shippingData = value.indexOf('Shipping') > 0;
+
+    this.tax =
+      this.total && value?.startsWith('international')
+        ? 0
+        : this.total
+        ? this.total * 0.07
+        : 0;
+    this.totalSale = this.total ? this.total + this.tax : 0;
+    // console.log('international:', value?.startsWith('international'));
+    // console.log('pickupData:', this.pickupData);
+    // console.log('select radio:', value);
   }
 
   ngOnInit(): void {}
