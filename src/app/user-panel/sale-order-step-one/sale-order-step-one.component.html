@@ -142,19 +142,6 @@
                 disabled="{{ billdata && billdata.name !== '' }}"
                 required
                 aria-describedby="nameHelp" />
-
-              <input
-                type="text"
-                name="corporate_name"
-                placeholder="Razón social destinatario"
-                class="form-control frm-register__input"
-                id="corporate_name"
-                value="{{ billdata ? billdata.corporate_name : '' }}"
-                minlength="3"
-                disabled="[ billdata?.corporate_name.length > 0 ]"
-                disabled="{{ billdata && billdata.corporate_name !== '' }}"
-                required
-                aria-describedby="corporate_nameHelp" />
             </div>
             <div class="d-md-flex gap-2">
               <input
@@ -358,43 +345,58 @@
           </form>
 
           <!-- Add recipient data -->
-          <div
-            class="mt-5 d-flex justify-content-between align-items-center"
-            *ngIf="shippingData">
+          <div class="mt-4 d-flex justify-content-between align-items-center">
             <div>
-              <h3 class="text-dark sale__h3">Agregar datos de destinatarios</h3>
+              <h3 class="text-dark sale__h3">Seleccionar destinatario</h3>
               <p class="sale__p-xs">
-                (Completar únicamente si los datos del destinatario son
+                (Seleccionar únicamente si los datos del destinatario son
                 distintos a los de facturación)
               </p>
             </div>
-            <div>
-              <button class="cart__button cart__button-bg">
-                Agregá una nueva dirección
-              </button>
+            <div></div>
+          </div>
+          <!-- Form select recipient -->
+          <div class="d-flex flex-column mt-3 gap-2">
+            <div
+              class="sale__bg-black p-3 rounded-3 d-flex flex-column gap-1"
+              *ngFor="let recipient of recipients">
+              <form action="" class="d-flex sale__input-radio">
+                <input
+                  type="radio"
+                  name=""
+                  class="me-2 form-check-input"
+                  id="" />
+                <div>
+                  <p class="sale__p text-light">
+                    {{ recipient.recipient_name }}
+                  </p>
+                  <p class="sale__p text-light">
+                    {{ recipient.country_name }}, {{ recipient.state_name }},
+                    {{ recipient.city_name }}, {{ recipient.address }},{{
+                      recipient.recipient_phone
+                    }}
+                  </p>
+                </div>
+              </form>
             </div>
           </div>
-          <!-- Form Destinatario -->
-          <form
-            class="mt-3 d-flex flex-column gap-2"
-            action=""
-            *ngIf="shippingData">
+          <div class="mt-4 d-flex justify-content-between align-items-center">
+            <div>
+              <div>
+                <button class="cart__button cart__button-bg">
+                  Agregá un nuevo destinatario
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Form  new Destinatario -->
+          <form class="mt-3 d-flex flex-column gap-2" action="">
             <div class="d-md-flex gap-2">
               <input
                 type="text"
                 name="name"
                 placeholder="Nombre y apellido"
                 class="form-control frm-register__input mb-2 mb-md-0"
-                id="name"
-                minlength="3"
-                required
-                aria-describedby="nameHelp" />
-
-              <input
-                type="text"
-                name="name"
-                placeholder="Razón social destinatario"
-                class="form-control frm-register__input"
                 id="name"
                 minlength="3"
                 required
@@ -497,24 +499,6 @@
               <button class="cart__button cart__button-bg">Agregar</button>
             </div>
           </form>
-          <div>
-            <h3 class="text-dark text-center sale__h3 mt-5 mb-3">
-              Seleccionar otro destinatario
-            </h3>
-          </div>
-          <div class="d-flex flex-column gap-2">
-            <div
-              class="sale__bg-black p-3 rounded-3 d-flex flex-column gap-1"
-              *ngFor="let recipient of recipients">
-              <p class="sale__p text-light">{{ recipient.recipient_name }}</p>
-              <p class="sale__p text-light">
-                {{ recipient.country_name }}, {{ recipient.state_name }},
-                {{ recipient.city_name }}, {{ recipient.address }},{{
-                  recipient.recipient_phone
-                }}
-              </p>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -633,7 +617,7 @@
             </div>
           </div>
           <div class="mt-5">
-            <h3 class="sale__h3 sale__h3-md text-dark text-center">Subtotal</h3>
+            <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
             <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
               US{{ totalSale | currency : 'USD' }}
             </p>
