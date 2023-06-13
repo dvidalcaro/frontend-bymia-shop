@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/user/models/product.model';
 import { UserService } from 'src/app/user/services/user.service';
 
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/user/services/user.service';
 export class WishListComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.userService.currentWishlist.subscribe(resp => {
       // console.log(resp);
       this.products =
@@ -30,6 +31,14 @@ export class WishListComponent implements OnInit {
     this.removeProduct(productId);
     this.userService.addProductToCartlist(productId).subscribe(() => {
       this.userService.notifyCartToAll();
+    });
+  }
+  addAllProductToCart() {
+    this.userService.addAllProductToCartlist().subscribe(resp => {
+      // console.log(resp);
+      this.userService.notifyWishToAll();
+      this.userService.notifyCartToAll();
+      this.router.navigate(['/shop-cart']);
     });
   }
 }

@@ -1,5 +1,6 @@
 export class Product {
   id: number;
+  available: number;
   name: string;
   image: string;
   rating: number;
@@ -10,6 +11,7 @@ export class Product {
   subtotal: number;
   constructor() {
     this.id = 0;
+    this.available = 0;
     this.name = '';
     this.image = '';
     this.rating = 0;
