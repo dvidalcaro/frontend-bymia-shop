@@ -9,17 +9,11 @@ import { HomeSection } from 'src/app/shared/interfaces/HomeSection';
 })
 export class ProductComponent implements OnInit {
   homeSections: HomeSection[] = [];
-
+  showProduct: boolean = false;
   constructor(public bymiaService: BymiaService) {
     bymiaService.getSections().subscribe(resp => {
       this.homeSections = resp;
     });
-  }
-
-  isZoomed = false;
-
-  toggleZoom() {
-    this.isZoomed = !this.isZoomed;
   }
 
   products = [
@@ -48,7 +42,14 @@ export class ProductComponent implements OnInit {
         '../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png',
     },
   ];
-  productGroups: any[] = [];
+
+  showZoom() {
+    this.showProduct = true;
+  }
+
+  closeZoom() {
+    this.showProduct = false;
+  }
 
   ngOnInit() {}
 }
