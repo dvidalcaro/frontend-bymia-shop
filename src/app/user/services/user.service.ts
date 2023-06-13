@@ -132,6 +132,10 @@ export class UserService {
     );
   }
 
+  addAllProductToCartlist() {
+    return this.http.post(`${url}/cart/addAllFavorites`, {}, { headers });
+  }
+
   prepareOrder(products: Product[]) {
     this.order.items = products;
     //TODO: buscar la data real
