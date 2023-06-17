@@ -41,4 +41,7 @@ export class WishListComponent implements OnInit {
       this.router.navigate(['/shop-cart']);
     });
   }
+  detailProduct(id: number) {
+    this.router.navigate(['/product'], { queryParams: { id } });
+  }
 }

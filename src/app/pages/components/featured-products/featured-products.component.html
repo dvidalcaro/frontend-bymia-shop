@@ -51,7 +51,8 @@
                       [src]="[item.image]"
                       class="card-img-top w-75 img__cursor"
                       [alt]="[item.name]"
-                      draggable="false" />
+                      draggable="false"
+                      (click)="detailProduct(item.id)" />
                   </div>
                   <div class="card-body">
                     <h6 class="card-title">

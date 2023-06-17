@@ -101,4 +101,7 @@ export class FeaturedProductsComponent implements OnInit {
       // console.log(changes);
     }
   }
+  detailProduct(id: number) {
+    this.router.navigate(['/product'], { queryParams: { id } });
+  }
 }
