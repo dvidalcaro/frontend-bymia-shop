@@ -16,6 +16,9 @@
   transition: all 5s step-start;
   padding: 0 15px 0 15px;
 }
+.container__modal-form {
+  background-color: rgba(0, 0, 0, 0.599);
+}
 .container__modal-order {
   display: flex;
   position: fixed;

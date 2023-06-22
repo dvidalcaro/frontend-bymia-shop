@@ -1,77 +1,81 @@
 <div class="ctn">
-    <div class="ctn-shipping">
-
-        <!-- Header shipping status -->
-        <div class="header-shp">
-            <div class="header-shp__status">
-                <h3>Estado de envío</h3>
-                <p>Seguí la trayectoria de tu pedido
-                    hasta que lo tengás en tus manos.</p>
-            </div>
-            <div class="header-shp__back">
-
-                <a [routerLink]="['/user-panel/orders']">
-                    <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back"></a>
-                <a [routerLink]="['/user-panel/orders']">Volver a la página anterior</a>
-            </div>
-        </div>
-        <!--  -->
-        <div class="guide-data">
-            <div class="guide-data__tracking">
-                <div class="guide-data__tracking__cpn">
-                    <h3>Enviado con UPS</h3>
-                    <p class="guide-data__tracking__cpn__p">Información de rastreo proporcionada por UPS</p>
-                    <p>Si tenés un problema con tu envío podés
-                        contactarnos haciendo clic <a class="guide-data__tracking__cpn__a" href="http://">aquí.</a> </p>
-                </div>
-                <div class="guide-data__tracking__track">
-
-                    <p>ID de rastreo: 123244566643432323</p>
-                    <p class="guide-data__tracking__track__p">Ver todas las actualizaciones</p>
-                </div>
-                <div class="guide-data__tracking__track">
-
-                    <p>ID de rastreo: 123244566643432323</p>
-                    <p class="guide-data__tracking__track__p">Ver todas las actualizaciones</p>
-                </div>
-            </div>
-            <div class="guide-data__address">
-                <h3>Dirección de envío</h3>
-                <div>
-                    <p>Franco Montanucci</p>
-                    <p>Pasaporte</p>
-                    <p>AAH45644743</p>
-                </div>
-
-                <div>
-                    <p>Estados Unidos</p>
-                    <p>7953 NW 64TH ST</p>
-                    <p>MIAMI, FL 33166-2771</p>
-                </div>
-                <div>
-                    <p>+541162964723</p>
-                    <p>francomontanucci@gmail.com</p>
-                </div>
-                <div>
-                    <p>Casa negra de Frente amplio, dejar en la puerta</p>
-                </div>
-
-                <div>
-                    <button>Editar</button>
-                </div>
-            </div>
-            <div class="guide-data__detail">
-                <div class="guide-data__detail__option">
-                     <i class='bx bxs-notepad bx-tada-hover'></i>
-                     <p>Ver detalles de pedido </p>
-                </div>
-                <div class="guide-data__detail__option">
-                        <i class='bx bxs-error-circle bx-tada-hover'></i>
-                        <p>Necesito ayuda</p>
-                </div>
-            </div>
-
-        </div>
-
+  <div class="ctn-shipping">
+    <!-- Header shipping status -->
+    <div class="header-shp">
+      <div class="header-shp__status">
+        <h3>Estado de envío</h3>
+        <p>
+          Seguí la trayectoria de tu pedido hasta que lo tengás en tus manos.
+        </p>
+      </div>
+      <div class="header-shp__back">
+        <a [routerLink]="['/user-panel/orders']">
+          <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back"
+        /></a>
+        <a [routerLink]="['/orders']">Volver a la página anterior</a>
+      </div>
     </div>
+    <!--  -->
+    <div class="guide-data">
+      <div class="guide-data__tracking">
+        <div class="guide-data__tracking__cpn">
+          <h3>Enviado con UPS</h3>
+          <p class="guide-data__tracking__cpn__p">
+            Información de rastreo proporcionada por UPS
+          </p>
+          <p>
+            Si tenés un problema con tu envío podés contactarnos haciendo clic
+            <a class="guide-data__tracking__cpn__a" href="http://">aquí.</a>
+          </p>
+        </div>
+        <div class="guide-data__tracking__track">
+          <p>ID de rastreo: 123244566643432323</p>
+          <p class="guide-data__tracking__track__p">
+            Ver todas las actualizaciones
+          </p>
+        </div>
+        <div class="guide-data__tracking__track">
+          <p>ID de rastreo: 123244566643432323</p>
+          <p class="guide-data__tracking__track__p">
+            Ver todas las actualizaciones
+          </p>
+        </div>
+      </div>
+      <div class="guide-data__address">
+        <h3>Dirección de envío</h3>
+        <div>
+          <p>Franco Montanucci</p>
+          <p>Pasaporte</p>
+          <p>AAH45644743</p>
+        </div>
+
+        <div>
+          <p>Estados Unidos</p>
+          <p>7953 NW 64TH ST</p>
+          <p>MIAMI, FL 33166-2771</p>
+        </div>
+        <div>
+          <p>+541162964723</p>
+          <p>francomontanucci@gmail.com</p>
+        </div>
+        <div>
+          <p>Casa negra de Frente amplio, dejar en la puerta</p>
+        </div>
+
+        <div>
+          <button>Editar</button>
+        </div>
+      </div>
+      <div class="guide-data__detail">
+        <div class="guide-data__detail__option">
+          <i class="bx bxs-notepad bx-tada-hover"></i>
+          <p>Ver detalles de pedido</p>
+        </div>
+        <div class="guide-data__detail__option">
+          <i class="bx bxs-error-circle bx-tada-hover"></i>
+          <p>Necesito ayuda</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
