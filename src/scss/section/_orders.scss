@@ -1,324 +1,297 @@
 .container__orders {
-    background-color: $background-contain;
-    border-radius: 1.375rem;
-    display: flex;
+  background-color: $background-contain;
+  border-radius: 1.375rem;
+  /* display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin: 0 1rem;
-    flex-wrap: wrap;
-    padding: 2rem 1rem;
-
+    justify-content: center; */
+  margin: 0 1rem;
+  /* flex-wrap: wrap; */
+  padding: 2rem 1rem;
+}
+.back_mydata {
+  a {
+    cursor: pointer;
+    line-height: 18px;
+  }
 }
 
 .header__orders {
-    align-items: center;
+  align-items: center;
+  width: 100%;
+
+  span {
+    font-size: 0.875rem;
+    padding-right: 0.5rem;
+  }
+
+  form {
+    display: flex;
+    margin-top: 1rem;
     width: 100%;
+    align-items: center;
 
-    span {
-        font-size: 0.875rem;
-        padding-right: 0.5rem;
+    input {
+      width: 100%;
+      padding: 4px 10px 4px 40px;
+      font-size: 0.875rem;
+      border-radius: 8px;
+      margin-left: 0.125rem;
     }
 
-    form {
-        display: flex;
-        margin-top: 1rem;
-        width: 100%;
-        align-items: center;
-
-        input {
-            width: 100%;
-            padding: 4px 10px 4px 40px;
-            font-size: 0.875rem;
-            border-radius: 8px;
-            margin-left: 0.125rem;
-        }
-
-        i {
-            z-index: 50;
-            color: $background-color;
-            font-size: 24px;
-            padding-left: 0.7rem;
-            margin-right: -2.3rem;
-        }
+    i {
+      z-index: 50;
+      color: $background-color;
+      font-size: 24px;
+      padding-left: 0.7rem;
+      margin-right: -2.3rem;
     }
-
-
+  }
 }
 
 /* Order */
 
 .container__order {
-    background-color: $primary-color;
-    width: 100%;
-    border-radius: 1.25rem;
-    margin-top: 1rem;    
+  background-color: $primary-color;
+  width: 100%;
+  border-radius: 1.25rem;
+  margin-top: 1rem;
 }
 
 .container__order__information {
-
-    border-radius: 1.25rem 1.25rem 0rem 0rem;    
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-
+  border-radius: 1.25rem 1.25rem 0rem 0rem;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
 }
 
 .order__information {
-    padding: 1rem 1rem 0 1rem;
+  padding: 1rem 1rem 0 1rem;
 
-    .header__information {
-        h3 {
-            color: $background-color;
-            font-weight: 800;
-            font-size: 0.75rem;
-            margin: 0px;
-        }
-
-        p {
-            color: $background-color;
-            font-size: 0.75rem;
-            margin: 0px;
-            margin-bottom: 0.5rem;
-        }
+  .header__information {
+    h3 {
+      color: $background-color;
+      font-weight: 800;
+      font-size: 0.75rem;
+      margin: 0px;
     }
+
+    p {
+      color: $background-color;
+      font-size: 0.75rem;
+      margin: 0px;
+      margin-bottom: 0.5rem;
+    }
+  }
 }
 
 .container__ordernumber {
-    padding: 0rem 1rem 0.5rem 1rem;
+  padding: 0rem 1rem 0.5rem 1rem;
 
-    .order {
-        h3 {
-            color: $background-color;
-            font-weight: 800;
-            font-size: 0.75rem;
-            margin: 0px;
-        }
-
-        p {
-            color: $background-color;
-            font-size: 0.75rem;
-            margin: 0px;
-            margin-bottom: 0.5rem;
-        }
+  .order {
+    h3 {
+      color: $background-color;
+      font-weight: 800;
+      font-size: 0.75rem;
+      margin: 0px;
     }
 
-    .ordernumber__button {
-        display: flex;
-        justify-content: space-around;
-
-
-        button {
-            width: 30.3%;
-            margin-bottom: 0.3rem;
-            font-weight: bold;
-            color: $primary-color;
-            font-size: 10px;
-            letter-spacing: 0.07em;
-            line-height: 18px;
-            border: none;
-            border-radius: 1.25rem;
-            background: $background-color;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-        }
-
-        .btn__bill {
-            color: $background-color;
-            background-color: $secundary-color;
-            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-        }
+    p {
+      color: $background-color;
+      font-size: 0.75rem;
+      margin: 0px;
+      margin-bottom: 0.5rem;
     }
+  }
 
-
-
-}
-
-
-
-.ordernumber__button__requests {
-
+  .ordernumber__button {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.5rem 0;
+    justify-content: space-around;
 
     button {
-        width: 80%;
-        margin-bottom: 0.5rem;
-        padding: 0.5rem 1.5rem;
-        font-weight: bold;
-        font-size: 12px;
-        letter-spacing: 0.07em;
-        line-height: 18px;
-        border: none;
-        border-radius: 13px;
-        background-color: $primary-color;
-        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      width: 30.3%;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+      color: $primary-color;
+      font-size: 10px;
+      letter-spacing: 0.07em;
+      line-height: 18px;
+      border: none;
+      border-radius: 1.25rem;
+      background: $background-color;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     }
-    button:hover{
-        color: $primary-color;
-        background-color: $background-color;
+
+    .btn__bill {
+      color: $background-color;
+      background-color: $secundary-color;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     }
+  }
 }
 
+.ordernumber__button__requests {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+
+  button {
+    width: 80%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    line-height: 18px;
+    border: none;
+    border-radius: 13px;
+    background-color: $primary-color;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  button:hover {
+    color: $primary-color;
+    background-color: $background-color;
+  }
+}
 
 /* @Media queris */
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
+  .container__orders {
+    margin: 0 1.5rem;
+  }
 
-    .container__orders {
-        margin: 0 1.5rem;
-        
+  .header__orders {
+    width: 50%;
+
+    span {
+      font-size: 1rem;
     }
 
-    .header__orders {
-        width: 50%;
+    form {
+      margin-top: 0rem;
+      justify-content: end;
 
-        span {
-            font-size: 1rem;
-        }
-
-        form {
-            margin-top: 0rem;
-            justify-content: end;
-
-            input {
-                width: 60%;
-                padding: 4px 10px 4px 40px;
-                font-size: 1rem;
-            }
-        }
+      input {
+        width: 60%;
+        padding: 4px 10px 4px 40px;
+        font-size: 1rem;
+      }
     }
+  }
 
-    /* orders */
-    .container__order__information{
-        display: flex;
+  /* orders */
+  .container__order__information {
+    display: flex;
 
-        .order__information{
-            display: flex;
-            align-items: baseline;
-            column-gap: 1.5rem;
-            width: 50%;
-        }
+    .order__information {
+      display: flex;
+      align-items: baseline;
+      column-gap: 1.5rem;
+      width: 50%;
     }
-    .container__ordernumber{
-        padding-top: 1rem;
-        width: 50%;
-        .order{
-            display: flex;
-            justify-content: center;
-        align-items: baseline;
-        }
+  }
+  .container__ordernumber {
+    padding-top: 1rem;
+    width: 50%;
+    .order {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
     }
-    .ordernumber__button__requests {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 1.5rem 1rem;
-        column-gap: 1.5rem;
-        button {
-            width: 48%;
-            margin-bottom: 0.9rem;  
-        }
+  }
+  .ordernumber__button__requests {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    column-gap: 1.5rem;
+    button {
+      width: 48%;
+      margin-bottom: 0.9rem;
     }
-    
-
+  }
 }
 
-@media screen and (min-width:1200px) {
-    .container__orders {
-        margin: 0 8.5rem;
-        padding: 3rem 3rem;
-        
+@media screen and (min-width: 1200px) {
+  .container__orders {
+    margin: 0 8.5rem;
+    padding: 3rem 3rem;
+  }
+
+  .header__orders {
+    margin-top: 0rem;
+
+    form {
+      margin-top: 0rem;
+      justify-content: end;
+
+      input {
+        width: 60%;
+        padding: 4px 10px 4px 40px;
+        font-size: 1rem;
+      }
     }
-
-    .header__orders {
-        margin-top: 0rem;
-
-
-        form {
-            margin-top: 0rem;
-            justify-content: end;
-
-            input {
-                width: 60%;
-                padding: 4px 10px 4px 40px;
-                font-size: 1rem;
-            }
-        }
-
-    }
-/* orders */
-.container__order__information {
-
-   display: flex;
-   flex-direction: row;
-
-   .order__information {
+  }
+  /* orders */
+  .container__order__information {
     display: flex;
     flex-direction: row;
-    column-gap: 2.9rem;
-    padding: 1.5rem 1rem 0 3rem;
-    width: 60%;
 
-   
-}
-
-}
-.container__ordernumber {
+    .order__information {
+      display: flex;
+      flex-direction: row;
+      column-gap: 2.9rem;
+      padding: 1.5rem 1rem 0 3rem;
+      width: 60%;
+    }
+  }
+  .container__ordernumber {
     padding-top: 1.5rem;
     width: 40%;
-    .order{
-        display: flex;
-        justify-content: center;
-        align-items: baseline;
-        
+    .order {
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
     }
+  }
+
+  .ordernumber__button__requests {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1.5rem 4rem;
+    column-gap: 1.5rem;
+    button {
+      width: 30%;
+      margin-bottom: 0.9rem;
+    }
+  }
 }
 
+@media screen and (min-width: 1400px) {
+  .container__orders {
+    margin: 0 10rem;
+    padding: 5rem 5rem;
+  }
 
+  .header__orders {
+    margin-top: 0rem;
 
+    form {
+      margin-top: 0rem;
+      justify-content: end;
 
-    .ordernumber__button__requests {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        padding: 1.5rem 4rem;
-        column-gap: 1.5rem;
-        button {
-            width: 30%;
-            margin-bottom: 0.9rem;  
-        }
+      input {
+        width: 60%;
+        padding: 4px 10px 4px 40px;
+        font-size: 1rem;
+      }
     }
-}
-
-
-@media screen and (min-width:1400px) {
-    .container__orders {
-        margin: 0 10rem;
-        padding: 5rem 5rem;
-        
-    }
-
-    .header__orders {
-        margin-top: 0rem;
-
-
-        form {
-            margin-top: 0rem;
-            justify-content: end;
-
-            input {
-                width: 60%;
-                padding: 4px 10px 4px 40px;
-                font-size: 1rem;
-            }
-        }
-
-    }
+  }
 }
 
 @media screen and(min-width:1920) {
-    .container__orders {
-        margin: 0 15rem;
-        padding: 5rem 10rem;
-        
-    }
+  .container__orders {
+    margin: 0 15rem;
+    padding: 5rem 10rem;
+  }
 }
