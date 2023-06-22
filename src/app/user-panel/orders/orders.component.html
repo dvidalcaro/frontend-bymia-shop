@@ -1,33 +1,47 @@
 <div class="container__orders">
   <!-- Header Order -->
-
-  <div class="header__orders">
-    <span>Pedidos realizados en</span>
-    <div class="btn-group">
-      <button
-        class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Últimos 2 meses
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Últimos 3 meses</a></li>
-        <li><a class="dropdown-item" href="#">Últimos 4 meses</a></li>
-        <li><a class="dropdown-item" href="#">Últimos 5 meses</a></li>
-      </ul>
+  <div class="d-flex justify-content-between">
+    <div></div>
+    <div
+      class="back_mydata col-2 d-flex justify-content-end align-items-center gap-1 mb-2">
+      <a [routerLink]="['/panel']">
+        <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back"
+      /></a>
+      <a class="text-light" [routerLink]="['/panel']">
+        Volver a la <br />
+        página anterior</a
+      >
     </div>
   </div>
+  <div class="d-flex">
+    <div class="header__orders">
+      <span>Pedidos realizados en</span>
+      <div class="btn-group">
+        <button
+          class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Últimos 2 meses
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Últimos 3 meses</a></li>
+          <li><a class="dropdown-item" href="#">Últimos 4 meses</a></li>
+          <li><a class="dropdown-item" href="#">Últimos 5 meses</a></li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="header__orders">
-    <form class="form__header" role="search">
-      <i class="{{ iconSearch }}"> </i>
-      <input
-        class="form-control"
-        type="search"
-        placeholder="Buscar"
-        aria-label="Buscar" />
-    </form>
+    <div class="header__orders">
+      <form class="form__header" role="search">
+        <i class="{{ iconSearch }}"> </i>
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Buscar"
+          aria-label="Buscar" />
+      </form>
+    </div>
   </div>
 
   <!-- Order -->
