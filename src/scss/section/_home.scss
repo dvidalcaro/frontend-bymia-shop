@@ -1,0 +1,13 @@
+@media screen and (max-width: 501px) {
+  .searchCategories {
+    display: none;
+  }
+  .search-input {
+    border-radius: 10px !important;
+  }
+}
+.searchMobile {
+  @media screen and (min-width: 1201px) {
+    display: none;
+  }
+}

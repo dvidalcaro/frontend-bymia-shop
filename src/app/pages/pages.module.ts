@@ -30,6 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PoliticasComponent } from './politicas/politicas.component';
 import { RmaGarantiaComponent } from './rma-garantia/rma-garantia.component';
 import { ProductComponent } from './product/product.component';
+import { SearchMobileComponent } from './components/search-mobile/search-mobile.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ProductComponent } from './product/product.component';
     PoliticasComponent,
     RmaGarantiaComponent,
     ProductComponent,
+    SearchMobileComponent,
   ],
   exports: [
     HomeComponent,
