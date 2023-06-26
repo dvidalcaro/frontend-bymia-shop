@@ -193,15 +193,15 @@
     <form class="frm-register__form row g-3 p-3 pb-4">
       <p class="text-dark fw-bold text- text-center">Devolución de producto</p>
       <div class="col-12 frm-register__input">
-        <label for="" class="text-dark">Fecha del pago</label>
+        <!-- <label for="" class="text-dark">Fecha del pago</label> -->
         <input
-          type="date"
+          type="text"
           name=""
           class="form-control"
           id=""
           required
-          aria-describedby="Fecha de realizacón del pago"
-          placeholder="Fecha de realizacón del pago" />
+          aria-describedby="Nombre y apellido /Razón Social"
+          placeholder="Nombre y apellido /Razón Social" />
         <!-- <div id="emailHelp" class="form-text text-danger">
           Mensaje de Validación del campo           
         </div> -->
@@ -213,10 +213,10 @@
           class="form-control"
           id=""
           required
-          aria-describedby="Número de comprobante"
-          placeholder="Número de comprobante" />
+          aria-describedby="E-mail de Contacto"
+          placeholder="E-mail de Contacto" />
         <!-- <div id="emailHelp" class="form-text text-danger">
-          Mensaje de Validación del campo  
+          Mensaje de Validación del campo           
         </div> -->
       </div>
       <div class="col-12 frm-register__input">
@@ -226,37 +226,56 @@
           class="form-control"
           id=""
           required
-          aria-describedby="Monto"
-          placeholder="Monto" />
-        <!-- <div
-          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
-          id="passwordHelp"
-          class="form-text text-danger">
-          {{ errorResponse.password }}
+          aria-describedby="Celular de contacto"
+          placeholder="Celular de contacto +xxx xxxxxxxxxx" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
         </div> -->
       </div>
       <div class="col-12 frm-register__input">
-        <label for="" class="text-dark">Adjuntar soporte</label>
-        <input
-          type="file"
+        <select class="form-select form-control rounded-3" name="" id="">
+          <option value="">Selecciona el número de orden</option>
+          <option value="">BM00001</option>
+          <option value="">BM00002</option>
+          <option value="">BM00003</option>
+          <option value="">BM00004</option>
+        </select>
+
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <select class="form-select form-control rounded-3" name="" id="">
+          <option value="">Selecciona el producto de orden</option>
+          <option value="">TV00001</option>
+          <option value="">SM00002</option>
+          <option value="">IP00003</option>
+          <option value="">BG00004</option>
+        </select>
+
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12">
+        <textarea
+          class="rounded-3 w-100 text-dark"
           name=""
-          class="form-control"
           id=""
-          required
-          aria-describedby="Adjuntar soporte"
-          placeholder="Adjuntar soporte" />
-        <!-- <div
-          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
-          id="passwordHelp"
-          class="form-text text-danger">
-          {{ errorResponse.password }}
+          rows="4"
+          placeholder="Mensaje">
+        </textarea>
+
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo  
         </div> -->
       </div>
 
       <div class="col-12">
         <div>
           <button class="button_modal col-12 mb-3 mt-2" type="submit">
-            Cargar
+            Enviar
           </button>
         </div>
       </div>
