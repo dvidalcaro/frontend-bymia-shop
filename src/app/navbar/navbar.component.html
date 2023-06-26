@@ -76,9 +76,13 @@
                 (keyup)="onSeaching($event)" />
 
               <span
-                (click)="clearInput()"
                 class="position-absolute top-50 end-0 translate-middle text-dark">
-                <i class="bx bx-tada-hover bx-sm bx-x-circle py-2"></i>
+                <i
+                  (click)="clearInput()"
+                  class="bx bx-eraser bx-tada-hover bx-sm pointer"></i>
+                <i
+                  (click)="toogleBarSearch()"
+                  class="bx bx-tada-hover bx-sm bx-x-circle py-2 pointer"></i>
               </span>
             </div>
           </div>
@@ -117,7 +121,7 @@
           *ngFor="let icon of linksIcon">
           <div *ngIf="icon.reference === 'search'">
             <div class="nav-link position-relative" (click)="toogleBarSearch()">
-              <i class="{{ icon.icon }}"> </i>
+              <i class="{{ icon.icon }} pointer"> </i>
             </div>
           </div>
           <div *ngIf="icon.links === 'wish-list'">
@@ -169,7 +173,7 @@
                 </button>
                 <ul class="dropdown-menu">
                   <div>
-                    <li routerLink="/panel">
+                    <li class="pointer" routerLink="/panel">
                       <h5 class="dropdown-header">
                         <strong>Mi Panel</strong>
                       </h5>
@@ -177,7 +181,7 @@
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
-                    <li routerLink="/my-data">
+                    <li class="pointer" routerLink="/my-data">
                       <h5 class="dropdown-header">
                         <strong>Mi Perfil</strong>
                       </h5>
@@ -185,7 +189,7 @@
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
-                    <li routerLink="/orders">
+                    <li class="pointer" routerLink="/orders">
                       <h5 class="dropdown-header">
                         <strong>Mis órdenes</strong>
                       </h5>
@@ -193,7 +197,7 @@
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
-                    <li routerLink="/shipping-status">
+                    <li class="pointer" routerLink="/shipping-status">
                       <h5 class="dropdown-header">
                         <strong>Estado de envíos</strong>
                       </h5>
@@ -201,7 +205,7 @@
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
-                    <li (click)="logout()">
+                    <li class="pointer" (click)="logout()">
                       <h5 class="dropdown-header">
                         <strong>Salir</strong>
                       </h5>
