@@ -77,10 +77,189 @@
     <div class="ordernumber__button__requests">
       <button [routerLink]="['/shipping-status']">Seguí tu envío</button>
       <button>Anular orden</button>
-      <button>Devolución producto</button>
-      <button>Escribir opinión</button>
+      <button (click)="openReturnForm()">Devolución producto</button>
+      <button disabled>Escribir opinión</button>
       <button>Realizar pago</button>
-      <button>Cargar pago</button>
+      <button (click)="openForm()">Cargar pago</button>
     </div>
+  </div>
+</div>
+<!-- Modal payment upload form -->
+
+<div
+  class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
+  *ngIf="showFormPayment">
+  <div class="container bg-white rounded-3 justify-content-center frm-register">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end"
+          (click)="closedForm()"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+
+    <form class="frm-register__form row g-3 p-3 pb-4">
+      <p class="text-dark fw-bold text- text-center">Cargar soporte de pago</p>
+      <div class="col-12 frm-register__input">
+        <label for="" class="text-dark">Fecha del pago</label>
+        <input
+          type="date"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Fecha de realizacón del pago"
+          placeholder="Fecha de realizacón del pago" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Número de comprobante"
+          placeholder="Número de comprobante" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo  
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Monto"
+          placeholder="Monto" />
+        <!-- <div
+          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
+          id="passwordHelp"
+          class="form-text text-danger">
+          {{ errorResponse.password }}
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <label for="" class="text-dark">Adjuntar soporte</label>
+        <input
+          type="file"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Adjuntar soporte"
+          placeholder="Adjuntar soporte" />
+        <!-- <div
+          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
+          id="passwordHelp"
+          class="form-text text-danger">
+          {{ errorResponse.password }}
+        </div> -->
+      </div>
+
+      <div class="col-12">
+        <div>
+          <button class="button_modal col-12 mb-3 mt-2" type="submit">
+            Cargar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- product return form -->
+
+<div
+  class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
+  *ngIf="showReturnForm">
+  <div class="container bg-white rounded-3 justify-content-center frm-register">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end"
+          (click)="closedReturnForm()"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+
+    <form class="frm-register__form row g-3 p-3 pb-4">
+      <p class="text-dark fw-bold text- text-center">Devolución de producto</p>
+      <div class="col-12 frm-register__input">
+        <label for="" class="text-dark">Fecha del pago</label>
+        <input
+          type="date"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Fecha de realizacón del pago"
+          placeholder="Fecha de realizacón del pago" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Número de comprobante"
+          placeholder="Número de comprobante" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo  
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Monto"
+          placeholder="Monto" />
+        <!-- <div
+          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
+          id="passwordHelp"
+          class="form-text text-danger">
+          {{ errorResponse.password }}
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <label for="" class="text-dark">Adjuntar soporte</label>
+        <input
+          type="file"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Adjuntar soporte"
+          placeholder="Adjuntar soporte" />
+        <!-- <div
+          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
+          id="passwordHelp"
+          class="form-text text-danger">
+          {{ errorResponse.password }}
+        </div> -->
+      </div>
+
+      <div class="col-12">
+        <div>
+          <button class="button_modal col-12 mb-3 mt-2" type="submit">
+            Cargar
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>
