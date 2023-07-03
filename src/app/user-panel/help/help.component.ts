@@ -23,7 +23,7 @@ export class HelpComponent implements OnInit {
       ]),
       phone: new FormControl('', [
         Validators.required,
-        Validators.maxLength(10),
+        Validators.maxLength(15),
       ]),
       email: new FormControl('', [
         Validators.required,
@@ -32,7 +32,7 @@ export class HelpComponent implements OnInit {
       ]),
       message: new FormControl('', [
         Validators.required,
-        Validators.minLength(10),
+        Validators.minLength(4),
         Validators.maxLength(500),
       ]),
     });
@@ -59,10 +59,7 @@ export class HelpComponent implements OnInit {
       message: this.contactForm.controls.message.value,
     };
 
-    // console.log('Saved', this.contactForm.value);
     this.bymiaService.sendContactForm(this.messages).subscribe(res => {
-      console.log('correo enviado');
-
       Swal.fire({
         icon: 'success',
         title: 'Solicitud enviada con éxito',

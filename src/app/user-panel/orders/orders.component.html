@@ -1,33 +1,47 @@
 <div class="container__orders">
   <!-- Header Order -->
-
-  <div class="header__orders">
-    <span>Pedidos realizados en</span>
-    <div class="btn-group">
-      <button
-        class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Últimos 2 meses
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Últimos 3 meses</a></li>
-        <li><a class="dropdown-item" href="#">Últimos 4 meses</a></li>
-        <li><a class="dropdown-item" href="#">Últimos 5 meses</a></li>
-      </ul>
+  <div class="d-flex justify-content-between">
+    <div></div>
+    <div
+      class="back_mydata col-2 d-flex justify-content-end align-items-center gap-1 mb-2">
+      <a [routerLink]="['/panel']">
+        <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back"
+      /></a>
+      <a class="text-light" [routerLink]="['/panel']">
+        Volver a la <br />
+        página anterior</a
+      >
     </div>
   </div>
+  <div class="d-flex">
+    <div class="header__orders">
+      <span>Pedidos realizados en</span>
+      <div class="btn-group">
+        <button
+          class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Últimos 2 meses
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Últimos 3 meses</a></li>
+          <li><a class="dropdown-item" href="#">Últimos 4 meses</a></li>
+          <li><a class="dropdown-item" href="#">Últimos 5 meses</a></li>
+        </ul>
+      </div>
+    </div>
 
-  <div class="header__orders">
-    <form class="form__header" role="search">
-      <i class="{{ iconSearch }}"> </i>
-      <input
-        class="form-control"
-        type="search"
-        placeholder="Buscar"
-        aria-label="Buscar" />
-    </form>
+    <div class="header__orders">
+      <form class="form__header" role="search">
+        <i class="{{ iconSearch }}"> </i>
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Buscar"
+          aria-label="Buscar" />
+      </form>
+    </div>
   </div>
 
   <!-- Order -->
@@ -63,10 +77,208 @@
     <div class="ordernumber__button__requests">
       <button [routerLink]="['/shipping-status']">Seguí tu envío</button>
       <button>Anular orden</button>
-      <button>Devolución producto</button>
-      <button>Escribir opinión</button>
+      <button (click)="openReturnForm()">Devolución producto</button>
+      <button disabled>Escribir opinión</button>
       <button>Realizar pago</button>
-      <button>Cargar pago</button>
+      <button (click)="openForm()">Cargar pago</button>
     </div>
+  </div>
+</div>
+<!-- Modal payment upload form -->
+
+<div
+  class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
+  *ngIf="showFormPayment">
+  <div class="container bg-white rounded-3 justify-content-center frm-register">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end"
+          (click)="closedForm()"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+
+    <form class="frm-register__form row g-3 p-3 pb-4">
+      <p class="text-dark fw-bold text- text-center">Cargar soporte de pago</p>
+      <div class="col-12 frm-register__input">
+        <label for="" class="text-dark">Fecha del pago</label>
+        <input
+          type="date"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Fecha de realizacón del pago"
+          placeholder="Fecha de realizacón del pago" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Número de comprobante"
+          placeholder="Número de comprobante" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo  
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Monto"
+          placeholder="Monto" />
+        <!-- <div
+          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
+          id="passwordHelp"
+          class="form-text text-danger">
+          {{ errorResponse.password }}
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <label for="" class="text-dark">Adjuntar soporte</label>
+        <input
+          type="file"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Adjuntar soporte"
+          placeholder="Adjuntar soporte" />
+        <!-- <div
+          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
+          id="passwordHelp"
+          class="form-text text-danger">
+          {{ errorResponse.password }}
+        </div> -->
+      </div>
+
+      <div class="col-12">
+        <div>
+          <button class="button_modal col-12 mb-3 mt-2" type="submit">
+            Cargar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- product return form -->
+
+<div
+  class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
+  *ngIf="showReturnForm">
+  <div class="container bg-white rounded-3 justify-content-center frm-register">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end"
+          (click)="closedReturnForm()"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+
+    <form class="frm-register__form row g-3 p-3 pb-4">
+      <p class="text-dark fw-bold text- text-center">Devolución de producto</p>
+      <div class="col-12 frm-register__input">
+        <!-- <label for="" class="text-dark">Fecha del pago</label> -->
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Nombre y apellido /Razón Social"
+          placeholder="Nombre y apellido /Razón Social" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="E-mail de Contacto"
+          placeholder="E-mail de Contacto" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <input
+          type="text"
+          name=""
+          class="form-control"
+          id=""
+          required
+          aria-describedby="Celular de contacto"
+          placeholder="Celular de contacto +xxx xxxxxxxxxx" />
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <select class="form-select form-control rounded-3" name="" id="">
+          <option value="">Selecciona el número de orden</option>
+          <option value="">BM00001</option>
+          <option value="">BM00002</option>
+          <option value="">BM00003</option>
+          <option value="">BM00004</option>
+        </select>
+
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12 frm-register__input">
+        <select class="form-select form-control rounded-3" name="" id="">
+          <option value="">Selecciona el producto de orden</option>
+          <option value="">TV00001</option>
+          <option value="">SM00002</option>
+          <option value="">IP00003</option>
+          <option value="">BG00004</option>
+        </select>
+
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo           
+        </div> -->
+      </div>
+      <div class="col-12">
+        <textarea
+          class="rounded-3 w-100 text-dark"
+          name=""
+          id=""
+          rows="4"
+          placeholder="Mensaje">
+        </textarea>
+
+        <!-- <div id="emailHelp" class="form-text text-danger">
+          Mensaje de Validación del campo  
+        </div> -->
+      </div>
+
+      <div class="col-12">
+        <div>
+          <button class="button_modal col-12 mb-3 mt-2" type="submit">
+            Enviar
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

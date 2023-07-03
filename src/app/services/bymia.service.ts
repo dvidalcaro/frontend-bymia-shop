@@ -24,6 +24,7 @@ import { SearchType } from '../shared/interfaces/SearchType';
 import { ValidateResponse } from '../shared/interfaces/validateResponse-interfaces';
 import { LoginAuthResponse } from '../shared/interfaces/loginAuthResponse-interface';
 import { environment } from 'src/environments/environment';
+import { ProductDetail } from '../user/models/product-detail.model';
 
 const url = environment.url + '/api/front';
 const urlBannerMock = 'assets/banners.json';
@@ -44,6 +45,7 @@ export class BymiaService {
   private faqs: TopLevel[] = [];
   private categoriesList: Categories[] = [];
   private featuredProducts: FeaturedProduct[] = [];
+  private productDetail: ProductDetail = new ProductDetail();
   private banners: Banner[] = [];
   private brands: Brand[] = [];
   private searchTypeList: SearchType[] = [];
@@ -219,5 +221,16 @@ export class BymiaService {
   //login
   login(body: any) {
     return this.http.post<LoginAuthResponse>(`${url}/login`, body, { headers });
+  }
+
+  public getProductDetail(id: string) {
+    return this.http
+      .get<ProductDetail>(`${url}/product/${id}`, { headers })
+      .pipe(
+        tap(product => (this.productDetail = product)),
+        catchError(err => {
+          return of(this.productDetail);
+        })
+      );
   }
 }

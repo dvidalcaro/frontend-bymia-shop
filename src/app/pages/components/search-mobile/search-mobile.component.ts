@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { BymiaService } from '../services/bymia.service';
-import { navLink } from '../shared/interfaces/navlink';
-import { PriceList } from '../shared/interfaces/register-interface';
-import { SearchType } from '../shared/interfaces/SearchType';
-import { User } from '../user/models/user.model';
-import { AuthService } from '../user/services/auth.service';
-import { UserService } from '../user/services/user.service';
+import { BymiaService } from 'src/app/services/bymia.service';
+import { SearchType } from 'src/app/shared/interfaces/SearchType';
+import { navLink } from 'src/app/shared/interfaces/navlink';
+import { PriceList } from 'src/app/shared/interfaces/register-interface';
+import { User } from 'src/app/user/models/user.model';
+import { AuthService } from 'src/app/user/services/auth.service';
+import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  selector: 'app-search-mobile',
+  templateUrl: './search-mobile.component.html',
+  styleUrls: ['./search-mobile.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class SearchMobileComponent implements OnInit {
   urlLogo: string = '../assets/img/logo_bymia.png';
   WishNotifications: number = 0;
   CartNotifications: number = 0;
@@ -72,7 +72,7 @@ export class NavbarComponent implements OnInit {
   }
   priceListform!: FormGroup;
 
-  k: string = '';
+  p: string = '';
 
   c: string[] = [];
   b: string[] = [];
@@ -206,11 +206,11 @@ export class NavbarComponent implements OnInit {
       this.c.length > 0 ||
       this.b.length > 0 ||
       this.t.length > 0 ||
-      this.k.length > 2
+      this.p.length > 2
     ) {
       this.router.navigate(['/search'], {
         queryParams: {
-          k: this.k,
+          p: this.p,
           c: JSON.stringify(this.c),
           b: JSON.stringify(this.b),
           t: JSON.stringify(this.t),
@@ -222,7 +222,7 @@ export class NavbarComponent implements OnInit {
   }
 
   clearInput() {
-    this.k = '';
+    this.p = '';
     this.c = [];
     this.b = [];
     this.t = [];
@@ -235,7 +235,7 @@ export class NavbarComponent implements OnInit {
     if (key.length > 2) {
       this.router.navigate(['/search'], {
         queryParams: {
-          k: this.k,
+          p: this.p,
           c: JSON.stringify(this.c),
           b: JSON.stringify(this.b),
           t: JSON.stringify(this.t),
@@ -244,10 +244,10 @@ export class NavbarComponent implements OnInit {
     }
   }
   onSeachingButton() {
-    if (this.k.length > 2) {
+    if (this.p.length > 2) {
       this.router.navigate(['/search'], {
         queryParams: {
-          k: this.k,
+          k: this.p,
           c: JSON.stringify(this.c),
           b: JSON.stringify(this.b),
           t: JSON.stringify(this.t),
@@ -260,7 +260,7 @@ export class NavbarComponent implements OnInit {
     this.c = [];
     this.b = [];
     this.t = [];
-    this.k = '';
+    this.p = '';
   }
 
   isSelected(list: string, value: string) {

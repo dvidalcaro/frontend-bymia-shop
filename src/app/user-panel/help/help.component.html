@@ -1,5 +1,11 @@
 <div
   class="container d-flex flex-column justify-content-center align-items-center container__bg">
+  <div class="mydata__back">
+    <a [routerLink]="['/panel']">
+      <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back"
+    /></a>
+    <a [routerLink]="['/panel']"> Volver a la página anterior</a>
+  </div>
   <div class="pe-lg-5 ps-lg-5">
     <div class="row">
       <div class="col">
@@ -27,13 +33,13 @@
             class="form-control help__input"
             type="tel"
             formControlName="country_id"
-            placeholder="+xx" />
+            placeholder="Código del país" />
 
           <input
             class="form-control help__input"
             type="tel"
             formControlName="phone"
-            placeholder="Teléfono: +x (xxx) xxx-xxxx" />
+            placeholder="Teléfono: xxxxxxxxxx" />
         </div>
 
         <div class="col-lg-8">
