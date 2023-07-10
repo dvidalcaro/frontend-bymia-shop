@@ -10,6 +10,7 @@ export class OrdersComponent implements OnInit {
   iconSearch: string = 'bx bx-search-alt-2 bx-tada-hover';
   showFormPayment: boolean = false;
   showReturnForm: boolean = false;
+  showSeeDetail: boolean = false;
   orders: orderInformation[] = [
     {
       orderPlaced: 'febrero 1, 2022',
@@ -48,5 +49,12 @@ export class OrdersComponent implements OnInit {
 
   closedReturnForm() {
     this.showReturnForm = false;
+  }
+
+  openshowSeeDetail() {
+    this.showSeeDetail = true;
+  }
+  closedshowSeeDetail() {
+    this.showSeeDetail = false;
   }
 }
