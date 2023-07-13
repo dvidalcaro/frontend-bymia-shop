@@ -32,7 +32,9 @@ export class OrdersComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor() {
+    console.log(window.innerHeight);
+  }
 
   ngOnInit(): void {}
 
@@ -54,7 +56,7 @@ export class OrdersComponent implements OnInit {
   openshowSeeDetail() {
     this.showSeeDetail = true;
   }
-  closedshowSeeDetail() {
+  closedSeeDetail() {
     this.showSeeDetail = false;
   }
 }

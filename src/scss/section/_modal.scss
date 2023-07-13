@@ -1,3 +1,7 @@
+:root {
+  --height: 10vh;
+}
+
 .container__modal {
   display: flex;
   position: fixed;
@@ -16,6 +20,26 @@
   transition: all 5s step-start;
   padding: 0 15px 0 15px;
 }
+.container__modal-seeDetail {
+  display: flex;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 199rem;
+  z-index: 1021;
+  justify-content: center;
+  align-items: start;
+  /* Note: currently only Safari supports backdrop-filter */
+  background: transparent;
+  backdrop-filter: blur(15px);
+  --webkit-backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.01);
+  transition: all 5s step-start;
+  padding: 50px 15px 0 15px;
+}
+
 .container__modal-form {
   background-color: rgba(0, 0, 0, 0.599);
 }
@@ -403,7 +427,9 @@
   font-size: 1.1875rem;
   font-weight: bold;
 }
-
+.widthDetail {
+  width: 20.5rem;
+}
 @media screen and (max-width: 1738px) {
   .container__form {
     width: 28rem;

@@ -12,7 +12,7 @@
       </div>
       <div class="row">
         <div class="col p-3 p-sm-5">
-          <!-- prueba -->
+          <!-- Product Slider -->
           <div
             id="carouselExampleControlsNoTouching"
             class="carousel slide carousel-dark"
@@ -51,11 +51,6 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-          <!-- fin prueba -->
-          <!-- <img
-            class="img-fluid"
-            src="../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png"
-            alt="" /> -->
         </div>
       </div>
     </div>
@@ -64,7 +59,9 @@
     <div class="col col-md-6 p-3 p-sm-5">
       <!-- breadcrumbs -->
       <div class="row">
-        <div class="col" *ngFor="let breadcrumb of productDetail.breadcrumbs">
+        <div
+          class="col-auto"
+          *ngFor="let breadcrumb of productDetail.breadcrumbs">
           <span class="text-light me-2 product__bread">{{ breadcrumb }}></span>
         </div>
       </div>
