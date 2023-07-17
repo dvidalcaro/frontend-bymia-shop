@@ -78,7 +78,7 @@ export class ProductComponent implements OnInit {
     if (this.user !== null) {
       this.userService.addProductToCartlist(idProduct).subscribe(() => {
         // console.log(resp);
-        this.userService.notifyWishToAll();
+        this.userService.notifyCartToAll();
       });
     } else {
       this.router.navigateByUrl('/login');
@@ -101,6 +101,7 @@ export class ProductComponent implements OnInit {
       this.userService.removeProductToCartlist(idProduct).subscribe(resp => {
         // console.log(resp);
         this.userService.notifyWishToAll();
+        this.userService.notifyCartToAll();
       });
     } else {
       this.router.navigateByUrl('/login');
@@ -137,7 +138,7 @@ export class ProductComponent implements OnInit {
   isInCartList(idProduct: string) {
     // console.log('isInWishList()', idProduct, this.products);
     if (this.productsCL.find(e => e.id == parseInt(idProduct))) {
-      return `<i class="bx bx-tada-hover bx-sm bxs-cart-remove text-dark product__i"></i>`;
+      return `<i class="bx bx-tada-hover bx-sm bx-cart text-dark product__i"></i> Sacar de carrito`;
     } else {
       return `<i class="bx bx-tada-hover bx-sm bx-cart-add text-dark product__i"></i> Agregar a carrito`;
     }
