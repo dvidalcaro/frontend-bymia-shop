@@ -135,7 +135,9 @@
           </div>
         </div>
       </div>
-      <span class="product__dimension"> Storage: </span>
+      <span class="product__dimension" *ngIf="productDetail.products_models"
+        >Storage:
+      </span>
       <div *ngFor="let product of productDetail.products_models">
         <div class="row mt-2 mb-2">
           <div
