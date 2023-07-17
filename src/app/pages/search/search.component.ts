@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
   public b: string = '';
   public t: string = '';
   public filters: string[] = [];
-  searchProducts: FeaturedProduct[] = [];
+  searchProducts: FeaturedProduct;
   index: number = 0;
   limit: number = 4;
 
@@ -34,18 +34,24 @@ export class SearchComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private bymiaService: BymiaService
   ) {
+    this.searchProducts = { category: 'search', products: [] };
     this.bymiaService.currentSearchlist.subscribe(result => {
-      if (this.searchProducts.length > 0) {
-        result.forEach(element => {
-          this.searchProducts.find(eo => {
-            if (eo.category === element.category) {
-              eo.products = [...eo.products, ...element.products];
-            }
-          });
-        });
-      } else {
-        this.searchProducts = result;
-      }
+      // console.log(result);
+      this.searchProducts.products = [
+        ...this.searchProducts.products,
+        ...result,
+      ];
+      // if (this.searchProducts.length > 0) {
+      //   result.forEach(element => {
+      //     this.searchProducts.find(eo => {
+      //       if (eo.category === element.category) {
+      //         eo.products = [...eo.products, ...element.products];
+      //       }
+      //     });
+      //   });
+      // } else {
+      //   this.searchProducts = result;
+      // }
       // console.log(this.searchProducts);
     });
   }
@@ -83,7 +89,7 @@ export class SearchComponent implements OnInit {
 
       // console.log(this.filters);
 
-      this.searchProducts = [];
+      this.searchProducts = { category: 'search', products: [] };
 
       this.bymiaService.getSearchedProducts(
         this.k,

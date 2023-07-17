@@ -1,34 +1,28 @@
 export class Image {
   image?: string;
-  thumbnail?: null;
+  thumbnail?: string;
   principal?: boolean;
   constructor() {}
 }
 
-export class SimilarBy {
-  product_id?: string;
-  storage?: string;
-  memory?: string;
-  screen_size?: null;
-  os?: string;
+export class ProductDetailClass {
+  weight?: number;
   screen_resolution?: string;
-  cpu?: null;
-  gpu?: null;
-  color?: string;
-  colorHex?: string;
+  screen_size?: string;
+  cpu?: string;
+  gpu?: string;
+  memory?: string;
+  os?: string;
+  cod?: string;
+  part_number?: string;
   constructor() {}
 }
 
-export class Especification {
-  weight?: number;
-  screen_resolution?: string;
-  screen_size?: null;
-  cpu?: null;
-  gpu?: null;
-  memory?: string;
-  os?: string;
-  cod?: null;
-  part_number?: null;
+export class ProductsByColor {
+  product_id?: number;
+  color?: string;
+  colorHexadecimal?: string;
+  active?: boolean;
   constructor() {}
 }
 export class ProductDetail {
@@ -37,27 +31,24 @@ export class ProductDetail {
   slug?: string;
   breadcrumbs?: string[];
   category?: string;
-  subcategory?: null;
+  subcategory?: string;
   brand?: string;
   model?: string;
   sku?: string;
   price?: number;
-  old_price?: null;
+  old_price?: number;
   available?: number;
   short_description_es?: string;
-  long_description_es?: null;
-  short_description_en?: null;
-  long_description_en?: null;
+  long_description_es?: string;
+  short_description_en?: string;
+  long_description_en?: string;
   images?: Image[];
-  tag?: null;
+  tag?: string;
   rating?: number;
   reviews?: number;
   conditium?: string;
-  storage?: string;
-  color?: string;
-  colorHex?: string;
-  similar_by_color?: SimilarBy[];
-  similar_by_model?: SimilarBy[];
-  especification?: Especification;
+  products_by_color?: ProductsByColor[];
+  products_models?: any;
+  product_detail?: ProductDetailClass;
   constructor() {}
 }
