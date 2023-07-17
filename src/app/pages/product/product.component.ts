@@ -51,11 +51,11 @@ export class ProductComponent implements OnInit {
     });
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       if (params?.id) {
-        console.log(params);
+        // console.log(params);
         this.bymiaService
           .getProductDetail(params.id)
           .subscribe((productDetail: ProductDetail) => {
-            console.log(productDetail);
+            // console.log(productDetail);
             this.productDetail = productDetail;
           });
       }
