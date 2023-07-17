@@ -12,7 +12,7 @@
       </div>
       <div class="row">
         <div class="col p-3 p-sm-5">
-          <!-- prueba -->
+          <!-- Product Slider -->
           <div
             id="carouselExampleControlsNoTouching"
             class="carousel slide carousel-dark"
@@ -51,11 +51,6 @@
               <span class="visually-hidden">Next</span>
             </button>
           </div>
-          <!-- fin prueba -->
-          <!-- <img
-            class="img-fluid"
-            src="../../../assets/img/MSI-GF63-Thin-Intel-Core-i5-10300H-8GB-RAM-256GB-SSD-NVIDIA-GeForce-GTX-1650-Windows-10-GF63-Thin-10.png"
-            alt="" /> -->
         </div>
       </div>
     </div>
@@ -64,8 +59,13 @@
     <div class="col col-md-6 p-3 p-sm-5">
       <!-- breadcrumbs -->
       <div class="row">
-        <div class="col" *ngFor="let breadcrumb of productDetail.breadcrumbs">
-          <span class="text-light me-2 product__bread">{{ breadcrumb }}></span>
+        <div class="col-auto">
+          <span
+            class="text-light me-2 product__bread"
+            *ngFor="let breadcrumb of productDetail.breadcrumbs; let i = index"
+            >{{ breadcrumb }}
+            {{ i + 1 == productDetail.breadcrumbs?.length ? '' : '>' }}</span
+          >
         </div>
       </div>
       <!-- Title Product -->
@@ -101,7 +101,7 @@
         </div>
       </div>
       <!-- dimensions -->
-      <div class="row mt-2 mb-2" *ngIf="productDetail.storage">
+      <!-- <div class="row mt-2 mb-2" *ngIf="productDetail.storage">
         <div class="col">
           <div class="row">
             <span class="product__dimension"
@@ -109,36 +109,40 @@
             >
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- colors -->
-      <div class="row mt-2 mb-2" *ngIf="productDetail.color">
-        <div class="col">
-          <div class="row">
-            <span class="product__dimension"
-              >Color: {{ productDetail.color }}</span
-            >
+      <div *ngFor="let product of productDetail.products_by_color">
+        <div class="row mt-2 mb-2" *ngIf="product.active">
+          <div class="col">
+            <div class="row">
+              <span class="product__dimension">Color: {{ product.color }}</span>
+            </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col d-flex align-items-center">
           <div
-            class="d-flex justify-content-center align-items-center text-light me-2 product__color">
-            <div class="circle__color" style="background-color: yellow"></div>
-          </div>
-          <div
-            class="d-flex justify-content-center align-items-center text-light me-2 product__color">
-            <div class="circle__color" style="background-color: blue"></div>
-          </div>
-          <div
-            class="d-flex justify-content-center align-items-center text-light me-2 product__color">
-            <div class="circle__color" style="background-color: red"></div>
-          </div>
-          <div
-            class="d-flex justify-content-center align-items-center text-light me-2 product__color">
+            class="d-flex justify-content-center align-items-center text-light me-2 product__color"
+            *ngFor="let product of productDetail.products_by_color">
             <div
               class="circle__color"
-              style="background-color: rgb(246, 232, 232)"></div>
+              [style.backgroundColor]="product.colorHexadecimal"
+              [style.border]="
+                product.active ? '2px solid #15fed4' : '2px solid #101010'
+              "
+              (click)="anotherProduct(product.product_id || 0)"></div>
+          </div>
+        </div>
+      </div>
+      <div *ngFor="let product of productDetail.products_models">
+        <div class="row mt-2 mb-2" *ngIf="product.active">
+          <div class="col">
+            <div class="row">
+              <span class="product__dimension"
+                >Storage: {{ product.storage }}</span
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -210,79 +214,90 @@
 
   <div class="row mt-3">
     <div class="d-flex flex-wrap">
-      <div class="col-12 col-sm-3" *ngIf="productDetail.model">
+      <div class="col-12 col-sm-3" *ngIf="productDetail.product_detail?.cod">
         <ul>
           <li>
             <a class="product__a text-white" href=""
-              >Modelo: {{ productDetail.model }}</a
+              >Cod: {{ productDetail.product_detail?.cod }}</a
             >
           </li>
         </ul>
       </div>
-      <div class="col-12 col-sm-3" *ngIf="productDetail.especification?.weight">
+      <div class="col-12 col-sm-3" *ngIf="productDetail.product_detail?.cpu">
         <ul>
           <li>
             <a class="product__a text-white" href=""
-              >Weight: {{ productDetail.especification?.weight }}</a
+              >CPU: {{ productDetail.product_detail?.cpu }}</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-3" *ngIf="productDetail.product_detail?.gpu">
+        <ul>
+          <li>
+            <a class="product__a text-white" href=""
+              >GPU: {{ productDetail.product_detail?.gpu }}</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-3" *ngIf="productDetail.product_detail?.memory">
+        <ul>
+          <li>
+            <a class="product__a text-white" href=""
+              >Memory: {{ productDetail.product_detail?.memory }}</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-3" *ngIf="productDetail.product_detail?.os">
+        <ul>
+          <li>
+            <a class="product__a text-white" href=""
+              >OS: {{ productDetail.product_detail?.os }}</a
             >
           </li>
         </ul>
       </div>
       <div
         class="col-12 col-sm-3"
-        *ngIf="productDetail.especification?.screen_resolution">
+        *ngIf="productDetail.product_detail?.part_number">
+        <ul>
+          <li>
+            <a class="product__a text-white" href=""
+              >P/N: {{ productDetail.product_detail?.part_number }}</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div
+        class="col-12 col-sm-3"
+        *ngIf="productDetail.product_detail?.screen_resolution">
         <ul>
           <li>
             <a class="product__a text-white" href=""
               >Screen Resolution:
-              {{ productDetail.especification?.screen_resolution }}</a
+              {{ productDetail.product_detail?.screen_resolution }}</a
             >
           </li>
         </ul>
       </div>
       <div
         class="col-12 col-sm-3"
-        *ngIf="productDetail.especification?.screen_size">
+        *ngIf="productDetail.product_detail?.screen_size">
         <ul>
           <li>
             <a class="product__a text-white" href=""
-              >Screen Size: {{ productDetail.especification?.screen_size }}</a
+              >Screen Size: {{ productDetail.product_detail?.screen_size }}</a
             >
           </li>
         </ul>
       </div>
-      <div class="col-12 col-sm-3" *ngIf="productDetail.especification?.cpu">
+      <div class="col-12 col-sm-3" *ngIf="productDetail.product_detail?.weight">
         <ul>
           <li>
             <a class="product__a text-white" href=""
-              >CPU: {{ productDetail.especification?.cpu }}</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="col-12 col-sm-3" *ngIf="productDetail.especification?.gpu">
-        <ul>
-          <li>
-            <a class="product__a text-white" href=""
-              >GPU: {{ productDetail.especification?.gpu }}</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="col-12 col-sm-3" *ngIf="productDetail.especification?.memory">
-        <ul>
-          <li>
-            <a class="product__a text-white" href=""
-              >GPU: {{ productDetail.especification?.memory }}</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="col-12 col-sm-3" *ngIf="productDetail.especification?.os">
-        <ul>
-          <li>
-            <a class="product__a text-white" href=""
-              >GPU: {{ productDetail.especification?.os }}</a
+              >Weight: {{ productDetail.product_detail?.weight }}</a
             >
           </li>
         </ul>
@@ -291,7 +306,7 @@
         <ul>
           <li>
             <a class="product__a text-white" href=""
-              >GPU: {{ productDetail.conditium }}</a
+              >Status: {{ productDetail.conditium }}</a
             >
           </li>
         </ul>

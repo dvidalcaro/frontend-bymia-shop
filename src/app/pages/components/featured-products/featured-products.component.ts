@@ -103,5 +103,6 @@ export class FeaturedProductsComponent implements OnInit {
   }
   detailProduct(id: number) {
     this.router.navigate(['/product'], { queryParams: { id } });
+    window.scroll(0, 0);
   }
 }

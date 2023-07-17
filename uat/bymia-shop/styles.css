@@ -1835,6 +1835,9 @@ header .header__container {
     margin-top: 1.875rem;
   }
 }
+:root {
+  --height: 10vh;
+}
 .container__modal {
   display: flex;
   position: fixed;
@@ -1853,6 +1856,25 @@ header .header__container {
   background-color: rgba(255, 255, 255, 0.01);
   transition: all 5s step-start;
   padding: 0 15px 0 15px;
+}
+.container__modal-seeDetail {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 199rem;
+  z-index: 1021;
+  justify-content: center;
+  align-items: start;
+  /* Note: currently only Safari supports backdrop-filter */
+  background: transparent;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  --webkit-backdrop-filter: blur(15px);
+  background-color: rgba(255, 255, 255, 0.01);
+  transition: all 5s step-start;
+  padding: 50px 15px 0 15px;
 }
 .container__modal-form {
   background-color: rgba(0, 0, 0, 0.599);
@@ -2173,6 +2195,9 @@ header .header__container {
   color: #ffffff;
   font-size: 1.1875rem;
   font-weight: bold;
+}
+.widthDetail {
+  width: 20.5rem;
 }
 @media screen and (max-width: 1738px) {
   .container__form {
@@ -3395,7 +3420,8 @@ header .header__container {
 }
 .back_mydata a {
   cursor: pointer;
-  line-height: 18px;
+  line-height: 0.775rem;
+  font-size: 0.8rem;
 }
 .header__orders {
   align-items: center;
@@ -3512,6 +3538,11 @@ header .header__container {
   background-color: #000000;
 }
 /* @Media queris */
+@media screen and (max-width: 768px) {
+  .header__select {
+    display: none;
+  }
+}
 @media screen and (min-width: 768px) {
   .container__orders {
     margin: 0 1.5rem;
