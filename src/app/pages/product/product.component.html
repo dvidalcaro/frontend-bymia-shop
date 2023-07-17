@@ -135,14 +135,16 @@
           </div>
         </div>
       </div>
+      <span class="product__dimension"> Storage: </span>
       <div *ngFor="let product of productDetail.products_models">
-        <div class="row mt-2 mb-2" *ngIf="product.active">
-          <div class="col">
-            <div class="row">
-              <span class="product__dimension"
-                >Storage: {{ product.storage }}</span
-              >
-            </div>
+        <div class="row mt-2 mb-2">
+          <div
+            class="col d-flex justify-content-center align-items-center text-light me-2 product__color"
+            [style.border]="
+              product.active ? '2px solid #15fed4' : '2px solid #101010'
+            "
+            (click)="anotherProduct(product.product_id || 0)">
+            <span class="product__dimension"> {{ product.storage }}</span>
           </div>
         </div>
       </div>
