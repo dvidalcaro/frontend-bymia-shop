@@ -4,7 +4,7 @@ import { of, Observable, BehaviorSubject } from 'rxjs';
 import { tap, switchMap, map, catchError } from 'rxjs/operators';
 import { About } from '../shared/interfaces/About';
 import { Categories } from '../shared/interfaces/Categories';
-import { FeaturedProduct } from '../shared/interfaces/FeaturedProduct';
+import { FeaturedProduct, Product } from '../shared/interfaces/FeaturedProduct';
 import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
 import { MsgContactForm } from '../shared/interfaces/contactForm';
@@ -53,12 +53,12 @@ export class BymiaService {
   private countryCode: CountryCode[] = [];
   private homeSections: HomeSection[] = [];
 
-  private currentSearchSubject: BehaviorSubject<FeaturedProduct[]>;
-  public currentSearchlist: Observable<FeaturedProduct[]>;
+  private currentSearchSubject: BehaviorSubject<Product[]>;
+  public currentSearchlist: Observable<Product[]>;
 
   constructor(private http: HttpClient) {
     // console.log('Bymia Service ready');
-    this.currentSearchSubject = new BehaviorSubject<FeaturedProduct[]>([]);
+    this.currentSearchSubject = new BehaviorSubject<Product[]>([]);
     this.currentSearchlist = this.currentSearchSubject.asObservable();
   }
 
@@ -133,7 +133,7 @@ export class BymiaService {
     }
     this.loading = true;
     this.http
-      .get<FeaturedProduct[]>(
+      .get<Product[]>(
         `${url}/products/search?k=${key}&c=${categories}&b=${brands}&t=${tall}&i=${index}&l=${limit}`,
         { headers }
       )
