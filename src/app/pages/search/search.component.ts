@@ -70,11 +70,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe(params => {
-      // console.log('Search receive');
-      // console.log('params.k', params.k);
-      // console.log('params.c', params.c);
-      // console.log('params.b', params.b);
-      // console.log('params.t', params.t);
+      this.index = 0;
 
       this.k = params.k;
       this.c = params.c;
