@@ -123,7 +123,7 @@
       <div class="row">
         <div class="col d-flex align-items-center">
           <div
-            class="d-flex justify-content-center align-items-center text-light me-2 product__color"
+            class="d-flex justify-content-center align-items-center text-light me-2 product__color pointer"
             *ngFor="let product of productDetail.products_by_color">
             <div
               class="circle__color"
@@ -138,7 +138,30 @@
       <span class="product__dimension" *ngIf="productDetail.products_models"
         >Storage:
       </span>
-      <div *ngFor="let product of productDetail.products_models">
+      <div class="row">
+        <div
+          *ngFor="let product of productDetail.products_models"
+          class="col-auto text-light rounded-3 me-2 pointer"
+          [style.border]="
+            product.active ? '2px solid #15fed4' : '2px solid #101010'
+          "
+          (click)="anotherProduct(product.product_id || 0)">
+          <span class="product__dimension"> {{ product.storage }}</span>
+        </div>
+      </div>
+      <!-- <div *ngFor="let product of productDetail.products_models">
+        <div class="col mt-2 mb-2">
+          <div
+            class="text-light me-2 product__color"
+            [style.border]="
+              product.active ? '2px solid #15fed4' : '2px solid #101010'
+            "
+            (click)="anotherProduct(product.product_id || 0)">
+            <span class="product__dimension"> {{ product.storage }}</span>
+          </div>
+        </div>
+      </div> -->
+      <!--  <div *ngFor="let product of productDetail.products_models">
         <div class="row mt-2 mb-2">
           <div
             class="col d-flex justify-content-center align-items-center text-light me-2 product__color"
@@ -149,7 +172,7 @@
             <span class="product__dimension"> {{ product.storage }}</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Button add cart -->
       <div class="row">
         <div class="col">
