@@ -118,19 +118,12 @@
         <div class="row">
           <div class="mb-3">
             <select
-              (change)="selectCountry()"
               [(ngModel)]="user.country_id"
               id="country_id"
               name="country_id"
               class="form-select frm-register__select-bg"
-              required
               aria-label="Selecciona una Opción">
-              <option [ngValue]="0">Selecciona una Opción</option>
-              <option
-                [ngValue]="i"
-                *ngFor="let cc of countryCodes; let i = index">
-                {{ cc.name }}
-              </option>
+              <option [ngValue]="62">República Dominicana</option>
             </select>
           </div>
         </div>
@@ -146,7 +139,7 @@
             </span>
             <span
               class="input-group-text bg-white border-1 border-dark frm-register__input"
-              >{{ user.country_phone_code }}</span
+              >{{ countryPhoneCode }}</span
             >
             <input
               [(ngModel)]="user.cel_phone"

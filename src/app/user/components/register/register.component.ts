@@ -16,6 +16,7 @@ import { CountryCode } from 'src/app/shared/interfaces/countryCode-interface';
 })
 export class RegisterComponent implements OnInit {
   user: User;
+  countryPhoneCode: string = '';
   countryCodes: CountryCode[] = [];
   countryFlag: string = '';
   countryAlt: string = '';
@@ -37,14 +38,16 @@ export class RegisterComponent implements OnInit {
     this.user = new User();
     this.user.gender_type = 1;
     this.user.customer_type_role = 1;
-    this.user.country_id = 10;
+    this.user.country_id = 62;
 
     bymiaService.getCountryCode().subscribe(resp => {
       this.countryCodes = resp;
-      // console.log(this.countryCodes);
-      this.user.country_phone_code = parseInt(this.countryCodes[10].phonecode);
-      this.countryFlag = this.countryCodes[10].flag;
-      this.countryAlt = this.countryCodes[10].name;
+      console.log(this.countryCodes);
+      console.log(this.countryCodes[0].phonecode);
+      this.user.country_phone_code = parseInt(this.countryCodes[0].phonecode);
+      this.countryPhoneCode = this.countryCodes[0].phonecode;
+      this.countryFlag = this.countryCodes[0].flag;
+      this.countryAlt = this.countryCodes[0].name;
     });
   }
   selectCountry() {
@@ -63,10 +66,10 @@ export class RegisterComponent implements OnInit {
     this.errorResponse.date_of_birth = '';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit(form: NgForm) {
-    console.log(this.user);
+    // console.log(this.user);
     // console.log(form.invalid);
     if (form.invalid) {
       return;
