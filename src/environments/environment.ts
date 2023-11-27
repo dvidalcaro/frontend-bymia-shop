@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://127.0.0.1:8000',
+  url: 'https://admin.bymiashop.com',
 };
 
 /*

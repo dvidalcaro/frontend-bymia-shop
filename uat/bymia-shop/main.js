@@ -2807,16 +2807,9 @@ class OffersComponent {
     constructor(bymiaService) {
         this.bymiaService = bymiaService;
         this.offerProducts = [];
-        // TODO: actualizar el index para hacer funcionar correctamente el scroll infinito
         this.index = 0;
         this.limit = 4;
-        this.bymiaService
-            .getFeaturedProducts('destacados', this.index, this.limit)
-            .subscribe(resp => {
-            this.offerProducts = resp;
-        });
-        setTimeout(() => this.moreProducts(), 1000);
-        setTimeout(() => this.moreProducts(), 1000);
+        this.loadInitialProducts();
     }
     onScroll() {
         if (window.innerHeight + window.innerHeight * 0.2 + window.scrollY >
@@ -2827,21 +2820,34 @@ class OffersComponent {
             this.moreProducts();
         }
     }
+    ngOnInit() { }
+    loadInitialProducts() {
+        this.bymiaService
+            .getFeaturedProducts('destacados', this.index, this.limit)
+            .subscribe(resp => {
+            this.offerProducts = resp;
+            console.log(this.offerProducts);
+        });
+        // Simulating initial loading by calling moreProducts twice after a delay
+        setTimeout(() => this.moreProducts(), 1000);
+        setTimeout(() => this.moreProducts(), 2000);
+    }
     moreProducts() {
-        // this.index += 1;
+        this.index += 1;
         this.bymiaService
             .getFeaturedProducts('destacados', this.index, this.limit)
             .subscribe(resp => {
             resp.forEach(element => {
-                this.offerProducts.find(eo => {
-                    if (eo.category === element.category) {
-                        eo.products = [...eo.products, ...element.products];
-                    }
-                });
+                const existingCategory = this.offerProducts.find(eo => eo.category === element.category);
+                if (existingCategory) {
+                    existingCategory.products = [...existingCategory.products, ...element.products];
+                }
+                else {
+                    this.offerProducts.push(element);
+                }
             });
         });
     }
-    ngOnInit() { }
 }
 OffersComponent.ɵfac = function OffersComponent_Factory(t) { return new (t || OffersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_0__.BymiaService)); };
 OffersComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: OffersComponent, selectors: [["app-offers"]], hostBindings: function OffersComponent_HostBindings(rf, ctx) { if (rf & 1) {
@@ -4851,8 +4857,8 @@ const url = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environmen
 const urlBannerMock = 'assets/banners.json';
 const urlBrandsMock = 'assets/brands.json';
 const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
-    Authorization: src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
-    // 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+    // Authorization: environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
+    Authorization: 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
     // 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg==',
 });
 class BymiaService {
@@ -7930,8 +7936,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const url = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.url + '/api/front';
 const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
-    Authorization: src_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
-    // 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+    // Authorization: environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
+    Authorization: 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
     // 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg==',
 });
 class AuthService {
@@ -8310,7 +8316,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    url: 'https://127.0.0.1:8000',
+    url: 'https://admin.bymiashop.com',
 };
 /*
  * For easier debugging in development mode, you can import the following file
