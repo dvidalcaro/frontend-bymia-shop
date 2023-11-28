@@ -9,7 +9,6 @@ import { FeaturedProduct } from 'src/app/shared/interfaces/FeaturedProduct';
 })
 export class OffersComponent implements OnInit {
   offerProducts: FeaturedProduct[] = [];
-  // TODO: actualizar el index para hacer funcionar correctamente el scroll infinito
   index: number = 0;
   limit: number = 4;
 
@@ -27,29 +26,37 @@ export class OffersComponent implements OnInit {
   }
 
   constructor(private bymiaService: BymiaService) {
+    this.loadInitialProducts();
+  }
+
+  ngOnInit(): void { }
+
+  loadInitialProducts() {
     this.bymiaService
       .getFeaturedProducts('destacados', this.index, this.limit)
       .subscribe(resp => {
         this.offerProducts = resp;
+        console.log(this.offerProducts);
       });
+
+    // Simulating initial loading by calling moreProducts twice after a delay
     setTimeout(() => this.moreProducts(), 1000);
-    setTimeout(() => this.moreProducts(), 1000);
+    setTimeout(() => this.moreProducts(), 2000);
   }
 
   moreProducts() {
-    // this.index += 1;
+    this.index += 1;
     this.bymiaService
       .getFeaturedProducts('destacados', this.index, this.limit)
       .subscribe(resp => {
         resp.forEach(element => {
-          this.offerProducts.find(eo => {
-            if (eo.category === element.category) {
-              eo.products = [...eo.products, ...element.products];
-            }
-          });
+          const existingCategory = this.offerProducts.find(eo => eo.category === element.category);
+          if (existingCategory) {
+            existingCategory.products = [...existingCategory.products, ...element.products];
+          } else {
+            this.offerProducts.push(element);
+          }
         });
       });
   }
-
-  ngOnInit(): void {}
 }

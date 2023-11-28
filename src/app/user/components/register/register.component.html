@@ -29,7 +29,7 @@
           [(ngModel)]="user.name"
           type="text"
           name="name"
-          placeholder="Nombre"
+          [placeholder]="user.customer_type_role == 1 ? 'Nombre y Apellido' : 'Nombre'"
           class="form-control"
           id="name"
           minlength="3"
@@ -85,7 +85,7 @@
         <input
           (focus)="clearDateOfBirthError()"
           [(ngModel)]="user.date_of_birth"
-          type="text"
+          type="date"
           name="date_of_birth"
           class="form-control"
           id="date_of_birth"

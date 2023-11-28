@@ -2807,16 +2807,9 @@ class OffersComponent {
     constructor(bymiaService) {
         this.bymiaService = bymiaService;
         this.offerProducts = [];
-        // TODO: actualizar el index para hacer funcionar correctamente el scroll infinito
         this.index = 0;
         this.limit = 4;
-        this.bymiaService
-            .getFeaturedProducts('destacados', this.index, this.limit)
-            .subscribe(resp => {
-            this.offerProducts = resp;
-        });
-        setTimeout(() => this.moreProducts(), 1000);
-        setTimeout(() => this.moreProducts(), 1000);
+        this.loadInitialProducts();
     }
     onScroll() {
         if (window.innerHeight + window.innerHeight * 0.2 + window.scrollY >
@@ -2827,21 +2820,34 @@ class OffersComponent {
             this.moreProducts();
         }
     }
+    ngOnInit() { }
+    loadInitialProducts() {
+        this.bymiaService
+            .getFeaturedProducts('destacados', this.index, this.limit)
+            .subscribe(resp => {
+            this.offerProducts = resp;
+            console.log(this.offerProducts);
+        });
+        // Simulating initial loading by calling moreProducts twice after a delay
+        setTimeout(() => this.moreProducts(), 1000);
+        setTimeout(() => this.moreProducts(), 2000);
+    }
     moreProducts() {
-        // this.index += 1;
+        this.index += 1;
         this.bymiaService
             .getFeaturedProducts('destacados', this.index, this.limit)
             .subscribe(resp => {
             resp.forEach(element => {
-                this.offerProducts.find(eo => {
-                    if (eo.category === element.category) {
-                        eo.products = [...eo.products, ...element.products];
-                    }
-                });
+                const existingCategory = this.offerProducts.find(eo => eo.category === element.category);
+                if (existingCategory) {
+                    existingCategory.products = [...existingCategory.products, ...element.products];
+                }
+                else {
+                    this.offerProducts.push(element);
+                }
             });
         });
     }
-    ngOnInit() { }
 }
 OffersComponent.ɵfac = function OffersComponent_Factory(t) { return new (t || OffersComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_0__.BymiaService)); };
 OffersComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: OffersComponent, selectors: [["app-offers"]], hostBindings: function OffersComponent_HostBindings(rf, ctx) { if (rf & 1) {
@@ -4851,8 +4857,8 @@ const url = src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environmen
 const urlBannerMock = 'assets/banners.json';
 const urlBrandsMock = 'assets/brands.json';
 const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
-    Authorization: src_environments_environment__WEBPACK_IMPORTED_MODULE_0__.environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
-    // 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+    // Authorization: environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
+    Authorization: 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
     // 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg==',
 });
 class BymiaService {
@@ -7330,10 +7336,9 @@ class LoginComponent {
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().close();
             this.router.navigateByUrl('/home');
         }, err => {
-            // console.log(err);
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
                 icon: 'error',
-                title: 'Error al autenticar',
+                title: err.error.message,
                 // text: err.error.error.message,
             });
         });
@@ -7614,7 +7619,7 @@ class RegisterComponent {
     }
 }
 RegisterComponent.ɵfac = function RegisterComponent_Factory(t) { return new (t || RegisterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_3__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_4__.BymiaService)); };
-RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 55, vars: 22, consts: [[1, "container__modal", "animate__animated", "animate__zoomIn", "animate__faster"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "frm-register"], [1, "row", "mb-3", "mt-3"], [1, "col"], ["routerLink", "/", "src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end"], [1, "frm-register__form", "row", "g-3", "p-3", "pb-4", 3, "ngSubmit"], ["f", "ngForm"], [1, "col-12"], ["id", "customer_type_role", "name", "customer_type_role", "aria-label", "Selecciona Persona o Empresa", 1, "form-select", "frm-register__select", "p-2", 3, "ngModel", "ngModelChange"], [3, "ngValue"], [1, "col-12", "frm-register__input"], ["type", "text", "name", "name", "placeholder", "Nombre", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "nameHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "email", "name", "email", "placeholder", "Direcci\u00F3n de email", "id", "email", "required", "", "email", "", "aria-describedby", "emailHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "emailHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "password", "name", "password", "placeholder", "Password", "id", "password", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "passwordHelp", "class", "form-text text-danger", 4, "ngIf"], ["class", "col-12 frm-register__input", 4, "ngIf"], ["class", "col-12", 4, "ngIf"], [1, "row"], [1, "mb-3"], ["id", "country_id", "name", "country_id", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange"], [1, "row", "gx-1"], [1, "col", "input-group", "frm-register__input"], [1, "input-group-text", "bg-white", "border-1", "border-dark", "frm-register__input"], ["width", "30px", "crossorigin", "anonymous", 3, "src", "alt"], ["type", "text", "name", "cel_phone", "placeholder", "Tel\u00E9fono", "id", "cel_phone", "minlength", "6", "required", "", "aria-describedby", "cel_phoneHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", "class", "form-text text-danger", 4, "ngIf"], [1, "col-12", "d-flex", "justify-content-center", "align-items-center"], [1, "col-1", "frm-register__checkbox"], ["type", "checkbox", "id", "exampleCheck1", 1, "form-check-input"], [1, "col-11"], [1, "condition__p"], ["routerLink", "/politicas-privacidad-y-servcios"], ["type", "submit", 1, "button_modal", "col-12"], ["id", "nameHelp", 1, "form-text", "text-danger"], ["id", "emailHelp", 1, "form-text", "text-danger"], ["id", "passwordHelp", 1, "form-text", "text-danger"], ["type", "text", "name", "date_of_birth", "id", "date_of_birth", "placeholder", "YYYY-MM-DD", "minlength", "10", "required", "", "aria-describedby", "date_of_birthHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "date_of_birthHelp", "class", "form-text text-danger", 4, "ngIf"], ["id", "date_of_birthHelp", 1, "form-text", "text-danger"], ["id", "gender_type", "name", "gender_type", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", 1, "form-text", "text-danger"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
+RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 55, vars: 23, consts: [[1, "container__modal", "animate__animated", "animate__zoomIn", "animate__faster"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "frm-register"], [1, "row", "mb-3", "mt-3"], [1, "col"], ["routerLink", "/", "src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end"], [1, "frm-register__form", "row", "g-3", "p-3", "pb-4", 3, "ngSubmit"], ["f", "ngForm"], [1, "col-12"], ["id", "customer_type_role", "name", "customer_type_role", "aria-label", "Selecciona Persona o Empresa", 1, "form-select", "frm-register__select", "p-2", 3, "ngModel", "ngModelChange"], [3, "ngValue"], [1, "col-12", "frm-register__input"], ["type", "text", "name", "name", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", 3, "ngModel", "placeholder", "ngModelChange"], ["id", "nameHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "email", "name", "email", "placeholder", "Direcci\u00F3n de email", "id", "email", "required", "", "email", "", "aria-describedby", "emailHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "emailHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "password", "name", "password", "placeholder", "Password", "id", "password", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "passwordHelp", "class", "form-text text-danger", 4, "ngIf"], ["class", "col-12 frm-register__input", 4, "ngIf"], ["class", "col-12", 4, "ngIf"], [1, "row"], [1, "mb-3"], ["id", "country_id", "name", "country_id", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange"], [1, "row", "gx-1"], [1, "col", "input-group", "frm-register__input"], [1, "input-group-text", "bg-white", "border-1", "border-dark", "frm-register__input"], ["width", "30px", "crossorigin", "anonymous", 3, "src", "alt"], ["type", "text", "name", "cel_phone", "placeholder", "Tel\u00E9fono", "id", "cel_phone", "minlength", "6", "required", "", "aria-describedby", "cel_phoneHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", "class", "form-text text-danger", 4, "ngIf"], [1, "col-12", "d-flex", "justify-content-center", "align-items-center"], [1, "col-1", "frm-register__checkbox"], ["type", "checkbox", "id", "exampleCheck1", 1, "form-check-input"], [1, "col-11"], [1, "condition__p"], ["routerLink", "/politicas-privacidad-y-servcios"], ["type", "submit", 1, "button_modal", "col-12"], ["id", "nameHelp", 1, "form-text", "text-danger"], ["id", "emailHelp", 1, "form-text", "text-danger"], ["id", "passwordHelp", 1, "form-text", "text-danger"], ["type", "date", "name", "date_of_birth", "id", "date_of_birth", "placeholder", "YYYY-MM-DD", "minlength", "10", "required", "", "aria-describedby", "date_of_birthHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "date_of_birthHelp", "class", "form-text text-danger", 4, "ngIf"], ["id", "date_of_birthHelp", 1, "form-text", "text-danger"], ["id", "gender_type", "name", "gender_type", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", 1, "form-text", "text-danger"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
         const _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "div", 1);
@@ -7722,7 +7727,7 @@ RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngValue", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngModel", ctx.user.name);
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngModel", ctx.user.name)("placeholder", ctx.user.customer_type_role == 1 ? "Nombre y Apellido" : "Nombre");
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngIf", _r0.submitted && _r0.controls["name"].errors || ctx.errorServer);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
@@ -7742,7 +7747,7 @@ RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("ngValue", 62);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](5);
-        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction1"](18, _c0, ctx.countryFlag), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("alt", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction1"](20, _c0, ctx.countryAlt));
+        _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵproperty"]("src", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction1"](19, _c0, ctx.countryFlag), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsanitizeUrl"])("alt", _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵpureFunction1"](21, _c0, ctx.countryAlt));
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtextInterpolate"](ctx.countryPhoneCode);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵadvance"](1);
@@ -7931,8 +7936,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const url = src_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.url + '/api/front';
 const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__.HttpHeaders({
-    Authorization: src_environments_environment__WEBPACK_IMPORTED_MODULE_1__.environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
-    // 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+    // Authorization: environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
+    Authorization: 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
     // 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg==',
 });
 class AuthService {
@@ -8311,7 +8316,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    url: 'https://127.0.0.1:8000',
+    url: 'https://admin.bymiashop.com',
 };
 /*
  * For easier debugging in development mode, you can import the following file
