@@ -4440,6 +4440,7 @@ class ShopCartComponent {
         this.messageConfirm = '¿Estas seguro que deseas borrar todos los productos del carrito? ¡Esta acción no se puede desshacer!';
         this.noProduct = false;
         this.showCancel = true;
+        this.order_id = '';
         this.userService.currentCartlist.subscribe(resp => {
             // console.log(resp);
             this.products =
@@ -4537,8 +4538,19 @@ class ShopCartComponent {
     }
     sendProductsToOrder() {
         // console.log('sendProductsToOrder',this.products);
-        this.userService.prepareOrder(this.products);
-        this.router.navigate(['/sales-order-step1']);
+        //this.userService.prepareOrder(this.products);
+        this.userService.prepareOrder(this.products).subscribe(resp => {
+            console.log('diegoteee', resp.status_code);
+            if (resp.status_code == 201) {
+                this.order_id = resp.order_id;
+                this.router.navigate(['/sales-order-step1'], {
+                    queryParams: { id: '123' },
+                });
+            }
+            else {
+                //TODO MOSTRAR MENSAJE DE ERROR
+            }
+        });
     }
 }
 ShopCartComponent.ɵfac = function ShopCartComponent_Factory(t) { return new (t || ShopCartComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_0__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.Router)); };
@@ -6276,9 +6288,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2316);
 /* harmony import */ var src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! src/app/user/services/user.service */ 427);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 1707);
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ 4364);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 1707);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ 4364);
 
 
 
@@ -6422,9 +6434,10 @@ function SaleOrderStepOneComponent_div_240_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx_r7.Popup[0].description);
 } }
 class SaleOrderStepOneComponent {
-    constructor(userService) {
+    constructor(userService, route) {
         var _a, _b, _c;
         this.userService = userService;
+        this.route = route;
         this.open = false;
         this.products = [];
         this.total = 0;
@@ -6447,6 +6460,10 @@ class SaleOrderStepOneComponent {
                 description: '1) Envíos internacionales (no abonan tax) \n a) Destinos Argentina y República Dominicana: solo por MiaCargo. \n Tu envío será facturado y lo pagarás en destino. Desde tu panel podrás \n seguir su trayectoria con el número de tracking.\n b) Otros destinos internacionales Envío con DHL: abonarás tu envío \n junto con tu compra y podrás seguir su trayectoria con el número de \n tracking desde tu panel de cliente. \n Para conocer los costos del envío a tu país, consultale a uno de nuestros \n representantes de  atención al cliente. \n c) Envíos nacionales (abonan tax) \n + Entregas a domicilio en Miami por USPS. \n Pagás el envío junto con tu factura de compra. \n + Entregas a domicilio en USA, menos Miami por DHL. \n Abonás tu envío junto con la compra y podrás seguir su trayectoria \n con el número de tracking asignado desde tu panel de cliente.',
             },
         ];
+        this.route.params.subscribe(params => {
+            this.orderId = params['id'];
+            console.log(this.orderId);
+        });
         console.log('Order', this.userService.getOrder());
         this.billdata = this.userService.getOrder().bill_data;
         this.recipients = this.userService.getOrder().recipients;
@@ -6480,7 +6497,7 @@ class SaleOrderStepOneComponent {
     }
     ngOnInit() { }
 }
-SaleOrderStepOneComponent.ɵfac = function SaleOrderStepOneComponent_Factory(t) { return new (t || SaleOrderStepOneComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_0__.UserService)); };
+SaleOrderStepOneComponent.ɵfac = function SaleOrderStepOneComponent_Factory(t) { return new (t || SaleOrderStepOneComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_0__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.ActivatedRoute)); };
 SaleOrderStepOneComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: SaleOrderStepOneComponent, selectors: [["app-sale-order-step-one"]], decls: 241, vars: 44, consts: [[1, "container", "mt-3"], [1, "container", "col-11", "p-3", "p-md-5", "container__bg", "container__bg-hg", "animate__animated", "animate__zoomIn"], [1, "header__order", "row", "cart__header", "pt-3", "pb-3", "p-md-4", "mb-2", "d-flex", "justify-content-between", "align-items-center"], [1, "col"], [1, "cart__h3", "cart__h3-title"], ["src", "../assets/svg/Icon_shopping_cart.svg", "alt", "favoritos"], [1, "col-7", "d-flex", "justify-content-end", "align-items-center"], [1, "me-1"], [1, "cart__button", "cart__button-bg"], [1, "d-flex", "flex-column", "align-content-center"], [1, "cart__h3", "cart__h3-ligth"], [1, "cart__p", "cart__p-bold"], [1, "row", "gap-2"], [1, "col", "col-lg-8", "text-dark", "m-0", "p-0"], [1, "sale__info", "d-flex", "gap-2", "align-items-center", "p-lg-4", "p-2", "rounded-3"], [1, "bx", "bxs-info-circle"], [1, "sale__p", "sale__p-bold", "mt-1", "mb-1"], [1, "p-lg-4", "p-2", "mt-2", "rounded-3", "bg-light"], [1, "text-dark", "sale__h3", "text-md-center", "pt-3"], [1, "d-md-flex", "gap-1", "mt-3"], [1, "col", "col-md-6", "form-check", "sale__bg-black", "rounded-3", "d-flex", "align-items-center"], [1, "d-flex", "align-items-center", "gap-2", "p-3", "sale__input-radio"], ["type", "radio", "name", "shipping", "id", "internationalShipping", 1, "form-check-input", 3, "click"], ["for", "internationalShipping", 1, "form-check-label", "text-light"], [1, "sale__span"], [1, "bx", "bx-world", "sale__i", "ms-3", "ms-md-4", "ms-lg-5"], [1, "d-flex", "align-items-center", "gap-2", "p-3", "sale__input-radio", "ms-3", "ms-md-0", "ms-lg-5"], ["type", "radio", "name", "shipping", "id", "nationalshipping", 1, "form-check-input", 3, "click"], ["for", "nationalshipping", 1, "form-check-label", "text-light"], [1, "bx", "bxs-flag-alt", "sale__i", "ms-4", "ms-md-5", "ms-lg-5"], [1, "col", "mt-2"], [1, "col", "form-check", "sale__bg-black", "rounded-3"], [1, "p-3", "sale__input-radio"], ["type", "radio", "name", "shipping", "id", "internationalPickup", 1, "form-check-input", "sale__mt", "mt-md-4", 3, "click"], ["for", "internationalPickup", 1, "form-check-label", "text-light"], ["type", "radio", "name", "shipping", "id", "nationalPickup", 1, "form-check-input", "sale__mt", "mt-md-4", 3, "click"], ["for", "nationalPickup", 1, "form-check-label", "text-light"], [1, "text-dark", "sale__h3", "text-center", "pt-3"], ["action", "", 1, "mt-3", "d-flex", "flex-column", "gap-2"], [1, "d-md-flex", "gap-2"], ["type", "text", "name", "name", "placeholder", "Nombre y apellido", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0", 3, "value", "disabled"], ["type", "text", "name", "identity_type", "placeholder", "Tipo de identificaci\u00F3n", "id", "identity_type", "minlength", "3", "disabled", "[ billdata?.identity_type.length > 0 ]", "required", "", "aria-describedby", "identity_typeHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0", 3, "value", "disabled"], ["type", "text", "name", "identity_number", "placeholder", "N\u00FAmero de identificaci\u00F3n", "id", "identity_number", "minlength", "3", "disabled", "[ billdata?.identity_number.length > 0 ]", "required", "", "aria-describedby", "identity_numberHelp", 1, "form-control", "frm-register__input", 3, "value", "disabled"], ["name", "", "id", "country_name", 1, "form-select", "mb-2", "mb-md-0", 3, "disabled"], ["value", "", "selected", "", 4, "ngIf"], ["value", ""], ["name", "", "id", "state_name", 1, "form-select", "mb-2", "mb-md-0", 3, "disabled"], ["name", "", "id", "city_name", 1, "form-select", 3, "disabled"], ["type", "text", "name", "address", "placeholder", "Direcci\u00F3n (incluye calle, altura y piso, de ser necesario)", "id", "address", "minlength", "3", "required", "", "aria-describedby", "addressHelp", 1, "form-control", "frm-register__input", 3, "value", "disabled"], ["type", "text", "name", "code_zip", "placeholder", "C\u00F3digo postal ", "id", "code_zip", "minlength", "3", "required", "", "aria-describedby", "code_zipHelp", 1, "form-control", "frm-register__input", 3, "value", "disabled"], ["type", "text", "name", "phone", "placeholder", "Tel\u00E9fono: +x (xxx) xxx-xxxx ", "id", "phone", "minlength", "3", "required", "", "aria-describedby", "phoneHelp", 1, "form-control", "frm-register__input", 3, "value", "disabled"], ["type", "email", "name", "email", "placeholder", "E-mail", "id", "email", "minlength", "3", "required", "", "aria-describedby", "emailHelp", 1, "form-control", "frm-register__input", 3, "value", "disabled"], ["type", "text", "name", "additional_info", "placeholder", "Informaci\u00F3n adicional (ej, entre calle y calle)", "id", "additional_info", "minlength", "3", "required", "", "aria-describedby", "additional_infoHelp", 1, "form-control", "frm-register__input", 3, "value", "disabled"], ["class", "mt-5 mt-2", 4, "ngIf"], ["class", "mt-3 d-flex flex-column gap-2", "action", "", 4, "ngIf"], [1, "mt-4", "d-flex", "justify-content-between", "align-items-center"], [1, "text-dark", "sale__h3"], [1, "sale__p-xs"], [1, "d-flex", "flex-column", "mt-3", "gap-2"], ["class", "sale__bg-black p-3 rounded-3 d-flex flex-column gap-1", 4, "ngFor", "ngForOf"], ["type", "text", "name", "name", "placeholder", "Nombre y apellido", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "type-id", "placeholder", "Tipo de identificaci\u00F3n", "id", "type-id", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "N\u00FAmero de identificaci\u00F3n ", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["name", "", "id", "", 1, "form-select"], ["name", "", "id", "", 1, "form-select", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "Direcci\u00F3n (incluye calle, altura y piso, de ser necesario)", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "name", "placeholder", "C\u00F3digo postal", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "name", "placeholder", "Tel\u00E9fono: +x (xxx) xxx-xxxx ", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "mail", "name", "name", "placeholder", "E-mail", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "name", "placeholder", "Informaci\u00F3n adicional (ej, entre calle y calle)", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], [1, "text-center"], [1, "col", "bg-light", "rounded-3", "p-4", "h-100"], [1, "text-dark", "sale__h3", "pt-4"], [1, "pe-4", "pt-2"], [1, "sale__p", "sale__p-bold"], [4, "ngIf"], [1, "mt-4"], [1, "sale__h3", "text-center", "text-dark"], [1, "d-flex"], [1, "col-1"], ["action", "", 1, "col", "col-lg-10"], ["type", "text", "name", "name", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "text-center", "mt-2"], [1, "text-center", "mt-2"], [1, "cart__button", "cart__button-bg-black"], [1, "pe-4", "pt-4"], [1, "d-flex", "justify-content-between"], [1, "sale__p", "sale__p-bold", "text-dark"], [1, "sale__p", "text-dark"], [1, "mt-5"], [1, "sale__h3", "sale__h3-md", "text-dark", "text-center"], [1, "sale__p-bold", "sale__p-lg", "fw-bold", "text-dark", "text-center"], [1, "d-flex", "justify-content-center"], [1, "sale__btn", "text-center", 3, "click"], [1, "sale__p", "sale__p-xs", "text-center", "text-dark", "mt-2", "p-2"], ["routerLink", "/politicas-privacidad-y-servcios", 1, "cursor__pointer"], ["routerLink", "/politicas-rma-y-garantia", 1, "cursor__pointer"], ["class", "container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0", 4, "ngIf"], ["value", "", "selected", ""], [1, "mt-5", "mt-2"], ["type", "text", "name", "name", "placeholder", "Raz\u00F3n social -Pickup", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "email", "name", "name", "placeholder", "E-mail", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], [1, "sale__bg-black", "p-3", "rounded-3", "d-flex", "flex-column", "gap-1"], ["action", "", 1, "d-flex", "sale__input-radio"], ["type", "radio", "name", "", "id", "", 1, "me-2", "form-check-input"], [1, "sale__p", "text-light"], ["class", "d-flex justify-content-between pe-4 pt-1 gap-1", 4, "ngFor", "ngForOf"], [1, "d-flex", "justify-content-between", "pe-4", "pt-1", "gap-1"], [1, "container__modal-order", "animate__animated", "animate__zoomIn", "animate__faster", "ps-2", "ps-md-0", "pe-2", "pe-md-0"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "container-order"], [1, "row", "mb-3", "mt-3"], ["src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end", "me-2"], [1, "row"], [1, "text-center", "h3__popup"], [1, "row", "m-2", "m-md-3"], [1, "col", "bg-dark", "rounded-3", "p-3", "mb-3"], [1, "h5__popup"], [1, "p__popup", "text-light"]], template: function SaleOrderStepOneComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
@@ -6921,7 +6938,7 @@ SaleOrderStepOneComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" US", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpipeBind2"](223, 41, ctx.totalSale, "USD"), " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](18);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.open);
-    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatusGroup, _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgSelectMultipleOption"], _angular_common__WEBPACK_IMPORTED_MODULE_3__.NgForOf, _angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterLink], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_3__.CurrencyPipe], encapsulation: 2 });
+    } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatusGroup, _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgSelectMultipleOption"], _angular_common__WEBPACK_IMPORTED_MODULE_4__.NgForOf, _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterLink], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__.CurrencyPipe], encapsulation: 2 });
 
 
 /***/ }),
@@ -7110,7 +7127,7 @@ const routes = [
     { path: 'orders', component: _orders_orders_component__WEBPACK_IMPORTED_MODULE_2__.OrdersComponent, canActivate: [_user_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__.AuthGuard] },
     { path: 'panel', component: _panel_panel_component__WEBPACK_IMPORTED_MODULE_3__.PanelComponent, canActivate: [_user_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__.AuthGuard] },
     {
-        path: 'sales-order-step1',
+        path: 'sales-order-step1/:id',
         component: _sale_order_step_one_sale_order_step_one_component__WEBPACK_IMPORTED_MODULE_6__.SaleOrderStepOneComponent,
         canActivate: [_user_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__.AuthGuard],
     },
@@ -8178,56 +8195,57 @@ class UserService {
     }
     prepareOrder(products) {
         this.order.items = products;
+        return this.http.post(`${url}/pre-order`, { products }, { headers });
         //TODO: buscar la data real
-        let billdata = {
-            identity_type: 'DNI',
-            identity_number: '34987273',
-            name: 'Jane Doe',
-            corporate_name: 'Jane Doe Inc.',
-            country_id: 11,
+        /* let billdata = {
+          identity_type: 'DNI',
+          identity_number: '34987273',
+          name: 'Jane Doe',
+          corporate_name: 'Jane Doe Inc.',
+          country_id: 11,
+          country_name: 'Argentina',
+          state_id: 4545,
+          state_name: 'Buenos Aires',
+          city_id: 42022,
+          city_name: 'Ciudad Autonoma de Buenos Aires',
+          code_zip: 'abc123',
+          additional_info: 'informacion adicional de Jane Doe',
+          address: 'Calle 123 4to A',
+          phone: '+549113637878',
+          email: 'janedoe@gmail.com',
+        } as BillData;
+        this.order.bill_data = billdata; */
+        //TODO: buscar la data real
+        /* let recipients = [
+          {
+            recipient_id: 1,
             country_name: 'Argentina',
-            state_id: 4545,
-            state_name: 'Buenos Aires',
-            city_id: 42022,
-            city_name: 'Ciudad Autonoma de Buenos Aires',
-            code_zip: 'abc123',
-            additional_info: 'informacion adicional de Jane Doe',
-            address: 'Calle 123 4to A',
-            phone: '+549113637878',
-            email: 'janedoe@gmail.com',
-        };
-        this.order.bill_data = billdata;
-        //TODO: buscar la data real
-        let recipients = [
-            {
-                recipient_id: 1,
-                country_name: 'Argentina',
-                state_name: 'Córdoba',
-                city_name: 'Cosquin',
-                recipient_name: 'Destinatario prueba 1',
-                address: 'Direccion destinatario 1 23233',
-                recipient_phone: '1163549766',
-            },
-            {
-                recipient_id: 2,
-                country_name: 'Argentina',
-                state_name: 'Córdoba',
-                city_name: 'La falda',
-                recipient_name: 'Destinatario prueba 2',
-                address: 'Direccion destinatario 2 23233',
-                recipient_phone: '1163549766',
-            },
-            {
-                recipient_id: 3,
-                country_name: 'Argentina',
-                state_name: 'Córdoba',
-                city_name: 'Córdoba Capital',
-                recipient_name: 'Destinatario prueba 3',
-                address: 'Direccion destinatario 3 23233',
-                recipient_phone: '1163549766',
-            },
-        ];
-        this.order.recipients = recipients;
+            state_name: 'Córdoba',
+            city_name: 'Cosquin',
+            recipient_name: 'Destinatario prueba 1',
+            address: 'Direccion destinatario 1 23233',
+            recipient_phone: '1163549766',
+          },
+          {
+            recipient_id: 2,
+            country_name: 'Argentina',
+            state_name: 'Córdoba',
+            city_name: 'La falda',
+            recipient_name: 'Destinatario prueba 2',
+            address: 'Direccion destinatario 2 23233',
+            recipient_phone: '1163549766',
+          },
+          {
+            recipient_id: 3,
+            country_name: 'Argentina',
+            state_name: 'Córdoba',
+            city_name: 'Córdoba Capital',
+            recipient_name: 'Destinatario prueba 3',
+            address: 'Direccion destinatario 3 23233',
+            recipient_phone: '1163549766',
+          },
+        ] as Recipient[];
+        this.order.recipients = recipients; */
     }
     createOrder(order) { }
     endOrder() {
