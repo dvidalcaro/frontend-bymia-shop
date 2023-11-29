@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { BillData } from 'src/app/user/models/bill-data.model';
 import { Product } from 'src/app/user/models/product.model';
 import { Recipient } from 'src/app/user/models/recipient.model';
@@ -22,6 +24,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   public quantityProducts: number | undefined = 0;
   public tax: number = 0;
   public totalSale: number = 0;
+  orderId!: string;
   Popup: any[] = [
     {
       selection: 'Pickup',
@@ -36,7 +39,12 @@ export class SaleOrderStepOneComponent implements OnInit {
         '1) Envíos internacionales (no abonan tax) \n a) Destinos Argentina y República Dominicana: solo por MiaCargo. \n Tu envío será facturado y lo pagarás en destino. Desde tu panel podrás \n seguir su trayectoria con el número de tracking.\n b) Otros destinos internacionales Envío con DHL: abonarás tu envío \n junto con tu compra y podrás seguir su trayectoria con el número de \n tracking desde tu panel de cliente. \n Para conocer los costos del envío a tu país, consultale a uno de nuestros \n representantes de  atención al cliente. \n c) Envíos nacionales (abonan tax) \n + Entregas a domicilio en Miami por USPS. \n Pagás el envío junto con tu factura de compra. \n + Entregas a domicilio en USA, menos Miami por DHL. \n Abonás tu envío junto con la compra y podrás seguir su trayectoria \n con el número de tracking asignado desde tu panel de cliente.',
     },
   ];
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.orderId = params['id'];
+      console.log(this.orderId);
+    });
+
     console.log('Order', this.userService.getOrder());
     this.billdata = this.userService.getOrder().bill_data;
     this.recipients = this.userService.getOrder().recipients;
