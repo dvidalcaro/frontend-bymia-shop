@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
   {
-    path: 'sales-order-step1/:id',
+    path: 'sales-order-step1',
     component: SaleOrderStepOneComponent,
     canActivate: [AuthGuard],
   },

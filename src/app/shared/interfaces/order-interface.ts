@@ -26,4 +26,5 @@ export interface orderInformation {
   detail: orderDetails;
   bill: string;
   receiptOfPayment: string;
+  status: number;
 }

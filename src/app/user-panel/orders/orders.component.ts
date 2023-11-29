@@ -46,14 +46,13 @@ export class OrdersComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {
     this.userService.getOrders().subscribe(resp => {
-      console.log(resp);
       this.orders = resp;
     });
 
     console.log(window.innerHeight);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   openForm() {
     this.showFormPayment = true;
@@ -71,11 +70,15 @@ export class OrdersComponent implements OnInit {
   }
 
   openshowSeeDetail(orderDetails: orderDetails) {
-    console.log(orderDetails);
     this.details = orderDetails;
     this.showSeeDetail = true;
   }
   closedSeeDetail() {
     this.showSeeDetail = false;
+  }
+  continueOrder(order: string) {
+    this.router.navigate(['/sales-order-step1'], {
+      queryParams:{id: order },
+    });
   }
 }

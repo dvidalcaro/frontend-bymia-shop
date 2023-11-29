@@ -133,11 +133,10 @@ export class ShopCartComponent implements OnInit {
     // console.log('sendProductsToOrder',this.products);
     //this.userService.prepareOrder(this.products);
     this.userService.prepareOrder(this.products).subscribe(resp => {
-      console.log('diegoteee', resp.status_code);
       if (resp.status_code == 201) {
         this.order_id = resp.order_id;
         this.router.navigate(['/sales-order-step1'], {
-          queryParams: { id: '123' },
+          queryParams:{id: this.order_id },
         });
       } else {
         //TODO MOSTRAR MENSAJE DE ERROR
