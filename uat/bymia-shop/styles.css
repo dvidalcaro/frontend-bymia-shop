@@ -3423,6 +3423,18 @@ header .header__container {
   line-height: 0.775rem;
   font-size: 0.8rem;
 }
+.a_data a {
+  color: #000;
+  text-decoration: none;
+  font-size: 0.625rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 1s all;
+  /* &:hover {
+    text-decoration: underline;
+    color: $primary-color;
+  } */
+}
 .header__orders {
   align-items: center;
   width: 100%;
@@ -3537,6 +3549,17 @@ header .header__container {
   color: #ffffff;
   background-color: #000000;
 }
+.btn-deshabilitado {
+  pointer-events: none;
+  opacity: 0.5;
+}
+.btn-habilitado {
+  pointer-events: visible;
+  opacity: 1;
+}
+.width_container {
+  width: 25%;
+}
 /* @Media queris */
 @media screen and (max-width: 768px) {
   .header__select {
@@ -3603,6 +3626,10 @@ header .header__container {
   .container__orders {
     margin: 0 8.5rem;
     padding: 3rem 3rem;
+  }
+
+  .width_container {
+    width: 25%;
   }
 
   .header__orders {
