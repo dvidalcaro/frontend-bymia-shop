@@ -135,10 +135,11 @@ export class UserService {
     return this.http.post(`${url}/cart/addAllFavorites`, {}, { headers });
   }
 
-  prepareOrder(products: Product[]) {
+  prepareOrder(products: Product[]): Observable<any> {
     this.order.items = products;
+    return this.http.post(`${url}/pre-order`, { products }, { headers });
     //TODO: buscar la data real
-    let billdata = {
+    /* let billdata = {
       identity_type: 'DNI',
       identity_number: '34987273',
       name: 'Jane Doe',
@@ -155,9 +156,9 @@ export class UserService {
       phone: '+549113637878',
       email: 'janedoe@gmail.com',
     } as BillData;
-    this.order.bill_data = billdata;
+    this.order.bill_data = billdata; */
     //TODO: buscar la data real
-    let recipients = [
+    /* let recipients = [
       {
         recipient_id: 1,
         country_name: 'Argentina',
@@ -186,7 +187,7 @@ export class UserService {
         recipient_phone: '1163549766',
       },
     ] as Recipient[];
-    this.order.recipients = recipients;
+    this.order.recipients = recipients; */
   }
 
   createOrder(order: Order) {}

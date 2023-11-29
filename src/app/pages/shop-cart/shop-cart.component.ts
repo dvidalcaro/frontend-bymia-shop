@@ -17,6 +17,7 @@ export class ShopCartComponent implements OnInit {
     '¿Estas seguro que deseas borrar todos los productos del carrito? ¡Esta acción no se puede desshacer!';
   noProduct: boolean = false;
   showCancel: boolean = true;
+  order_id: string = '';
 
   constructor(private userService: UserService, private router: Router) {
     this.userService.currentCartlist.subscribe(resp => {
@@ -130,7 +131,17 @@ export class ShopCartComponent implements OnInit {
 
   sendProductsToOrder() {
     // console.log('sendProductsToOrder',this.products);
-    this.userService.prepareOrder(this.products);
-    this.router.navigate(['/sales-order-step1']);
+    //this.userService.prepareOrder(this.products);
+    this.userService.prepareOrder(this.products).subscribe(resp => {
+      console.log('diegoteee', resp.status_code);
+      if (resp.status_code == 201) {
+        this.order_id = resp.order_id;
+        this.router.navigate(['/sales-order-step1'], {
+          queryParams: { id: '123' },
+        });
+      } else {
+        //TODO MOSTRAR MENSAJE DE ERROR
+      }
+    });
   }
 }
