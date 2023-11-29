@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { orderInformation } from '../../shared/interfaces/order-interface';
+import {
+  orderInformation,
+  orderDetails,
+} from '../../shared/interfaces/order-interface';
+import { UserService } from 'src/app/user/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders',
@@ -11,28 +16,40 @@ export class OrdersComponent implements OnInit {
   showFormPayment: boolean = false;
   showReturnForm: boolean = false;
   showSeeDetail: boolean = false;
-  orders: orderInformation[] = [
+  btnBill = 'btn-desabilidato';
+  orders: orderInformation[] = [];
+  details!: orderDetails;
+  // details: orderDetails;
+  /* [
     {
       orderPlaced: 'febrero 1, 2022',
       total: '$185.000',
       sendTo: 'Sebastian Cardama',
       numberOrder: '123456789',
+      bill: 'd',
     },
     {
       orderPlaced: 'febrero 1, 2022',
       total: '$185.000',
       sendTo: 'Sebastian Cardama',
       numberOrder: '123456789',
+      bill: '',
     },
     {
       orderPlaced: 'febrero 1, 2022',
       total: '$185.000',
       sendTo: 'Sebastian Cardama',
       numberOrder: '123456789',
+      bill: '',
     },
-  ];
+  ]; */
 
-  constructor() {
+  constructor(private userService: UserService, private router: Router) {
+    this.userService.getOrders().subscribe(resp => {
+      console.log(resp);
+      this.orders = resp;
+    });
+
     console.log(window.innerHeight);
   }
 
@@ -53,7 +70,9 @@ export class OrdersComponent implements OnInit {
     this.showReturnForm = false;
   }
 
-  openshowSeeDetail() {
+  openshowSeeDetail(orderDetails: orderDetails) {
+    console.log(orderDetails);
+    this.details = orderDetails;
     this.showSeeDetail = true;
   }
   closedSeeDetail() {

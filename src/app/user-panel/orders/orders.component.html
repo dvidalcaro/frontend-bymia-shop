@@ -68,9 +68,23 @@
           <p>{{ order.numberOrder }}</p>
         </div>
         <div class="ordernumber__button">
-          <button (click)="openshowSeeDetail()">Ver detalle</button>
-          <button>Ver recibo</button>
-          <button class="btn__bill">Ver factura</button>
+          <button (click)="openshowSeeDetail(order.detail)">Ver detalle</button>
+          <button
+            [ngClass]="{
+              a_data: true,
+
+              'btn-deshabilitado': order.receiptOfPayment.length === 0
+            }">
+            <a [href]="order.receiptOfPayment">Ver recibo</a>
+          </button>
+          <button
+            [ngClass]="{
+              a_data: true,
+              btn__bill: true,
+              'btn-deshabilitado': order.bill.length === 0
+            }">
+            <a [href]="order.bill">Ver Factura</a>
+          </button>
         </div>
       </div>
     </div>
@@ -289,7 +303,7 @@
   *ngIf="showSeeDetail"
   class="container__modal-seeDetail container__modal-form animate__animated animate__zoomIn animate__faster">
   <div
-    class="container w-auto bg-white rounded-3 justify-content-center frm-register">
+    class="container width_container bg-white rounded-3 justify-content-center frm-register">
     <div class="row mb-3 mt-3">
       <div class="col">
         <img
@@ -305,21 +319,30 @@
         <div class="row">
           <p class="text-black"><strong>Ítems:</strong></p>
         </div>
-        <div class="row justify-content-center">
+        <div
+          class="row justify-content-center"
+          *ngFor="let item of details.items">
           <div class="col text-dark">
-            <p><span>(x1 Unit)</span> Hiearcool - Adaptador HUb con USB</p>
+            <p>
+              <span>{{ item.quantity }}</span> {{ item.name }}
+            </p>
           </div>
-          <div class="col-auto text-dark"><p>$24.99</p></div>
+          <div class="col-auto text-dark">
+            <p>$ {{ item.price }}</p>
+          </div>
         </div>
 
         <div class="row d-flex mt-5">
           <div class="col">
             <p class="text-dark">
-              <strong>Productos <span class="text-dark">(1):</span> </strong>
+              <strong
+                >Productos
+                <span class="text-dark">( {{ details.products.total }} ):</span>
+              </strong>
             </p>
           </div>
           <div class="col text-end">
-            <p class="text-dark">$24.99</p>
+            <p class="text-dark">$ {{ details.products.totalPrice }}</p>
           </div>
         </div>
         <div class="row">
@@ -327,7 +350,7 @@
             <p class="text-dark"><strong>Descuento productos: </strong></p>
           </div>
           <div class="col">
-            <p class="text-dark text-end">$0</p>
+            <p class="text-dark text-end">$ {{ details.productDiscount }}</p>
           </div>
         </div>
         <div class="row">
@@ -335,7 +358,9 @@
             <p class="text-dark"><strong>Descuento promocional: </strong></p>
           </div>
           <div class="col">
-            <p class="text-dark text-end">$0</p>
+            <p class="text-dark text-end">
+              $ {{ details.promocionalDiscount }}
+            </p>
           </div>
         </div>
         <div class="row">
@@ -343,7 +368,7 @@
             <p class="text-dark"><strong>Tax: </strong></p>
           </div>
           <div class="col">
-            <p class="text-dark text-end">$0</p>
+            <p class="text-dark text-end">$ {{ details.tax }}</p>
           </div>
         </div>
 
@@ -352,7 +377,9 @@
         </div>
         <div class="row mb-5">
           <h1 class="text-dark text-center">
-            <strong>US $<span>24.99</span></strong>
+            <strong
+              >US $<span> {{ details.totalOrderPrice }} </span></strong
+            >
           </h1>
         </div>
       </div>

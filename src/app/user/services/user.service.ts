@@ -10,6 +10,7 @@ import { Order } from '../models/order.model';
 import { Product } from '../models/product.model';
 import { BillData } from '../models/bill-data.model';
 import { Recipient } from '../models/recipient.model';
+import { orderInformation } from 'src/app/shared/interfaces/order-interface';
 
 const url = environment.url + '/api/customer';
 let headers: HttpHeaders;
@@ -58,16 +59,14 @@ export class UserService {
     );
   }
 
-  getWishList() {
+  getOrders() {
     this.prepareHeaders();
-    return this.http.get<Wishlist>(`${url}/favorite/list`, { headers }).pipe(
+    return this.http.get<orderInformation[]>(`${url}/orders`, { headers }).pipe(
       map(resp => {
-        // this.currentWishlistSubject.next(resp);
         return resp;
       })
     );
   }
-
   removeProductToWishlist(product_id: number) {
     return this.http.post(
       `${url}/favorite/remove`,
