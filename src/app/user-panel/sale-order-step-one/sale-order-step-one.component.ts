@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import {
+  orderDetails,
+  orderInformation,
+} from 'src/app/shared/interfaces/order-interface';
 import { BillData } from 'src/app/user/models/bill-data.model';
 import { Product } from 'src/app/user/models/product.model';
 import { Recipient } from 'src/app/user/models/recipient.model';
@@ -24,6 +29,35 @@ export class SaleOrderStepOneComponent implements OnInit {
   public tax: number = 0;
   public totalSale: number = 0;
   orderId!: number;
+  orderById!: orderInformation;
+  isChecked = new FormControl(false);
+
+  formBillData = new FormGroup({
+    name: new FormControl('', Validators.required),
+    identity_type: new FormControl('', Validators.required),
+    identity_number: new FormControl('', Validators.required),
+    country_id: new FormControl('', Validators.required),
+    state_id: new FormControl('', Validators.required),
+    city_id: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    code_zip: new FormControl('', Validators.required),
+    phone: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    aditional_info: new FormControl('', Validators.required),
+  });
+  formRecipient = new FormGroup({
+    name: new FormControl('', Validators.required),
+    identity_type: new FormControl('', Validators.required),
+    identity_number: new FormControl('', Validators.required),
+    country_id: new FormControl('', Validators.required),
+    state_id: new FormControl('', Validators.required),
+    city_id: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
+    code_zip: new FormControl('', Validators.required),
+    phone: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    aditional_info: new FormControl('', Validators.required),
+  });
   Popup: any[] = [
     {
       selection: 'Pickup',
@@ -45,11 +79,13 @@ export class SaleOrderStepOneComponent implements OnInit {
   ) {
     this.route.queryParams.subscribe(params => {
       const id = params['id']; // Reemplaza 'miParametro' con tu nombre de parámetro real
-      if(id){
-        console.log('entreee'); // Realiza operaciones con el parámetro aquí
-      }else{
+      if (!id) {
         this.router.navigate(['home']);
       }
+      this.userService.getOrderById(id).subscribe(res => {
+        this.orderById = res;
+        console.log('resp:', res);
+      });
     });
 
     console.log('Order', this.userService.getOrder());
@@ -85,13 +121,13 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.total && value?.startsWith('international')
         ? 0
         : this.total
-          ? this.total * 0.07
-          : 0;
+        ? this.total * 0.07
+        : 0;
     this.totalSale = this.total ? this.total + this.tax : 0;
     // console.log('international:', value?.startsWith('international'));
     // console.log('pickupData:', this.pickupData);
     // console.log('select radio:', value);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 }

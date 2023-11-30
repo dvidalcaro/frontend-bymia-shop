@@ -67,6 +67,16 @@ export class UserService {
       })
     );
   }
+  getOrderById(id: number) {
+    this.prepareHeaders();
+    return this.http
+      .get<orderInformation>(`${url}/order/${id}`, { headers })
+      .pipe(
+        map(resp => {
+          return resp;
+        })
+      );
+  }
   removeProductToWishlist(product_id: number) {
     return this.http.post(
       `${url}/favorite/remove`,

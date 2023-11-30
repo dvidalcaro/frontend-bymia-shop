@@ -16,10 +16,10 @@
         <div class="me-1">
           <button class="cart__button cart__button-bg">Finalizar orden</button>
         </div>
-        <div class="d-flex flex-column align-content-center">
+        <!--  <div class="d-flex flex-column align-content-center">
           <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
           <p class="cart__p cart__p-bold">{{ total | currency : 'USD' }}</p>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- sales order information -->
@@ -29,18 +29,20 @@
           class="sale__info d-flex gap-2 align-items-center p-lg-4 p-2 rounded-3">
           <i class="bx bxs-info-circle"></i>
           <p class="sale__p sale__p-bold mt-1 mb-1">
-            Para pagos de hasta 2.500 dólares, podés utilizar tarjeta de
+            Envío gratis a toda República Dominicana con MiaCargo
+            <!--   Para pagos de hasta 2.500 dólares, podés utilizar tarjeta de
             crédito, PayPal o transferencia bancaria; para pagos superiores a
-            2.500 dólares, solo se acepta transferencia bancaria.
+            2.500 dólares, solo se acepta transferencia bancaria. -->
           </p>
         </div>
         <div class="p-lg-4 p-2 mt-2 rounded-3 bg-light">
-          <div>
+          <!-- Se oculta seccion de envío de tu preferencia -->
+          <!-- <div>
             <h3 class="text-dark sale__h3 text-md-center pt-3">
               Seleccioná el tipo de envío de tu preferencia
             </h3>
-          </div>
-          <div>
+          </div> -->
+          <!-- <div>
             <div class="d-md-flex gap-1 mt-3">
               <div
                 class="col col-md-6 form-check sale__bg-black rounded-3 d-flex align-items-center">
@@ -83,7 +85,7 @@
                 <i class="bx bxs-flag-alt sale__i ms-4 ms-md-5 ms-lg-5"></i>
               </div>
             </div>
-          </div>
+          </div> 
           <div class="col mt-2">
             <div class="col form-check sale__bg-black rounded-3">
               <div class="p-3 sale__input-radio">
@@ -121,7 +123,7 @@
                 </label>
               </div>
             </div>
-          </div>
+          </div>-->
           <!-- Add billing data -->
           <div>
             <h3 class="text-dark sale__h3 text-center pt-3">
@@ -129,17 +131,19 @@
             </h3>
           </div>
           <!-- Form select shipping types -->
-          <form class="mt-3 d-flex flex-column gap-2" action="">
+          <form
+            class="mt-3 d-flex flex-column gap-2"
+            [formGroup]="formBillData">
             <div class="d-md-flex gap-2">
               <input
                 type="text"
                 name="name"
+                formControlName="name"
                 placeholder="Nombre y apellido"
                 class="form-control frm-register__input mb-2 mb-md-0"
                 id="name"
-                value="{{ billdata?.name }}"
+                value=""
                 minlength="3"
-                disabled="{{ billdata && billdata.name !== '' }}"
                 required
                 aria-describedby="nameHelp" />
             </div>
@@ -147,25 +151,23 @@
               <input
                 type="text"
                 name="identity_type"
+                formControlName="identity_type"
                 placeholder="Tipo de identificación"
-                value="{{ billdata ? billdata.identity_type : '' }}"
+                value=""
                 class="form-control frm-register__input mb-2 mb-md-0"
                 id="identity_type"
                 minlength="3"
-                disabled="[ billdata?.identity_type.length > 0 ]"
-                disabled="{{ billdata && billdata.identity_type !== '' }}"
                 required
                 aria-describedby="identity_typeHelp" />
               <input
                 type="text"
                 name="identity_number"
+                formControlName="identity_number"
                 placeholder="Número de identificación"
                 value="{{ billdata ? billdata.identity_number : '' }}"
                 class="form-control frm-register__input"
                 id="identity_number"
                 minlength="3"
-                disabled="[ billdata?.identity_number.length > 0 ]"
-                disabled="{{ billdata && billdata.identity_number !== '' }}"
                 required
                 aria-describedby="identity_numberHelp" />
             </div>
@@ -173,35 +175,27 @@
               <select
                 class="form-select mb-2 mb-md-0"
                 name=""
-                id="country_name"
-                disabled="{{ billdata && billdata.country_name !== '' }}">
-                <option value="" selected *ngIf="billdata">
-                  {{ billdata.country_name }}
-                </option>
-                <option value="">R.Dominicana</option>
-                <option value="">Estados unidos</option>
+                formControlName="country_id"
+                id="country_name">
+                <option ngValue="" selected>República Dominicana</option>
               </select>
             </div>
             <div class="d-md-flex gap-2">
               <select
                 class="form-select mb-2 mb-md-0"
-                name=""
                 id="state_name"
-                disabled="{{ billdata && billdata.state_name !== '' }}">
-                <option value="" selected *ngIf="billdata">
-                  {{ billdata.state_name }}
-                </option>
+                formControlName="state_id">
+                <option value=""></option>
                 <option value="">Buenos Aires</option>
                 <option value="">Rio Negro</option>
               </select>
+
               <select
                 class="form-select"
                 name=""
                 id="city_name"
-                disabled="{{ billdata && billdata.city_name !== '' }}">
-                <option value="" selected *ngIf="billdata">
-                  {{ billdata.city_name }}
-                </option>
+                formControlName="city_id">
+                <option value="" selected></option>
                 <option value="">Cipolletti</option>
                 <option value="">Ciudad Autónoma de Bs As</option>
               </select>
@@ -210,12 +204,12 @@
               <input
                 type="text"
                 name="address"
+                formControlName="address"
                 placeholder="Dirección (incluye calle, altura y piso, de ser necesario)"
                 class="form-control frm-register__input"
                 id="address"
-                value="{{ billdata ? billdata.address : '' }}"
+                value=""
                 minlength="3"
-                disabled="{{ billdata && billdata.address !== '' }}"
                 required
                 aria-describedby="addressHelp" />
             </div>
@@ -223,23 +217,23 @@
               <input
                 type="text"
                 name="code_zip"
+                formControlName="code_zip"
                 placeholder="Código postal "
-                value="{{ billdata ? billdata.code_zip : '' }}"
+                value=""
                 class="form-control frm-register__input"
                 id="code_zip"
                 minlength="3"
-                disabled="{{ billdata && billdata.code_zip !== '' }}"
                 required
                 aria-describedby="code_zipHelp" />
               <input
                 type="text"
                 name="phone"
+                formControlName="phone"
                 placeholder="Teléfono: +x (xxx) xxx-xxxx "
                 class="form-control frm-register__input"
                 id="phone"
                 value="{{ billdata ? billdata.phone : '' }}"
                 minlength="3"
-                disabled="{{ billdata && billdata.phone !== '' }}"
                 required
                 aria-describedby="phoneHelp" />
             </div>
@@ -247,12 +241,12 @@
               <input
                 type="email"
                 name="email"
+                formControlName="email"
                 placeholder="E-mail"
                 class="form-control frm-register__input"
                 id="email"
                 minlength="3"
-                value="{{ billdata ? billdata.email : '' }}"
-                disabled="{{ billdata && billdata.email !== '' }}"
+                value=""
                 required
                 aria-describedby="emailHelp" />
             </div>
@@ -260,12 +254,12 @@
               <input
                 type="text"
                 name="additional_info"
+                formControlName="additional_info"
                 placeholder="Información adicional (ej, entre calle y calle)"
                 class="form-control frm-register__input"
                 id="additional_info"
-                value="{{ billdata ? billdata.additional_info : '' }}"
+                value=""
                 minlength="3"
-                disabled="{{ billdata && billdata.additional_info !== '' }}"
                 required
                 aria-describedby="additional_infoHelp" />
             </div>
@@ -349,6 +343,7 @@
             <div>
               <h3 class="text-dark sale__h3">Seleccionar destinatario</h3>
               <p class="sale__p-xs">
+                <input type="checkbox" [formControl]="isChecked" />
                 (Seleccionar únicamente si los datos del destinatario son
                 distintos a los de facturación)
               </p>
@@ -356,7 +351,7 @@
             <div></div>
           </div>
           <!-- Form select recipient -->
-          <div class="d-flex flex-column mt-3 gap-2">
+          <!-- <div class="d-flex flex-column mt-3 gap-2">
             <div
               class="sale__bg-black p-3 rounded-3 d-flex flex-column gap-1"
               *ngFor="let recipient of recipients">
@@ -379,8 +374,8 @@
                 </div>
               </form>
             </div>
-          </div>
-          <div class="mt-4 d-flex justify-content-between align-items-center">
+          </div> -->
+          <!--  <div class="mt-4 d-flex justify-content-between align-items-center">
             <div>
               <div>
                 <button class="cart__button cart__button-bg">
@@ -388,9 +383,142 @@
                 </button>
               </div>
             </div>
-          </div>
+          </div> -->
           <!-- Form  new Destinatario -->
-          <form class="mt-3 d-flex flex-column gap-2" action="">
+          <form
+            class="mt-3 d-flex flex-column gap-2"
+            [formGroup]="formRecipient"
+            *ngIf="isChecked.value">
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="name"
+                formControlName="name"
+                placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="name"
+                value=""
+                minlength="3"
+                required
+                aria-describedby="nameHelp" />
+            </div>
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="identity_type"
+                formControlName="identity_type"
+                placeholder="Tipo de identificación"
+                value=""
+                class="form-control frm-register__input mb-2 mb-md-0"
+                id="identity_type"
+                minlength="3"
+                required
+                aria-describedby="identity_typeHelp" />
+              <input
+                type="text"
+                name="identity_number"
+                formControlName="identity_number"
+                placeholder="Número de identificación"
+                value="{{ billdata ? billdata.identity_number : '' }}"
+                class="form-control frm-register__input"
+                id="identity_number"
+                minlength="3"
+                required
+                aria-describedby="identity_numberHelp" />
+            </div>
+            <div class="d-md-flex gap-2">
+              <select
+                class="form-select mb-2 mb-md-0"
+                name=""
+                formControlName="country_id"
+                id="country_name">
+                <option value="" selected>República Dominicana</option>
+              </select>
+            </div>
+            <div class="d-md-flex gap-2">
+              <select
+                class="form-select mb-2 mb-md-0"
+                id="state_name"
+                formControlName="state_id">
+                <option value=""></option>
+                <option value="">Buenos Aires</option>
+                <option value="">Rio Negro</option>
+              </select>
+              <select
+                class="form-select"
+                name=""
+                id="city_name"
+                formControlName="city_id">
+                <option value="" selected></option>
+                <option value="">Cipolletti</option>
+                <option value="">Ciudad Autónoma de Bs As</option>
+              </select>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="address"
+                formControlName="address"
+                placeholder="Dirección (incluye calle, altura y piso, de ser necesario)"
+                class="form-control frm-register__input"
+                id="address"
+                value=""
+                minlength="3"
+                required
+                aria-describedby="addressHelp" />
+            </div>
+            <div class="d-md-flex gap-2">
+              <input
+                type="text"
+                name="code_zip"
+                formControlName="code_zip"
+                placeholder="Código postal "
+                value=""
+                class="form-control frm-register__input"
+                id="code_zip"
+                minlength="3"
+                required
+                aria-describedby="code_zipHelp" />
+              <input
+                type="text"
+                name="phone"
+                formControlName="phone"
+                placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input"
+                id="phone"
+                value="{{ billdata ? billdata.phone : '' }}"
+                minlength="3"
+                required
+                aria-describedby="phoneHelp" />
+            </div>
+            <div>
+              <input
+                type="email"
+                name="email"
+                formControlName="email"
+                placeholder="E-mail"
+                class="form-control frm-register__input"
+                id="email"
+                minlength="3"
+                value=""
+                required
+                aria-describedby="emailHelp" />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="additional_info"
+                formControlName="additional_info"
+                placeholder="Información adicional (ej, entre calle y calle)"
+                class="form-control frm-register__input"
+                id="additional_info"
+                value=""
+                minlength="3"
+                required
+                aria-describedby="additional_infoHelp" />
+            </div>
+          </form>
+          <!-- <form class="mt-3 d-flex flex-column gap-2" action="">
             <div class="d-md-flex gap-2">
               <input
                 type="text"
@@ -498,7 +626,7 @@
             <div class="text-center">
               <button class="cart__button cart__button-bg">Agregar</button>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
 
@@ -510,18 +638,18 @@
         <div class="pe-4 pt-2">
           <p class="sale__p sale__p-bold">Ítems:</p>
         </div>
-        <div *ngIf="total">
+        <div>
           <div
             class="d-flex justify-content-between pe-4 pt-1 gap-1"
-            *ngFor="let item of products">
+            *ngFor="let item of orderById.detail.items">
             <div>
               <p class="sale__p text-dark">
-                (x{{ item.quantity }} Unit) {{ item.name }}
+                {{ item.quantity }} {{ item.name }}
               </p>
             </div>
             <div>
               <p class="sale__p text-dark">
-                {{ item.subtotal | currency : 'USD' }}
+                {{ item.price | currency : 'USD' }}
               </p>
             </div>
           </div>
@@ -571,11 +699,13 @@
           <div class="d-flex justify-content-between">
             <div>
               <p class="sale__p sale__p-bold text-dark">
-                Productos ({{ quantityProducts }}):
+                Productos ({{ orderById.detail.products.total }}):
               </p>
             </div>
             <div>
-              <p class="sale__p text-dark">{{ total | currency : 'USD' }}</p>
+              <p class="sale__p text-dark">
+                {{ orderById.detail.products.totalPrice | currency : 'USD' }}
+              </p>
             </div>
           </div>
           <div class="d-flex justify-content-between">
@@ -583,7 +713,9 @@
               <p class="sale__p sale__p-bold text-dark">Descuento producto:</p>
             </div>
             <div>
-              <p class="sale__p text-dark">$0</p>
+              <p class="sale__p text-dark">
+                $ {{ orderById.detail.productDiscount | currency : 'USD' }}
+              </p>
             </div>
           </div>
           <div class="d-flex justify-content-between">
@@ -593,7 +725,9 @@
               </p>
             </div>
             <div>
-              <p class="sale__p text-dark">$0</p>
+              <p class="sale__p text-dark">
+                $ {{ orderById.detail.promocionalDiscount | currency : 'USD' }}
+              </p>
             </div>
           </div>
           <!-- <div class="d-flex justify-content-between">
@@ -612,14 +746,14 @@
             </div>
             <div>
               <p class="sale__p text-dark">
-                {{ tax | currency : 'USD' }}
+                {{ orderById.detail.tax | currency : 'USD' }}
               </p>
             </div>
           </div>
           <div class="mt-5">
             <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
             <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
-              US{{ totalSale | currency : 'USD' }}
+              US{{ orderById.detail.totalOrderPrice | currency : 'USD' }}
             </p>
             <div class="d-flex justify-content-center">
               <button class="sale__btn text-center" (click)="endOrder()">

@@ -19,6 +19,7 @@ export class OrdersComponent implements OnInit {
   btnBill = 'btn-desabilidato';
   orders: orderInformation[] = [];
   details!: orderDetails;
+
   // details: orderDetails;
   /* [
     {
@@ -52,7 +53,7 @@ export class OrdersComponent implements OnInit {
     console.log(window.innerHeight);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   openForm() {
     this.showFormPayment = true;
@@ -78,7 +79,7 @@ export class OrdersComponent implements OnInit {
   }
   continueOrder(order: string) {
     this.router.navigate(['/sales-order-step1'], {
-      queryParams:{id: order },
+      queryParams: { id: order },
     });
   }
 }

@@ -29,7 +29,9 @@
           [(ngModel)]="user.name"
           type="text"
           name="name"
-          [placeholder]="user.customer_type_role == 1 ? 'Nombre y Apellido' : 'Nombre'"
+          [placeholder]="
+            user.customer_type_role == 1 ? 'Nombre y Apellido' : 'Nombre'
+          "
           class="form-control"
           id="name"
           minlength="3"

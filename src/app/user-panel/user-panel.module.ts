@@ -9,6 +9,7 @@ import { PanelComponent } from './panel/panel.component';
 import { HelpComponent } from './help/help.component';
 import { ShippingStatusComponent } from './shipping-status/shipping-status.component';
 import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step-one.component';
+import { ChangeDecimalFormatPipe } from './change-decimal-format.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step
     HelpComponent,
     ShippingStatusComponent,
     SaleOrderStepOneComponent,
+    ChangeDecimalFormatPipe,
   ],
   imports: [CommonModule, ReactiveFormsModule, UserPanelRoutingModule],
   exports: [
