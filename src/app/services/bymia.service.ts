@@ -9,7 +9,11 @@ import { Slider } from '../shared/interfaces/Slider';
 import { TopLevel } from '../shared/interfaces/TopLevel';
 import { MsgContactForm } from '../shared/interfaces/contactForm';
 
-import { CountryCode } from '../shared/interfaces/countryCode-interface';
+import {
+  CityCode,
+  CountryCode,
+} from '../shared/interfaces/countryCode-interface';
+import { StateCode } from '../shared/interfaces/countryCode-interface';
 
 import { Banner } from '../shared/interfaces/Banner';
 import { Brand } from '../shared/interfaces/Brand';
@@ -32,7 +36,8 @@ const urlBrandsMock = 'assets/brands.json';
 
 const headers = new HttpHeaders({
   // Authorization: environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
-  Authorization: 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+  Authorization:
+    'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
   // 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg==',
 });
 
@@ -181,6 +186,13 @@ export class BymiaService {
     return this.http
       .get<CountryCode[]>(`${url}/country-code`, { headers })
       .pipe(tap(cod => (this.countryCode = cod)));
+  }
+
+  public getStateById(id: number) {
+    return this.http.get<StateCode[]>(`${url}/state-code/${id}`, { headers });
+  }
+  public getCityCodeById(id: number) {
+    return this.http.get<CityCode[]>(`${url}/city-code/${id}`, { headers });
   }
 
   public getBanners(): Observable<any> {

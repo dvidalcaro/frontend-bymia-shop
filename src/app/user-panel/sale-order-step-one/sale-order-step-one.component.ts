@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BymiaService } from 'src/app/services/bymia.service';
+import {
+  CityCode,
+  StateCode,
+} from 'src/app/shared/interfaces/countryCode-interface';
 import {
   orderDetails,
   orderInformation,
@@ -31,6 +36,8 @@ export class SaleOrderStepOneComponent implements OnInit {
   orderId!: number;
   orderById!: orderInformation;
   isChecked = new FormControl(false);
+  state_code!: StateCode[];
+  city_code!: CityCode[];
 
   formBillData = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -43,7 +50,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     code_zip: new FormControl('', Validators.required),
     phone: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    aditional_info: new FormControl('', Validators.required),
+    additional_info: new FormControl('', Validators.required),
   });
   formRecipient = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -56,7 +63,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     code_zip: new FormControl('', Validators.required),
     phone: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    aditional_info: new FormControl('', Validators.required),
+    additional_info: new FormControl('', Validators.required),
   });
   Popup: any[] = [
     {
@@ -75,7 +82,8 @@ export class SaleOrderStepOneComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private bymiaService: BymiaService
   ) {
     this.route.queryParams.subscribe(params => {
       const id = params['id']; // Reemplaza 'miParametro' con tu nombre de parámetro real
@@ -86,6 +94,16 @@ export class SaleOrderStepOneComponent implements OnInit {
         this.orderById = res;
         console.log('resp:', res);
       });
+    });
+
+    this.bymiaService.getStateById(62).subscribe(res => {
+      this.state_code = res;
+      console.log('State code', res);
+    });
+
+    this.bymiaService.getCityCodeById(4114).subscribe(res => {
+      this.city_code = res;
+      console.log('City code', res);
     });
 
     console.log('Order', this.userService.getOrder());
@@ -105,8 +123,13 @@ export class SaleOrderStepOneComponent implements OnInit {
 
     this.tax = 0;
     console.log('Total', this.total);
-  }
 
+    console.log(this.formBillData.value);
+  }
+  getDataForm() {
+    console.log(this.formBillData.value);
+    console.log(this.formRecipient.value);
+  }
   endOrder() {
     this.userService.endOrder().subscribe(res => {
       console.log('resp:', res);

@@ -14,7 +14,9 @@
       <!--colum2  -->
       <div class="col-7 d-flex justify-content-end align-items-center">
         <div class="me-1">
-          <button class="cart__button cart__button-bg">Finalizar orden</button>
+          <button class="cart__button cart__button-bg" (click)="getDataForm()">
+            Finalizar orden
+          </button>
         </div>
         <!--  <div class="d-flex flex-column align-content-center">
           <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
@@ -177,17 +179,18 @@
                 name=""
                 formControlName="country_id"
                 id="country_name">
-                <option ngValue="" selected>República Dominicana</option>
+                <option value="62">República Dominicana</option>
               </select>
+              {{ formBillData.get('country_id')?.value }}
             </div>
             <div class="d-md-flex gap-2">
               <select
                 class="form-select mb-2 mb-md-0"
                 id="state_name"
                 formControlName="state_id">
-                <option value=""></option>
-                <option value="">Buenos Aires</option>
-                <option value="">Rio Negro</option>
+                <option [value]="state.id" *ngFor="let state of state_code">
+                  {{ state.name }}
+                </option>
               </select>
 
               <select
@@ -195,9 +198,9 @@
                 name=""
                 id="city_name"
                 formControlName="city_id">
-                <option value="" selected></option>
-                <option value="">Cipolletti</option>
-                <option value="">Ciudad Autónoma de Bs As</option>
+                <option [value]="city.id" *ngFor="let city of city_code">
+                  {{ city.name }}
+                </option>
               </select>
             </div>
             <div>
