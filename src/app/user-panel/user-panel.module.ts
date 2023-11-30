@@ -10,6 +10,8 @@ import { HelpComponent } from './help/help.component';
 import { ShippingStatusComponent } from './shipping-status/shipping-status.component';
 import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step-one.component';
 import { ChangeDecimalFormatPipe } from './change-decimal-format.pipe';
+import { LoadingComponent } from '../pages/components/loading/loading.component';
+import { PagesModule } from '../pages/pages.module';
 
 @NgModule({
   declarations: [

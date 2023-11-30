@@ -42,6 +42,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   city_code_Recipient!: CityCode[];
   orderGenerate: any = {};
 
+  loading: boolean = true;
   formBillData = new FormGroup({
     name: new FormControl('', Validators.required),
     identity_type: new FormControl('', Validators.required),
@@ -53,7 +54,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     code_zip: new FormControl('', Validators.required),
     phone: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    additional_info: new FormControl('', Validators.required),
+    additional_info: new FormControl(''),
   });
   formRecipient = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -66,7 +67,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     code_zip: new FormControl('', Validators.required),
     phone: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    additional_info: new FormControl('', Validators.required),
+    additional_info: new FormControl(''),
   });
   Popup: any[] = [
     {
@@ -118,19 +119,26 @@ export class SaleOrderStepOneComponent implements OnInit {
     });
   }
   getDataForm() {
-    this.orderGenerate.id = this.orderId;
-
-    this.orderGenerate.billData = this.formBillData.value;
-    this.orderGenerate.recipient = this.formRecipient.value;
+    if (this.isChecked) {
+      this.orderGenerate.id = this.orderId;
+      this.orderGenerate.billData = this.formBillData.value;
+      this.orderGenerate.recipient = this.formRecipient.value;
+    } else {
+      this.orderGenerate.id = this.orderId;
+      this.orderGenerate.billData = this.formBillData.value;
+      this.orderGenerate.recipient = this.formBillData.value;
+    }
 
     this.userService
       .endOrder(this.orderGenerate, this.orderId)
       .subscribe(res => {
         console.log('Respuesta: ', res.message);
-
+        if (res.status) {
+          this.router.navigate(['orders']);
+        }
         return res;
       });
-    console.log(this.orderGenerate);
+
     /* console.log(this.formBillData.value); */
     /* console.log(this.formBillData.value);
     console.log(this.formRecipient.value); */
@@ -163,8 +171,7 @@ export class SaleOrderStepOneComponent implements OnInit {
       }
       this.userService.getOrderById(this.orderId).subscribe(res => {
         this.orderById = res;
-
-        console.log('id', this.orderId);
+        this.loading = false;
       });
     });
   }

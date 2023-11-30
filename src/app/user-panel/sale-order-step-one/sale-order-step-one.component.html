@@ -1,6 +1,11 @@
 <div class="container mt-3">
+  <div class="text-center text-bymia" *ngIf="loading">
+    <i class="bx bx-md bx-loader-alt bx-spin"></i>
+  </div>
+
   <div
-    class="container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn">
+    class="container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn"
+    *ngIf="!loading">
     <!-- Header Cart -->
     <div
       class="header__order row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
@@ -16,12 +21,34 @@
         <div class="me-1">
           <button
             class="cart__button cart__button-bg"
-            [ngClass]="{ disabled: formBillData.valid === false }"
-            [disabled]="formBillData.valid ? false : true"
+            [ngClass]="{
+              disabled:
+                (formBillData.valid === false && isChecked.value === false) ||
+                (isChecked.value === true &&
+                  formRecipient.valid === false &&
+                  formBillData.valid === false) ||
+                (isChecked.value === true &&
+                  formBillData.valid === true &&
+                  formRecipient.valid === false) ||
+                (isChecked.value === true &&
+                  formBillData.valid === false &&
+                  formRecipient.valid === true)
+            }"
+            [disabled]="
+              (formBillData.valid === false && isChecked.value === false) ||
+              (isChecked.value === true &&
+                formRecipient.valid === false &&
+                formBillData.valid === false) ||
+              (isChecked.value === true &&
+                formBillData.valid === true &&
+                formRecipient.valid === false) ||
+              (isChecked.value === true &&
+                formBillData.valid === false &&
+                formRecipient.valid === true)
+            "
             (click)="getDataForm()">
             Finalizar orden
           </button>
-          <p style="color: black">{{ formBillData.valid }}</p>
         </div>
         <!--  <div class="d-flex flex-column align-content-center">
           <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
@@ -271,7 +298,6 @@
                 id="additional_info"
                 value=""
                 minlength="3"
-                required
                 aria-describedby="additional_infoHelp" />
             </div>
           </form>
@@ -534,7 +560,6 @@
                 id="additional_info"
                 value=""
                 minlength="3"
-                required
                 aria-describedby="additional_infoHelp" />
             </div>
           </form>
@@ -651,7 +676,7 @@
       </div>
 
       <!-- Step confimation -->
-      <div class="col bg-light rounded-3 p-4 h-100">
+      <div class="col bg-light rounded-3 p-4 h-100" *ngIf="orderById.detail">
         <div class="text-center">
           <h3 class="text-dark sale__h3 pt-4">Confirmación del Pedido:</h3>
         </div>
@@ -776,7 +801,35 @@
               US{{ orderById.detail.totalOrderPrice | currency : 'USD' }}
             </p>
             <div class="d-flex justify-content-center">
-              <button class="sale__btn text-center" (click)="getDataForm()">
+              <button
+                class="sale__btn text-center"
+                [ngClass]="{
+                  disabled:
+                    (formBillData.valid === false &&
+                      isChecked.value === false) ||
+                    (isChecked.value === true &&
+                      formRecipient.valid === false &&
+                      formBillData.valid === false) ||
+                    (isChecked.value === true &&
+                      formBillData.valid === true &&
+                      formRecipient.valid === false) ||
+                    (isChecked.value === true &&
+                      formBillData.valid === false &&
+                      formRecipient.valid === true)
+                }"
+                [disabled]="
+                  (formBillData.valid === false && isChecked.value === false) ||
+                  (isChecked.value === true &&
+                    formRecipient.valid === false &&
+                    formBillData.valid === false) ||
+                  (isChecked.value === true &&
+                    formBillData.valid === true &&
+                    formRecipient.valid === false) ||
+                  (isChecked.value === true &&
+                    formBillData.valid === false &&
+                    formRecipient.valid === true)
+                "
+                (click)="getDataForm()">
                 Finalizar orden
               </button>
             </div>

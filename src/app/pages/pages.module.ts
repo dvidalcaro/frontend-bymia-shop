@@ -69,6 +69,7 @@ import { SearchMobileComponent } from './components/search-mobile/search-mobile.
     WishListComponent,
     ShopCartComponent,
     PricelistComponent,
+    //LoadingComponent,
   ],
   imports: [
     CommonModule,
