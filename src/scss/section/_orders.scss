@@ -98,6 +98,11 @@
   }
 }
 
+.disabled {
+  background-color: $secundary-color;
+  opacity: 0.5;
+}
+
 .container__ordernumber {
   padding: 0rem 1rem 0.5rem 1rem;
 

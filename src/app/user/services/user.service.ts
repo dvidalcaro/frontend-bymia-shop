@@ -11,6 +11,7 @@ import { Product } from '../models/product.model';
 import { BillData } from '../models/bill-data.model';
 import { Recipient } from '../models/recipient.model';
 import { orderInformation } from 'src/app/shared/interfaces/order-interface';
+import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
 
 const url = environment.url + '/api/customer';
 let headers: HttpHeaders;
@@ -202,7 +203,7 @@ export class UserService {
 
   createOrder(order: Order) {}
 
-  endOrder() {
-    return this.http.post(`${url}/order`, {}, { headers });
+  endOrder(order: orderGenerate, id: number): Observable<any> {
+    return this.http.patch(`${url}/order/${id}`, { order }, { headers });
   }
 }

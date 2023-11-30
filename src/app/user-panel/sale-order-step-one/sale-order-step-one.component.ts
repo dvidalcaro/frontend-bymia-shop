@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BymiaService } from 'src/app/services/bymia.service';
+import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
 import {
   CityCode,
   StateCode,
@@ -33,11 +34,13 @@ export class SaleOrderStepOneComponent implements OnInit {
   public quantityProducts: number | undefined = 0;
   public tax: number = 0;
   public totalSale: number = 0;
-  orderId!: number;
+  orderId: number = 86;
   orderById!: orderInformation;
   isChecked = new FormControl(false);
   state_code!: StateCode[];
   city_code!: CityCode[];
+  city_code_Recipient!: CityCode[];
+  orderGenerate: any = {};
 
   formBillData = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -85,56 +88,56 @@ export class SaleOrderStepOneComponent implements OnInit {
     private route: ActivatedRoute,
     private bymiaService: BymiaService
   ) {
-    this.route.queryParams.subscribe(params => {
-      const id = params['id']; // Reemplaza 'miParametro' con tu nombre de parámetro real
-      if (!id) {
-        this.router.navigate(['home']);
-      }
-      this.userService.getOrderById(id).subscribe(res => {
-        this.orderById = res;
-        console.log('resp:', res);
-      });
-    });
-
     this.bymiaService.getStateById(62).subscribe(res => {
       this.state_code = res;
-      console.log('State code', res);
     });
 
-    this.bymiaService.getCityCodeById(4114).subscribe(res => {
+    // eliminar
+    // this.billdata = this.userService.getOrder().bill_data;
+    // this.recipients = this.userService.getOrder().recipients;
+    // this.products = this.userService.getOrder().items?.map(item => {
+    //   return { ...item, subtotal: item.quantity * item.price };
+    // });
+
+    // this.quantityProducts = this.products?.reduce(
+    //   (acc, cur) => acc + cur.quantity,
+    //   0
+    // );
+    // this.total = this.products?.reduce((acc, cur) => acc + cur.subtotal, 0);
+
+    // this.tax = 0;
+  }
+  changeState(id: string) {
+    this.bymiaService.getCityCodeById(parseInt(id)).subscribe(res => {
       this.city_code = res;
-      console.log('City code', res);
     });
-
-    console.log('Order', this.userService.getOrder());
-    this.billdata = this.userService.getOrder().bill_data;
-    this.recipients = this.userService.getOrder().recipients;
-
-    this.products = this.userService.getOrder().items?.map(item => {
-      return { ...item, subtotal: item.quantity * item.price };
+  }
+  changeStateRecipient(id: string) {
+    this.bymiaService.getCityCodeById(parseInt(id)).subscribe(res => {
+      this.city_code_Recipient = res;
     });
-    console.log('Products:', this.products);
-
-    this.quantityProducts = this.products?.reduce(
-      (acc, cur) => acc + cur.quantity,
-      0
-    );
-    this.total = this.products?.reduce((acc, cur) => acc + cur.subtotal, 0);
-
-    this.tax = 0;
-    console.log('Total', this.total);
-
-    console.log(this.formBillData.value);
   }
   getDataForm() {
-    console.log(this.formBillData.value);
-    console.log(this.formRecipient.value);
+    this.orderGenerate.id = this.orderId;
+
+    this.orderGenerate.billData = this.formBillData.value;
+    this.orderGenerate.recipient = this.formRecipient.value;
+
+    this.userService
+      .endOrder(this.orderGenerate, this.orderId)
+      .subscribe(res => {
+        console.log('Respuesta: ', res.message);
+
+        return res;
+      });
+    console.log(this.orderGenerate);
+    /* console.log(this.formBillData.value); */
+    /* console.log(this.formBillData.value);
+    console.log(this.formRecipient.value); */
   }
-  endOrder() {
-    this.userService.endOrder().subscribe(res => {
-      console.log('resp:', res);
-    });
-  }
+  /* endOrder() {
+    this.userService.endOrder().subscribe(res => {});
+  } */
 
   selectRadio(value: string) {
     this.pickupData = value.indexOf('Pickup') > 0;
@@ -152,5 +155,17 @@ export class SaleOrderStepOneComponent implements OnInit {
     // console.log('select radio:', value);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.orderId = params['id']; // Reemplaza 'miParametro' con tu nombre de parámetro real
+      if (!this.orderId) {
+        this.router.navigate(['home']);
+      }
+      this.userService.getOrderById(this.orderId).subscribe(res => {
+        this.orderById = res;
+
+        console.log('id', this.orderId);
+      });
+    });
+  }
 }
