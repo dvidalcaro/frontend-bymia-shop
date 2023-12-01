@@ -15,6 +15,7 @@ import { BillData } from 'src/app/user/models/bill-data.model';
 import { Product } from 'src/app/user/models/product.model';
 import { Recipient } from 'src/app/user/models/recipient.model';
 import { UserService } from 'src/app/user/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sale-order-step-one',
@@ -41,8 +42,26 @@ export class SaleOrderStepOneComponent implements OnInit {
   city_code!: CityCode[];
   city_code_Recipient!: CityCode[];
   orderGenerate: any = {};
-
   loading: boolean = true;
+
+  errorResponse = {
+    name: 'El campo Nombre es requerido y debe contener al menos 3 caracteres',
+    identity_type:
+      'El campo Tipo de identificación es requerido y debe contener al menos 3 caracteres',
+    identity_number:
+      'El campo Número de identificación es requerido y debe contener al menos 3 caracteres',
+    country_id: 'Debes seleccionar un país',
+    state_id: 'Debes seleccionar un estado',
+    city_id: 'Debes seleccionar una ciudad',
+    address:
+      'El campo Dirección es requerido y debe contener al menos 3 caracteres',
+    code_zip:
+      'El campo Código postal es requerido y debe contener al menos 3 caracteres',
+    phone:
+      'El campo Teléfono es requerido y debe contener al menos 3 caracteres',
+    email: 'Debe ingresar un correo válido',
+  };
+
   formBillData = new FormGroup({
     name: new FormControl('', Validators.required),
     identity_type: new FormControl('', Validators.required),
@@ -119,21 +138,24 @@ export class SaleOrderStepOneComponent implements OnInit {
     });
   }
   getDataForm() {
-    if (this.isChecked) {
-      this.orderGenerate.id = this.orderId;
-      this.orderGenerate.billData = this.formBillData.value;
-      this.orderGenerate.recipient = this.formRecipient.value;
-    } else {
-      this.orderGenerate.id = this.orderId;
-      this.orderGenerate.billData = this.formBillData.value;
-      this.orderGenerate.recipient = this.formBillData.value;
-    }
+    this.orderGenerate.id = this.orderId;
+    this.orderGenerate.billData = this.formBillData.value;
+    this.orderGenerate.recipient = this.isChecked.value
+      ? this.formRecipient.value
+      : this.formBillData.value;
 
     this.userService
       .endOrder(this.orderGenerate, this.orderId)
       .subscribe(res => {
         console.log('Respuesta: ', res.message);
         if (res.status) {
+          Swal.fire({
+            title: 'Orden finalizada con exito',
+            text: 'Gracias por tu compra',
+            icon: 'info',
+            confirmButtonText: 'Cerrar',
+          });
+
           this.router.navigate(['orders']);
         }
         return res;

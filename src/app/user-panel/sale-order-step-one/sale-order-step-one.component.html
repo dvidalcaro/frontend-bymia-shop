@@ -181,6 +181,7 @@
                 required
                 aria-describedby="nameHelp" />
             </div>
+
             <div class="d-md-flex gap-2">
               <input
                 type="text"
@@ -299,6 +300,97 @@
                 value=""
                 minlength="3"
                 aria-describedby="additional_infoHelp" />
+            </div>
+            <!-- Mensajes de error de validaciones -->
+            <!-- Campo Nombre -->
+            <div
+              *ngIf="
+                formBillData.get('name')?.invalid &&
+                (formBillData.get('name')?.dirty ||
+                  formBillData.get('name')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.name }}
+            </div>
+            <!-- Campo tipo de identificación -->
+            <div
+              *ngIf="
+                formBillData.get('identity_type')?.invalid &&
+                (formBillData.get('identity_type')?.dirty ||
+                  formBillData.get('identity_type')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.identity_type }}
+            </div>
+            <!-- Campo número de identificación -->
+            <div
+              *ngIf="
+                formBillData.get('identity_number')?.invalid &&
+                (formBillData.get('identity_number')?.dirty ||
+                  formBillData.get('identity_number')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.identity_number }}
+            </div>
+            <!-- Campo país -->
+            <div
+              *ngIf="
+                formBillData.get('country_id')?.invalid &&
+                (formBillData.get('country_id')?.dirty ||
+                  formBillData.get('country_id')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.country_id }}
+            </div>
+            <!-- Campo estado -->
+            <div
+              *ngIf="
+                formBillData.get('state_id')?.invalid &&
+                (formBillData.get('state_id')?.dirty ||
+                  formBillData.get('state_id')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.state_id }}
+            </div>
+            <!-- Campo Dirección -->
+            <div
+              *ngIf="
+                formBillData.get('address')?.invalid &&
+                (formBillData.get('address')?.dirty ||
+                  formBillData.get('address')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.address }}
+            </div>
+            <!-- Campo Código Postal -->
+            <div
+              *ngIf="
+                formBillData.get('code_zip')?.invalid &&
+                (formBillData.get('code_zip')?.dirty ||
+                  formBillData.get('code_zip')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.code_zip }}
+            </div>
+            <!-- Campo Teléfono -->
+            <div
+              *ngIf="
+                formBillData.get('phone')?.invalid &&
+                (formBillData.get('phone')?.dirty ||
+                  formBillData.get('phone')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.phone }}
+            </div>
+            <!-- Campo Email -->
+            <div
+              *ngIf="
+                formBillData.get('email')?.invalid &&
+                (formBillData.get('email')?.dirty ||
+                  formBillData.get('email')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.email }}
             </div>
           </form>
           <!--Add Pickup Data  -->
@@ -561,6 +653,97 @@
                 value=""
                 minlength="3"
                 aria-describedby="additional_infoHelp" />
+            </div>
+            <!-- Mensajes de error de validaciones -->
+            <!-- Campo Nombre -->
+            <div
+              *ngIf="
+                formRecipient.get('name')?.invalid &&
+                (formRecipient.get('name')?.dirty ||
+                  formRecipient.get('name')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.name }}
+            </div>
+            <!-- Campo tipo de identificación -->
+            <div
+              *ngIf="
+                formRecipient.get('identity_type')?.invalid &&
+                (formRecipient.get('identity_type')?.dirty ||
+                  formRecipient.get('identity_type')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.identity_type }}
+            </div>
+            <!-- Campo número de identificación -->
+            <div
+              *ngIf="
+                formRecipient.get('identity_number')?.invalid &&
+                (formRecipient.get('identity_number')?.dirty ||
+                  formRecipient.get('identity_number')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.identity_number }}
+            </div>
+            <!-- Campo país -->
+            <div
+              *ngIf="
+                formRecipient.get('country_id')?.invalid &&
+                (formRecipient.get('country_id')?.dirty ||
+                  formRecipient.get('country_id')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.country_id }}
+            </div>
+            <!-- Campo estado -->
+            <div
+              *ngIf="
+                formRecipient.get('state_id')?.invalid &&
+                (formRecipient.get('state_id')?.dirty ||
+                  formRecipient.get('state_id')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.state_id }}
+            </div>
+            <!-- Campo Dirección -->
+            <div
+              *ngIf="
+                formRecipient.get('address')?.invalid &&
+                (formRecipient.get('address')?.dirty ||
+                  formRecipient.get('address')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.address }}
+            </div>
+            <!-- Campo Código Postal -->
+            <div
+              *ngIf="
+                formRecipient.get('code_zip')?.invalid &&
+                (formRecipient.get('code_zip')?.dirty ||
+                  formRecipient.get('code_zip')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.code_zip }}
+            </div>
+            <!-- Campo Teléfono -->
+            <div
+              *ngIf="
+                formRecipient.get('phone')?.invalid &&
+                (formRecipient.get('phone')?.dirty ||
+                  formRecipient.get('phone')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.phone }}
+            </div>
+            <!-- Campo Email -->
+            <div
+              *ngIf="
+                formRecipient.get('email')?.invalid &&
+                (formRecipient.get('email')?.dirty ||
+                  formRecipient.get('email')?.touched)
+              "
+              class="form-text text-danger">
+              {{ errorResponse.email }}
             </div>
           </form>
           <!-- <form class="mt-3 d-flex flex-column gap-2" action="">
