@@ -147,7 +147,6 @@ export class SaleOrderStepOneComponent implements OnInit {
     this.userService
       .endOrder(this.orderGenerate, this.orderId)
       .subscribe(res => {
-        console.log('Respuesta: ', res.message);
         if (res.status) {
           Swal.fire({
             title: 'Orden finalizada con exito',
@@ -157,13 +156,14 @@ export class SaleOrderStepOneComponent implements OnInit {
           });
 
           this.router.navigate(['orders']);
+        } else {
+          Swal.fire({
+            title: 'Ocurrio un Error',
+            text: 'Consultenos para mayor información',
+            icon: 'warning',
+            confirmButtonText: 'Cerrar',
+          });
         }
-        Swal.fire({
-          title: 'Ocurrio un Error',
-          text: 'Consultenos para mayor información',
-          icon: 'warning',
-          confirmButtonText: 'Cerrar',
-        });
         return res;
       });
 

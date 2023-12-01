@@ -74,7 +74,6 @@ export class ProductComponent implements OnInit {
     }
   }
   addProductCL(idProduct: number) {
-    console.log(idProduct, this.user);
     if (this.user !== null) {
       this.userService.addProductToCartlist(idProduct).subscribe(() => {
         // console.log(resp);
@@ -85,7 +84,6 @@ export class ProductComponent implements OnInit {
     }
   }
   removeProductWL(idProduct: number) {
-    console.log(idProduct, this.user);
     if (this.user !== null) {
       this.userService.removeProductToWishlist(idProduct).subscribe(resp => {
         // console.log(resp);

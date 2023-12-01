@@ -18,7 +18,10 @@
         <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 mb-4 mb-md-0">
           <ul class="list-unstyled d-flex align-content-stretch flex-wrap">
             <li class="col-6" *ngFor="let link of links">
-              <a [routerLink]="[link.links]" class="text-white subtitle"
+              <a
+                [routerLink]="[link.links]"
+                class="text-white subtitle btn_deshabilitado"
+                disabled
                 ><i class="bx bx-tada-hover bx-chevron-right"></i>
                 {{ link.label }}</a
               >
@@ -30,9 +33,12 @@
         <!--Grid column-->
         <div
           class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mb-4 mb-md-0 subtitle">
-          <h6>7953 NW 64th Street</h6>
-          <h6>Miami FL, 33166</h6>
-          <h6>Teléfono: +1 305 306 3125</h6>
+          <h6>
+            Zona Universitaria, calle Benigno Filomeno de Rojas, esquina Padre
+            Pina, local #102B
+          </h6>
+          <h6>Whatsapp: + 1 8494475665</h6>
+          <h6>Teléfono: 829 956 1225</h6>
           <h6>Email info@bymiashop.com</h6>
         </div>
         <!--Grid column-->
