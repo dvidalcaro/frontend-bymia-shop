@@ -89,20 +89,20 @@ export class NavbarComponent implements OnInit {
       links: 'faqs',
     },
 
-    {
+    /* {
       label: 'Ofertas',
       links: 'ofertas',
-    },
+    }, */
 
-    {
+    /*   {
       label: 'Lanzamientos',
       links: 'lanzamientos',
     },
-
-    {
+ */
+    /* {
       label: 'Flash Sales',
       links: 'flash-sales',
-    },
+    }, */
     {
       label: 'Precio de lista',
       links: 'pricelist',

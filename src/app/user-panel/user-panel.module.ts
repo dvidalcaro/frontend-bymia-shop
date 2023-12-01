@@ -27,6 +27,7 @@ import { PagesModule } from '../pages/pages.module';
   exports: [
     PanelComponent,
     HelpComponent,
+    ChangeDecimalFormatPipe,
     /* UserPanelRoutingModule   */
   ],
 })

@@ -61,7 +61,7 @@
         </div>
         <div class="header__information">
           <h3>TOTAL</h3>
-          <p>{{ order.total }}</p>
+          <p>$ {{ order.total | number : '1.2-2' | changeDecimalFormat }}</p>
         </div>
         <div class="header__information">
           <h3>ENVIAR A</h3>
@@ -358,7 +358,7 @@
             </p>
           </div>
           <div class="col-auto text-dark">
-            <p>$ {{ item.price }}</p>
+            <p>$ {{ item.price | number : '1.2-2' | changeDecimalFormat }}</p>
           </div>
         </div>
 
@@ -377,7 +377,12 @@
           </div>
           <div class="col text-end">
             <p class="text-dark">
-              $ {{ details.products.totalPrice | changeDecimalFormat }}
+              $
+              {{
+                details.products.totalPrice
+                  | number : '1.2-2'
+                  | changeDecimalFormat
+              }}
             </p>
           </div>
         </div>
@@ -388,7 +393,12 @@
             </p>
           </div>
           <div class="col">
-            <p class="text-dark text-end">$ {{ details.productDiscount }}</p>
+            <p class="text-dark text-end">
+              $
+              {{
+                details.productDiscount | number : '1.2-2' | changeDecimalFormat
+              }}
+            </p>
           </div>
         </div>
         <div class="row">
@@ -400,7 +410,11 @@
           <div class="col">
             <p class="text-dark text-end">
               $
-              {{ details.promocionalDiscount }}
+              {{
+                details.promocionalDiscount
+                  | number : '1.2-2'
+                  | changeDecimalFormat
+              }}
             </p>
           </div>
         </div>
@@ -411,7 +425,9 @@
             </p>
           </div>
           <div class="col">
-            <p class="text-dark text-end">$ {{ details.tax }}</p>
+            <p class="text-dark text-end">
+              $ {{ details.tax | number : '1.2-2' | changeDecimalFormat }}
+            </p>
           </div>
         </div>
 
@@ -421,7 +437,7 @@
         <div class="row mb-5">
           <h1 class="text-dark text-center">
             <strong
-              >US $<span>
+              >$<span>
                 {{
                   details.totalOrderPrice
                     | number : '1.2-2'

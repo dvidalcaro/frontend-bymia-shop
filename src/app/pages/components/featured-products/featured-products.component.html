@@ -63,15 +63,22 @@
                       [innerHTML]="getRating(item.rating, item.reviews)"></div>
                     <div class="row mb-4">
                       <div class="col">
-                        <h3 class="card-text text-start">
-                          {{ item.price | currency : 'USD' }}
+                        <h3 class="card-text text-start card-text-h3">
+                          ${{
+                            item.price | number : '1.2-2' | changeDecimalFormat
+                          }}
                         </h3>
                       </div>
                       <div class="col">
                         <p
                           class="text-center text-decoration-line-through"
                           *ngIf="item.old_price">
-                          {{ item.old_price | currency : 'USD' }}
+                          $
+                          {{
+                            item.old_price
+                              | number : '1.2-2'
+                              | changeDecimalFormat
+                          }}
                         </p>
                       </div>
                     </div>

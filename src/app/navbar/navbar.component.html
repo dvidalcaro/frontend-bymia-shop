@@ -90,10 +90,10 @@
         </div>
       </div>
       <!-- SearchBar2 -->
-      <ul class="navbar-nav m-auto mb-2 py-4" *ngIf="!switchBar">
+      <ul class="navbar-nav m-auto mb-2 py-4 me-5" *ngIf="!switchBar">
         <div *ngFor="let link of linksHeader">
           <li
-            class="nav-item mx-2"
+            class="nav-item mx-4"
             data-bs-toggle="collapse"
             data-bs-target=".navbar-collapse.show"
             routerLinkActive="active">
@@ -178,14 +178,14 @@
                         <strong>Mi Panel</strong>
                       </h5>
                     </li>
-                    <li>
+                    <!-- <li>
                       <hr class="dropdown-divider" />
                     </li>
                     <li class="pointer" routerLink="/my-data">
                       <h5 class="dropdown-header">
                         <strong>Mi Perfil</strong>
                       </h5>
-                    </li>
+                    </li> -->
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
@@ -197,13 +197,14 @@
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
-                    <li class="pointer" routerLink="/shipping-status">
+                    <!-- Se comenta estado de envió -->
+                    <!-- <li class="pointer" routerLink="/shipping-status">
                       <h5 class="dropdown-header">
                         <strong>Estado de envíos</strong>
                       </h5>
-                    </li>
+                    </li> -->
                     <li>
-                      <hr class="dropdown-divider" />
+                      <!--  <hr class="dropdown-divider" /> -->
                     </li>
                     <li class="pointer" (click)="logout()">
                       <h5 class="dropdown-header">
@@ -268,24 +269,25 @@
                         ><strong>Mi panel</strong></a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link text-light ps-3" routerLink="/my-data"
                         ><strong>Mi perfil</strong></a
                       >
-                    </li>
+                    </li> -->
 
                     <li class="nav-item">
                       <a class="nav-link text-light ps-3" routerLink="/orders"
                         ><strong>Mis órdenes</strong></a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- Se comenta por lanzamiento -->
+                    <!-- <li class="nav-item">
                       <a
                         class="nav-link text-light ps-3"
                         routerLink="/shipping-status"
                         ><strong>Estado de envíos</strong></a
                       >
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                       <a class="nav-link text-light ps-3" (click)="logout()"
                         ><strong>Salir</strong></a

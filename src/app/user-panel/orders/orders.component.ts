@@ -49,8 +49,6 @@ export class OrdersComponent implements OnInit {
     this.userService.getOrders().subscribe(resp => {
       this.orders = resp;
     });
-
-    console.log(window.innerHeight);
   }
 
   ngOnInit(): void {}
