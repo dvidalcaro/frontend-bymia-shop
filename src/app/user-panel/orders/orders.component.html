@@ -87,7 +87,7 @@
         </div>
         <div class="ordernumber__button" *ngIf="order.status == 8">
           <button class="btn__bill" (click)="continueOrder(order.numberOrder)">
-            Continuar con la orden
+            Continuar
           </button>
         </div>
         <div class="ordernumber__button" *ngIf="order.status == 7">
@@ -97,7 +97,9 @@
           <button (click)="openshowSeeDetail(order.detail)">Ver detalle</button>
           <button
             [ngClass]="{
+              ordernumber__button: true,
               a_data: true,
+              a_data_color: true,
               'btn-deshabilitado': order.receiptOfPayment.length === 0
             }">
             <a [href]="order.receiptOfPayment">Ver recibo</a>
@@ -105,6 +107,7 @@
           <button
             [ngClass]="{
               a_data: true,
+
               btn__bill: true,
               'btn-deshabilitado': order.bill.length === 0
             }">

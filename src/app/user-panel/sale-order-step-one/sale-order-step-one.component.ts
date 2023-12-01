@@ -158,6 +158,12 @@ export class SaleOrderStepOneComponent implements OnInit {
 
           this.router.navigate(['orders']);
         }
+        Swal.fire({
+          title: 'Ocurrio un Error',
+          text: 'Consultenos para mayor información',
+          icon: 'warning',
+          confirmButtonText: 'Cerrar',
+        });
         return res;
       });
 
