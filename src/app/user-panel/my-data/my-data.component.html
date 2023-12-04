@@ -1,6 +1,9 @@
 <div class="ctn-mydata">
+  <div class="text-center text-bymia" *ngIf="loading">
+    <i class="bx bx-md bx-loader-alt bx-spin"></i>
+  </div>
   <!-- Container Principal -->
-  <div class="mydata__bg">
+  <div class="mydata__bg" *ngIf="showData">
     <!-- Container fondo gris  -->
     <div class="mydata__back">
       <a [routerLink]="['/panel']">
@@ -8,6 +11,7 @@
       /></a>
       <a [routerLink]="['/panel']"> Volver a la página anterior</a>
     </div>
+
     <div class="ctn-mydata__bg">
       <!-- container fondo blanco  -->
       <div class="mydata__flx">
@@ -16,39 +20,39 @@
 
           <div class="mydata__title">
             <h3>Mis datos</h3>
-            <button class="btn__mydata btn-mobile">Editar</button>
+            <button class="btn__mydata btn-mobile" *ngIf="false">Editar</button>
           </div>
           <div class="mydata__bgd">
             <div>
               <div>
                 <h3>Código de identificacion:</h3>
-                <p>24354634654</p>
+                <p>{{ userProfile.customerData.code_id }}</p>
               </div>
-              <button class="btn__mydata btn-deskt">Editar</button>
+              <!--  <button class="btn__mydata btn-deskt">Editar</button> -->
             </div>
             <div>
               <h3>Tipo de cliente:</h3>
-              <p>persona</p>
+              <p>{{ userProfile.customerData.type_user }}</p>
             </div>
             <div>
               <h3>Nombre y apellido:</h3>
-              <p>Diego Vidal Caro</p>
+              <p>{{ userProfile.customerData.name }}</p>
             </div>
             <div>
               <h3>Email:</h3>
-              <p>dvidalcaro@gmail.com</p>
+              <p>{{ userProfile.customerData.email }}</p>
             </div>
             <div>
               <h3>Teléfono:</h3>
-              <p>+541121254001</p>
+              <p>{{ userProfile.customerData.phone }}</p>
             </div>
             <div>
               <h3>Sexo:</h3>
-              <p>Masculino</p>
+              <p>{{ userProfile.customerData.gender }}</p>
             </div>
             <div>
               <h3>Fecha de nacimiento:</h3>
-              <p>07/08/1986</p>
+              <p>{{ userProfile.customerData.birthdate }}</p>
             </div>
             <div class="mydata__security">
               <h3>Seguridad</h3>
@@ -65,55 +69,77 @@
             <!-- container fondo blanco mobile  -->
             <div class="mydata__title">
               <h3>Mis datos de facturación</h3>
-              <button class="btn__mydata btn-mobile">Editar</button>
+              <button class="btn__mydata btn-mobile" *ngIf="false">
+                Editar
+              </button>
             </div>
             <div class="mydata__bgd">
               <div>
                 <div>
-                  <h3>Nombre y apellido / Nombre de la empresa:</h3>
-                  <p>24354634654</p>
+                  <h3>
+                    {{ userProfile.customerData.latest_billing_data.name }}
+                  </h3>
+                  <p>
+                    {{ userProfile.customerData.latest_billing_data.code_id }}
+                  </p>
                 </div>
                 <button class="btn__mydata btn-deskt">Editar</button>
               </div>
               <div>
                 <h3>Tipo de cliente:</h3>
-                <p>persona</p>
+                <p>
+                  {{ userProfile.customerData.latest_billing_data.type_user }}
+                </p>
               </div>
               <div>
                 <h3>Email:</h3>
-                <p>dvidalcaro@gmail.com</p>
+                <p>{{ userProfile.customerData.latest_billing_data.email }}</p>
               </div>
               <div>
                 <h3>Teléfono:</h3>
-                <p>+541121254001</p>
+                <p>{{ userProfile.customerData.latest_billing_data.phone }}</p>
               </div>
               <div>
                 <h3>Tipo de identificación:</h3>
-                <p>DNI</p>
+                <p>
+                  {{
+                    userProfile.customerData.latest_billing_data.identity_type
+                  }}
+                </p>
               </div>
               <div>
                 <h3>Número de identificación:</h3>
-                <p>45464646</p>
+                <p>
+                  {{
+                    userProfile.customerData.latest_billing_data.identity_number
+                  }}
+                </p>
               </div>
               <div>
                 <h3>País:</h3>
-                <p>Argentina</p>
+                <p>
+                  {{ userProfile.customerData.latest_billing_data.country }}
+                </p>
               </div>
               <div>
                 <h3>Estado o provincia:</h3>
-                <p>CABA</p>
+                <p>{{ userProfile.customerData.latest_billing_data.state }}</p>
               </div>
               <div>
                 <h3>Ciudad:</h3>
-                <p>Buenos Aires</p>
+                <p>{{ userProfile.customerData.latest_billing_data.city }}</p>
               </div>
               <div>
                 <h3>Dirección:</h3>
-                <p>Ernrique santos</p>
+                <p>
+                  {{ userProfile.customerData.latest_billing_data.address }}
+                </p>
               </div>
               <div>
                 <h3>Código Postal:</h3>
-                <p>1051</p>
+                <p>
+                  {{ userProfile.customerData.latest_billing_data.zip_code }}
+                </p>
               </div>
             </div>
           </div>
@@ -122,7 +148,7 @@
       <div class="mydata__address mydata">
         <div class="mydata__title">
           <h3>Mis direcciones</h3>
-          <button class="btn__mydata btn-mobile">
+          <button class="btn__mydata btn-mobile" *ngIf="false">
             <i class="bx bxs-plus-circle bx-tada-hover"></i>Agregar
           </button>
         </div>
@@ -132,7 +158,17 @@
           </button>
         </div>
         <div class="ctn__addres">
-          <div class="mydata__address__card">
+          <div
+            class="mydata__address__card"
+            *ngFor="let address of userProfile.customerData.my_addresses">
+            <h3>{{ address.name }}</h3>
+            <p>
+              {{ address.city }}, {{ address.state }}, {{ address.address }}, CP
+              {{ address.zip_code }},
+              {{ address.phone }}
+            </p>
+          </div>
+          <!-- <div class="mydata__address__card">
             <h3>Diego Vidal Caro</h3>
             <p>
               Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
@@ -179,19 +215,7 @@
               <p>|</p>
               <button>Eliminar</button>
             </div>
-          </div>
-          <div class="mydata__address__card">
-            <h3>Diego Vidal Caro</h3>
-            <p>
-              Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-              +541162964723
-            </p>
-            <div class="address__button">
-              <button>Editar dirección</button>
-              <p>|</p>
-              <button>Eliminar</button>
-            </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

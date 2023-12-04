@@ -111,6 +111,11 @@
             </ng-template>
           </li>
         </div>
+        <a
+          class="nav-link text-light ps-3"
+          href="/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D"
+          ><strong>Destacados</strong></a
+        >
       </ul>
       <ul class="navbar-nav ms-auto me-5 mb-2 py-4">
         <li
@@ -178,14 +183,14 @@
                         <strong>Mi Panel</strong>
                       </h5>
                     </li>
-                    <!-- <li>
+                    <li>
                       <hr class="dropdown-divider" />
                     </li>
                     <li class="pointer" routerLink="/my-data">
                       <h5 class="dropdown-header">
                         <strong>Mi Perfil</strong>
                       </h5>
-                    </li> -->
+                    </li>
                     <li>
                       <hr class="dropdown-divider" />
                     </li>
@@ -269,11 +274,11 @@
                         ><strong>Mi panel</strong></a
                       >
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                       <a class="nav-link text-light ps-3" routerLink="/my-data"
                         ><strong>Mi perfil</strong></a
                       >
-                    </li> -->
+                    </li>
 
                     <li class="nav-item">
                       <a class="nav-link text-light ps-3" routerLink="/orders"
@@ -308,6 +313,11 @@
             ><strong>{{ link.label }}</strong></a
           >
         </li>
+        <a
+          class="nav-link text-light ps-3"
+          href="/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D"
+          ><strong>Destacados</strong></a
+        >
 
         <li class="nav-item ms-3 mt-1" *ngFor="let icon of linksIcon">
           <div *ngIf="icon.links === 'wish-list'">

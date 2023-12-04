@@ -12,6 +12,7 @@ import { BillData } from '../models/bill-data.model';
 import { Recipient } from '../models/recipient.model';
 import { orderInformation } from 'src/app/shared/interfaces/order-interface';
 import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
+import { UserProfileData } from 'src/app/shared/interfaces/UserProfileData.inteface';
 
 const url = environment.url + '/api/customer';
 let headers: HttpHeaders;
@@ -205,5 +206,14 @@ export class UserService {
 
   endOrder(order: orderGenerate, id: number): Observable<any> {
     return this.http.patch(`${url}/order/${id}`, { order }, { headers });
+  }
+
+  getMyData(): Observable<any> {
+    this.prepareHeaders();
+    return this.http.get<any>(`${url}/data`, { headers }).pipe(
+      map(resp => {
+        return resp;
+      })
+    );
   }
 }

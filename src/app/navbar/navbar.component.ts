@@ -89,9 +89,10 @@ export class NavbarComponent implements OnInit {
       links: 'faqs',
     },
 
-    /* {
+    /*  {
       label: 'Ofertas',
-      links: 'ofertas',
+      links:
+        'http://localhost:4200/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D',
     }, */
 
     /*   {
