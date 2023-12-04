@@ -981,7 +981,7 @@
           <div class="mt-5">
             <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
             <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
-              US{{ orderById.detail.totalOrderPrice | currency : 'USD' }}
+              {{ orderById.detail.totalOrderPrice | currency : 'USD' }}
             </p>
             <div class="d-flex justify-content-center">
               <button
