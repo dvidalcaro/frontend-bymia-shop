@@ -108,6 +108,10 @@ export class NavbarComponent implements OnInit {
       label: 'Precio de lista',
       links: 'pricelist',
     },
+    {
+      label: 'Contacto',
+      links: 'help',
+    },
   ];
   linksIcon = [
     {
