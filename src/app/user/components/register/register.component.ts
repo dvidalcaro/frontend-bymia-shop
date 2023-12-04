@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   countryCodes: CountryCode[] = [];
   countryFlag: string = '';
   countryAlt: string = '';
+
   public remember = false;
   errorResponse = {
     email: 'Debe ingresar un correo válido',
@@ -41,6 +42,12 @@ export class RegisterComponent implements OnInit {
     this.user.country_id = 62;
 
     bymiaService.getCountryCode().subscribe(resp => {
+      console.log(resp);
+
+      this.countryCodes = resp;
+    });
+
+    /* bymiaService.getCountryCode().subscribe(resp => {
       this.countryCodes = resp;
       console.log(this.countryCodes);
       console.log(this.countryCodes[0].phonecode);
@@ -48,15 +55,19 @@ export class RegisterComponent implements OnInit {
       this.countryPhoneCode = this.countryCodes[0].phonecode;
       this.countryFlag = this.countryCodes[0].flag;
       this.countryAlt = this.countryCodes[0].name;
-    });
+    }); */
   }
-  selectCountry() {
+  /* selectCountry() {
     if (this.user.country_id) {
       // console.log(this.user.country_id);
       this.countryFlag = this.countryCodes[this.user.country_id].flag;
       this.countryAlt = this.countryCodes[this.user.country_id].name;
       this.user.country_phone_code = this.countryCodes[this.user.country_id].id;
     }
+  } */
+
+  getFlagPhone(country_id: User) {
+    console.log('hola cambie el país', country_id.country_id);
   }
 
   clearEmailError() {
@@ -66,7 +77,7 @@ export class RegisterComponent implements OnInit {
     this.errorResponse.date_of_birth = '';
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
     // console.log(this.user);

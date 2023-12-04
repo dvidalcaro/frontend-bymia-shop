@@ -5,6 +5,7 @@ import { BymiaService } from 'src/app/services/bymia.service';
 import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
 import {
   CityCode,
+  CountryCode,
   StateCode,
 } from 'src/app/shared/interfaces/countryCode-interface';
 import {
@@ -38,6 +39,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   orderId: number = 86;
   orderById!: orderInformation;
   isChecked = new FormControl(false);
+  countries!: CountryCode[];
   state_code!: StateCode[];
   city_code!: CityCode[];
   city_code_Recipient!: CityCode[];
@@ -112,6 +114,11 @@ export class SaleOrderStepOneComponent implements OnInit {
     private route: ActivatedRoute,
     private bymiaService: BymiaService
   ) {
+    this.bymiaService.getCountryCode().subscribe(resp => {
+      console.log(resp);
+
+      this.countries = resp;
+    });
     this.bymiaService.getStateById(62).subscribe(res => {
       this.state_code = res;
     });
@@ -130,6 +137,14 @@ export class SaleOrderStepOneComponent implements OnInit {
     // this.total = this.products?.reduce((acc, cur) => acc + cur.subtotal, 0);
 
     // this.tax = 0;
+  }
+  changeCity(id: string) {
+    this.bymiaService.getStateById(parseInt(id)).subscribe(res => {
+      this.state_code = res;
+    });
+    /* this.bymiaService.getCityCodeById(parseInt(id)).subscribe(res => {
+      this.city_code = res;
+    }); */
   }
   changeState(id: string) {
     this.bymiaService.getCityCodeById(parseInt(id)).subscribe(res => {
