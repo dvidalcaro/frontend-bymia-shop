@@ -43,7 +43,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   city_code_Recipient!: CityCode[];
   orderGenerate: any = {};
   loading: boolean = true;
-
+  // Objeto con respuestas deerror en el formulario
   errorResponse = {
     name: 'El campo Nombre es requerido y debe contener al menos 3 caracteres',
     identity_type:
@@ -62,6 +62,8 @@ export class SaleOrderStepOneComponent implements OnInit {
     email: 'Debe ingresar un correo válido',
   };
 
+  // Declaracion formulario de facturacion
+
   formBillData = new FormGroup({
     name: new FormControl('', Validators.required),
     identity_type: new FormControl('', Validators.required),
@@ -75,6 +77,8 @@ export class SaleOrderStepOneComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     additional_info: new FormControl(''),
   });
+
+  // Declaracion formulario de envio
   formRecipient = new FormGroup({
     name: new FormControl('', Validators.required),
     identity_type: new FormControl('', Validators.required),
