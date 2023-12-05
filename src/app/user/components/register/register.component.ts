@@ -42,8 +42,6 @@ export class RegisterComponent implements OnInit {
     this.user.country_id = 62;
 
     bymiaService.getCountryCode().subscribe(resp => {
-      console.log(resp);
-
       this.countryCodes = resp;
     });
 
@@ -66,8 +64,9 @@ export class RegisterComponent implements OnInit {
     }
   } */
 
-  getFlagPhone(country_id: User) {
-    console.log('hola cambie el país', country_id.country_id);
+  getFlagPhone(country_id: any) {
+    this.countryFlag = country_id.country_id.flag;
+    this.countryPhoneCode = country_id.country_id.phonecode;
   }
 
   clearEmailError() {

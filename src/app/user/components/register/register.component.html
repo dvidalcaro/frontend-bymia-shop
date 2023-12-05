@@ -128,10 +128,8 @@
               class="form-select frm-register__select-bg"
               aria-label="Selecciona una Opción"
               (change)="getFlagPhone(f.control.value)">
-              <option value="" disabled>Seleciona el país</option>
-              <option
-                [ngValue]="country.id"
-                *ngFor="let country of countryCodes">
+              <option value="" selected disabled>Seleciona el país</option>
+              <option [ngValue]="country" *ngFor="let country of countryCodes">
                 {{ country.name }}
               </option>
             </select>
