@@ -258,7 +258,6 @@
               <div class="input-group d-flex flex-column">
                 <button
                   class="badge rounded-pill bg-secundary col-4 col-md-2 ms-2"
-                  data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <i class="bx bx-tada-hover bx-sm bxs-log-out-circle"></i>
                   {{
@@ -267,7 +266,7 @@
                       : username
                   }}
                 </button>
-                <ul class="dropdown-menu nav__ul">
+                <ul class="navbar-nav nav__ul">
                   <div>
                     <li class="nav-item">
                       <a class="nav-link text-light ps-3" routerLink="/panel"
@@ -307,6 +306,11 @@
             </ng-template>
           </div>
         </li>
+        <!-- Prueba de menu perfil -->
+        <!--  class="dropdown-menu nav__ul" -->
+        <!--  -->
+
+        <!-- Fin Prueba de munu perfil  -->
 
         <li class="nav-item" *ngFor="let link of linksHeader">
           <a class="nav-link text-light ps-3" [routerLink]="[link.links]"

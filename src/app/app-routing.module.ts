@@ -66,11 +66,13 @@ const routes: Routes = [
   },
   {
     path: 'politicas-privacidad-y-servcios',
-    component: PoliticasComponent,
+    // se deshabilita mientras elaboran la de rd component: PoliticasComponent,
+    component: HomeComponent,
   },
   {
     path: 'politicas-rma-y-garantia',
-    component: RmaGarantiaComponent,
+    component: HomeComponent,
+    // se deshabilita mientras elaboran la de rd component: RmaGarantiaComponent,
   },
 
   // {

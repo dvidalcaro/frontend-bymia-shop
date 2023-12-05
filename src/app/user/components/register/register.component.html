@@ -37,6 +37,7 @@
           minlength="3"
           required
           aria-describedby="nameHelp" />
+
         <div
           *ngIf="(f.submitted && f.controls['name'].errors) || errorServer"
           id="nameHelp"
@@ -74,6 +75,7 @@
           minlength="6"
           required
           aria-describedby="passwordHelp" />
+
         <div
           *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
           id="passwordHelp"
@@ -124,8 +126,12 @@
               id="country_id"
               name="country_id"
               class="form-select frm-register__select-bg"
-              aria-label="Selecciona una Opción">
-              <option [ngValue]="62">República Dominicana</option>
+              aria-label="Selecciona una Opción"
+              (change)="getFlagPhone(f.control.value)">
+              <option value="" selected disabled>Seleciona el país</option>
+              <option [ngValue]="country" *ngFor="let country of countryCodes">
+                {{ country.name }}
+              </option>
             </select>
           </div>
         </div>
@@ -175,10 +181,14 @@
           <div class="col-11">
             <p class="condition__p">
               Al Entrar o Registrarte , aceptas las
-              <a routerLink="/politicas-privacidad-y-servcios">
+              <a
+                class="btn-deshabilitado"
+                routerLink="/politicas-privacidad-y-servcios">
                 <strong>Condiciones de servicio </strong> </a
               >y la
-              <a routerLink="/politicas-privacidad-y-servcios"
+              <a
+                class="btn-deshabilitado"
+                routerLink="/politicas-privacidad-y-servcios"
                 ><strong>Política de privacidad</strong>
               </a>
             </p>

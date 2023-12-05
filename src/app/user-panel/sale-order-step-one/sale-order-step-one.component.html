@@ -213,7 +213,7 @@
                 formControlName="country_id"
                 id="country_name">
                 <option value="" disabled>Seleciona el país</option>
-                <option value="62">República Dominicana</option>
+                <option [value]="62">República Dominicana</option>
               </select>
             </div>
             <div class="d-md-flex gap-2">
@@ -981,7 +981,7 @@
           <div class="mt-5">
             <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
             <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
-              US{{ orderById.detail.totalOrderPrice | currency : 'USD' }}
+              {{ orderById.detail.totalOrderPrice | currency : 'USD' }}
             </p>
             <div class="d-flex justify-content-center">
               <button
@@ -1019,20 +1019,20 @@
             <p class="sale__p sale__p-xs text-center text-dark mt-2 p-2">
               Al Entrar o Registrarte, aceptás los
               <strong
-                class="cursor__pointer"
+                class="cursor__pointer btn-deshabilitado"
                 routerLink="/politicas-privacidad-y-servcios"
                 >Términos y condiciones</strong
               >
               y la
               <strong
-                class="cursor__pointer"
+                class="cursor__pointer btn-deshabilitado"
                 routerLink="/politicas-privacidad-y-servcios"
                 >Política de privacidad</strong
               >
               , y el envío de mails con ofertas,además de la
               <strong>Política de garantía y RMA,</strong> que podés conocer
               <strong
-                class="cursor__pointer"
+                class="cursor__pointer btn-deshabilitado"
                 routerLink="/politicas-rma-y-garantia"
                 >aquí.</strong
               >
