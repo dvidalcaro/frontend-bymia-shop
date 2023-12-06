@@ -84,7 +84,8 @@ export class RegisterComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-
+    this.user.country_id = form.value.country_id.id;
+    this.user.country_phone_code = form.value.country_id.id;
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
@@ -95,7 +96,6 @@ export class RegisterComponent implements OnInit {
     this.auth.register(this.user).subscribe(
       resp => {
         this.errorServer = false;
-        // console.log(resp);
         Swal.fire({
           icon: 'success',
           title: 'Usuario creado correctamente',

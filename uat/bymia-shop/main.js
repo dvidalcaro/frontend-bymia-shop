@@ -7952,6 +7952,8 @@ class RegisterComponent {
         if (form.invalid) {
             return;
         }
+        this.user.country_id = form.value.country_id.id;
+        this.user.country_phone_code = form.value.country_id.id;
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
             allowOutsideClick: false,
             icon: 'info',
@@ -7961,7 +7963,6 @@ class RegisterComponent {
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().showLoading();
         this.auth.register(this.user).subscribe(resp => {
             this.errorServer = false;
-            // console.log(resp);
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
                 icon: 'success',
                 title: 'Usuario creado correctamente',
