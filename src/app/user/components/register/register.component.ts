@@ -79,8 +79,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    // console.log(this.user);
-    // console.log(form.invalid);
     if (form.invalid) {
       return;
     }
