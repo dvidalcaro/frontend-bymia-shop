@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map,catchError } from 'rxjs/operators';
 import { Wishlist } from '../models/wishlist.model';
 import { AuthService } from './auth.service';
 import { Cartlist } from '../models/cartlist.model';
@@ -13,6 +13,8 @@ import { Recipient } from '../models/recipient.model';
 import { orderInformation } from 'src/app/shared/interfaces/order-interface';
 import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
 import { UserProfileData } from 'src/app/shared/interfaces/UserProfileData.inteface';
+
+import { throwError } from 'rxjs';
 
 const url = environment.url + '/api/customer';
 let headers: HttpHeaders;
@@ -76,6 +78,9 @@ export class UserService {
       .pipe(
         map(resp => {
           return resp;
+        }),
+        catchError(error => {
+          return throwError(error);
         })
       );
   }
