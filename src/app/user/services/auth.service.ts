@@ -10,7 +10,8 @@ import { environment } from 'src/environments/environment';
 const url = environment.url + '/api/front';
 const headers = new HttpHeaders({
   // Authorization: environment.production ? 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==' : 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg=='
-  Authorization: 'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
+  Authorization:
+    'Basic NWViY2E3YjYtMzJhYi0xMWVkLWI5NTItZGIxOGU3NTIzOGE2OmIwM2FiOWM0LTkwNjQtNDkwZC05MWE3LTYyNjExYTM3YzU3MA==',
   // 'Basic NGE0OWNmMzYtMzAxMC0xMWVkLTk4ZjktZDUzYjI4NjIxYzA1OmRhMjQ0MTc3LThlNjItNDQ0Mi05YWQ5LTk4MTUxZjg0MzJjYg==',
 });
 
@@ -34,21 +35,27 @@ export class AuthService {
   }
 
   register(user: User) {
-    return this.http.post(`${url}/register`, {
-      "cel_phone": user.cel_phone,
-      "country_id": user.country_id,
-      "country_phone_code": user.country_id,
-      "customer_type_role": user.customer_type_role,
-      "email": user.email,
-      "gender_type": user.gender_type,
-      "name": user.name,
-      "password": user.password,
-      "date_of_birth": user.date_of_birth ? user.date_of_birth : null
-    }, { headers }).pipe(
-      map(resp => {
-        return resp;
-      })
-    );
+    return this.http
+      .post(
+        `${url}/register`,
+        {
+          cel_phone: user.cel_phone,
+          country_id: user.country_id,
+          country_phone_code: user.country_id,
+          customer_type_role: user.customer_type_role,
+          email: user.email,
+          gender_type: user.gender_type,
+          name: user.name,
+          password: user.password,
+          date_of_birth: user.date_of_birth ? user.date_of_birth : null,
+        },
+        { headers }
+      )
+      .pipe(
+        map(resp => {
+          return resp;
+        })
+      );
   }
 
   login(user: User) {
@@ -78,6 +85,25 @@ export class AuthService {
     this.router.navigate(['/']).then(() => {
       window.location.reload();
     });
+  }
+
+  forgotPassword(email: string) {
+    return this.http
+      .post(`${url}/forgot-password`, { email }, { headers })
+      .pipe(
+        map(resp => {
+          return resp;
+        })
+      );
+  }
+  restorePassword(id: string, code: string, password: String) {
+    return this.http
+      .post(`${url}/change-password`, { id, code, password }, { headers })
+      .pipe(
+        map(resp => {
+          return resp;
+        })
+      );
   }
 
   getToken() {

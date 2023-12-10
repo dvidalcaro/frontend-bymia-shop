@@ -9,10 +9,22 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserPanelModule } from '../user-panel/user-panel.module';
 import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
 import { RestorePasswordComponent } from './components/restore-password/restore-password.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, ForgetPasswordComponent, RestorePasswordComponent],
-  imports: [CommonModule, FormsModule, UserPanelModule, UserRoutingModule],
+  declarations: [
+    LoginComponent,
+    RegisterComponent,
+    ForgetPasswordComponent,
+    RestorePasswordComponent,
+  ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    UserPanelModule,
+    UserRoutingModule,
+    RouterModule,
+  ],
   exports: [LoginComponent, RegisterComponent],
 })
 export class UserModule {}

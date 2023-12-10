@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ForgetPasswordComponent implements OnInit {
   user: User;
+  email: string = '';
   errorResponse = {
     email: 'Debe ingresar un correo válido',
     password: 'Debe ingresar una password de al menos 6 caracteres',
@@ -26,32 +27,21 @@ export class ForgetPasswordComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    Swal.fire({
-      // allowOutsideClick: false,
-
-      icon: 'success',
-      text: 'Te enviamos un correo electronico para que cambies tu contraseña, si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
-    }).then(resp => {
-      this.router.navigateByUrl('/');
-    });
-    /* Swal.showLoading();
-
-    this.auth.login(this.user).subscribe(
+    console.log(this.email);
+    this.auth.forgotPassword(this.email).subscribe(
       resp => {
-        // console.log(resp);
-        Swal.close();
-
-        this.router.navigateByUrl('/home');
+        Swal.fire({
+          icon: 'success',
+          text: 'Te enviamos un correo electronico para que cambies tu contraseña, si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
+        });
       },
       err => {
-        // console.log(err);
         Swal.fire({
           icon: 'error',
-          title: 'Error al autenticar',
-          // text: err.error.error.message,
+          title: err.error.message,
         });
       }
-    ); */
+    );
   }
 
   ngOnInit(): void {}

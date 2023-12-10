@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user.model';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import Swal from 'sweetalert2';
 
@@ -11,29 +11,54 @@ import Swal from 'sweetalert2';
   styleUrls: ['./restore-password.component.scss'],
 })
 export class RestorePasswordComponent implements OnInit {
-  user: User;
+  password: string = '';
+  passwordConfirm: string = '';
+
+  id: string = '';
+  code: string = '';
+
   errorResponse = {
     email: 'Debe ingresar un correo válido',
     password: 'Debe ingresar una password de al menos 6 caracteres',
   };
   errorServer = false;
 
-  constructor(private auth: AuthService, private router: Router) {
-    this.user = new User();
-  }
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
       return;
     }
+
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
       text: 'Espere por favor...',
     });
     Swal.showLoading();
+    this.auth.restorePassword(this.id, this.code, this.password).subscribe(
+      resp => {
+        Swal.close();
+        Swal.fire({
+          allowOutsideClick: false,
+          icon: 'info',
+          text: 'Contraseña cambiada con exito',
+        });
+      },
+      err => {
+        Swal.fire({
+          icon: 'error',
+          title: err.errror.message,
+          // text: err.error.error.message,
+        });
+      }
+    );
 
-    this.auth.login(this.user).subscribe(
+    /* this.auth.login(this.user).subscribe(
       resp => {
         // console.log(resp);
         Swal.close();
@@ -47,8 +72,14 @@ export class RestorePasswordComponent implements OnInit {
           // text: err.error.error.message,
         });
       }
-    );
+    ); */
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.id = params['id'];
+      this.code = params['code'];
+      console.log(params['code'] + 'hola');
+    });
+  }
 }

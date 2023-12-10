@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map,catchError } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 import { Wishlist } from '../models/wishlist.model';
 import { AuthService } from './auth.service';
 import { Cartlist } from '../models/cartlist.model';
@@ -17,6 +17,7 @@ import { UserProfileData } from 'src/app/shared/interfaces/UserProfileData.intef
 import { throwError } from 'rxjs';
 
 const url = environment.url + '/api/customer';
+const urlFront = environment.url + '/api/front';
 let headers: HttpHeaders;
 
 @Injectable({
