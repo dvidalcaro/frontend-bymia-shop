@@ -1,4 +1,5 @@
 export interface MyAddresses {
+  address_id: number;
   name: string;
   phone: string;
   country: string;
@@ -30,7 +31,7 @@ export interface UserProfileData {
   phone: string;
   gender: string;
   birthdate: string;
-  latest_billing_data: LatestBillingData;
+  latest_billing_data: LatestBillingData | null;
   my_addresses: MyAddresses[];
 }
 

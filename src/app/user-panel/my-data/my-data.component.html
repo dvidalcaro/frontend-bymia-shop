@@ -20,7 +20,9 @@
 
           <div class="mydata__title">
             <h3>Mis datos</h3>
-            <button class="btn__mydata btn-mobile" *ngIf="false">Editar</button>
+            <button class="btn__mydata btn-mobile" (click)="openEditProfile()">
+              Editar
+            </button>
           </div>
           <div class="mydata__bgd">
             <div>
@@ -73,7 +75,9 @@
                 Editar
               </button>
             </div>
-            <div class="mydata__bgd">
+            <div
+              class="mydata__bgd"
+              *ngIf="userProfile.customerData.latest_billing_data">
               <div>
                 <div>
                   <h3>
@@ -142,6 +146,11 @@
                 </p>
               </div>
             </div>
+            <div
+              class="mydata__bgd"
+              *ngIf="!userProfile.customerData.latest_billing_data">
+              <h3>No cuentas con datos de facturación</h3>
+            </div>
           </div>
         </div>
       </div>
@@ -157,7 +166,7 @@
             <i></i> Agregá una nueva dirección: podés cargar hasta 5
           </button>
         </div>
-        <div class="ctn__addres">
+        <div class="ctn__addres" *ngIf="userProfile.customerData.my_addresses">
           <div
             class="mydata__address__card"
             *ngFor="let address of userProfile.customerData.my_addresses">
@@ -168,6 +177,7 @@
               {{ address.phone }}
             </p>
           </div>
+
           <!-- <div class="mydata__address__card">
             <h3>Diego Vidal Caro</h3>
             <p>
@@ -216,6 +226,12 @@
               <button>Eliminar</button>
             </div>
           </div> -->
+        </div>
+        <div
+          class="mydata__address__card"
+          *ngIf="!userProfile.customerData.my_addresses">
+          <h3></h3>
+          <p>No tienes direcciones registradas</p>
         </div>
       </div>
     </div>

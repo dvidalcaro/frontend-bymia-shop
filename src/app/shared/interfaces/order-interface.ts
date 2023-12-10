@@ -17,8 +17,11 @@ export interface orderDetails {
   tax: string;
   totalOrderPrice: string;
 }
+import { BillRecipientData } from './OrderGenerate-interface';
 
 export interface orderInformation {
+  bill_address: BillRecipientData | null;
+  recipient_address: BillRecipientData[] | null;
   orderPlaced: string;
   total: string;
   sendTo: string;

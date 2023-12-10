@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BymiaService } from 'src/app/services/bymia.service';
-import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
+import {
+  BillRecipientData,
+  orderGenerate,
+} from 'src/app/shared/interfaces/OrderGenerate-interface';
 import {
   CityCode,
   CountryCode,
@@ -45,6 +48,9 @@ export class SaleOrderStepOneComponent implements OnInit {
   city_code_Recipient!: CityCode[];
   orderGenerate: any = {};
   loading: boolean = true;
+  bill_address_id: number | null = null;
+  // finalizarOrden: boolean = false;
+
   // Objeto con respuestas deerror en el formulario
   errorResponse = {
     name: 'El campo Nombre es requerido y debe contener al menos 3 caracteres',
@@ -114,11 +120,11 @@ export class SaleOrderStepOneComponent implements OnInit {
     private route: ActivatedRoute,
     private bymiaService: BymiaService
   ) {
-    this.bymiaService.getCountryCode().subscribe(resp => {
+    /* this.bymiaService.getCountryCode().subscribe(resp => {
       console.log(resp);
 
       this.countries = resp;
-    });
+    }); */
     this.bymiaService.getStateById(62).subscribe(res => {
       this.state_code = res;
     });
@@ -162,29 +168,30 @@ export class SaleOrderStepOneComponent implements OnInit {
     this.orderGenerate.recipient = this.isChecked.value
       ? this.formRecipient.value
       : this.formBillData.value;
+    this.orderGenerate.billData.address_id = this.bill_address_id;
+    console.log(this.orderGenerate);
+    // this.userService
+    //   .endOrder(this.orderGenerate, this.orderId)
+    //   .subscribe(res => {
+    //     if (res.status) {
+    //       Swal.fire({
+    //         title: 'Orden finalizada con exito',
+    //         text: 'Gracias por tu compra',
+    //         icon: 'info',
+    //         confirmButtonText: 'Cerrar',
+    //       });
 
-    this.userService
-      .endOrder(this.orderGenerate, this.orderId)
-      .subscribe(res => {
-        if (res.status) {
-          Swal.fire({
-            title: 'Orden finalizada con exito',
-            text: 'Gracias por tu compra',
-            icon: 'info',
-            confirmButtonText: 'Cerrar',
-          });
-
-          this.router.navigate(['orders']);
-        } else {
-          Swal.fire({
-            title: 'Ocurrio un Error',
-            text: 'Consultenos para mayor información',
-            icon: 'warning',
-            confirmButtonText: 'Cerrar',
-          });
-        }
-        return res;
-      });
+    //       this.router.navigate(['orders']);
+    //     } else {
+    //       Swal.fire({
+    //         title: 'Ocurrio un Error',
+    //         text: 'Consultenos para mayor información',
+    //         icon: 'warning',
+    //         confirmButtonText: 'Cerrar',
+    //       });
+    //     }
+    //     return res;
+    //   });
 
     /* console.log(this.formBillData.value); */
     /* console.log(this.formBillData.value);
@@ -210,6 +217,49 @@ export class SaleOrderStepOneComponent implements OnInit {
     // console.log('select radio:', value);
   }
 
+  fillFormBill(data: BillRecipientData) {
+    this.formBillData.get('name')?.setValue(data?.name);
+    this.formBillData.get('name')?.disable();
+
+    this.formBillData.get('identity_type')?.setValue(data?.identity_type);
+    this.formBillData.get('identity_type')?.disable();
+
+    this.formBillData.get('identity_number')?.setValue(data?.identity_number);
+    this.formBillData.get('identity_number')?.disable();
+
+    this.formBillData.get('country_id')?.setValue(data?.country_id);
+    this.formBillData.get('country_id')?.disable();
+
+    this.formBillData.get('state_id')?.setValue(data?.state_id);
+    this.formBillData.get('state_id')?.disable();
+
+    this.changeState(data?.state_id);
+
+    this.formBillData.get('city_id')?.setValue(data?.city_id);
+    this.formBillData.get('city_id')?.disable();
+
+    this.formBillData.get('address')?.setValue(data?.address);
+    this.formBillData.get('address')?.disable();
+
+    this.formBillData.get('code_zip')?.setValue(data?.code_zip);
+    this.formBillData.get('code_zip')?.disable();
+
+    this.formBillData.get('email')?.setValue(data?.email);
+    this.formBillData.get('email')?.disable();
+
+    this.formBillData.get('phone')?.setValue(data?.phone);
+    this.formBillData.get('phone')?.disable();
+
+    this.formBillData.get('additional_info')?.setValue(data?.additional_info);
+    this.formBillData.get('additional_info')?.disable();
+  }
+
+  changeBillingData() {
+    this.formBillData.reset();
+    this.formBillData.enable();
+    this.bill_address_id = null;
+  }
+
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.orderId = params['id']; // Reemplaza 'miParametro' con tu nombre de parámetro real
@@ -219,6 +269,11 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.userService.getOrderById(this.orderId).subscribe(res => {
         this.orderById = res;
         this.loading = false;
+
+        if (this.orderById.bill_address?.address_id) {
+          this.bill_address_id = this.orderById.bill_address?.address_id;
+          this.fillFormBill(this.orderById.bill_address);
+        }
       });
     });
   }

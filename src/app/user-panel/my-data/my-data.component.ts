@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import {
   UserProfile,
@@ -16,7 +17,7 @@ export class MyDataComponent implements OnInit {
   userProfile!: UserProfile;
   loading: boolean = true;
   showData: boolean = false;
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.getdata();
     /* setTimeout(() => {
     }, 1000); */
@@ -30,6 +31,9 @@ export class MyDataComponent implements OnInit {
       }
       console.log(this.userProfile);
     });
+  }
+  openEditProfile() {
+    this.router.navigate(['/edit-profile']);
   }
   ngOnInit(): void {}
 }

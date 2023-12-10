@@ -1,4 +1,5 @@
 export interface BillRecipientData {
+  address_id: number | null;
   name: string;
   identity_type: string;
   identity_number: string;

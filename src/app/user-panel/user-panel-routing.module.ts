@@ -9,11 +9,17 @@ import { PanelComponent } from './panel/panel.component';
 import { ShippingStatusComponent } from './shipping-status/shipping-status.component';
 import { AuthGuard } from '../user/guards/auth.guard';
 import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step-one.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const routes: Routes = [
   { path: 'my-data', component: MyDataComponent, canActivate: [AuthGuard] },
   { path: 'orders', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'panel', component: PanelComponent, canActivate: [AuthGuard] },
+  {
+    path: 'edit-profile',
+    component: EditProfileComponent,
+    canActivate: [AuthGuard],
+  },
   {
     path: 'sales-order-step1',
     component: SaleOrderStepOneComponent,

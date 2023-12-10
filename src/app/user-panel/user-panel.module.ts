@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UserPanelRoutingModule } from './user-panel-routing.module';
 import { MyDataComponent } from './my-data/my-data.component';
@@ -12,6 +12,7 @@ import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step
 import { ChangeDecimalFormatPipe } from './change-decimal-format.pipe';
 import { LoadingComponent } from '../pages/components/loading/loading.component';
 import { PagesModule } from '../pages/pages.module';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +23,14 @@ import { PagesModule } from '../pages/pages.module';
     ShippingStatusComponent,
     SaleOrderStepOneComponent,
     ChangeDecimalFormatPipe,
+    EditProfileComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, UserPanelRoutingModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    UserPanelRoutingModule,
+    FormsModule,
+  ],
   exports: [
     PanelComponent,
     HelpComponent,

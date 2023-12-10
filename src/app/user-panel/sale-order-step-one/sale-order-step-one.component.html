@@ -176,7 +176,7 @@
                 placeholder="Nombre y apellido"
                 class="form-control frm-register__input mb-2 mb-md-0"
                 id="name"
-                value=""
+                value="OKA"
                 minlength="3"
                 required
                 aria-describedby="nameHelp" />
@@ -300,6 +300,13 @@
                 value=""
                 minlength="3"
                 aria-describedby="additional_infoHelp" />
+            </div>
+            <div>
+              <button
+                class="cart__button cart__button-bg"
+                (click)="changeBillingData()">
+                Cambiar datos de facturación
+              </button>
             </div>
             <!-- Mensajes de error de validaciones -->
             <!-- Campo Nombre -->
