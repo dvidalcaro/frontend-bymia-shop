@@ -79,20 +79,22 @@
               class="mydata__bgd"
               *ngIf="userProfile.customerData.latest_billing_data">
               <div>
-                <div>
-                  <h3>
-                    {{ userProfile.customerData.latest_billing_data.name }}
-                  </h3>
-                  <p>
-                    {{ userProfile.customerData.latest_billing_data.code_id }}
-                  </p>
-                </div>
-                <button class="btn__mydata btn-deskt">Editar</button>
+                <h3>Código de identificación:</h3>
+                <p>
+                  {{ userProfile.customerData.latest_billing_data.name }}
+                  {{ userProfile.customerData.latest_billing_data.code_id }}
+                </p>
               </div>
               <div>
                 <h3>Tipo de cliente:</h3>
                 <p>
                   {{ userProfile.customerData.latest_billing_data.type_user }}
+                </p>
+              </div>
+              <div>
+                <h3>Nombre y apellidos:</h3>
+                <p>
+                  {{ userProfile.customerData.latest_billing_data.name }}
                 </p>
               </div>
               <div>
