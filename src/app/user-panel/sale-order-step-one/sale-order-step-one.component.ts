@@ -185,7 +185,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     if (this.bill_address_id && !this.showFormRecipient) {
       return true;
     }
-    if(this.bill_address_id && this.showFormRecipient && this.recipient_address_id){
+    if (this.bill_address_id && this.showFormRecipient && this.recipient_address_id) {
       return true;
     }
     if (this.bill_address_id && this.showFormRecipient && this.formRecipient.valid) {
@@ -194,7 +194,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     if (this.formBillData.valid && !this.showFormRecipient) {
       return true;
     }
-    if(this.formBillData.valid && this.showFormRecipient && this.recipient_address_id){
+    if (this.formBillData.valid && this.showFormRecipient && this.recipient_address_id) {
       return true
     }
     if (this.formBillData.valid && this.showFormRecipient && this.formRecipient.valid) {
@@ -209,6 +209,8 @@ export class SaleOrderStepOneComponent implements OnInit {
     this.orderGenerate.recipient = this.showFormRecipient
       ? this.formRecipient.value
       : this.formBillData.value;
+
+    this.orderGenerate.same_address = !this.showFormRecipient //si showFormRecipient es falso  entonces same_address es true.  esto indica que los datos de facturacion y de destinatario son los mismos
     this.orderGenerate.billData.address_id = this.bill_address_id;
     if (this.showFormRecipient) {
       this.orderGenerate.recipient.address_id = this.recipient_address_id;

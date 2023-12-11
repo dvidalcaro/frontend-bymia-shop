@@ -7654,6 +7654,7 @@ class SaleOrderStepOneComponent {
         this.orderGenerate.recipient = this.showFormRecipient
             ? this.formRecipient.value
             : this.formBillData.value;
+        this.orderGenerate.same_address = !this.showFormRecipient; //si showFormRecipient es falso  entonces same_address es true.  esto indica que los datos de facturacion y de destinatario son los mismos
         this.orderGenerate.billData.address_id = this.bill_address_id;
         if (this.showFormRecipient) {
             this.orderGenerate.recipient.address_id = this.recipient_address_id;
@@ -8117,6 +8118,7 @@ class ForgetPasswordComponent {
     constructor(auth, router) {
         this.auth = auth;
         this.router = router;
+        this.email = '';
         this.errorResponse = {
             email: 'Debe ingresar un correo válido',
             password: 'Debe ingresar una password de al menos 6 caracteres',
@@ -8128,31 +8130,18 @@ class ForgetPasswordComponent {
         if (form.invalid) {
             return;
         }
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-            // allowOutsideClick: false,
-            icon: 'success',
-            text: 'Te enviamos un correo electronico para que cambies tu contraseña, si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
-        }).then(resp => {
-            this.router.navigateByUrl('/');
-        });
-        /* Swal.showLoading();
-    
-        this.auth.login(this.user).subscribe(
-          resp => {
-            // console.log(resp);
-            Swal.close();
-    
-            this.router.navigateByUrl('/home');
-          },
-          err => {
-            // console.log(err);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error al autenticar',
-              // text: err.error.error.message,
+        console.log(this.email);
+        this.auth.forgotPassword(this.email).subscribe(resp => {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                icon: 'success',
+                text: 'Te enviamos un correo electronico para que cambies tu contraseña, si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
             });
-          }
-        ); */
+        }, err => {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                icon: 'error',
+                title: err.error.message,
+            });
+        });
     }
     ngOnInit() { }
 }
@@ -8173,7 +8162,7 @@ ForgetPasswordComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MO
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](9, "Ingresa tu email para recuperar tu contrase\u00F1a");
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](10, "input", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function ForgetPasswordComponent_Template_input_ngModelChange_10_listener($event) { return ctx.user.email = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("ngModelChange", function ForgetPasswordComponent_Template_input_ngModelChange_10_listener($event) { return ctx.email = $event; });
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](11, ForgetPasswordComponent_div_11_Template, 2, 1, "div", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
@@ -8190,7 +8179,7 @@ ForgetPasswordComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MO
     } if (rf & 2) {
         const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵreference"](6);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx.user.email);
+        _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngModel", ctx.email);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵproperty"]("ngIf", _r0.submitted && _r0.controls["email"].errors || ctx.errorServer);
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_4__.RouterLink, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgForm, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.RequiredValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.EmailValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.NgModel, _angular_common__WEBPACK_IMPORTED_MODULE_6__.NgIf], encapsulation: 2 });
@@ -8708,6 +8697,170 @@ RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5
 
 /***/ }),
 
+/***/ 9872:
+/*!********************************************************************************!*\
+  !*** ./src/app/user/components/restore-password/restore-password.component.ts ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RestorePasswordComponent": () => (/* binding */ RestorePasswordComponent)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ 8190);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/auth.service */ 9940);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ 1707);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common */ 4364);
+
+
+
+
+
+
+function RestorePasswordComponent_div_12_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", ctx_r1.errorResponse.password, " ");
+} }
+function RestorePasswordComponent_div_15_Template(rf, ctx) { if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 15);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtextInterpolate1"](" ", ctx_r2.errorResponse.password, " ");
+} }
+class RestorePasswordComponent {
+    constructor(auth, router, route) {
+        this.auth = auth;
+        this.router = router;
+        this.route = route;
+        this.password = '';
+        this.passwordConfirm = '';
+        this.id = '';
+        this.code = '';
+        this.errorResponse = {
+            email: 'Debe ingresar un correo válido',
+            password: 'Debe ingresar una password de al menos 6 caracteres',
+        };
+        this.errorServer = false;
+    }
+    onSubmit(form) {
+        if (form.invalid) {
+            return;
+        }
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+            allowOutsideClick: false,
+            icon: 'info',
+            text: 'Espere por favor...',
+        });
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().showLoading();
+        this.auth.restorePassword(this.id, this.code, this.password).subscribe(resp => {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().close();
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                allowOutsideClick: false,
+                icon: 'info',
+                text: 'Contraseña cambiada con exito',
+            });
+        }, err => {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                icon: 'error',
+                title: err.errror.message,
+                // text: err.error.error.message,
+            });
+        });
+        /* this.auth.login(this.user).subscribe(
+          resp => {
+            // console.log(resp);
+            Swal.close();
+    
+            this.router.navigateByUrl('/home');
+          },
+          err => {
+            Swal.fire({
+              icon: 'error',
+              title: err.error.message,
+              // text: err.error.error.message,
+            });
+          }
+        ); */
+    }
+    ngOnInit() {
+        this.route.queryParams.subscribe(params => {
+            this.id = params['id'];
+            this.code = params['code'];
+            console.log(params['code'] + 'hola');
+        });
+    }
+}
+RestorePasswordComponent.ɵfac = function RestorePasswordComponent_Factory(t) { return new (t || RestorePasswordComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_1__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.ActivatedRoute)); };
+RestorePasswordComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: RestorePasswordComponent, selectors: [["app-restore-password"]], decls: 23, vars: 4, consts: [[1, "container__modal", "animate__animated", "animate__zoomIn", "animate__faster"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "frm-register"], [1, "row", "mb-3", "mt-3"], [1, "col"], ["routerLink", "/", "src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end"], [1, "frm-register__form", "row", "g-3", "p-3", "pb-4", 3, "ngSubmit"], ["f", "ngForm"], [1, "col-12", "frm-register__input"], [1, "text-black", "fw-bold", "text-center"], ["type", "password", "name", "password", "id", "password", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", "placeholder", "Password", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "passwordHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "password", "name", "passwordConfirm", "id", "passwordConfirm", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", "placeholder", "Confirme su password", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "col-12"], ["type", "submit", 1, "button_modal", "col-12", "mb-2"], ["routerLink", "/", "type", "button", 1, "button_modal", "col-12"], ["id", "passwordHelp", 1, "form-text", "text-danger"]], template: function RestorePasswordComponent_Template(rf, ctx) { if (rf & 1) {
+        const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](3, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelement"](4, "img", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](5, "form", 5, 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngSubmit", function RestorePasswordComponent_Template_form_ngSubmit_5_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r3); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](6); return ctx.onSubmit(_r0); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](7, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](8, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](9, " Ingrese su nueva contrase\u00F1a ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "input", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function RestorePasswordComponent_Template_input_ngModelChange_11_listener($event) { return ctx.password = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](12, RestorePasswordComponent_div_12_Template, 2, 1, "div", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "input", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function RestorePasswordComponent_Template_input_ngModelChange_14_listener($event) { return ctx.passwordConfirm = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](15, RestorePasswordComponent_div_15_Template, 2, 1, "div", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](16, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](17, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](18, "button", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](19, "Enviar");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](20, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](21, "button", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtext"](22, " Cancelar ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
+    } if (rf & 2) {
+        const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.password);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", _r0.submitted && _r0.controls["password"].errors || ctx.errorServer);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.passwordConfirm);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", _r0.submitted && _r0.controls["password"].errors || ctx.errorServer);
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLink, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgForm, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.MinLengthValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.RequiredValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgModel, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZXN0b3JlLXBhc3N3b3JkLmNvbXBvbmVudC5zY3NzIn0= */"] });
+
+
+/***/ }),
+
 /***/ 5033:
 /*!*******************************************!*\
   !*** ./src/app/user/guards/auth.guard.ts ***!
@@ -8902,17 +9055,19 @@ class AuthService {
         return this.currentUserSubject.value;
     }
     register(user) {
-        return this.http.post(`${url}/register`, {
-            "cel_phone": user.cel_phone,
-            "country_id": user.country_id,
-            "country_phone_code": user.country_id,
-            "customer_type_role": user.customer_type_role,
-            "email": user.email,
-            "gender_type": user.gender_type,
-            "name": user.name,
-            "password": user.password,
-            "date_of_birth": user.date_of_birth ? user.date_of_birth : null
-        }, { headers }).pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(resp => {
+        return this.http
+            .post(`${url}/register`, {
+            cel_phone: user.cel_phone,
+            country_id: user.country_id,
+            country_phone_code: user.country_id,
+            customer_type_role: user.customer_type_role,
+            email: user.email,
+            gender_type: user.gender_type,
+            name: user.name,
+            password: user.password,
+            date_of_birth: user.date_of_birth ? user.date_of_birth : null,
+        }, { headers })
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(resp => {
             return resp;
         }));
     }
@@ -8936,6 +9091,20 @@ class AuthService {
         this.router.navigate(['/']).then(() => {
             window.location.reload();
         });
+    }
+    forgotPassword(email) {
+        return this.http
+            .post(`${url}/forgot-password`, { email }, { headers })
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(resp => {
+            return resp;
+        }));
+    }
+    restorePassword(id, code, password) {
+        return this.http
+            .post(`${url}/change-password`, { id, code, password }, { headers })
+            .pipe((0,rxjs_operators__WEBPACK_IMPORTED_MODULE_4__.map)(resp => {
+            return resp;
+        }));
     }
     getToken() {
         if (this.userToken !== '') {
@@ -9019,6 +9188,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const url = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.url + '/api/customer';
+const urlFront = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__.environment.url + '/api/front';
 let headers;
 class UserService {
     constructor(http, authService) {
@@ -9188,14 +9358,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "UserRoutingModule": () => (/* binding */ UserRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/router */ 1258);
 /* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./guards/auth.guard */ 5033);
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/login/login.component */ 2989);
 /* harmony import */ var _pages_wish_list_wish_list_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/wish-list/wish-list.component */ 1348);
 /* harmony import */ var _pages_shop_cart_shop_cart_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/shop-cart/shop-cart.component */ 6800);
 /* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/register/register.component */ 9484);
 /* harmony import */ var _components_forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/forget-password/forget-password.component */ 2882);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _components_restore_password_restore_password_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/restore-password/restore-password.component */ 9872);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/core */ 2316);
+
 
 
 
@@ -9210,6 +9382,7 @@ const routes = [
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_1__.LoginComponent },
     { path: 'register', component: _components_register_register_component__WEBPACK_IMPORTED_MODULE_4__.RegisterComponent },
     { path: 'forget-password', component: _components_forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_5__.ForgetPasswordComponent },
+    { path: 'restore-password', component: _components_restore_password_restore_password_component__WEBPACK_IMPORTED_MODULE_6__.RestorePasswordComponent },
     {
         path: 'wish-list',
         component: _pages_wish_list_wish_list_component__WEBPACK_IMPORTED_MODULE_2__.WishListComponent,
@@ -9224,9 +9397,9 @@ const routes = [
 class UserRoutingModule {
 }
 UserRoutingModule.ɵfac = function UserRoutingModule_Factory(t) { return new (t || UserRoutingModule)(); };
-UserRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({ type: UserRoutingModule });
-UserRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule.forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](UserRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_7__.RouterModule] }); })();
+UserRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineNgModule"]({ type: UserRoutingModule });
+UserRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterModule.forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵsetNgModuleScope"](UserRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_8__.RouterModule] }); })();
 
 
 /***/ }),
@@ -9242,14 +9415,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "UserModule": () => (/* binding */ UserModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/common */ 4364);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ 1707);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common */ 4364);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ 1707);
 /* harmony import */ var _components_login_login_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/login/login.component */ 2989);
 /* harmony import */ var _components_register_register_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/register/register.component */ 9484);
 /* harmony import */ var _user_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user-routing.module */ 454);
 /* harmony import */ var _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user-panel/user-panel.module */ 7395);
 /* harmony import */ var _components_forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/forget-password/forget-password.component */ 2882);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _components_restore_password_restore_password_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/restore-password/restore-password.component */ 9872);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/core */ 2316);
+
+
 
 
 
@@ -9261,9 +9438,22 @@ __webpack_require__.r(__webpack_exports__);
 class UserModule {
 }
 UserModule.ɵfac = function UserModule_Factory(t) { return new (t || UserModule)(); };
-UserModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineNgModule"]({ type: UserModule });
-UserModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineInjector"]({ imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormsModule, _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_3__.UserPanelModule, _user_routing_module__WEBPACK_IMPORTED_MODULE_2__.UserRoutingModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵsetNgModuleScope"](UserModule, { declarations: [_components_login_login_component__WEBPACK_IMPORTED_MODULE_0__.LoginComponent, _components_register_register_component__WEBPACK_IMPORTED_MODULE_1__.RegisterComponent, _components_forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_4__.ForgetPasswordComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__.CommonModule, _angular_forms__WEBPACK_IMPORTED_MODULE_7__.FormsModule, _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_3__.UserPanelModule, _user_routing_module__WEBPACK_IMPORTED_MODULE_2__.UserRoutingModule], exports: [_components_login_login_component__WEBPACK_IMPORTED_MODULE_0__.LoginComponent, _components_register_register_component__WEBPACK_IMPORTED_MODULE_1__.RegisterComponent] }); })();
+UserModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineNgModule"]({ type: UserModule });
+UserModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector"]({ imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_7__.CommonModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormsModule,
+            _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_3__.UserPanelModule,
+            _user_routing_module__WEBPACK_IMPORTED_MODULE_2__.UserRoutingModule,
+            _angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterModule,
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵsetNgModuleScope"](UserModule, { declarations: [_components_login_login_component__WEBPACK_IMPORTED_MODULE_0__.LoginComponent,
+        _components_register_register_component__WEBPACK_IMPORTED_MODULE_1__.RegisterComponent,
+        _components_forget_password_forget_password_component__WEBPACK_IMPORTED_MODULE_4__.ForgetPasswordComponent,
+        _components_restore_password_restore_password_component__WEBPACK_IMPORTED_MODULE_5__.RestorePasswordComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_7__.CommonModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_8__.FormsModule,
+        _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_3__.UserPanelModule,
+        _user_routing_module__WEBPACK_IMPORTED_MODULE_2__.UserRoutingModule,
+        _angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterModule], exports: [_components_login_login_component__WEBPACK_IMPORTED_MODULE_0__.LoginComponent, _components_register_register_component__WEBPACK_IMPORTED_MODULE_1__.RegisterComponent] }); })();
 
 
 /***/ }),

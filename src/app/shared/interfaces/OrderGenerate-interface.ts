@@ -16,4 +16,5 @@ export interface orderGenerate {
   id: number;
   billData: BillRecipientData;
   recipient: BillRecipientData;
+  same_address: boolean;
 }
