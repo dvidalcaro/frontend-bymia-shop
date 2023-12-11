@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class RestorePasswordComponent implements OnInit {
   password: string = '';
   passwordConfirm: string = '';
-
+  disabled: boolean = true;
   id: string = '';
   code: string = '';
 
@@ -29,34 +29,50 @@ export class RestorePasswordComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+  enableSend(password: string | null, passwordConfirm: string | null) {
+    console.log(password);
+
+    if (password === passwordConfirm) {
+      this.disabled = false;
+    }
+  }
+
   onSubmit(form: NgForm) {
     if (form.invalid) {
       return;
     }
-
-    Swal.fire({
-      allowOutsideClick: false,
-      icon: 'info',
-      text: 'Espere por favor...',
-    });
-    Swal.showLoading();
-    this.auth.restorePassword(this.id, this.code, this.password).subscribe(
-      resp => {
-        Swal.close();
-        Swal.fire({
-          allowOutsideClick: false,
-          icon: 'info',
-          text: 'Contraseña cambiada con exito',
-        });
-      },
-      err => {
-        Swal.fire({
-          icon: 'error',
-          title: err.errror.message,
-          // text: err.error.error.message,
-        });
-      }
-    );
+    if (this.password === this.passwordConfirm) {
+      Swal.fire({
+        allowOutsideClick: false,
+        icon: 'info',
+        text: 'Espere por favor...',
+      });
+      Swal.showLoading();
+      this.auth.restorePassword(this.id, this.code, this.password).subscribe(
+        resp => {
+          Swal.close();
+          Swal.fire({
+            allowOutsideClick: false,
+            icon: 'info',
+            text: 'Contraseña cambiada con exito',
+          });
+          this.router.navigate(['/login']);
+        },
+        err => {
+          Swal.fire({
+            icon: 'error',
+            title: err.errror.message,
+            // text: err.error.error.message,
+          });
+        }
+      );
+    } else {
+      Swal.fire({
+        allowOutsideClick: false,
+        icon: 'info',
+        text: 'El campo password y confirme su password deben ser iguales',
+      });
+    }
 
     /* this.auth.login(this.user).subscribe(
       resp => {

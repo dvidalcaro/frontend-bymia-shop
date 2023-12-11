@@ -34,6 +34,7 @@ export class ForgetPasswordComponent implements OnInit {
           icon: 'success',
           text: 'Te enviamos un correo electronico para que cambies tu contraseña, si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
         });
+        this.router.navigate(['/']);
       },
       err => {
         Swal.fire({
