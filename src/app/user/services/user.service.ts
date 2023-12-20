@@ -15,8 +15,10 @@ import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface
 import { UserProfileData } from 'src/app/shared/interfaces/UserProfileData.inteface';
 
 import { throwError } from 'rxjs';
+import { PostSessionKeyCardnet } from 'src/app/shared/interfaces/CreateSessionKeyCardnet.interface';
 
 const url = environment.url + '/api/customer';
+const urlCardnet = environment.urlCardnet;
 const urlFront = environment.url + '/api/front';
 let headers: HttpHeaders;
 
@@ -221,5 +223,11 @@ export class UserService {
         return resp;
       })
     );
+  }
+
+  // Solicitud de session key Cardnet
+
+  getSessionkeyCardnet(session: PostSessionKeyCardnet): Observable<any> {
+    return this.http.post(`${urlCardnet}/sessions`, { session });
   }
 }
