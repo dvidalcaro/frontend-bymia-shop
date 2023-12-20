@@ -935,7 +935,7 @@
             </div>
             <div>
               <p class="sale__p text-dark">
-                {{ order.detail.products.totalPrice | currency : 'USD' }}
+                $ {{ order.detail.products.totalPrice }}
               </p>
             </div>
           </div>
@@ -945,7 +945,7 @@
             </div>
             <div>
               <p class="sale__p text-dark">
-                $ {{ order.detail.productDiscount | currency : 'USD' }}
+                {{ order.detail.productDiscount | currency : 'USD' }}
               </p>
             </div>
           </div>
@@ -957,7 +957,7 @@
             </div>
             <div>
               <p class="sale__p text-dark">
-                $ {{ order.detail.promocionalDiscount | currency : 'USD' }}
+                {{ order.detail.promocionalDiscount | currency : 'USD' }}
               </p>
             </div>
           </div>
@@ -984,7 +984,7 @@
           <div class="mt-5">
             <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
             <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
-              {{ order.detail.totalOrderPrice | currency : 'USD' }}
+              $ {{ order.detail.totalOrderPrice }}
             </p>
             <div class="d-flex justify-content-center">
               <button

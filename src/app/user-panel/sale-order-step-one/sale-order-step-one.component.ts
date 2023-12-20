@@ -20,6 +20,9 @@ import { Product } from 'src/app/user/models/product.model';
 import { Recipient } from 'src/app/user/models/recipient.model';
 import { UserService } from 'src/app/user/services/user.service';
 import Swal from 'sweetalert2';
+import { PostSessionKeyCardnet } from '../../shared/interfaces/CreateSessionKeyCardnet.interface';
+
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-sale-order-step-one',
@@ -52,6 +55,23 @@ export class SaleOrderStepOneComponent implements OnInit {
   bill_address_id: number | null = null;
   recipient_address_id: number | null = null;
   showFormRecipient: boolean = false;
+
+  //Se crea objeto post session carnet
+
+  sessionKeyCardnet: PostSessionKeyCardnet = {
+    TransactionType: environment.TransactionType,
+    CurrencyCode: environment.CurrencyCode,
+    AcquiringInstitutionCode: environment.AcquiringInstitutionCode,
+    MerchantType: environment.MerchantTypeCardnet,
+    MerchantNumber: environment.MerchantNumberCardnet,
+    MerchantTerminal: environment.MerchantTerminalCardnet,
+    /* MerchantTerminal_amex: environment.MerchantTerminal_amex,  */
+    ReturnUrl: environment.ReturnUrl,
+    CancelUrl: environment.CancelUrl,
+    PageLanguaje: environment.PageLanguaje,
+    MerchantName: environment.MerchantName,
+    AVS: environment.AVS,
+  };
 
   // Objeto con respuestas deerror en el formulario
   errorResponse = {
@@ -127,6 +147,8 @@ export class SaleOrderStepOneComponent implements OnInit {
 
       this.countries = resp;
     }); */
+    // se asignan valores al objeto session key
+
     this.bymiaService.getStateById(62).subscribe(res => {
       this.state_code = res;
     });
@@ -168,15 +190,17 @@ export class SaleOrderStepOneComponent implements OnInit {
     if (!recipeSelect) {
       this.resetNuevoDestinatario();
       this.showFormRecipient = true;
-    }
-    else {
+    } else {
       if (recipeSelect === '0') {
         this.showFormRecipient = false;
         this.recipient_address_id = this.bill_address_id;
       } else {
-        this.fillFormRecipient(recipeSelect === '' ? this.formBillData.value : recipeSelect)
+        this.fillFormRecipient(
+          recipeSelect === '' ? this.formBillData.value : recipeSelect
+        );
         this.showFormRecipient = true;
-        this.recipient_address_id = recipeSelect === '' ? null : recipeSelect.address_id;
+        this.recipient_address_id =
+          recipeSelect === '' ? null : recipeSelect.address_id;
       }
     }
   }
@@ -185,19 +209,35 @@ export class SaleOrderStepOneComponent implements OnInit {
     if (this.bill_address_id && !this.showFormRecipient) {
       return true;
     }
-    if (this.bill_address_id && this.showFormRecipient && this.recipient_address_id) {
+    if (
+      this.bill_address_id &&
+      this.showFormRecipient &&
+      this.recipient_address_id
+    ) {
       return true;
     }
-    if (this.bill_address_id && this.showFormRecipient && this.formRecipient.valid) {
+    if (
+      this.bill_address_id &&
+      this.showFormRecipient &&
+      this.formRecipient.valid
+    ) {
       return true;
     }
     if (this.formBillData.valid && !this.showFormRecipient) {
       return true;
     }
-    if (this.formBillData.valid && this.showFormRecipient && this.recipient_address_id) {
-      return true
+    if (
+      this.formBillData.valid &&
+      this.showFormRecipient &&
+      this.recipient_address_id
+    ) {
+      return true;
     }
-    if (this.formBillData.valid && this.showFormRecipient && this.formRecipient.valid) {
+    if (
+      this.formBillData.valid &&
+      this.showFormRecipient &&
+      this.formRecipient.valid
+    ) {
       return true;
     }
     return false;
@@ -210,11 +250,16 @@ export class SaleOrderStepOneComponent implements OnInit {
       ? this.formRecipient.value
       : this.formBillData.value;
 
-    this.orderGenerate.same_address = !this.showFormRecipient //si showFormRecipient es falso  entonces same_address es true.  esto indica que los datos de facturacion y de destinatario son los mismos
+    this.orderGenerate.same_address = !this.showFormRecipient; //si showFormRecipient es falso  entonces same_address es true.  esto indica que los datos de facturacion y de destinatario son los mismos
     this.orderGenerate.billData.address_id = this.bill_address_id;
     if (this.showFormRecipient) {
       this.orderGenerate.recipient.address_id = this.recipient_address_id;
     }
+    this.userService
+      .getSessionkeyCardnet(this.sessionKeyCardnet)
+      .subscribe(res => {
+        console.log(res);
+      });
     this.userService
       .endOrder(this.orderGenerate, this.orderId)
       .subscribe(res => {
@@ -254,8 +299,8 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.total && value?.startsWith('international')
         ? 0
         : this.total
-          ? this.total * 0.07
-          : 0;
+        ? this.total * 0.07
+        : 0;
     this.totalSale = this.total ? this.total + this.tax : 0;
     // console.log('international:', value?.startsWith('international'));
     // console.log('pickupData:', this.pickupData);
@@ -320,15 +365,21 @@ export class SaleOrderStepOneComponent implements OnInit {
       if (!this.orderId || isNaN(this.orderId)) {
         this.router.navigate(['home']);
       }
-      this.userService.getOrderById(this.orderId).subscribe(res => {
-        this.order = res;
-        this.loading = false;
+      this.userService.getOrderById(this.orderId).subscribe(
+        res => {
+          this.order = res;
+          this.loading = false;
 
-        if (this.order.bill_address?.address_id) {
-          this.bill_address_id = this.order.bill_address?.address_id;
-          this.fillFormBill(this.order.bill_address);
-        }
-      },
+          this.sessionKeyCardnet.OrdenId = this.orderId.toString();
+          this.sessionKeyCardnet.TransactionId = '123132416546'; //validar
+          this.sessionKeyCardnet.Tax = '000'; //validar
+          this.sessionKeyCardnet.Amount = this.order.total.replace(/[,.]/g, '');
+
+          if (this.order.bill_address?.address_id) {
+            this.bill_address_id = this.order.bill_address?.address_id;
+            this.fillFormBill(this.order.bill_address);
+          }
+        },
         error => {
           if (error.status === 409) {
             // Manejo específico para el error 409 (Conflict)
