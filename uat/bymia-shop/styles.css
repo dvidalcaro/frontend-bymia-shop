@@ -4687,5 +4687,34 @@ header .header__container {
     display: none;
   }
 }
+.container__pbg {
+  background-color: #101010;
+  border-radius: 0.75rem;
+  height: auto;
+}
+.politic__p {
+  text-justify: distribute;
+}
+.politic__p__i {
+  font-style: italic;
+}
+.ol__garantia li {
+  margin-bottom: 0.65rem;
+}
+.politic__h3 {
+  font-size: 1.125rem;
+}
+.bold {
+  font-weight: bold;
+}
+@media screen and (max-width: 992px) {
+  .container__pbg {
+    padding: 16px;
+  }
+
+  .politic__h3 {
+    font-size: 1rem;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map*/

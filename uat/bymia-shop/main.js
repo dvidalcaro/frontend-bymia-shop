@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ 1258);
 /* harmony import */ var _pages_faq_faq_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/faq/faq.component */ 6459);
 /* harmony import */ var _pages_flash_sales_flash_sales_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/flash-sales/flash-sales.component */ 2408);
 /* harmony import */ var _pages_launch_launch_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/launch/launch.component */ 9856);
@@ -43,8 +43,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_search_search_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/search/search.component */ 1164);
 /* harmony import */ var _pages_validate_validate_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/validate/validate.component */ 1112);
 /* harmony import */ var _pages_pricelist_pricelist_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/pricelist/pricelist.component */ 7686);
-/* harmony import */ var _pages_product_product_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/product/product.component */ 5109);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _pages_politicas_politicas_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/politicas/politicas.component */ 5600);
+/* harmony import */ var _pages_rma_garantia_rma_garantia_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/rma-garantia/rma-garantia.component */ 6736);
+/* harmony import */ var _pages_product_product_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/product/product.component */ 5109);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ 2316);
+
+
 
 
 
@@ -95,11 +99,11 @@ const routes = [
     {
         path: 'politicas-privacidad-y-servcios',
         // se deshabilita mientras elaboran la de rd component: PoliticasComponent,
-        component: src_app_pages_home_home_component__WEBPACK_IMPORTED_MODULE_4__.HomeComponent,
+        component: _pages_politicas_politicas_component__WEBPACK_IMPORTED_MODULE_9__.PoliticasComponent,
     },
     {
-        path: 'politicas-rma-y-garantia',
-        component: src_app_pages_home_home_component__WEBPACK_IMPORTED_MODULE_4__.HomeComponent,
+        path: 'politicas-de-devolución-y-garantia',
+        component: _pages_rma_garantia_rma_garantia_component__WEBPACK_IMPORTED_MODULE_10__.RmaGarantiaComponent,
         // se deshabilita mientras elaboran la de rd component: RmaGarantiaComponent,
     },
     // {
@@ -132,7 +136,7 @@ const routes = [
     },
     {
         path: 'product',
-        component: _pages_product_product_component__WEBPACK_IMPORTED_MODULE_9__.ProductComponent,
+        component: _pages_product_product_component__WEBPACK_IMPORTED_MODULE_11__.ProductComponent,
     },
     // {
     //   path: 'user-panel',
@@ -166,9 +170,9 @@ const routes = [
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule.forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_11__.RouterModule] }); })();
+AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule.forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule] }); })();
 
 
 /***/ }),
@@ -1682,7 +1686,7 @@ class FooterComponent {
         this.links = [
             {
                 label: 'Términos y condiciones',
-                links: '/',
+                links: '/politicas-privacidad-y-servcios',
                 //politicas-privacidad-y-servcios
             },
             {
@@ -1691,7 +1695,7 @@ class FooterComponent {
             },
             {
                 label: 'Devolución',
-                links: '/',
+                links: '/politicas-de-devolución-y-garantia',
                 //politicas-rma-y-garantia
             },
             {
@@ -1751,7 +1755,7 @@ class FooterComponent {
     ngOnInit() { }
 }
 FooterComponent.ɵfac = function FooterComponent_Factory(t) { return new (t || FooterComponent)(); };
-FooterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FooterComponent, selectors: [["app-footer"]], decls: 29, vars: 3, consts: [[1, "mt-5"], [1, "bg-dark", "text-lg-start", "text-white"], [1, "container", "p-4"], [1, "row", "mt-4"], [1, "col-xl-2", "col-lg-2", "col-md-4", "col-sm-12", "mb-4", "mb-md-0"], ["src", "assets/img/logo_bymia.png", "alt", "logo_bymia", 1, "img-fluid"], [1, "col-xl-6", "col-lg-6", "col-md-8", "col-sm-12", "mb-4", "mb-md-0"], [1, "list-unstyled", "d-flex", "align-content-stretch", "flex-wrap"], ["class", "col-6", 4, "ngFor", "ngForOf"], [1, "col-xl-3", "col-lg-3", "col-md-12", "col-sm-12", "mb-4", "mb-md-0", "subtitle"], [1, "text-center", "col-xl-1", "col-lg-1", "col-md-12", "col-sm-12", "mb-4", "mb-md-0"], ["href", "https://www.facebook.com/miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-facebook-square", "text-light"], ["href", "https://www.instagram.com/miacargord/", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-instagram", "text-light"], ["href", "https://www.tiktok.com/@miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-tiktok", "text-light"], [1, "bg-dark", "text-center", "text-muted", "p-3", "subtitle"], [1, "text-muted", 3, "routerLink"], [1, "col-6"], ["disabled", "", 1, "text-white", "subtitle", "btn_deshabilitado", 3, "routerLink"], [1, "bx", "bx-tada-hover", "bx-chevron-right"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
+FooterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FooterComponent, selectors: [["app-footer"]], decls: 29, vars: 3, consts: [[1, "mt-5"], [1, "bg-dark", "text-lg-start", "text-white"], [1, "container", "p-4"], [1, "row", "mt-4"], [1, "col-xl-2", "col-lg-2", "col-md-4", "col-sm-12", "mb-4", "mb-md-0"], ["src", "assets/img/logo_bymia.png", "alt", "logo_bymia", 1, "img-fluid"], [1, "col-xl-6", "col-lg-6", "col-md-8", "col-sm-12", "mb-4", "mb-md-0"], [1, "list-unstyled", "d-flex", "align-content-stretch", "flex-wrap"], ["class", "col-6", 4, "ngFor", "ngForOf"], [1, "col-xl-3", "col-lg-3", "col-md-12", "col-sm-12", "mb-4", "mb-md-0", "subtitle"], [1, "text-center", "col-xl-1", "col-lg-1", "col-md-12", "col-sm-12", "mb-4", "mb-md-0"], ["href", "https://www.facebook.com/miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-facebook-square", "text-light"], ["href", "https://www.instagram.com/miacargord/", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-instagram", "text-light"], ["href", "https://www.tiktok.com/@miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-tiktok", "text-light"], [1, "bg-dark", "text-center", "text-muted", "p-3", "subtitle"], [1, "text-muted", 3, "routerLink"], [1, "col-6"], ["disabled", "", 1, "text-white", "subtitle", 3, "routerLink"], [1, "bx", "bx-tada-hover", "bx-chevron-right"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "footer", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -2978,7 +2982,7 @@ class PoliticasComponent {
     }
 }
 PoliticasComponent.ɵfac = function PoliticasComponent_Factory(t) { return new (t || PoliticasComponent)(); };
-PoliticasComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PoliticasComponent, selectors: [["app-politicas"]], decls: 108, vars: 0, consts: [[1, "container", "d-flex", "justify-content-center"], [1, "container__pbg", "col", "col-lg-10", "mt-2"], [1, "row"], [1, "col"], [1, "politic__h3", "text-center", "mt-3", "mt-lg-5"], [1, "row", "d-flex", "flex-column", "align-content-center"], [1, "col", "col-lg-8", "mt-3"], [1, "politic__p"]], template: function PoliticasComponent_Template(rf, ctx) { if (rf & 1) {
+PoliticasComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: PoliticasComponent, selectors: [["app-politicas"]], decls: 42, vars: 0, consts: [[1, "container", "d-flex", "justify-content-center"], [1, "container__pbg", "col", "col-lg-10", "mt-2"], [1, "row"], [1, "col"], [1, "politic__h3", "text-center", "mt-3", "mt-lg-5"], [1, "row", "d-flex", "flex-column", "align-content-center"], [1, "col", "col-lg-8", "mt-3"], [1, "politic__p__i"], [1, "politic__p"]], template: function PoliticasComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -2991,161 +2995,52 @@ PoliticasComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " MiaCargo presa un servicio de Courier internacional, que genera, para cada uno de sus usuarios una cuenta que provee, entre otras herramientas, una direcci\u00F3n f\u00EDsica y permanente en los Estados Unidos o China la cual es utilizada por los usuarios como la direcci\u00F3n adonde dirigen sus compras. Esta es 7953/55 NW 64th Street Miami FL, 33166, Estados Unidos. En el domicilio indicado MiaCargo se encarga de recibir sus compras en Estados Unidos o China y, adem\u00E1s, enviarlas a su pa\u00EDs de destino, atendiendo todo el proceso de nacionalizaci\u00F3n y entrega en su casa u oficina. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Generalidades");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "El Sitio ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " Objetivo: Establecer los t\u00E9rminos y condiciones que se publicar\u00E1n en bymiashop.com para mantener el est\u00E1ndar de transparencia frente al cliente. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Pol\u00EDticas de compra");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, " El acceso y utilizaci\u00F3n del sitio web www.miacargo.com.ar (el \u201CSitio\u201D) se regir\u00E1 por los T\u00E9rminos y Condiciones (los \u201CT\u00E9rminos y Condiciones\u201D) que aqu\u00ED se detallan. Ser\u00E1 obligaci\u00F3n y responsabilidad de cualquier persona que desee acceder y/o utilizar el Sitio y/o los servicios (el \u201CUsuario\u201D o en plural los \u201CUsuarios\u201D), leer atentamente los T\u00E9rminos y Condiciones, puesto que su utilizaci\u00F3n presumir\u00E1 el conocimiento y la aceptaci\u00F3n previa de estos T\u00E9rminos y Condiciones. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, " Por medio de la citada p\u00E1gina web se reciben intenciones de compra. Una vez verificada la existencia de los productos en nuestro inventario se procesar\u00E1 la orden de compra. El env\u00EDo se realizar\u00E1 una vez que el pago haya sido verificado. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, " Cualquier persona que no acepte estos T\u00E9rminos y Condiciones, los cuales tienen car\u00E1cter obligatorio y vinculante, deber\u00E1 abstenerse de utilizar el Sitio y/o los servicios. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, " Queda prohibido violar o intentar violar la seguridad del Sitio, incluyendo sin limitar: (i) acceder o intentar acceder a datos no provistos para el Usuario; (ii) disponer, administrar y/o suministrar cualquier comando que afecte la vulnerabilidad del sistema, red o medidas de seguridad; e (iii) intentar interferir o modificar de cualquier modo los servicios o contenidos provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, " El Sitio incorpora hiperv\u00EDnculos a otros sitios web. Estos hiperv\u00EDnculos son provistos \u00FAnicamente con la finalidad de facilitar al Usuario el acceso a esos sitios web. En ning\u00FAn caso se entender\u00E1 que son patrocinados por MiaCargo ni que MiaCargo sea responsable por el contenido de esos sitios. El acceso a tales sitios web ser\u00E1 de responsabilidad y bajo riesgo exclusivo del Usuario. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, " Como condici\u00F3n esencial para acceder y/o utilizar el Sitio, el Usuario se obliga a: (i) proveer informaci\u00F3n verdadera, correcta, actual y completa acerca de su persona, del modo en que le sea requerido en los formularios dispuestos a ese efecto; (ii) actualizar y mantener actualizados los datos aportados a fin de que MiaCargo los conserve veraces, correctos, actuales y completos. En caso de que se produjese el suministro de datos o informaciones falsas, inexactas, desactualizadas o incompletas, o si MiaCargo tuviera bases medianamente para sospechar que los datos o informaciones aportadas por el Usuario fueran falsas, inexactas, desactualizadas o incompletas, MiaCargo podr\u00E1 suspender o impedir al Usuario el acceso al Sitio, y negarle el acceso y uso presente o futuro de los contenidos o servicios provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, " Bymiashop.com se reserva el derecho de rechazar cualquier pedido o de restringir las cantidades de cualquier pedido sin explicar los motivos. Es factible reembolsar, modificar o cancelar un pedido en caso de no poder completarlo.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](18, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, " Se le dejar\u00E1 saber al cliente el motivo y soluci\u00F3n dentro de un plazo de 24 horas laborales despu\u00E9s de haber realizado el pedido.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](20, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, " En caso de que el cliente no est\u00E9 de acuerdo con la soluci\u00F3n propuesta, se proceder\u00E1 con el reembolso total del pedido.");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "br");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, " Cada transacci\u00F3n se realizar\u00E1 en moneda local (pesos dominicanos). ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26, "Condiciones de utilizaci\u00F3n del Servicio");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, "M\u00E9todos de pago");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, " Las formas de pago autorizadas desde la p\u00E1gina web son las siguientes: pago electr\u00F3nico, tarjeta de cr\u00E9dito o d\u00E9bito, transferencia bancaria. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, " El acceso y utilizaci\u00F3n del sitio web www.miacargo.com.ar (el \u201CSitio\u201D) se regir\u00E1 por los T\u00E9rminos y Condiciones (los \u201CT\u00E9rminos y Condiciones\u201D) que aqu\u00ED se detallan. Ser\u00E1 obligaci\u00F3n y responsabilidad de cualquier persona que desee acceder y/o utilizar el Sitio y/o los servicios (el \u201CUsuario\u201D o en plural los \u201CUsuarios\u201D), leer atentamente los T\u00E9rminos y Condiciones, puesto que su utilizaci\u00F3n presumir\u00E1 el conocimiento y la aceptaci\u00F3n previa de estos T\u00E9rminos y Condiciones. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "p", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Disponibilidad de productos");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, " Cualquier persona que no acepte estos T\u00E9rminos y Condiciones, los cuales tienen car\u00E1cter obligatorio y vinculante, deber\u00E1 abstenerse de utilizar el Sitio y/o los servicios. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, " Se tiene existencia limitada de los productos que aparecen en la p\u00E1gina web. Todo producto que no se encuentre en existencia no figurar\u00E1 en la web. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, " Queda prohibido violar o intentar violar la seguridad del Sitio, incluyendo sin limitar: (i) acceder o intentar acceder a datos no provistos para el Usuario; (ii) disponer, administrar y/o suministrar cualquier comando que afecte la vulnerabilidad del sistema, red o medidas de seguridad; e (iii) intentar interferir o modificar de cualquier modo los servicios o contenidos provistos en el Sitio. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "p", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Privacidad y seguridad");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, " El Sitio incorpora hiperv\u00EDnculos a otros sitios web. Estos hiperv\u00EDnculos son provistos \u00FAnicamente con la finalidad de facilitar al Usuario el acceso a esos sitios web. En ning\u00FAn caso se entender\u00E1 que son patrocinados por MiaCargo ni que MiaCargo sea responsable por el contenido de esos sitios. El acceso a tales sitios web ser\u00E1 de responsabilidad y bajo riesgo exclusivo del Usuario. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, " Toda la informaci\u00F3n que provee el cliente al momento de registrarse o realizar una compra ser\u00E1 tratada con absoluta confidencialidad y privacidad. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37, " Como condici\u00F3n esencial para acceder y/o utilizar el Sitio, el Usuario se obliga a: (i) proveer informaci\u00F3n verdadera, correcta, actual y completa acerca de su persona, del modo en que le sea requerido en los formularios dispuestos a ese efecto; (ii) actualizar y mantener actualizados los datos aportados a fin de que MiaCargo los conserve veraces, correctos, actuales y completos. En caso de que se produjese el suministro de datos o informaciones falsas, inexactas, desactualizadas o incompletas, o si MiaCargo tuviera bases medianamente para sospechar que los datos o informaciones aportadas por el Usuario fueran falsas, inexactas, desactualizadas o incompletas, MiaCargo podr\u00E1 suspender o impedir al Usuario el acceso al Sitio, y negarle el acceso y uso presente o futuro de los contenidos o servicios provistos en el Sitio. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37, " Bymiashop se limita a resguardar la siguiente informaci\u00F3n del cliente: ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, " Informaci\u00F3n personal: su nombre, direcci\u00F3n f\u00EDsica, n\u00FAmero de tel\u00E9fono y direcci\u00F3n de e-mail. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, "Registraci\u00F3n ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](41, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, " El acceso y utilizaci\u00F3n del sitio web www.miacargo.com.ar (el \u201CSitio\u201D) se regir\u00E1 por los T\u00E9rminos y Condiciones (los \u201CT\u00E9rminos y Condiciones\u201D) que aqu\u00ED se detallan. Ser\u00E1 obligaci\u00F3n y responsabilidad de cualquier persona que desee acceder y/o utilizar el Sitio y/o los servicios (el \u201CUsuario\u201D o en plural los \u201CUsuarios\u201D), leer atentamente los T\u00E9rminos y Condiciones, puesto que su utilizaci\u00F3n presumir\u00E1 el conocimiento y la aceptaci\u00F3n previa de estos T\u00E9rminos y Condiciones. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](45, " Cualquier persona que no acepte estos T\u00E9rminos y Condiciones, los cuales tienen car\u00E1cter obligatorio y vinculante, deber\u00E1 abstenerse de utilizar el Sitio y/o los servicios. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](47, " Queda prohibido violar o intentar violar la seguridad del Sitio, incluyendo sin limitar: (i) acceder o intentar acceder a datos no provistos para el Usuario; (ii) disponer, administrar y/o suministrar cualquier comando que afecte la vulnerabilidad del sistema, red o medidas de seguridad; e (iii) intentar interferir o modificar de cualquier modo los servicios o contenidos provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](49, " El Sitio incorpora hiperv\u00EDnculos a otros sitios web. Estos hiperv\u00EDnculos son provistos \u00FAnicamente con la finalidad de facilitar al Usuario el acceso a esos sitios web. En ning\u00FAn caso se entender\u00E1 que son patrocinados por MiaCargo ni que MiaCargo sea responsable por el contenido de esos sitios. El acceso a tales sitios web ser\u00E1 de responsabilidad y bajo riesgo exclusivo del Usuario. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, " Como condici\u00F3n esencial para acceder y/o utilizar el Sitio, el Usuario se obliga a: (i) proveer informaci\u00F3n verdadera, correcta, actual y completa acerca de su persona, del modo en que le sea requerido en los formularios dispuestos a ese efecto; (ii) actualizar y mantener actualizados los datos aportados a fin de que MiaCargo los conserve veraces, correctos, actuales y completos. En caso de que se produjese el suministro de datos o informaciones falsas, inexactas, desactualizadas o incompletas, o si MiaCargo tuviera bases medianamente para sospechar que los datos o informaciones aportadas por el Usuario fueran falsas, inexactas, desactualizadas o incompletas, MiaCargo podr\u00E1 suspender o impedir al Usuario el acceso al Sitio, y negarle el acceso y uso presente o futuro de los contenidos o servicios provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](54, "Fallas en el sistema ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](55, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](56, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](57, " El acceso y utilizaci\u00F3n del sitio web www.miacargo.com.ar (el \u201CSitio\u201D) se regir\u00E1 por los T\u00E9rminos y Condiciones (los \u201CT\u00E9rminos y Condiciones\u201D) que aqu\u00ED se detallan. Ser\u00E1 obligaci\u00F3n y responsabilidad de cualquier persona que desee acceder y/o utilizar el Sitio y/o los servicios (el \u201CUsuario\u201D o en plural los \u201CUsuarios\u201D), leer atentamente los T\u00E9rminos y Condiciones, puesto que su utilizaci\u00F3n presumir\u00E1 el conocimiento y la aceptaci\u00F3n previa de estos T\u00E9rminos y Condiciones. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](58, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](59, " Cualquier persona que no acepte estos T\u00E9rminos y Condiciones, los cuales tienen car\u00E1cter obligatorio y vinculante, deber\u00E1 abstenerse de utilizar el Sitio y/o los servicios. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](61, " Queda prohibido violar o intentar violar la seguridad del Sitio, incluyendo sin limitar: (i) acceder o intentar acceder a datos no provistos para el Usuario; (ii) disponer, administrar y/o suministrar cualquier comando que afecte la vulnerabilidad del sistema, red o medidas de seguridad; e (iii) intentar interferir o modificar de cualquier modo los servicios o contenidos provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](63, " El Sitio incorpora hiperv\u00EDnculos a otros sitios web. Estos hiperv\u00EDnculos son provistos \u00FAnicamente con la finalidad de facilitar al Usuario el acceso a esos sitios web. En ning\u00FAn caso se entender\u00E1 que son patrocinados por MiaCargo ni que MiaCargo sea responsable por el contenido de esos sitios. El acceso a tales sitios web ser\u00E1 de responsabilidad y bajo riesgo exclusivo del Usuario. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](64, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](65, " Como condici\u00F3n esencial para acceder y/o utilizar el Sitio, el Usuario se obliga a: (i) proveer informaci\u00F3n verdadera, correcta, actual y completa acerca de su persona, del modo en que le sea requerido en los formularios dispuestos a ese efecto; (ii) actualizar y mantener actualizados los datos aportados a fin de que MiaCargo los conserve veraces, correctos, actuales y completos. En caso de que se produjese el suministro de datos o informaciones falsas, inexactas, desactualizadas o incompletas, o si MiaCargo tuviera bases medianamente para sospechar que los datos o informaciones aportadas por el Usuario fueran falsas, inexactas, desactualizadas o incompletas, MiaCargo podr\u00E1 suspender o impedir al Usuario el acceso al Sitio, y negarle el acceso y uso presente o futuro de los contenidos o servicios provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](66, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](67, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](68, "Responsabilidad de MiaCargo ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](69, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](70, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](71, " El acceso y utilizaci\u00F3n del sitio web www.miacargo.com.ar (el \u201CSitio\u201D) se regir\u00E1 por los T\u00E9rminos y Condiciones (los \u201CT\u00E9rminos y Condiciones\u201D) que aqu\u00ED se detallan. Ser\u00E1 obligaci\u00F3n y responsabilidad de cualquier persona que desee acceder y/o utilizar el Sitio y/o los servicios (el \u201CUsuario\u201D o en plural los \u201CUsuarios\u201D), leer atentamente los T\u00E9rminos y Condiciones, puesto que su utilizaci\u00F3n presumir\u00E1 el conocimiento y la aceptaci\u00F3n previa de estos T\u00E9rminos y Condiciones. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](72, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](73, " Cualquier persona que no acepte estos T\u00E9rminos y Condiciones, los cuales tienen car\u00E1cter obligatorio y vinculante, deber\u00E1 abstenerse de utilizar el Sitio y/o los servicios. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](74, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](75, " Queda prohibido violar o intentar violar la seguridad del Sitio, incluyendo sin limitar: (i) acceder o intentar acceder a datos no provistos para el Usuario; (ii) disponer, administrar y/o suministrar cualquier comando que afecte la vulnerabilidad del sistema, red o medidas de seguridad; e (iii) intentar interferir o modificar de cualquier modo los servicios o contenidos provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](76, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](77, " El Sitio incorpora hiperv\u00EDnculos a otros sitios web. Estos hiperv\u00EDnculos son provistos \u00FAnicamente con la finalidad de facilitar al Usuario el acceso a esos sitios web. En ning\u00FAn caso se entender\u00E1 que son patrocinados por MiaCargo ni que MiaCargo sea responsable por el contenido de esos sitios. El acceso a tales sitios web ser\u00E1 de responsabilidad y bajo riesgo exclusivo del Usuario. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](78, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](79, " Como condici\u00F3n esencial para acceder y/o utilizar el Sitio, el Usuario se obliga a: (i) proveer informaci\u00F3n verdadera, correcta, actual y completa acerca de su persona, del modo en que le sea requerido en los formularios dispuestos a ese efecto; (ii) actualizar y mantener actualizados los datos aportados a fin de que MiaCargo los conserve veraces, correctos, actuales y completos. En caso de que se produjese el suministro de datos o informaciones falsas, inexactas, desactualizadas o incompletas, o si MiaCargo tuviera bases medianamente para sospechar que los datos o informaciones aportadas por el Usuario fueran falsas, inexactas, desactualizadas o incompletas, MiaCargo podr\u00E1 suspender o impedir al Usuario el acceso al Sitio, y negarle el acceso y uso presente o futuro de los contenidos o servicios provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](80, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](81, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](82, "Privacidad de la informaci\u00F3n ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](83, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](84, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](85, " El acceso y utilizaci\u00F3n del sitio web www.miacargo.com.ar (el \u201CSitio\u201D) se regir\u00E1 por los T\u00E9rminos y Condiciones (los \u201CT\u00E9rminos y Condiciones\u201D) que aqu\u00ED se detallan. Ser\u00E1 obligaci\u00F3n y responsabilidad de cualquier persona que desee acceder y/o utilizar el Sitio y/o los servicios (el \u201CUsuario\u201D o en plural los \u201CUsuarios\u201D), leer atentamente los T\u00E9rminos y Condiciones, puesto que su utilizaci\u00F3n presumir\u00E1 el conocimiento y la aceptaci\u00F3n previa de estos T\u00E9rminos y Condiciones. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](86, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](87, " Cualquier persona que no acepte estos T\u00E9rminos y Condiciones, los cuales tienen car\u00E1cter obligatorio y vinculante, deber\u00E1 abstenerse de utilizar el Sitio y/o los servicios. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](88, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](89, " Queda prohibido violar o intentar violar la seguridad del Sitio, incluyendo sin limitar: (i) acceder o intentar acceder a datos no provistos para el Usuario; (ii) disponer, administrar y/o suministrar cualquier comando que afecte la vulnerabilidad del sistema, red o medidas de seguridad; e (iii) intentar interferir o modificar de cualquier modo los servicios o contenidos provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](90, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](91, " El Sitio incorpora hiperv\u00EDnculos a otros sitios web. Estos hiperv\u00EDnculos son provistos \u00FAnicamente con la finalidad de facilitar al Usuario el acceso a esos sitios web. En ning\u00FAn caso se entender\u00E1 que son patrocinados por MiaCargo ni que MiaCargo sea responsable por el contenido de esos sitios. El acceso a tales sitios web ser\u00E1 de responsabilidad y bajo riesgo exclusivo del Usuario. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](92, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](93, " Como condici\u00F3n esencial para acceder y/o utilizar el Sitio, el Usuario se obliga a: (i) proveer informaci\u00F3n verdadera, correcta, actual y completa acerca de su persona, del modo en que le sea requerido en los formularios dispuestos a ese efecto; (ii) actualizar y mantener actualizados los datos aportados a fin de que MiaCargo los conserve veraces, correctos, actuales y completos. En caso de que se produjese el suministro de datos o informaciones falsas, inexactas, desactualizadas o incompletas, o si MiaCargo tuviera bases medianamente para sospechar que los datos o informaciones aportadas por el Usuario fueran falsas, inexactas, desactualizadas o incompletas, MiaCargo podr\u00E1 suspender o impedir al Usuario el acceso al Sitio, y negarle el acceso y uso presente o futuro de los contenidos o servicios provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](94, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](95, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](96, "Propiedad Intelectual");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](97, "ul");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](98, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](99, " El acceso y utilizaci\u00F3n del sitio web www.miacargo.com.ar (el \u201CSitio\u201D) se regir\u00E1 por los T\u00E9rminos y Condiciones (los \u201CT\u00E9rminos y Condiciones\u201D) que aqu\u00ED se detallan. Ser\u00E1 obligaci\u00F3n y responsabilidad de cualquier persona que desee acceder y/o utilizar el Sitio y/o los servicios (el \u201CUsuario\u201D o en plural los \u201CUsuarios\u201D), leer atentamente los T\u00E9rminos y Condiciones, puesto que su utilizaci\u00F3n presumir\u00E1 el conocimiento y la aceptaci\u00F3n previa de estos T\u00E9rminos y Condiciones. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](100, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](101, " Cualquier persona que no acepte estos T\u00E9rminos y Condiciones, los cuales tienen car\u00E1cter obligatorio y vinculante, deber\u00E1 abstenerse de utilizar el Sitio y/o los servicios. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](102, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](103, " Queda prohibido violar o intentar violar la seguridad del Sitio, incluyendo sin limitar: (i) acceder o intentar acceder a datos no provistos para el Usuario; (ii) disponer, administrar y/o suministrar cualquier comando que afecte la vulnerabilidad del sistema, red o medidas de seguridad; e (iii) intentar interferir o modificar de cualquier modo los servicios o contenidos provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](104, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](105, " El Sitio incorpora hiperv\u00EDnculos a otros sitios web. Estos hiperv\u00EDnculos son provistos \u00FAnicamente con la finalidad de facilitar al Usuario el acceso a esos sitios web. En ning\u00FAn caso se entender\u00E1 que son patrocinados por MiaCargo ni que MiaCargo sea responsable por el contenido de esos sitios. El acceso a tales sitios web ser\u00E1 de responsabilidad y bajo riesgo exclusivo del Usuario. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](106, "li");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](107, " Como condici\u00F3n esencial para acceder y/o utilizar el Sitio, el Usuario se obliga a: (i) proveer informaci\u00F3n verdadera, correcta, actual y completa acerca de su persona, del modo en que le sea requerido en los formularios dispuestos a ese efecto; (ii) actualizar y mantener actualizados los datos aportados a fin de que MiaCargo los conserve veraces, correctos, actuales y completos. En caso de que se produjese el suministro de datos o informaciones falsas, inexactas, desactualizadas o incompletas, o si MiaCargo tuviera bases medianamente para sospechar que los datos o informaciones aportadas por el Usuario fueran falsas, inexactas, desactualizadas o incompletas, MiaCargo podr\u00E1 suspender o impedir al Usuario el acceso al Sitio, y negarle el acceso y uso presente o futuro de los contenidos o servicios provistos en el Sitio. ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "p", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, " Informaci\u00F3n no personalizada identificable: direcci\u00F3n IP, tipo de navegador, nombre de dominio, y paginaciones espec\u00EDficas de la p\u00E1gina de Bymiashop.com se recopilan para ganar una comprensi\u00F3n mejor de las necesidades del desarrollo del sitio. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -4117,35 +4012,88 @@ class RmaGarantiaComponent {
     }
 }
 RmaGarantiaComponent.ɵfac = function RmaGarantiaComponent_Factory(t) { return new (t || RmaGarantiaComponent)(); };
-RmaGarantiaComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RmaGarantiaComponent, selectors: [["app-rma-garantia"]], decls: 20, vars: 0, consts: [[1, "container", "d-flex", "justify-content-center"], [1, "container__pbg", "col", "col-lg-10", "mt-2"], [1, "row"], [1, "col"], [1, "politic__h3", "text-center", "mt-3", "mt-lg-5"], [1, "row", "d-flex", "flex-column", "align-content-center"], [1, "col", "col-lg-8", "mt-3"], [1, "politic__p"]], template: function RmaGarantiaComponent_Template(rf, ctx) { if (rf & 1) {
+RmaGarantiaComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RmaGarantiaComponent, selectors: [["app-rma-garantia"]], decls: 55, vars: 0, consts: [[1, "container", "d-flex", "justify-content-center"], [1, "container__pbg", "col", "col-lg-10", "mt-2"], [1, "row"], [1, "col"], [1, "politic__h3", "text-center", "mt-3", "mt-lg-5"], [1, "row", "d-flex", "flex-column", "align-content-center"], [1, "col", "col-lg-8", "mt-3"], [1, "ol__garantia"], ["type", "a"], [1, "politic__p"], [1, "bold"]], template: function RmaGarantiaComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "h3", 4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " POL\u00CDTICA DE GARANT\u00CDA y RMA de BYMIA ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " CONDICIONES GENERALES DE GARANT\u00CDA ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " La propiedad del producto se transfiere al cliente cuando el cliente o el transportista toman posesi\u00F3n del pedido, ya sea que esto ocurra en el Dep\u00F3sito Miami de BYMIA (si el cliente o el transportista retiran el pedido) o en el centro de recepci\u00F3n del transportista en Miami. En este sentido solicitamos que inspeccione todos los productos inmediatamente despu\u00E9s de recibirlos en el domicilio que eligi\u00F3 como destinatario o de retirarlos en el Dep\u00F3sito Miami de BYMIA. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "ol", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, " La vigencia de la garant\u00EDa se establece a partir de la fecha de emisi\u00F3n de la factura de venta del art\u00EDculo o a partir de que el consumidor (primer consumidor /adquiriente) disponga del producto en sus manos, seg\u00FAn corresponda. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " Por lo tanto, la responsabilidad por los da\u00F1os que se produzcan en tr\u00E1nsito es \u00FAnicamente del cliente. Una firma en la BILL OF LANDING (BOL) - GU\u00CDA DE CARGA al recibir los productos confirma que dichos productos se reciben en buenas condiciones a menos que se haga una salvedad en el BOL y se notifique a BYMIA de inmediato. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " La garant\u00EDa no incluye partes pl\u00E1sticas, ni vidrios, ni pintura, luego de haberlo recibido conforme y sin desperfecto de f\u00E1brica. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, " Todos los productos (ya sean nuevos, reacondicionados de f\u00E1brica o reacondicionados por terceros) se venden \u201Ccomo est\u00E1n\u201D, sin m\u00E1s garant\u00EDa que la garant\u00EDa limitada del fabricante aplicable a cada producto, a menos que se especifique lo contrario en la orden de venta correspondiente. BYMIA rechaza todas las dem\u00E1s garant\u00EDas, en la m\u00E1xima medida permitida por la ley, incluidas las garant\u00EDas impl\u00EDcitas de comerciabilidad, idoneidad para un prop\u00F3sito particular, cualquier garant\u00EDa que derive de las prestaciones, la negociaci\u00F3n o el uso comercial, y cualquier garant\u00EDa legal de no-infracci\u00F3n. Las devoluciones relacionadas con la garant\u00EDa del fabricante pueden estar sujetas a los t\u00E9rminos y condiciones espec\u00EDficos de la garant\u00EDa del fabricante correspondiente y las pol\u00EDticas de devoluci\u00F3n del fabricante correspondientes al producto devuelto. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, " Se pierde la garant\u00EDa del art\u00EDculo, si se presentare cualquiera de las siguientes condiciones: ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "ol", 8);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, " Si la persona o instituci\u00F3n no autorizada previamente por Bymiashop, ha reparado o tratado de reparar el art\u00EDculo bajo garant\u00EDa; ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, " La garant\u00EDa del producto es nula, si el producto es da\u00F1ado f\u00EDsicamente debido a: abuso del usuario y/o manejo inadecuado; intento de reparar, agregarle algo o rehacer el producto, o modificar y/o desfigurar el sello de garant\u00EDa, el n\u00FAmero de serie y/o las etiquetas del fabricante original. La garant\u00EDa del producto tambi\u00E9n queda anulada, si falta el n\u00FAmero de serie del producto en el momento de la devoluci\u00F3n. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, "Da\u00F1os causados por descargas el\u00E9ctricas o altos voltajes.");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, " No trate de devolver ning\u00FAn producto antes de solicitar y recibir un n\u00FAmero de RMA (Return Merchandise Authorization) del Departamento RMA de BYMIA. Para ello ingrese en su panel de cliente desde la web www.bymiashop.com y complete el formulario de RMA o comun\u00EDquese con el Departamento RMA de BYMIA por correo electr\u00F3nico a info@bymiashop.com para obtener m\u00E1s detalles. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, " Por causa de instalaciones inadecuadas, ya sea de cables, de transmisi\u00F3n de data, visual o electr\u00F3nica. Cuando el cliente no observ\u00F3 las condiciones de instalaci\u00F3n contenidas en la etiqueta o el Manual de Instalaci\u00F3n y funcionamiento del art\u00EDculo. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "p", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, " Todas las ventas son finales. BYMIA no ofrece reembolsos ni protecci\u00F3n de precios. Al devolver cualquier producto a BYMIA, usted declara y garantiza que el producto devuelto fue comprado a BYMIA, no es falsificado o no conforme, y no viola la Pol\u00EDtica de garant\u00EDa y RMA de BYMIA. Tambi\u00E9n acepta que BYMIA puede probar cualquier producto devuelto para determinar si dicho producto es falsificado, no conforme o si infringe la Pol\u00EDtica de garant\u00EDa y RMA de BYMIA. En el caso de que BYMIA determine, a su sola discreci\u00F3n, que cualquier producto devuelto es falsificado, o, en cierto modo, no es id\u00E9ntico, o viola la Pol\u00EDtica de RMA y Garant\u00EDa de BYMIA, la empresa puede (i) informar dicho problema a cualquier agencia gubernamental o reguladora aplicable o cualquier otro tercero aplicable; (ii) poner en cuarentena dicho producto para realizar m\u00E1s pruebas u otros an\u00E1lisis; y/o (iii) tomar otras medidas que puedan ser requeridas o permitidas por la ley aplicable. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, " Hacerle modificaciones al art\u00EDculo sin haber sido autorizadas por Bymiashop. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](25, " Que el art\u00EDculo haya sido expuesto a humedad, inundaciones u otros tipos de eventos atmosf\u00E9ricos, acaecidos en el lugar donde se encuentra instalado el art\u00EDculo, para lo cual no fue dise\u00F1ado. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](26, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](27, " Por roturas, abolladuras o golpes, causados en posesi\u00F3n del cliente, luego de haberlo recibido conforme y sin desperfecto de f\u00E1brica. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, " Cuando los datos del art\u00EDculo (modelo, serie u otro tipo de informaci\u00F3n que identifiquen a producto) sean alternados o no se verifiquen de manera clara y precisa en el cuerpo del art\u00EDculo, tarjeta de garant\u00EDa y el n\u00FAmero serial que individualiza el bien. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](30, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31, " Cuando el art\u00EDculo est\u00E9 especificado para uso dom\u00E9stico y se use en fines industriales o comerciales, condici\u00F3n esta que estar\u00E1 consignada en la tarjeta de garant\u00EDa. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, " Cuando el art\u00EDculo es vendido o traspasado a otro usuario diferente al cual se le factur\u00F3 originalmente y este nuevo usuario no presenta a Bymiashop la factura de compra o documentaci\u00F3n legible, que comprueba la adquisici\u00F3n leg\u00EDtima del bien o servicio, as\u00ED como tambi\u00E9n el original del certificado de garant\u00EDa. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](34, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](35, " Solo se har\u00E1n cambios de art\u00EDculos por causa de defectos de f\u00E1brica, siempre y cuando el cliente notifique a Bymiashop cinco (5) d\u00EDas posterior a la compra del articulo defectuoso. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](36, "li");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37, " Para obtener el servicio de garant\u00EDa de los art\u00EDculos vendidos por Bymiashop, se deber\u00E1 entregar conjuntamente con el art\u00EDculo la tarjeta de garant\u00EDa y la factura de compra o documentaci\u00F3n legible, que comprueba la adquisici\u00F3n leg\u00EDtima del bien o servicio, dentro del periodo de la garant\u00EDa. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](38, "h3", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](39, " POL\u00CDTICA DE GARANT\u00CDA Y DEVOLUCI\u00D3N DE PRODUCTO BYMIA ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](40, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](41, " La propiedad del producto se transfiere al cliente cuando el cliente PAGA Y TOMA posesi\u00F3n del producto o art\u00EDculo. En este sentido solicitamos que inspeccione todos los productos inmediatamente despu\u00E9s de recibirlos en el domicilio que eligi\u00F3 como destinatario o de retirarlos en el Dep\u00F3sito de BYMIA. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](42, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](43, " Todos los productos (ya sean nuevos, reacondicionados de f\u00E1brica o reacondicionados por terceros) se venden \u201Ccomo est\u00E1n\u201D, sin m\u00E1s garant\u00EDa que la garant\u00EDa limitada del fabricante aplicable a cada producto, a menos que se especifique lo contrario en la orden de venta correspondiente. BYMIA solo reconoce las garant\u00EDas que est\u00E9n atribuida por las leyes de la Rep\u00FAblica Dominciana. Las devoluciones relacionadas con la garant\u00EDa del fabricante pueden estar sujetas a los t\u00E9rminos y condiciones espec\u00EDficos de la garant\u00EDa del fabricante correspondiente y las pol\u00EDticas de devoluci\u00F3n del fabricante correspondientes al producto devuelto. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](45, " Se pierde la garant\u00EDa del producto, cuando el producto es da\u00F1ado f\u00EDsicamente debido a: abuso del usuario y/o manejo inadecuado; intento de reparar, agregarle algo o rehacer el producto, o modificar y/o desfigurar el sello de garant\u00EDa, el n\u00FAmero de serie y/o las etiquetas del fabricante original. La garant\u00EDa del producto tambi\u00E9n queda anulada, si falta el n\u00FAmero de serie del producto en el momento de la devoluci\u00F3n. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](47, " No trate de devolver ning\u00FAn producto antes de solicitar y recibir un n\u00FAmero de ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](48, "span", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](49, " RMA (Return Merchandise Authorization) (Autorizaci\u00F3n de Devoluci\u00F3n de Mercanc\u00EDa)");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](50, " del Departamento RMA de BYMIA. Para ello ingrese en su panel de cliente desde la web www.bymiashop.com y complete el formulario de RMA o comun\u00EDquese con el Departamento RMA de BYMIA por correo electr\u00F3nico a info@bymiashop.com para obtener m\u00E1s detalles. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](51, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](52, " Todas las ventas son finales. BYMIA no ofrece reembolsos ni protecci\u00F3n de precios. Al devolver cualquier producto a BYMIA, usted declara y garantiza que el producto devuelto fue comprado a BYMIA, no es falsificado o no conforme, y no viola la Pol\u00EDtica de garant\u00EDa y RMA de BYMIA. Tambi\u00E9n acepta que BYMIA puede probar cualquier producto devuelto para determinar si dicho producto es falsificado, no conforme o si infringe la Pol\u00EDtica de garant\u00EDa y RMA de BYMIA. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "p", 9);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](54, " En el caso de que BYMIA determine, a su sola discreci\u00F3n, que cualquier producto devuelto es falsificado, o, en cierto modo, no es id\u00E9ntico, o viola la Pol\u00EDtica de RMA y Garant\u00EDa de BYMIA, la empresa puede (i) informar dicho problema a cualquier agencia gubernamental o reguladora aplicable o cualquier otro tercero aplicable; (ii) poner en cuarentena dicho producto para realizar m\u00E1s pruebas u otros an\u00E1lisis; y/o (iii) tomar otras medidas que puedan ser requeridas o permitidas por la ley aplicable. ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -5729,107 +5677,110 @@ function MyDataComponent_div_2_button_64_Template(rf, ctx) { if (rf & 1) {
 function MyDataComponent_div_2_div_65_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3, "C\u00F3digo de identificaci\u00F3n:");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](6);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "button", 25);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Editar");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](11, "Tipo de cliente:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](7, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](8, "Tipo de cliente:");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](13);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](16, "Email:");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](9, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](21, "Tel\u00E9fono:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](11, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](13, "Nombre y apellidos:");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](25, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](26, "Tipo de identificaci\u00F3n:");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](15);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](31, "N\u00FAmero de identificaci\u00F3n:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](17, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](18, "Email:");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](33);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](35, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](36, "Pa\u00EDs:");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](38);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](20);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](40, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](41, "Estado o provincia:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](21, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](23, "Tel\u00E9fono:");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](43);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](44, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](45, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](46, "Ciudad:");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](24, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](25);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](49, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](50, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](51, "Direcci\u00F3n:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](26, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](27, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](28, "Tipo de identificaci\u00F3n:");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](53);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](30);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](54, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](55, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](56, "C\u00F3digo Postal:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](33, "N\u00FAmero de identificaci\u00F3n:");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "p");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](58);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](35);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](36, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](37, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](38, "Pa\u00EDs:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](39, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](41, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](42, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](43, "Estado o provincia:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](44, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](45);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](46, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](47, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](48, "Ciudad:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](49, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](51, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](52, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](53, "Direcci\u00F3n:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](54, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](55);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](56, "div");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](57, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](58, "C\u00F3digo Postal:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](59, "p");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](60);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r3.userProfile.customerData.latest_billing_data.name, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r3.userProfile.customerData.latest_billing_data.code_id, " ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate2"](" ", ctx_r3.userProfile.customerData.latest_billing_data.name, " ", ctx_r3.userProfile.customerData.latest_billing_data.code_id, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r3.userProfile.customerData.latest_billing_data.type_user, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r3.userProfile.customerData.latest_billing_data.name, " ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate"](ctx_r3.userProfile.customerData.latest_billing_data.email);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](5);
@@ -5858,12 +5809,12 @@ function MyDataComponent_div_2_div_66_Template(rf, ctx) { if (rf & 1) {
 } }
 function MyDataComponent_div_2_button_71_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "button", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "i", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "i", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2, "Agregar ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
 function MyDataComponent_div_2_div_76_div_1_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -5879,8 +5830,8 @@ function MyDataComponent_div_2_div_76_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate5"](" ", address_r9.city, ", ", address_r9.state, ", ", address_r9.address, ", CP ", address_r9.zip_code, ", ", address_r9.phone, " ");
 } }
 function MyDataComponent_div_2_div_76_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 27);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, MyDataComponent_div_2_div_76_div_1_Template, 5, 6, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, MyDataComponent_div_2_div_76_div_1_Template, 5, 6, "div", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](2);
@@ -5888,7 +5839,7 @@ function MyDataComponent_div_2_div_76_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx_r6.userProfile.customerData.my_addresses);
 } }
 function MyDataComponent_div_2_div_77_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](1, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](3, "No tienes direcciones registradas");
@@ -6000,7 +5951,7 @@ function MyDataComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](64, MyDataComponent_div_2_button_64_Template, 2, 0, "button", 18);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](65, MyDataComponent_div_2_div_65_Template, 59, 12, "div", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](65, MyDataComponent_div_2_div_65_Template, 61, 13, "div", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](66, MyDataComponent_div_2_div_66_Template, 3, 0, "div", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -6082,7 +6033,7 @@ class MyDataComponent {
     ngOnInit() { }
 }
 MyDataComponent.ɵfac = function MyDataComponent_Factory(t) { return new (t || MyDataComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_0__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.Router)); };
-MyDataComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: MyDataComponent, selectors: [["app-my-data"]], decls: 3, vars: 2, consts: [[1, "ctn-mydata"], ["class", "text-center text-bymia", 4, "ngIf"], ["class", "mydata__bg", 4, "ngIf"], [1, "text-center", "text-bymia"], [1, "bx", "bx-md", "bx-loader-alt", "bx-spin"], [1, "mydata__bg"], [1, "mydata__back"], [3, "routerLink"], ["src", "../assets/svg/Icon-arrow-back.svg", "alt", "Go back"], [1, "ctn-mydata__bg"], [1, "mydata__flx"], [1, "mydata"], [1, "mydata__title"], [1, "btn__mydata", "btn-mobile", 3, "click"], [1, "mydata__bgd"], [1, "mydata__security"], ["routerLink", "/forget-password"], [1, "mydata__billing"], ["class", "btn__mydata btn-mobile", 4, "ngIf"], ["class", "mydata__bgd", 4, "ngIf"], [1, "mydata__address", "mydata"], [1, "btn__mydata", "btn-deskt", "btn-address"], ["class", "ctn__addres", 4, "ngIf"], ["class", "mydata__address__card", 4, "ngIf"], [1, "btn__mydata", "btn-mobile"], [1, "btn__mydata", "btn-deskt"], [1, "bx", "bxs-plus-circle", "bx-tada-hover"], [1, "ctn__addres"], ["class", "mydata__address__card", 4, "ngFor", "ngForOf"], [1, "mydata__address__card"]], template: function MyDataComponent_Template(rf, ctx) { if (rf & 1) {
+MyDataComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: MyDataComponent, selectors: [["app-my-data"]], decls: 3, vars: 2, consts: [[1, "ctn-mydata"], ["class", "text-center text-bymia", 4, "ngIf"], ["class", "mydata__bg", 4, "ngIf"], [1, "text-center", "text-bymia"], [1, "bx", "bx-md", "bx-loader-alt", "bx-spin"], [1, "mydata__bg"], [1, "mydata__back"], [3, "routerLink"], ["src", "../assets/svg/Icon-arrow-back.svg", "alt", "Go back"], [1, "ctn-mydata__bg"], [1, "mydata__flx"], [1, "mydata"], [1, "mydata__title"], [1, "btn__mydata", "btn-mobile", 3, "click"], [1, "mydata__bgd"], [1, "mydata__security"], ["routerLink", "/forget-password"], [1, "mydata__billing"], ["class", "btn__mydata btn-mobile", 4, "ngIf"], ["class", "mydata__bgd", 4, "ngIf"], [1, "mydata__address", "mydata"], [1, "btn__mydata", "btn-deskt", "btn-address"], ["class", "ctn__addres", 4, "ngIf"], ["class", "mydata__address__card", 4, "ngIf"], [1, "btn__mydata", "btn-mobile"], [1, "bx", "bxs-plus-circle", "bx-tada-hover"], [1, "ctn__addres"], ["class", "mydata__address__card", 4, "ngFor", "ngForOf"], [1, "mydata__address__card"]], template: function MyDataComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](1, MyDataComponent_div_1_Template, 2, 0, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](2, MyDataComponent_div_2_Template, 78, 17, "div", 2);
@@ -7250,7 +7201,7 @@ function SaleOrderStepOneComponent_div_2_div_75_Template(rf, ctx) { if (rf & 1) 
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](69, " , y el env\u00EDo de mails con ofertas,adem\u00E1s de la ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](70, "strong");
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](71, "Pol\u00EDtica de garant\u00EDa y RMA,");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](71, "Politica de Devoluci\u00F3n y Garantia,");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](72, " que pod\u00E9s conocer ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](73, "strong", 89);
@@ -7381,7 +7332,7 @@ function SaleOrderStepOneComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](67, "select", 43);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵlistener"]("change", function SaleOrderStepOneComponent_div_2_Template_select_change_67_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵrestoreView"](_r46); const ctx_r48 = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵnextContext"](); return ctx_r48.changeRecipe(ctx_r48.recipesAddressSelect.value); });
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](68, "option", 44);
-    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](69, "Igual datos de facturaci\u00F3n");
+    _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtext"](69, " Igual datos de facturaci\u00F3n ");
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](70, SaleOrderStepOneComponent_div_2_option_70_Template, 2, 2, "option", 45);
     _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](71, "option", 46);
@@ -7787,7 +7738,7 @@ class SaleOrderStepOneComponent {
     }
 }
 SaleOrderStepOneComponent.ɵfac = function SaleOrderStepOneComponent_Factory(t) { return new (t || SaleOrderStepOneComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_1__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_2__.BymiaService)); };
-SaleOrderStepOneComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: SaleOrderStepOneComponent, selectors: [["app-sale-order-step-one"]], decls: 4, vars: 3, consts: [[1, "container", "mt-3"], ["class", "text-center text-bymia", 4, "ngIf"], ["class", "container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn", 4, "ngIf"], ["class", "container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0", 4, "ngIf"], [1, "text-center", "text-bymia"], [1, "bx", "bx-md", "bx-loader-alt", "bx-spin"], [1, "container", "col-11", "p-3", "p-md-5", "container__bg", "container__bg-hg", "animate__animated", "animate__zoomIn"], [1, "header__order", "row", "cart__header", "pt-3", "pb-3", "p-md-4", "mb-2", "d-flex", "justify-content-between", "align-items-center"], [1, "col"], [1, "cart__h3", "cart__h3-title"], ["src", "../assets/svg/Icon_shopping_cart.svg", "alt", "favoritos"], [1, "col-7", "d-flex", "justify-content-end", "align-items-center"], [1, "me-1"], [1, "cart__button", "cart__button-bg", 3, "ngClass", "disabled", "click"], [1, "row", "gap-2"], [1, "col", "col-lg-8", "text-dark", "m-0", "p-0"], [1, "sale__info", "d-flex", "gap-2", "align-items-center", "p-lg-4", "p-2", "rounded-3"], [1, "bx", "bxs-info-circle"], [1, "sale__p", "sale__p-bold", "mt-1", "mb-1"], [1, "p-lg-4", "p-2", "mt-2", "rounded-3", "bg-light"], [1, "text-dark", "sale__h3", "text-center", "pt-3"], [1, "mt-3", "d-flex", "flex-column", "gap-2", 3, "formGroup"], [1, "d-md-flex", "gap-2"], ["type", "text", "name", "name", "formControlName", "name", "placeholder", "Nombre y apellido", "id", "name", "value", "OKA", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "identity_type", "formControlName", "identity_type", "placeholder", "Tipo de identificaci\u00F3n", "value", "", "id", "identity_type", "minlength", "3", "required", "", "aria-describedby", "identity_typeHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "identity_number", "formControlName", "identity_number", "placeholder", "N\u00FAmero de identificaci\u00F3n", "id", "identity_number", "minlength", "3", "required", "", "aria-describedby", "identity_numberHelp", 1, "form-control", "frm-register__input", 3, "value"], ["name", "", "formControlName", "country_id", "id", "country_name", 1, "form-select", "mb-2", "mb-md-0"], ["value", "", "disabled", ""], [3, "value"], ["id", "state_name", "formControlName", "state_id", 1, "form-select", "mb-2", "mb-md-0", 3, "change"], [3, "value", 4, "ngFor", "ngForOf"], ["name", "", "id", "city_name", "formControlName", "city_id", 1, "form-select"], ["type", "text", "name", "address", "formControlName", "address", "placeholder", "Direcci\u00F3n (incluye calle, altura y piso, de ser necesario)", "id", "address", "value", "", "minlength", "3", "required", "", "aria-describedby", "addressHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "code_zip", "formControlName", "code_zip", "placeholder", "C\u00F3digo postal ", "value", "", "id", "code_zip", "minlength", "3", "required", "", "aria-describedby", "code_zipHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "phone", "formControlName", "phone", "placeholder", "Tel\u00E9fono: +x (xxx) xxx-xxxx ", "id", "phone", "minlength", "3", "required", "", "aria-describedby", "phoneHelp", 1, "form-control", "frm-register__input", 3, "value"], ["type", "email", "name", "email", "formControlName", "email", "placeholder", "E-mail", "id", "email", "minlength", "3", "value", "", "required", "", "aria-describedby", "emailHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "additional_info", "formControlName", "additional_info", "placeholder", "Informaci\u00F3n adicional (ej, entre calle y calle)", "id", "additional_info", "value", "", "minlength", "3", "aria-describedby", "additional_infoHelp", 1, "form-control", "frm-register__input"], [4, "ngIf"], ["class", "form-text text-danger", 4, "ngIf"], ["class", "mt-5 mt-2", 4, "ngIf"], ["class", "mt-3 d-flex flex-column gap-2", "action", "", 4, "ngIf"], [1, "d-md-flex", "gap-2", "my-3"], [1, "text-dark", "sale__h3"], ["id", "recipesAddressSelect", "name", "recipesAddressSelect", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "mb-2", "mb-md-0", 3, "formControl", "change"], ["value", "0", 3, "selected"], [3, "ngValue", 4, "ngFor", "ngForOf"], [3, "ngValue"], ["class", "mt-3 d-flex flex-column gap-2", 3, "formGroup", 4, "ngIf"], ["class", "col bg-light rounded-3 p-4 h-100", 4, "ngIf"], [1, "cart__button", "cart__button-bg", 3, "click"], [1, "form-text", "text-danger"], [1, "mt-5", "mt-2"], ["action", "", 1, "mt-3", "d-flex", "flex-column", "gap-2"], ["type", "text", "name", "name", "placeholder", "Nombre y apellido", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "Raz\u00F3n social -Pickup", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "type-id", "placeholder", "Tipo de identificaci\u00F3n", "id", "type-id", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "N\u00FAmero de identificaci\u00F3n ", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "email", "name", "name", "placeholder", "E-mail", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "Tel\u00E9fono: +x (xxx) xxx-xxxx ", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["class", "d-md-flex gap-2", 4, "ngIf"], ["value", "62", "selected", ""], ["selected", "", 3, "value", 4, "ngFor", "ngForOf"], ["type", "text", "name", "name", "formControlName", "name", "placeholder", "Nombre y apellido", "id", "name", "value", "", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["selected", "", 3, "value"], [1, "col", "bg-light", "rounded-3", "p-4", "h-100"], [1, "text-center"], [1, "text-dark", "sale__h3", "pt-4"], [1, "pe-4", "pt-2"], [1, "sale__p", "sale__p-bold"], ["class", "d-flex justify-content-between pe-4 pt-1 gap-1", 4, "ngFor", "ngForOf"], [1, "mt-4"], [1, "sale__h3", "text-center", "text-dark"], [1, "d-flex"], [1, "col-1"], ["action", "", 1, "col", "col-lg-10"], ["type", "text", "name", "name", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "text-center", "mt-2"], [1, "text-center", "mt-2"], [1, "cart__button", "cart__button-bg-black"], [1, "pe-4", "pt-4"], [1, "d-flex", "justify-content-between"], [1, "sale__p", "sale__p-bold", "text-dark"], [1, "sale__p", "text-dark"], [1, "mt-5"], [1, "sale__h3", "sale__h3-md", "text-dark", "text-center"], [1, "sale__p-bold", "sale__p-lg", "fw-bold", "text-dark", "text-center"], [1, "d-flex", "justify-content-center"], [1, "sale__btn", "text-center", 3, "ngClass", "disabled", "click"], [1, "sale__p", "sale__p-xs", "text-center", "text-dark", "mt-2", "p-2"], ["routerLink", "/politicas-privacidad-y-servcios", 1, "cursor__pointer", "btn-deshabilitado"], ["routerLink", "/politicas-rma-y-garantia", 1, "cursor__pointer", "btn-deshabilitado"], [1, "d-flex", "justify-content-between", "pe-4", "pt-1", "gap-1"], [1, "container__modal-order", "animate__animated", "animate__zoomIn", "animate__faster", "ps-2", "ps-md-0", "pe-2", "pe-md-0"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "container-order"], [1, "row", "mb-3", "mt-3"], ["src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end", "me-2"], [1, "row"], [1, "text-center", "h3__popup"], [1, "row", "m-2", "m-md-3"], [1, "col", "bg-dark", "rounded-3", "p-3", "mb-3"], [1, "h5__popup"], [1, "p__popup", "text-light"]], template: function SaleOrderStepOneComponent_Template(rf, ctx) { if (rf & 1) {
+SaleOrderStepOneComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineComponent"]({ type: SaleOrderStepOneComponent, selectors: [["app-sale-order-step-one"]], decls: 4, vars: 3, consts: [[1, "container", "mt-3"], ["class", "text-center text-bymia", 4, "ngIf"], ["class", "container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn", 4, "ngIf"], ["class", "container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0", 4, "ngIf"], [1, "text-center", "text-bymia"], [1, "bx", "bx-md", "bx-loader-alt", "bx-spin"], [1, "container", "col-11", "p-3", "p-md-5", "container__bg", "container__bg-hg", "animate__animated", "animate__zoomIn"], [1, "header__order", "row", "cart__header", "pt-3", "pb-3", "p-md-4", "mb-2", "d-flex", "justify-content-between", "align-items-center"], [1, "col"], [1, "cart__h3", "cart__h3-title"], ["src", "../assets/svg/Icon_shopping_cart.svg", "alt", "favoritos"], [1, "col-7", "d-flex", "justify-content-end", "align-items-center"], [1, "me-1"], [1, "cart__button", "cart__button-bg", 3, "ngClass", "disabled", "click"], [1, "row", "gap-2"], [1, "col", "col-lg-8", "text-dark", "m-0", "p-0"], [1, "sale__info", "d-flex", "gap-2", "align-items-center", "p-lg-4", "p-2", "rounded-3"], [1, "bx", "bxs-info-circle"], [1, "sale__p", "sale__p-bold", "mt-1", "mb-1"], [1, "p-lg-4", "p-2", "mt-2", "rounded-3", "bg-light"], [1, "text-dark", "sale__h3", "text-center", "pt-3"], [1, "mt-3", "d-flex", "flex-column", "gap-2", 3, "formGroup"], [1, "d-md-flex", "gap-2"], ["type", "text", "name", "name", "formControlName", "name", "placeholder", "Nombre y apellido", "id", "name", "value", "OKA", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "identity_type", "formControlName", "identity_type", "placeholder", "Tipo de identificaci\u00F3n", "value", "", "id", "identity_type", "minlength", "3", "required", "", "aria-describedby", "identity_typeHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "identity_number", "formControlName", "identity_number", "placeholder", "N\u00FAmero de identificaci\u00F3n", "id", "identity_number", "minlength", "3", "required", "", "aria-describedby", "identity_numberHelp", 1, "form-control", "frm-register__input", 3, "value"], ["name", "", "formControlName", "country_id", "id", "country_name", 1, "form-select", "mb-2", "mb-md-0"], ["value", "", "disabled", ""], [3, "value"], ["id", "state_name", "formControlName", "state_id", 1, "form-select", "mb-2", "mb-md-0", 3, "change"], [3, "value", 4, "ngFor", "ngForOf"], ["name", "", "id", "city_name", "formControlName", "city_id", 1, "form-select"], ["type", "text", "name", "address", "formControlName", "address", "placeholder", "Direcci\u00F3n (incluye calle, altura y piso, de ser necesario)", "id", "address", "value", "", "minlength", "3", "required", "", "aria-describedby", "addressHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "code_zip", "formControlName", "code_zip", "placeholder", "C\u00F3digo postal ", "value", "", "id", "code_zip", "minlength", "3", "required", "", "aria-describedby", "code_zipHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "phone", "formControlName", "phone", "placeholder", "Tel\u00E9fono: +x (xxx) xxx-xxxx ", "id", "phone", "minlength", "3", "required", "", "aria-describedby", "phoneHelp", 1, "form-control", "frm-register__input", 3, "value"], ["type", "email", "name", "email", "formControlName", "email", "placeholder", "E-mail", "id", "email", "minlength", "3", "value", "", "required", "", "aria-describedby", "emailHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "additional_info", "formControlName", "additional_info", "placeholder", "Informaci\u00F3n adicional (ej, entre calle y calle)", "id", "additional_info", "value", "", "minlength", "3", "aria-describedby", "additional_infoHelp", 1, "form-control", "frm-register__input"], [4, "ngIf"], ["class", "form-text text-danger", 4, "ngIf"], ["class", "mt-5 mt-2", 4, "ngIf"], ["class", "mt-3 d-flex flex-column gap-2", "action", "", 4, "ngIf"], [1, "d-md-flex", "gap-2", "my-3"], [1, "text-dark", "sale__h3"], ["id", "recipesAddressSelect", "name", "recipesAddressSelect", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "mb-2", "mb-md-0", 3, "formControl", "change"], ["value", "0", 3, "selected"], [3, "ngValue", 4, "ngFor", "ngForOf"], [3, "ngValue"], ["class", "mt-3 d-flex flex-column gap-2", 3, "formGroup", 4, "ngIf"], ["class", "col bg-light rounded-3 p-4 h-100", 4, "ngIf"], [1, "cart__button", "cart__button-bg", 3, "click"], [1, "form-text", "text-danger"], [1, "mt-5", "mt-2"], ["action", "", 1, "mt-3", "d-flex", "flex-column", "gap-2"], ["type", "text", "name", "name", "placeholder", "Nombre y apellido", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "Raz\u00F3n social -Pickup", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "text", "name", "type-id", "placeholder", "Tipo de identificaci\u00F3n", "id", "type-id", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "N\u00FAmero de identificaci\u00F3n ", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["type", "email", "name", "name", "placeholder", "E-mail", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["type", "text", "name", "name", "placeholder", "Tel\u00E9fono: +x (xxx) xxx-xxxx ", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input"], ["class", "d-md-flex gap-2", 4, "ngIf"], ["value", "62", "selected", ""], ["selected", "", 3, "value", 4, "ngFor", "ngForOf"], ["type", "text", "name", "name", "formControlName", "name", "placeholder", "Nombre y apellido", "id", "name", "value", "", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "frm-register__input", "mb-2", "mb-md-0"], ["selected", "", 3, "value"], [1, "col", "bg-light", "rounded-3", "p-4", "h-100"], [1, "text-center"], [1, "text-dark", "sale__h3", "pt-4"], [1, "pe-4", "pt-2"], [1, "sale__p", "sale__p-bold"], ["class", "d-flex justify-content-between pe-4 pt-1 gap-1", 4, "ngFor", "ngForOf"], [1, "mt-4"], [1, "sale__h3", "text-center", "text-dark"], [1, "d-flex"], [1, "col-1"], ["action", "", 1, "col", "col-lg-10"], ["type", "text", "name", "name", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", "text-center", "mt-2"], [1, "text-center", "mt-2"], [1, "cart__button", "cart__button-bg-black"], [1, "pe-4", "pt-4"], [1, "d-flex", "justify-content-between"], [1, "sale__p", "sale__p-bold", "text-dark"], [1, "sale__p", "text-dark"], [1, "mt-5"], [1, "sale__h3", "sale__h3-md", "text-dark", "text-center"], [1, "sale__p-bold", "sale__p-lg", "fw-bold", "text-dark", "text-center"], [1, "d-flex", "justify-content-center"], [1, "sale__btn", "text-center", 3, "ngClass", "disabled", "click"], [1, "sale__p", "sale__p-xs", "text-center", "text-dark", "mt-2", "p-2"], ["routerLink", "/politicas-privacidad-y-servcios", 1, "cursor__pointer"], ["routerLink", "/politicas-de-devoluci\u00F3n-y-garantia", 1, "cursor__pointer"], [1, "d-flex", "justify-content-between", "pe-4", "pt-1", "gap-1"], [1, "container__modal-order", "animate__animated", "animate__zoomIn", "animate__faster", "ps-2", "ps-md-0", "pe-2", "pe-md-0"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "container-order"], [1, "row", "mb-3", "mt-3"], ["src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end", "me-2"], [1, "row"], [1, "text-center", "h3__popup"], [1, "row", "m-2", "m-md-3"], [1, "col", "bg-dark", "rounded-3", "p-3", "mb-3"], [1, "h5__popup"], [1, "p__popup", "text-light"]], template: function SaleOrderStepOneComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](1, SaleOrderStepOneComponent_div_1_Template, 2, 0, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵtemplate"](2, SaleOrderStepOneComponent_div_2_Template, 76, 28, "div", 2);
@@ -8136,6 +8087,7 @@ class ForgetPasswordComponent {
                 icon: 'success',
                 text: 'Te enviamos un correo electronico para que cambies tu contraseña, si no lo ves en tu bandeja de entrada revisa en la carpeta de spam',
             });
+            this.router.navigate(['/']);
         }, err => {
             sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 icon: 'error',
@@ -8556,7 +8508,7 @@ class RegisterComponent {
     }
 }
 RegisterComponent.ɵfac = function RegisterComponent_Factory(t) { return new (t || RegisterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_3__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_4__.BymiaService)); };
-RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 56, vars: 23, consts: [[1, "container__modal", "animate__animated", "animate__zoomIn", "animate__faster"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "frm-register"], [1, "row", "mb-3", "mt-3"], [1, "col"], ["routerLink", "/", "src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end"], [1, "frm-register__form", "row", "g-3", "p-3", "pb-4", 3, "ngSubmit"], ["f", "ngForm"], [1, "col-12"], ["id", "customer_type_role", "name", "customer_type_role", "aria-label", "Selecciona Persona o Empresa", 1, "form-select", "frm-register__select", "p-2", 3, "ngModel", "ngModelChange"], [3, "ngValue"], [1, "col-12", "frm-register__input"], ["type", "text", "name", "name", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", 3, "ngModel", "placeholder", "ngModelChange"], ["id", "nameHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "email", "name", "email", "placeholder", "Direcci\u00F3n de email", "id", "email", "required", "", "email", "", "aria-describedby", "emailHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "emailHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "password", "name", "password", "placeholder", "Password", "id", "password", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "passwordHelp", "class", "form-text text-danger", 4, "ngIf"], ["class", "col-12 frm-register__input", 4, "ngIf"], ["class", "col-12", 4, "ngIf"], [1, "row"], [1, "mb-3"], ["id", "country_id", "name", "country_id", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange", "change"], ["value", "", "selected", "", "disabled", ""], [3, "ngValue", 4, "ngFor", "ngForOf"], [1, "row", "gx-1"], [1, "col", "input-group", "frm-register__input"], [1, "input-group-text", "bg-white", "border-1", "border-dark", "frm-register__input"], ["width", "30px", "crossorigin", "anonymous", 3, "src", "alt"], ["type", "text", "name", "cel_phone", "placeholder", "Tel\u00E9fono", "id", "cel_phone", "minlength", "6", "required", "", "aria-describedby", "cel_phoneHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", "class", "form-text text-danger", 4, "ngIf"], [1, "col-12", "d-flex", "justify-content-center", "align-items-center"], [1, "col-1", "frm-register__checkbox"], ["type", "checkbox", "id", "exampleCheck1", 1, "form-check-input"], [1, "col-11"], [1, "condition__p"], ["routerLink", "/politicas-privacidad-y-servcios", 1, "btn-deshabilitado"], ["type", "submit", 1, "button_modal", "col-12"], ["id", "nameHelp", 1, "form-text", "text-danger"], ["id", "emailHelp", 1, "form-text", "text-danger"], ["id", "passwordHelp", 1, "form-text", "text-danger"], ["type", "date", "name", "date_of_birth", "id", "date_of_birth", "placeholder", "YYYY-MM-DD", "minlength", "10", "required", "", "aria-describedby", "date_of_birthHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "date_of_birthHelp", "class", "form-text text-danger", 4, "ngIf"], ["id", "date_of_birthHelp", 1, "form-text", "text-danger"], ["id", "gender_type", "name", "gender_type", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", 1, "form-text", "text-danger"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
+RegisterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 56, vars: 23, consts: [[1, "container__modal", "animate__animated", "animate__zoomIn", "animate__faster"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "frm-register"], [1, "row", "mb-3", "mt-3"], [1, "col"], ["routerLink", "/", "src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end"], [1, "frm-register__form", "row", "g-3", "p-3", "pb-4", 3, "ngSubmit"], ["f", "ngForm"], [1, "col-12"], ["id", "customer_type_role", "name", "customer_type_role", "aria-label", "Selecciona Persona o Empresa", 1, "form-select", "frm-register__select", "p-2", 3, "ngModel", "ngModelChange"], [3, "ngValue"], [1, "col-12", "frm-register__input"], ["type", "text", "name", "name", "id", "name", "minlength", "3", "required", "", "aria-describedby", "nameHelp", 1, "form-control", 3, "ngModel", "placeholder", "ngModelChange"], ["id", "nameHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "email", "name", "email", "placeholder", "Direcci\u00F3n de email", "id", "email", "required", "", "email", "", "aria-describedby", "emailHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "emailHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "password", "name", "password", "placeholder", "Password", "id", "password", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "passwordHelp", "class", "form-text text-danger", 4, "ngIf"], ["class", "col-12 frm-register__input", 4, "ngIf"], ["class", "col-12", 4, "ngIf"], [1, "row"], [1, "mb-3"], ["id", "country_id", "name", "country_id", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange", "change"], ["value", "", "selected", "", "disabled", ""], [3, "ngValue", 4, "ngFor", "ngForOf"], [1, "row", "gx-1"], [1, "col", "input-group", "frm-register__input"], [1, "input-group-text", "bg-white", "border-1", "border-dark", "frm-register__input"], ["width", "30px", "crossorigin", "anonymous", 3, "src", "alt"], ["type", "text", "name", "cel_phone", "placeholder", "Tel\u00E9fono", "id", "cel_phone", "minlength", "6", "required", "", "aria-describedby", "cel_phoneHelp", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", "class", "form-text text-danger", 4, "ngIf"], [1, "col-12", "d-flex", "justify-content-center", "align-items-center"], [1, "col-1", "frm-register__checkbox"], ["type", "checkbox", "id", "exampleCheck1", 1, "form-check-input"], [1, "col-11"], [1, "condition__p"], ["routerLink", "/politicas-privacidad-y-servcios", 1, ""], ["type", "submit", 1, "button_modal", "col-12"], ["id", "nameHelp", 1, "form-text", "text-danger"], ["id", "emailHelp", 1, "form-text", "text-danger"], ["id", "passwordHelp", 1, "form-text", "text-danger"], ["type", "date", "name", "date_of_birth", "id", "date_of_birth", "placeholder", "YYYY-MM-DD", "minlength", "10", "required", "", "aria-describedby", "date_of_birthHelp", 1, "form-control", 3, "ngModel", "focus", "ngModelChange"], ["id", "date_of_birthHelp", "class", "form-text text-danger", 4, "ngIf"], ["id", "date_of_birthHelp", 1, "form-text", "text-danger"], ["id", "gender_type", "name", "gender_type", "aria-label", "Selecciona una Opci\u00F3n", 1, "form-select", "frm-register__select-bg", 3, "ngModel", "ngModelChange"], ["id", "cel_phoneHelp", 1, "form-text", "text-danger"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
         const _r15 = _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](1, "div", 1);
@@ -8746,6 +8698,7 @@ class RestorePasswordComponent {
         this.route = route;
         this.password = '';
         this.passwordConfirm = '';
+        this.disabled = true;
         this.id = '';
         this.code = '';
         this.errorResponse = {
@@ -8754,30 +8707,46 @@ class RestorePasswordComponent {
         };
         this.errorServer = false;
     }
+    enableSend(password, passwordConfirm) {
+        console.log(password);
+        if (password === passwordConfirm) {
+            this.disabled = false;
+        }
+    }
     onSubmit(form) {
         if (form.invalid) {
             return;
         }
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-            allowOutsideClick: false,
-            icon: 'info',
-            text: 'Espere por favor...',
-        });
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().showLoading();
-        this.auth.restorePassword(this.id, this.code, this.password).subscribe(resp => {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().close();
+        if (this.password === this.passwordConfirm) {
             sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                 allowOutsideClick: false,
                 icon: 'info',
-                text: 'Contraseña cambiada con exito',
+                text: 'Espere por favor...',
             });
-        }, err => {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().showLoading();
+            this.auth.restorePassword(this.id, this.code, this.password).subscribe(resp => {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().close();
+                sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                    allowOutsideClick: false,
+                    icon: 'info',
+                    text: 'Contraseña cambiada con exito',
+                });
+                this.router.navigate(['/login']);
+            }, err => {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+                    icon: 'error',
+                    title: err.errror.message,
+                    // text: err.error.error.message,
+                });
+            });
+        }
+        else {
             sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-                icon: 'error',
-                title: err.errror.message,
-                // text: err.error.error.message,
+                allowOutsideClick: false,
+                icon: 'info',
+                text: 'El campo password y confirme su password deben ser iguales',
             });
-        });
+        }
         /* this.auth.login(this.user).subscribe(
           resp => {
             // console.log(resp);
@@ -8803,7 +8772,7 @@ class RestorePasswordComponent {
     }
 }
 RestorePasswordComponent.ɵfac = function RestorePasswordComponent_Factory(t) { return new (t || RestorePasswordComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_1__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__.ActivatedRoute)); };
-RestorePasswordComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: RestorePasswordComponent, selectors: [["app-restore-password"]], decls: 23, vars: 4, consts: [[1, "container__modal", "animate__animated", "animate__zoomIn", "animate__faster"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "frm-register"], [1, "row", "mb-3", "mt-3"], [1, "col"], ["routerLink", "/", "src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end"], [1, "frm-register__form", "row", "g-3", "p-3", "pb-4", 3, "ngSubmit"], ["f", "ngForm"], [1, "col-12", "frm-register__input"], [1, "text-black", "fw-bold", "text-center"], ["type", "password", "name", "password", "id", "password", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", "placeholder", "Password", 1, "form-control", 3, "ngModel", "ngModelChange"], ["id", "passwordHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "password", "name", "passwordConfirm", "id", "passwordConfirm", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", "placeholder", "Confirme su password", 1, "form-control", 3, "ngModel", "ngModelChange"], [1, "col-12"], ["type", "submit", 1, "button_modal", "col-12", "mb-2"], ["routerLink", "/", "type", "button", 1, "button_modal", "col-12"], ["id", "passwordHelp", 1, "form-text", "text-danger"]], template: function RestorePasswordComponent_Template(rf, ctx) { if (rf & 1) {
+RestorePasswordComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineComponent"]({ type: RestorePasswordComponent, selectors: [["app-restore-password"]], decls: 23, vars: 4, consts: [[1, "container__modal", "animate__animated", "animate__zoomIn", "animate__faster"], [1, "container", "bg-white", "rounded-3", "justify-content-center", "frm-register"], [1, "row", "mb-3", "mt-3"], [1, "col"], ["routerLink", "/", "src", "../assets/img/icon_closed_black.png", "alt", "cerrar", 1, "frm-register__img", "float-end"], [1, "frm-register__form", "row", "g-3", "p-3", "pb-4", 3, "ngSubmit"], ["f", "ngForm"], [1, "col-12", "frm-register__input"], [1, "text-black", "fw-bold", "text-center"], ["type", "password", "name", "password", "id", "password", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", "placeholder", "Password", 1, "form-control", 3, "ngModel", "ngModelChange", "change"], ["id", "passwordHelp", "class", "form-text text-danger", 4, "ngIf"], ["type", "password", "name", "passwordConfirm", "id", "passwordConfirm", "minlength", "6", "required", "", "aria-describedby", "passwordHelp", "placeholder", "Confirme su password", 1, "form-control", 3, "ngModel", "ngModelChange", "change"], [1, "col-12"], ["type", "submit", 1, "button_modal", "col-12", "mb-2"], ["routerLink", "/", "type", "button", 1, "button_modal", "col-12"], ["id", "passwordHelp", 1, "form-text", "text-danger"]], template: function RestorePasswordComponent_Template(rf, ctx) { if (rf & 1) {
         const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](1, "div", 1);
@@ -8821,13 +8790,13 @@ RestorePasswordComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_M
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](10, "div", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](11, "input", 9);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function RestorePasswordComponent_Template_input_ngModelChange_11_listener($event) { return ctx.password = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function RestorePasswordComponent_Template_input_ngModelChange_11_listener($event) { return ctx.password = $event; })("change", function RestorePasswordComponent_Template_input_change_11_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r3); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](6); return ctx.enableSend(_r0.controls["password"].value, _r0.controls["passwordConfirm"].value); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](12, RestorePasswordComponent_div_12_Template, 2, 1, "div", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](13, "div", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementStart"](14, "input", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function RestorePasswordComponent_Template_input_ngModelChange_14_listener($event) { return ctx.passwordConfirm = $event; });
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵlistener"]("ngModelChange", function RestorePasswordComponent_Template_input_ngModelChange_14_listener($event) { return ctx.passwordConfirm = $event; })("change", function RestorePasswordComponent_Template_input_change_14_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵrestoreView"](_r3); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵreference"](6); return ctx.enableSend(_r0.controls["password"].value, _r0.controls["passwordConfirm"].value); });
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵtemplate"](15, RestorePasswordComponent_div_15_Template, 2, 1, "div", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵelementEnd"]();
@@ -8855,7 +8824,7 @@ RestorePasswordComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_M
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngModel", ctx.passwordConfirm);
         _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", _r0.submitted && _r0.controls["password"].errors || ctx.errorServer);
+        _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵproperty"]("ngIf", _r0.submitted && _r0.controls["passwordConfirm"].errors || ctx.errorServer);
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_3__.RouterLink, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgForm, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.MinLengthValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.RequiredValidator, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_4__.NgModel, _angular_common__WEBPACK_IMPORTED_MODULE_5__.NgIf], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJyZXN0b3JlLXBhc3N3b3JkLmNvbXBvbmVudC5zY3NzIn0= */"] });
 
 
