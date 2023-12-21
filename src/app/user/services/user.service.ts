@@ -21,6 +21,7 @@ const url = environment.url + '/api/customer';
 const urlCardnet = environment.urlCardnet;
 const urlFront = environment.url + '/api/front';
 let headers: HttpHeaders;
+let headersCardnet: HttpHeaders;
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,7 @@ export class UserService {
 
     this.currentCartlistSubject = new BehaviorSubject<Cartlist>(new Cartlist());
     this.currentCartlist = this.currentCartlistSubject.asObservable();
+    headersCardnet = new HttpHeaders({});
   }
 
   getOrder() {
@@ -227,7 +229,7 @@ export class UserService {
 
   // Solicitud de session key Cardnet
 
-  getSessionkeyCardnet(session: PostSessionKeyCardnet): Observable<any> {
-    return this.http.post(`${urlCardnet}/sessions`, { session });
-  }
+  /* getSessionkeyCardnet(session: PostSessionKeyCardnet): Observable<any> {
+    return this.http.post(`${urlCardnet}/sessions`, session);
+  } */
 }

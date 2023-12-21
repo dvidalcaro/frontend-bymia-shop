@@ -23,6 +23,7 @@ import Swal from 'sweetalert2';
 import { PostSessionKeyCardnet } from '../../shared/interfaces/CreateSessionKeyCardnet.interface';
 
 import { environment } from 'src/environments/environment.prod';
+import { CardnetService } from 'src/app/services/cardnet.service';
 
 @Component({
   selector: 'app-sale-order-step-one',
@@ -140,7 +141,8 @@ export class SaleOrderStepOneComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private bymiaService: BymiaService
+    private bymiaService: BymiaService,
+    private cardnetService: CardnetService
   ) {
     /* this.bymiaService.getCountryCode().subscribe(resp => {
       console.log(resp);
@@ -255,11 +257,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     if (this.showFormRecipient) {
       this.orderGenerate.recipient.address_id = this.recipient_address_id;
     }
-    this.userService
-      .getSessionkeyCardnet(this.sessionKeyCardnet)
-      .subscribe(res => {
-        console.log(res);
-      });
+
     this.userService
       .endOrder(this.orderGenerate, this.orderId)
       .subscribe(res => {
@@ -396,5 +394,10 @@ export class SaleOrderStepOneComponent implements OnInit {
         }
       );
     });
+    this.cardnetService
+      .getSessionkeyCardnet(this.sessionKeyCardnet)
+      .subscribe(res => {
+        console.log(res);
+      });
   }
 }
