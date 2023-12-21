@@ -9521,7 +9521,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: true,
     url: 'https://admin.bymiashop.com',
-    urlCardnet: 'http://lab.cardnet.com.do',
+    urlCardnet: 'https://lab.cardnet.com.do',
     TransactionType: '200',
     MerchantTypeCardnet: '7997',
     MerchantNumberCardnet: '349000000',
@@ -9556,7 +9556,7 @@ __webpack_require__.r(__webpack_exports__);
 const environment = {
     production: false,
     url: 'https://admin.bymiashop.com',
-    urlCardnet: 'http://lab.cardnet.com.do',
+    urlCardnet: 'https://lab.cardnet.com.do',
     TransactionType: '200',
     MerchantTypeCardnet: '5812',
     MerchantNumberCardnet: '349011300',
