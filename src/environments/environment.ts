@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   url: 'https://admin.bymiashop.com',
-  urlCardnet: 'http://lab.cardnet.com.do',
+  urlCardnet: 'https://lab.cardnet.com.do',
   TransactionType: '200',
   MerchantTypeCardnet: '5812',
   MerchantNumberCardnet: '349011300',
