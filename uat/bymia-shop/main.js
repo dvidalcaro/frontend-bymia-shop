@@ -7209,7 +7209,7 @@ function SaleOrderStepOneComponent_div_2_div_75_Template(rf, ctx) { if (rf & 1) 
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](44, "div", 78);
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](45, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](46, "p", 79);
-    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](47, "Tax:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵtext"](47, "ITBIS:");
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵelementStart"](48, "div");
