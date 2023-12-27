@@ -7783,10 +7783,10 @@ class SaleOrderStepOneComponent {
                 var _a, _b;
                 this.order = res;
                 this.loading = false;
-                this.sessionKeyCardnet.OrdenId = this.orderId.toString();
-                this.sessionKeyCardnet.TransactionId = '123132416546'; //validar
-                this.sessionKeyCardnet.Tax = '000'; //validar
-                this.sessionKeyCardnet.Amount = this.order.total.replace(/[,.]/g, '');
+                // this.sessionKeyCardnet.OrdenId = this.orderId.toString();
+                // this.sessionKeyCardnet.TransactionId = '123132416546'; //validar
+                // this.sessionKeyCardnet.Tax = '000'; //validar
+                // this.sessionKeyCardnet.Amount = this.order.total.replace(/[,.]/g, '');
                 if ((_a = this.order.bill_address) === null || _a === void 0 ? void 0 : _a.address_id) {
                     this.bill_address_id = (_b = this.order.bill_address) === null || _b === void 0 ? void 0 : _b.address_id;
                     this.fillFormBill(this.order.bill_address);
@@ -7807,11 +7807,11 @@ class SaleOrderStepOneComponent {
                 this.loading = false; // Asegúrate de manejar el estado de carga aquí
             });
         });
-        this.cardnetService
-            .getSessionkeyCardnet(this.sessionKeyCardnet)
-            .subscribe(res => {
-            console.log(res);
-        });
+        // this.cardnetService
+        //   .getSessionkeyCardnet(this.sessionKeyCardnet)
+        //   .subscribe(res => {
+        //     console.log(res);
+        //   });
     }
 }
 SaleOrderStepOneComponent.ɵfac = function SaleOrderStepOneComponent_Factory(t) { return new (t || SaleOrderStepOneComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_2__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_7__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](src_app_services_bymia_service__WEBPACK_IMPORTED_MODULE_3__.BymiaService), _angular_core__WEBPACK_IMPORTED_MODULE_5__["ɵɵdirectiveInject"](src_app_services_cardnet_service__WEBPACK_IMPORTED_MODULE_4__.CardnetService)); };
