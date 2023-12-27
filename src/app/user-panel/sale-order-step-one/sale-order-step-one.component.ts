@@ -368,10 +368,10 @@ export class SaleOrderStepOneComponent implements OnInit {
           this.order = res;
           this.loading = false;
 
-          this.sessionKeyCardnet.OrdenId = this.orderId.toString();
-          this.sessionKeyCardnet.TransactionId = '123132416546'; //validar
-          this.sessionKeyCardnet.Tax = '000'; //validar
-          this.sessionKeyCardnet.Amount = this.order.total.replace(/[,.]/g, '');
+          // this.sessionKeyCardnet.OrdenId = this.orderId.toString();
+          // this.sessionKeyCardnet.TransactionId = '123132416546'; //validar
+          // this.sessionKeyCardnet.Tax = '000'; //validar
+          // this.sessionKeyCardnet.Amount = this.order.total.replace(/[,.]/g, '');
 
           if (this.order.bill_address?.address_id) {
             this.bill_address_id = this.order.bill_address?.address_id;
@@ -394,5 +394,10 @@ export class SaleOrderStepOneComponent implements OnInit {
         }
       );
     });
+    // this.cardnetService
+    //   .getSessionkeyCardnet(this.sessionKeyCardnet)
+    //   .subscribe(res => {
+    //     console.log(res);
+    //   });
   }
 }
