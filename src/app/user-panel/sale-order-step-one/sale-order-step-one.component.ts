@@ -394,10 +394,5 @@ export class SaleOrderStepOneComponent implements OnInit {
         }
       );
     });
-    this.cardnetService
-      .getSessionkeyCardnet(this.sessionKeyCardnet)
-      .subscribe(res => {
-        console.log(res);
-      });
   }
 }
