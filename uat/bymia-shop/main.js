@@ -4275,6 +4275,7 @@ function ShopCartComponent_div_17_Template(rf, ctx) { if (rf & 1) {
     const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_div_click_1_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const product_r1 = restoredCtx.$implicit; const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r3.detailProduct(product_r1.id); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](2, "img", 15);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "div", 16);
@@ -4301,13 +4302,13 @@ function ShopCartComponent_div_17_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](18, "div", 23);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "img", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_img_click_19_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const i_r2 = restoredCtx.index; const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r3.subtractProduct(i_r2); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_img_click_19_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const i_r2 = restoredCtx.index; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r5.subtractProduct(i_r2); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "p", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](21);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "img", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_img_click_22_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const i_r2 = restoredCtx.index; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r5.addProduct(i_r2); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_img_click_22_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const i_r2 = restoredCtx.index; const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r6.addProduct(i_r2); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -4324,12 +4325,13 @@ function ShopCartComponent_div_17_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](29, "div", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "button", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_button_click_31_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const product_r1 = restoredCtx.$implicit; const ctx_r7 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r7.detailProduct(product_r1.id); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](32, "Ver producto");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](33, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](34, "button", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_button_click_34_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const product_r1 = restoredCtx.$implicit; const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r6.removeProduct(product_r1.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function ShopCartComponent_div_17_Template_button_click_34_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r4); const product_r1 = restoredCtx.$implicit; const ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r8.removeProduct(product_r1.id); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](35, " Eliminar ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -4456,6 +4458,9 @@ class ShopCartComponent {
         //   this.noProduct = true;
         // }
     }
+    detailProduct(id) {
+        this.router.navigate(['/product'], { queryParams: { id } });
+    }
     sendProductsToOrder() {
         // console.log('sendProductsToOrder',this.products);
         //this.userService.prepareOrder(this.products);
@@ -4473,7 +4478,7 @@ class ShopCartComponent {
     }
 }
 ShopCartComponent.ɵfac = function ShopCartComponent_Factory(t) { return new (t || ShopCartComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_user_services_user_service__WEBPACK_IMPORTED_MODULE_0__.UserService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.Router)); };
-ShopCartComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ShopCartComponent, selectors: [["app-shop-cart"]], decls: 18, vars: 5, consts: [[1, "container"], [1, "container", "p-2", "p-md-5", "container__bg", "animate__animated", "animate__zoomIn"], [1, "row", "cart__header", "pt-3", "pb-3", "p-md-4", "mb-2", "d-flex", "justify-content-between", "align-items-center"], [1, "col"], [1, "cart__h3", "cart__h3-title"], ["src", "../assets/svg/Icon_shopping_cart.svg", "alt", "favoritos"], [1, "col-7", "d-flex", "justify-content-end", "align-items-center"], [1, "me-1"], [1, "cart__button", "cart__button-bg", 3, "click"], [1, "d-flex", "flex-column", "align-content-center"], [1, "cart__h3", "cart__h3-ligth"], [1, "cart__p", "cart__p-bold"], ["class", "row cart__product-bg p-3 d-flex justify-content-center align-items-center mb-2", 4, "ngFor", "ngForOf"], [1, "row", "cart__product-bg", "p-3", "d-flex", "justify-content-center", "align-items-center", "mb-2"], [1, "col-12", "col-lg-2", "p-0", "cart__mg", "text-center"], ["width", "125px", 3, "src", "alt"], [1, "col-12", "col-lg-2", "p-0", "cart__mg"], [1, "cart__h3", "cart__h3-center"], [1, "cart__p", "m-0", "cart__p-center", "cart__p-mobile"], [1, "col-12", "col-lg-6", "p-0", "d-flex", "justify-content-between"], [1, "col-4", "p-0", "text-center", "cart__mg"], [1, "cart__h3"], [1, "cart__p", "m-0", "cart__p-bold"], [1, "d-flex", "justify-content-center", "align-content-center"], ["src", "../assets/svg/icon_subtract.svg", "alt", "Restar", 1, "me-1", "cart__img-pointer", 3, "click"], [1, "cart__p", "m-2", "cart__p-bold"], ["src", "../assets/svg/icon_plus.svg", "alt", "Adicionar", 1, "ms-1", "cart__img-pointer", 3, "click"], [1, "col-12", "col-lg-2", "p-0", "text-center", "cart__mg", "cart__dflex"], [1, "mb-2"], [1, "cart__button-product"], [1, "cart__button-product", "cart__button-product-black", 3, "click"]], template: function ShopCartComponent_Template(rf, ctx) { if (rf & 1) {
+ShopCartComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: ShopCartComponent, selectors: [["app-shop-cart"]], decls: 18, vars: 5, consts: [[1, "container"], [1, "container", "p-2", "p-md-5", "container__bg", "animate__animated", "animate__zoomIn"], [1, "row", "cart__header", "pt-3", "pb-3", "p-md-4", "mb-2", "d-flex", "justify-content-between", "align-items-center"], [1, "col"], [1, "cart__h3", "cart__h3-title"], ["src", "../assets/svg/Icon_shopping_cart.svg", "alt", "favoritos"], [1, "col-7", "d-flex", "justify-content-end", "align-items-center"], [1, "me-1"], [1, "cart__button", "cart__button-bg", 3, "click"], [1, "d-flex", "flex-column", "align-content-center"], [1, "cart__h3", "cart__h3-ligth"], [1, "cart__p", "cart__p-bold"], ["class", "row cart__product-bg p-3 d-flex justify-content-center align-items-center mb-2", 4, "ngFor", "ngForOf"], [1, "row", "cart__product-bg", "p-3", "d-flex", "justify-content-center", "align-items-center", "mb-2"], [1, "col-12", "col-lg-2", "p-0", "cart__mg", "text-center", 3, "click"], ["width", "125px", 3, "src", "alt"], [1, "col-12", "col-lg-2", "p-0", "cart__mg"], [1, "cart__h3", "cart__h3-center"], [1, "cart__p", "m-0", "cart__p-center", "cart__p-mobile"], [1, "col-12", "col-lg-6", "p-0", "d-flex", "justify-content-between"], [1, "col-4", "p-0", "text-center", "cart__mg"], [1, "cart__h3"], [1, "cart__p", "m-0", "cart__p-bold"], [1, "d-flex", "justify-content-center", "align-content-center"], ["src", "../assets/svg/icon_subtract.svg", "alt", "Restar", 1, "me-1", "cart__img-pointer", 3, "click"], [1, "cart__p", "m-2", "cart__p-bold"], ["src", "../assets/svg/icon_plus.svg", "alt", "Adicionar", 1, "ms-1", "cart__img-pointer", 3, "click"], [1, "col-12", "col-lg-2", "p-0", "text-center", "cart__mg", "cart__dflex"], [1, "mb-2"], [1, "cart__button-product", 3, "click"], [1, "cart__button-product", "cart__button-product-black", 3, "click"]], template: function ShopCartComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "div", 2);
@@ -4669,12 +4674,13 @@ function WishListComponent_div_10_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](19, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "button");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](20, "button", 6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function WishListComponent_div_10_Template_button_click_20_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r3); const product_r1 = restoredCtx.$implicit; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r5.detailProduct(product_r1.id); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](21, "Ver producto");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](22, "div", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function WishListComponent_div_10_Template_div_click_22_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r3); const product_r1 = restoredCtx.$implicit; const ctx_r5 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r5.addProductToCart(product_r1.id); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function WishListComponent_div_10_Template_div_click_22_listener() { const restoredCtx = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r3); const product_r1 = restoredCtx.$implicit; const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r6.addProductToCart(product_r1.id); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](23, "button", 16);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](24, "Agregar al carrito");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();

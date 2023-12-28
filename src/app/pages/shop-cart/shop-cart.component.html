@@ -37,7 +37,7 @@
     <div
       class="row cart__product-bg p-3 d-flex justify-content-center align-items-center mb-2"
       *ngFor="let product of products; let i = index">
-      <div class="col-12 col-lg-2 p-0 cart__mg text-center">
+      <div class="col-12 col-lg-2 p-0 cart__mg text-center" (click)="detailProduct(product.id)">
         <img width="125px" [src]="[product.image]" [alt]="[product.name]" />
       </div>
       <div class="col-12 col-lg-2 p-0 cart__mg">
@@ -80,7 +80,7 @@
       </div>
       <div class="col-12 col-lg-2 p-0 text-center cart__mg cart__dflex">
         <div class="mb-2">
-          <button class="cart__button-product">Ver producto</button>
+          <button class="cart__button-product" (click)="detailProduct(product.id)">Ver producto</button>
         </div>
         <div>
           <button

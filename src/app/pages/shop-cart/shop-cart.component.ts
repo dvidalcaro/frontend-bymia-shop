@@ -36,7 +36,7 @@ export class ShopCartComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   getTotal() {
     this.total = 0;
@@ -129,6 +129,10 @@ export class ShopCartComponent implements OnInit {
     // }
   }
 
+  detailProduct(id: number) {
+    this.router.navigate(['/product'], { queryParams: { id } });
+  }
+
   sendProductsToOrder() {
     // console.log('sendProductsToOrder',this.products);
     //this.userService.prepareOrder(this.products);
@@ -136,7 +140,7 @@ export class ShopCartComponent implements OnInit {
       if (resp.status_code == 201) {
         this.order_id = resp.order_id;
         this.router.navigate(['/sales-order-step1'], {
-          queryParams:{id: this.order_id },
+          queryParams: { id: this.order_id },
         });
       } else {
         //TODO MOSTRAR MENSAJE DE ERROR
