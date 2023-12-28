@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
     },
     {
       label: 'Envíos',
-      links: '/',
+      links: '/envios',
     },
     {
       label: 'Devolución',
@@ -25,7 +25,7 @@ export class FooterComponent implements OnInit {
     },
     {
       label: 'Atención al Cliente',
-      links: '/',
+      links: '/help',
     },
     {
       label: 'Samsung',

@@ -31,6 +31,7 @@ import { PoliticasComponent } from './politicas/politicas.component';
 import { RmaGarantiaComponent } from './rma-garantia/rma-garantia.component';
 import { ProductComponent } from './product/product.component';
 import { SearchMobileComponent } from './components/search-mobile/search-mobile.component';
+import { EnviosComponent } from './components/envios/envios.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SearchMobileComponent } from './components/search-mobile/search-mobile.
     RmaGarantiaComponent,
     ProductComponent,
     SearchMobileComponent,
+    EnviosComponent,
   ],
   exports: [
     HomeComponent,

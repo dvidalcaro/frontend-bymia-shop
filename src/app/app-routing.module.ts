@@ -23,6 +23,7 @@ import { PricelistComponent } from './pages/pricelist/pricelist.component';
 import { PoliticasComponent } from './pages/politicas/politicas.component';
 import { RmaGarantiaComponent } from './pages/rma-garantia/rma-garantia.component';
 import { ProductComponent } from './pages/product/product.component';
+import { EnviosComponent } from './pages/components/envios/envios.component';
 
 const routes: Routes = [
   {
@@ -110,6 +111,10 @@ const routes: Routes = [
   {
     path: 'product',
     component: ProductComponent,
+  },
+  {
+    path: 'envios',
+    component: EnviosComponent,
   },
 
   // {
