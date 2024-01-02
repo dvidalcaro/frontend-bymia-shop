@@ -33,7 +33,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AppRoutingModule": () => (/* binding */ AppRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/router */ 1258);
 /* harmony import */ var _pages_faq_faq_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/faq/faq.component */ 6459);
 /* harmony import */ var _pages_flash_sales_flash_sales_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/flash-sales/flash-sales.component */ 2408);
 /* harmony import */ var _pages_launch_launch_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/launch/launch.component */ 9856);
@@ -46,7 +46,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_politicas_politicas_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/politicas/politicas.component */ 5600);
 /* harmony import */ var _pages_rma_garantia_rma_garantia_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/rma-garantia/rma-garantia.component */ 6736);
 /* harmony import */ var _pages_product_product_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/product/product.component */ 5109);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _pages_components_envios_envios_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/components/envios/envios.component */ 1259);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/core */ 2316);
+
 
 
 
@@ -138,6 +140,10 @@ const routes = [
         path: 'product',
         component: _pages_product_product_component__WEBPACK_IMPORTED_MODULE_11__.ProductComponent,
     },
+    {
+        path: 'envios',
+        component: _pages_components_envios_envios_component__WEBPACK_IMPORTED_MODULE_12__.EnviosComponent,
+    },
     // {
     //   path: 'user-panel',
     //   loadChildren: () =>
@@ -170,9 +176,9 @@ const routes = [
 class AppRoutingModule {
 }
 AppRoutingModule.ɵfac = function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); };
-AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule.forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_12__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_13__.RouterModule] }); })();
+AppRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
+AppRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule.forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_13__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_14__.RouterModule] }); })();
 
 
 /***/ }),
@@ -1378,6 +1384,72 @@ CategoriesComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE
 
 /***/ }),
 
+/***/ 1259:
+/*!*************************************************************!*\
+  !*** ./src/app/pages/components/envios/envios.component.ts ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EnviosComponent": () => (/* binding */ EnviosComponent)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2316);
+
+class EnviosComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+EnviosComponent.ɵfac = function EnviosComponent_Factory(t) { return new (t || EnviosComponent)(); };
+EnviosComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: EnviosComponent, selectors: [["app-envios"]], decls: 24, vars: 0, consts: [[1, "container"], [1, "faq", "mt-5", "p-sm-4", "p-xxl-5"], ["id", "accordionPanelsStayOpenExample", 1, "accordion"], [1, "accordion-item"], ["id", "panelsStayOpen-headingOne", 1, "accordion-header"], ["type", "button", "data-bs-toggle", "collapse", "data-bs-target", "#panelsStayOpen-collapseOne", "aria-expanded", "true", "aria-controls", "panelsStayOpen-collapseOne", 1, "accordion-button"], ["id", "panelsStayOpen-collapseOne", "aria-labelledby", "panelsStayOpen-headingOne", 1, "accordion-collapse", "collapse", "show"], [1, "accordion-body"]], template: function EnviosComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "h2", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "button", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, " Preguntas frecuentes sobre env\u00EDos ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "h5");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "\u00BFCon qu\u00E9 empresa realizan los env\u00EDos de mis compras?");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, " Enviaremos tus productos con MiaCargo. Podr\u00E1s seguir tu env\u00EDo ingresando en tu panel de cliente. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "h5");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "\u00BFQu\u00E9 datos necesito pasar sobre el destinatario de mi compra?");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, " Nombre y apellido o raz\u00F3n social. Tipo y n\u00FAmero de documento. Pa\u00EDs, estado o provincia, ciudad, direcci\u00F3n, c\u00F3digo postal y tel\u00E9fono. Mail y alg\u00FAn dato adicional que te parezca \u00FAtil. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "h5");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "strong");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, "\u00BFPor qu\u00E9 etapas pasa mi orden de compra?");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "p");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, " Tu pedido pasa por estas etapas: Creada, Confirmada, En preparaci\u00F3n, Env\u00EDo parcial (si por cuestiones operativas dividimos tu pedido en diferentes env\u00EDos) y Enviada. Te iremos informando cada vez que tu orden avance una etapa. ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJlbnZpb3MuY29tcG9uZW50LnNjc3MifQ== */"] });
+
+
+/***/ }),
+
 /***/ 4018:
 /*!***********************************************************************************!*\
   !*** ./src/app/pages/components/featured-products/featured-products.component.ts ***!
@@ -1691,7 +1763,7 @@ class FooterComponent {
             },
             {
                 label: 'Envíos',
-                links: '/',
+                links: '/envios',
             },
             {
                 label: 'Devolución',
@@ -1700,7 +1772,7 @@ class FooterComponent {
             },
             {
                 label: 'Atención al Cliente',
-                links: '/',
+                links: '/help',
             },
             {
                 label: 'Samsung',
@@ -2850,7 +2922,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "PagesModule": () => (/* binding */ PagesModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/common */ 4364);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/common */ 4364);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home/home.component */ 5245);
 /* harmony import */ var _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./not-found/not-found.component */ 9473);
 /* harmony import */ var _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./about-us/about-us.component */ 1534);
@@ -2861,7 +2933,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wish_list_wish_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./wish-list/wish-list.component */ 1348);
 /* harmony import */ var _shop_cart_shop_cart_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shop-cart/shop-cart.component */ 6800);
 /* harmony import */ var _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../user-panel/user-panel.module */ 7395);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/router */ 1258);
 /* harmony import */ var _components_featured_products_featured_products_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/featured-products/featured-products.component */ 4018);
 /* harmony import */ var _components_categories_categories_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/categories/categories.component */ 8464);
 /* harmony import */ var _components_home_slider_home_slider_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/home-slider/home-slider.component */ 9867);
@@ -2872,12 +2944,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _search_search_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./search/search.component */ 1164);
 /* harmony import */ var _validate_validate_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./validate/validate.component */ 1112);
 /* harmony import */ var _pricelist_pricelist_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pricelist/pricelist.component */ 7686);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! @angular/forms */ 1707);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/forms */ 1707);
 /* harmony import */ var _politicas_politicas_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./politicas/politicas.component */ 5600);
 /* harmony import */ var _rma_garantia_rma_garantia_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./rma-garantia/rma-garantia.component */ 6736);
 /* harmony import */ var _product_product_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./product/product.component */ 5109);
 /* harmony import */ var _components_search_mobile_search_mobile_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/search-mobile/search-mobile.component */ 5613);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _components_envios_envios_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/envios/envios.component */ 1259);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! @angular/core */ 2316);
+
 
 
 
@@ -2909,18 +2983,18 @@ __webpack_require__.r(__webpack_exports__);
 class PagesModule {
 }
 PagesModule.ɵfac = function PagesModule_Factory(t) { return new (t || PagesModule)(); };
-PagesModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵdefineNgModule"]({ type: PagesModule });
-PagesModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵdefineInjector"]({ imports: [[
-            _angular_common__WEBPACK_IMPORTED_MODULE_25__.CommonModule,
+PagesModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_25__["ɵɵdefineNgModule"]({ type: PagesModule });
+PagesModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_25__["ɵɵdefineInjector"]({ imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_26__.CommonModule,
             // BlocksModule,
             // AuthModule,
             // UserPanelModule,
             //HeaderModule,
-            _angular_router__WEBPACK_IMPORTED_MODULE_26__.RouterModule,
+            _angular_router__WEBPACK_IMPORTED_MODULE_27__.RouterModule,
             _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_9__.UserPanelModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_27__.ReactiveFormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_28__.ReactiveFormsModule,
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_24__["ɵɵsetNgModuleScope"](PagesModule, { declarations: [_home_home_component__WEBPACK_IMPORTED_MODULE_0__.HomeComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_25__["ɵɵsetNgModuleScope"](PagesModule, { declarations: [_home_home_component__WEBPACK_IMPORTED_MODULE_0__.HomeComponent,
         _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_1__.NotFoundComponent,
         _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_2__.AboutUsComponent,
         _faq_faq_component__WEBPACK_IMPORTED_MODULE_3__.FaqComponent,
@@ -2942,14 +3016,15 @@ PagesModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_24__["�
         _politicas_politicas_component__WEBPACK_IMPORTED_MODULE_20__.PoliticasComponent,
         _rma_garantia_rma_garantia_component__WEBPACK_IMPORTED_MODULE_21__.RmaGarantiaComponent,
         _product_product_component__WEBPACK_IMPORTED_MODULE_22__.ProductComponent,
-        _components_search_mobile_search_mobile_component__WEBPACK_IMPORTED_MODULE_23__.SearchMobileComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_25__.CommonModule,
+        _components_search_mobile_search_mobile_component__WEBPACK_IMPORTED_MODULE_23__.SearchMobileComponent,
+        _components_envios_envios_component__WEBPACK_IMPORTED_MODULE_24__.EnviosComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_26__.CommonModule,
         // BlocksModule,
         // AuthModule,
         // UserPanelModule,
         //HeaderModule,
-        _angular_router__WEBPACK_IMPORTED_MODULE_26__.RouterModule,
+        _angular_router__WEBPACK_IMPORTED_MODULE_27__.RouterModule,
         _user_panel_user_panel_module__WEBPACK_IMPORTED_MODULE_9__.UserPanelModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_27__.ReactiveFormsModule], exports: [_home_home_component__WEBPACK_IMPORTED_MODULE_0__.HomeComponent,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_28__.ReactiveFormsModule], exports: [_home_home_component__WEBPACK_IMPORTED_MODULE_0__.HomeComponent,
         _not_found_not_found_component__WEBPACK_IMPORTED_MODULE_1__.NotFoundComponent,
         _about_us_about_us_component__WEBPACK_IMPORTED_MODULE_2__.AboutUsComponent,
         _faq_faq_component__WEBPACK_IMPORTED_MODULE_3__.FaqComponent,
