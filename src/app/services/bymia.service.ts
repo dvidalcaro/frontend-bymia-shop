@@ -49,6 +49,7 @@ export class BymiaService {
   private sliders: Slider[] = [];
   private about: About = {};
   private terms: About = {};
+  private refund: About = {};
   private faqs: TopLevel[] = [];
   private categoriesList: Categories[] = [];
   private featuredProducts: FeaturedProduct[] = [];
@@ -92,6 +93,17 @@ export class BymiaService {
       return of(this.terms);
     } else {
       return this.http.get<About>(`${url}/terms`, { headers }).pipe(
+        map(resp => {
+          return resp;
+        })
+      );
+    }
+  }
+  public getRefund() {
+    if (this.refund.id) {
+      return of(this.refund);
+    } else {
+      return this.http.get<About>(`${url}/refund`, { headers }).pipe(
         map(resp => {
           return resp;
         })
