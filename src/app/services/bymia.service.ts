@@ -48,6 +48,7 @@ export class BymiaService {
   public loading: boolean = false;
   private sliders: Slider[] = [];
   private about: About = {};
+  private terms: About = {};
   private faqs: TopLevel[] = [];
   private categoriesList: Categories[] = [];
   private featuredProducts: FeaturedProduct[] = [];
@@ -86,6 +87,17 @@ export class BymiaService {
         .pipe(tap(about => (this.about = about)));
     }
   }
+  public getTerms() {
+    if (this.terms.id) {
+      return of(this.terms);
+    } else {
+      return this.http.get<About>(`${url}/terms`, { headers }).pipe(
+        map(resp => {
+          return resp;
+        })
+      );
+    }
+  }
   public getFaqs() {
     if (this.faqs.length > 0) {
       return of(this.faqs);
@@ -95,6 +107,7 @@ export class BymiaService {
         .pipe(tap(faqs => (this.faqs = faqs)));
     }
   }
+
   public getCategoriesList() {
     if (this.categoriesList.length > 0) {
       return of(this.categoriesList);
