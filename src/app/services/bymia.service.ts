@@ -195,6 +195,13 @@ export class BymiaService {
       );
   }
 
+  public getOrderConfirm(body: any) {
+    return this.http.post<any>(`${url}/order-status`, body, { headers }).pipe(
+      map(resp => resp),
+      catchError(err => of(false))
+    );
+  }
+
   public sendPriceList(body: any): Observable<any> {
     return this.http
       .post<PriceList>(`${url}/listPrice`, body, { headers })

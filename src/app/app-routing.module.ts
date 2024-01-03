@@ -24,6 +24,7 @@ import { PoliticasComponent } from './pages/politicas/politicas.component';
 import { RmaGarantiaComponent } from './pages/rma-garantia/rma-garantia.component';
 import { ProductComponent } from './pages/product/product.component';
 import { EnviosComponent } from './pages/components/envios/envios.component';
+import { OrderConfirmComponent } from './pages/order-confirm/order-confirm.component';
 
 const routes: Routes = [
   {
@@ -117,31 +118,10 @@ const routes: Routes = [
     component: EnviosComponent,
   },
 
-  // {
-  //   path: 'user-panel',
-  //   loadChildren: () =>
-  //     import('./user-panel/user-panel.module').then(m => m.UserPanelModule),
-  // },
-
-  /*  {
-    path: 'panel',
-    component: PanelComponent
-  },
-
   {
-    path: 'my-data',
-    component: MyDataComponent
+    path: 'order-confirm',
+    component: OrderConfirmComponent,
   },
-
-  {
-    path: 'orders',
-    component: OrdersComponent
-  },
-
-  {
-    path: 'help',
-    component: HelpComponent
-  }, */
 
   {
     path: '**',

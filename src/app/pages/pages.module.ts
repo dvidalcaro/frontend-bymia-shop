@@ -32,6 +32,7 @@ import { RmaGarantiaComponent } from './rma-garantia/rma-garantia.component';
 import { ProductComponent } from './product/product.component';
 import { SearchMobileComponent } from './components/search-mobile/search-mobile.component';
 import { EnviosComponent } from './components/envios/envios.component';
+import { OrderConfirmComponent } from './order-confirm/order-confirm.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { EnviosComponent } from './components/envios/envios.component';
     ProductComponent,
     SearchMobileComponent,
     EnviosComponent,
+    OrderConfirmComponent,
   ],
   exports: [
     HomeComponent,
