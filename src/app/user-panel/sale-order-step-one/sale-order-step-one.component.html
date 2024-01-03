@@ -3,12 +3,10 @@
     <i class="bx bx-md bx-loader-alt bx-spin"></i>
   </div>
 
-  <div
-    class="container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn"
+  <div class="container col-11 p-3 p-md-5 container__bg container__bg-hg animate__animated animate__zoomIn"
     *ngIf="!loading">
     <!-- Header Cart -->
-    <div
-      class="header__order row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
+    <div class="header__order row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
       <!--colum1  -->
       <div class="col">
         <h3 class="cart__h3 cart__h3-title">
@@ -19,13 +17,9 @@
       <!--colum2  -->
       <div class="col-7 d-flex justify-content-end align-items-center">
         <div class="me-1">
-          <button
-            class="cart__button cart__button-bg"
-            [ngClass]="{
+          <button class="cart__button cart__button-bg" [ngClass]="{
               disabled: !continueOrder()
-            }"
-            [disabled]="!continueOrder()"
-            (click)="getDataForm()">
+            }" [disabled]="!continueOrder()" (click)="getDataForm()">
             Finalizar orden
           </button>
         </div>
@@ -38,8 +32,7 @@
     <!-- sales order information -->
     <div class="row gap-2">
       <div class="col col-lg-8 text-dark m-0 p-0">
-        <div
-          class="sale__info d-flex gap-2 align-items-center p-lg-4 p-2 rounded-3">
+        <div class="sale__info d-flex gap-2 align-items-center p-lg-4 p-2 rounded-3">
           <i class="bx bxs-info-circle"></i>
           <p class="sale__p sale__p-bold mt-1 mb-1">
             Envío gratis a toda República Dominicana con MiaCargo
@@ -144,62 +137,30 @@
             </h3>
           </div>
           <!-- Form select shipping types -->
-          <form
-            class="mt-3 d-flex flex-column gap-2"
-            [formGroup]="formBillData">
+          <form class="mt-3 d-flex flex-column gap-2" [formGroup]="formBillData">
             <div class="d-md-flex gap-2">
-              <input
-                type="text"
-                name="name"
-                formControlName="name"
-                placeholder="Nombre y apellido"
-                class="form-control frm-register__input mb-2 mb-md-0"
-                id="name"
-                value=""
-                minlength="3"
-                required
+              <input type="text" name="name" formControlName="name" placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0" id="name" value="" minlength="3" required
                 aria-describedby="nameHelp" />
             </div>
 
             <div class="d-md-flex gap-2">
-              <input
-                type="text"
-                name="identity_type"
-                formControlName="identity_type"
-                placeholder="Tipo de identificación"
-                value=""
-                class="form-control frm-register__input mb-2 mb-md-0"
-                id="identity_type"
-                minlength="3"
-                required
-                aria-describedby="identity_typeHelp" />
-              <input
-                type="text"
-                name="identity_number"
-                formControlName="identity_number"
-                placeholder="Número de identificación"
-                value="{{ billdata ? billdata.identity_number : '' }}"
-                class="form-control frm-register__input"
-                id="identity_number"
-                minlength="3"
-                required
+              <input type="text" name="identity_type" formControlName="identity_type"
+                placeholder="Tipo de identificación" value="" class="form-control frm-register__input mb-2 mb-md-0"
+                id="identity_type" minlength="3" required aria-describedby="identity_typeHelp" />
+              <input type="text" name="identity_number" formControlName="identity_number"
+                placeholder="Número de identificación" value="{{ billdata ? billdata.identity_number : '' }}"
+                class="form-control frm-register__input" id="identity_number" minlength="3" required
                 aria-describedby="identity_numberHelp" />
             </div>
             <div class="d-md-flex gap-2">
-              <select
-                class="form-select mb-2 mb-md-0"
-                name=""
-                formControlName="country_id"
-                id="country_name">
+              <select class="form-select mb-2 mb-md-0" name="" formControlName="country_id" id="country_name">
                 <option value="" disabled>Seleciona el país</option>
                 <option [value]="62">República Dominicana</option>
               </select>
             </div>
             <div class="d-md-flex gap-2">
-              <select
-                class="form-select mb-2 mb-md-0"
-                id="state_name"
-                formControlName="state_id"
+              <select class="form-select mb-2 mb-md-0" id="state_name" formControlName="state_id"
                 (change)="changeState(formBillData.get('state_id')?.value)">
                 <option value="" disabled>Seleciona el estado</option>
                 <option [value]="state.id" *ngFor="let state of state_code">
@@ -207,11 +168,7 @@
                 </option>
               </select>
 
-              <select
-                class="form-select"
-                name=""
-                id="city_name"
-                formControlName="city_id">
+              <select class="form-select" name="" id="city_name" formControlName="city_id">
                 <option value="" disabled>Seleciona la ciudad</option>
                 <option [value]="city.id" *ngFor="let city of city_code">
                   {{ city.name }}
@@ -219,163 +176,105 @@
               </select>
             </div>
             <div>
-              <input
-                type="text"
-                name="address"
-                formControlName="address"
+              <input type="text" name="address" formControlName="address"
                 placeholder="Dirección (incluye calle, altura y piso, de ser necesario)"
-                class="form-control frm-register__input"
-                id="address"
-                value=""
-                minlength="3"
-                required
+                class="form-control frm-register__input" id="address" value="" minlength="3" required
                 aria-describedby="addressHelp" />
             </div>
             <div class="d-md-flex gap-2">
-              <input
-                type="text"
-                name="code_zip"
-                formControlName="code_zip"
-                placeholder="Código postal "
-                value=""
-                class="form-control frm-register__input"
-                id="code_zip"
-                minlength="3"
-                required
+              <input type="text" name="code_zip" formControlName="code_zip" placeholder="Código postal " value=""
+                class="form-control frm-register__input" id="code_zip" minlength="3" required
                 aria-describedby="code_zipHelp" />
-              <input
-                type="text"
-                name="phone"
-                formControlName="phone"
-                placeholder="Teléfono: +x (xxx) xxx-xxxx "
-                class="form-control frm-register__input"
-                id="phone"
-                value="{{ billdata ? billdata.phone : '' }}"
-                minlength="3"
-                required
-                aria-describedby="phoneHelp" />
+              <input type="text" name="phone" formControlName="phone" placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input" id="phone" value="{{ billdata ? billdata.phone : '' }}"
+                minlength="3" required aria-describedby="phoneHelp" />
             </div>
             <div>
-              <input
-                type="email"
-                name="email"
-                formControlName="email"
-                placeholder="E-mail"
-                class="form-control frm-register__input"
-                id="email"
-                minlength="3"
-                value=""
-                required
+              <input type="email" name="email" formControlName="email" placeholder="E-mail"
+                class="form-control frm-register__input" id="email" minlength="3" value="" required
                 aria-describedby="emailHelp" />
             </div>
             <div>
-              <input
-                type="text"
-                name="additional_info"
-                formControlName="additional_info"
-                placeholder="Información adicional (ej, entre calle y calle)"
-                class="form-control frm-register__input"
-                id="additional_info"
-                value=""
-                minlength="3"
-                aria-describedby="additional_infoHelp" />
+              <input type="text" name="additional_info" formControlName="additional_info"
+                placeholder="Información adicional (ej, entre calle y calle)" class="form-control frm-register__input"
+                id="additional_info" value="" minlength="3" aria-describedby="additional_infoHelp" />
             </div>
             <div *ngIf="bill_address_id">
-              <button
-                class="cart__button cart__button-bg"
-                (click)="changeBillingData()">
+              <button class="cart__button cart__button-bg" (click)="changeBillingData()">
                 Cambiar datos de facturación
               </button>
             </div>
             <!-- Mensajes de error de validaciones -->
             <!-- Campo Nombre -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('name')?.invalid &&
                 (formBillData.get('name')?.dirty ||
                   formBillData.get('name')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.name }}
             </div>
             <!-- Campo tipo de identificación -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('identity_type')?.invalid &&
                 (formBillData.get('identity_type')?.dirty ||
                   formBillData.get('identity_type')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.identity_type }}
             </div>
             <!-- Campo número de identificación -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('identity_number')?.invalid &&
                 (formBillData.get('identity_number')?.dirty ||
                   formBillData.get('identity_number')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.identity_number }}
             </div>
             <!-- Campo país -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('country_id')?.invalid &&
                 (formBillData.get('country_id')?.dirty ||
                   formBillData.get('country_id')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.country_id }}
             </div>
             <!-- Campo estado -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('state_id')?.invalid &&
                 (formBillData.get('state_id')?.dirty ||
                   formBillData.get('state_id')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.state_id }}
             </div>
             <!-- Campo Dirección -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('address')?.invalid &&
                 (formBillData.get('address')?.dirty ||
                   formBillData.get('address')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.address }}
             </div>
             <!-- Campo Código Postal -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('code_zip')?.invalid &&
                 (formBillData.get('code_zip')?.dirty ||
                   formBillData.get('code_zip')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.code_zip }}
             </div>
             <!-- Campo Teléfono -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('phone')?.invalid &&
                 (formBillData.get('phone')?.dirty ||
                   formBillData.get('phone')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.phone }}
             </div>
             <!-- Campo Email -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formBillData.get('email')?.invalid &&
                 (formBillData.get('email')?.dirty ||
                   formBillData.get('email')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.email }}
             </div>
           </form>
@@ -384,72 +283,29 @@
             <h3 class="text-dark sale__h3">Agregar datos de Pickup</h3>
           </div>
           <!-- Form pickup -->
-          <form
-            class="mt-3 d-flex flex-column gap-2"
-            action=""
-            *ngIf="pickupData">
+          <form class="mt-3 d-flex flex-column gap-2" action="" *ngIf="pickupData">
             <div class="d-md-flex gap-2">
-              <input
-                type="text"
-                name="name"
-                placeholder="Nombre y apellido"
-                class="form-control frm-register__input mb-2 mb-md-0"
-                id="name"
-                minlength="3"
-                required
+              <input type="text" name="name" placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0" id="name" minlength="3" required
                 aria-describedby="nameHelp" />
 
-              <input
-                type="text"
-                name="name"
-                placeholder="Razón social -Pickup"
-                class="form-control frm-register__input"
-                id="name"
-                minlength="3"
-                required
-                aria-describedby="nameHelp" />
+              <input type="text" name="name" placeholder="Razón social -Pickup" class="form-control frm-register__input"
+                id="name" minlength="3" required aria-describedby="nameHelp" />
             </div>
 
             <div class="d-md-flex gap-2">
-              <input
-                type="text"
-                name="type-id"
-                placeholder="Tipo de identificación"
-                class="form-control frm-register__input mb-2 mb-md-0"
-                id="type-id"
-                minlength="3"
-                required
+              <input type="text" name="type-id" placeholder="Tipo de identificación"
+                class="form-control frm-register__input mb-2 mb-md-0" id="type-id" minlength="3" required
                 aria-describedby="nameHelp" />
-              <input
-                type="text"
-                name="name"
-                placeholder="Número de identificación "
-                class="form-control frm-register__input"
-                id="name"
-                minlength="3"
-                required
-                aria-describedby="nameHelp" />
+              <input type="text" name="name" placeholder="Número de identificación "
+                class="form-control frm-register__input" id="name" minlength="3" required aria-describedby="nameHelp" />
             </div>
 
             <div class="d-md-flex gap-2">
-              <input
-                type="email"
-                name="name"
-                placeholder="E-mail"
-                class="form-control frm-register__input mb-2 mb-md-0"
-                id="name"
-                minlength="3"
-                required
-                aria-describedby="nameHelp" />
-              <input
-                type="text"
-                name="name"
-                placeholder="Teléfono: +x (xxx) xxx-xxxx "
-                class="form-control frm-register__input"
-                id="name"
-                minlength="3"
-                required
-                aria-describedby="nameHelp" />
+              <input type="email" name="name" placeholder="E-mail" class="form-control frm-register__input mb-2 mb-md-0"
+                id="name" minlength="3" required aria-describedby="nameHelp" />
+              <input type="text" name="name" placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input" id="name" minlength="3" required aria-describedby="nameHelp" />
             </div>
           </form>
 
@@ -459,19 +315,13 @@
             <h3 class="text-dark sale__h3">Destinatario</h3>
           </div>
           <div class="d-md-flex gap-2 my-3">
-            <select
-              [formControl]="recipesAddressSelect"
-              id="recipesAddressSelect"
-              name="recipesAddressSelect"
-              class="form-select mb-2 mb-md-0"
-              aria-label="Selecciona una Opción"
+            <select [formControl]="recipesAddressSelect" id="recipesAddressSelect" name="recipesAddressSelect"
+              class="form-select mb-2 mb-md-0" aria-label="Selecciona una Opción"
               (change)="changeRecipe(recipesAddressSelect.value)">
               <option value="0" [selected]="recipesAddressSelect.value === '0'">
                 Igual datos de facturación
               </option>
-              <option
-                [ngValue]="recipes"
-                *ngFor="let recipes of order.recipient_address">
+              <option [ngValue]="recipes" *ngFor="let recipes of order.recipient_address">
                 {{ recipes.name }}
               </option>
               <option [ngValue]="null">Nuevo destinatario</option>
@@ -515,65 +365,29 @@
             </div>
           </div> -->
           <!-- Form  new Destinatario -->
-          <form
-            class="mt-3 d-flex flex-column gap-2"
-            [formGroup]="formRecipient"
-            *ngIf="showFormRecipient">
-            <div
-              class="d-md-flex gap-2"
-              *ngIf="recipesAddressSelect.value === null">
-              <input
-                type="text"
-                name="name"
-                formControlName="name"
-                placeholder="Nombre y apellido"
-                class="form-control frm-register__input mb-2 mb-md-0"
-                id="name"
-                value=""
-                minlength="3"
-                required
+          <form class="mt-3 d-flex flex-column gap-2" [formGroup]="formRecipient" *ngIf="showFormRecipient">
+            <div class="d-md-flex gap-2" *ngIf="recipesAddressSelect.value === null">
+              <input type="text" name="name" formControlName="name" placeholder="Nombre y apellido"
+                class="form-control frm-register__input mb-2 mb-md-0" id="name" value="" minlength="3" required
                 aria-describedby="nameHelp" />
             </div>
             <div class="d-md-flex gap-2">
-              <input
-                type="text"
-                name="identity_type"
-                formControlName="identity_type"
-                placeholder="Tipo de identificación"
-                value=""
-                class="form-control frm-register__input mb-2 mb-md-0"
-                id="identity_type"
-                minlength="3"
-                required
-                aria-describedby="identity_typeHelp" />
-              <input
-                type="text"
-                name="identity_number"
-                formControlName="identity_number"
-                placeholder="Número de identificación"
-                value="{{ billdata ? billdata.identity_number : '' }}"
-                class="form-control frm-register__input"
-                id="identity_number"
-                minlength="3"
-                required
+              <input type="text" name="identity_type" formControlName="identity_type"
+                placeholder="Tipo de identificación" value="" class="form-control frm-register__input mb-2 mb-md-0"
+                id="identity_type" minlength="3" required aria-describedby="identity_typeHelp" />
+              <input type="text" name="identity_number" formControlName="identity_number"
+                placeholder="Número de identificación" value="{{ billdata ? billdata.identity_number : '' }}"
+                class="form-control frm-register__input" id="identity_number" minlength="3" required
                 aria-describedby="identity_numberHelp" />
             </div>
             <div class="d-md-flex gap-2">
-              <select
-                class="form-select mb-2 mb-md-0"
-                name=""
-                formControlName="country_id"
-                id="country_name">
+              <select class="form-select mb-2 mb-md-0" name="" formControlName="country_id" id="country_name">
                 <option value="" disabled>Seleciona el país</option>
                 <option value="62" selected>República Dominicana</option>
               </select>
             </div>
             <div class="d-md-flex gap-2">
-              <select
-                class="form-select mb-2 mb-md-0"
-                id="state_name"
-                formControlName="state_id"
-                (change)="
+              <select class="form-select mb-2 mb-md-0" id="state_name" formControlName="state_id" (change)="
                   changeStateRecipient(formRecipient.get('state_id')?.value)
                 ">
                 <option value="" disabled>Seleciona el estado</option>
@@ -581,171 +395,108 @@
                   {{ state.name }}
                 </option>
               </select>
-              <select
-                class="form-select"
-                name=""
-                id="city_name"
-                formControlName="city_id">
+              <select class="form-select" name="" id="city_name" formControlName="city_id">
                 <option value="" disabled>Seleciona la ciudad</option>
-                <option
-                  [value]="city.id"
-                  selected
-                  *ngFor="let city of city_code_Recipient">
+                <option [value]="city.id" selected *ngFor="let city of city_code_Recipient">
                   {{ city.name }}
                 </option>
               </select>
             </div>
             <div>
-              <input
-                type="text"
-                name="address"
-                formControlName="address"
+              <input type="text" name="address" formControlName="address"
                 placeholder="Dirección (incluye calle, altura y piso, de ser necesario)"
-                class="form-control frm-register__input"
-                id="address"
-                value=""
-                minlength="3"
-                required
+                class="form-control frm-register__input" id="address" value="" minlength="3" required
                 aria-describedby="addressHelp" />
             </div>
             <div class="d-md-flex gap-2">
-              <input
-                type="text"
-                name="code_zip"
-                formControlName="code_zip"
-                placeholder="Código postal "
-                value=""
-                class="form-control frm-register__input"
-                id="code_zip"
-                minlength="3"
-                required
+              <input type="text" name="code_zip" formControlName="code_zip" placeholder="Código postal " value=""
+                class="form-control frm-register__input" id="code_zip" minlength="3" required
                 aria-describedby="code_zipHelp" />
-              <input
-                type="text"
-                name="phone"
-                formControlName="phone"
-                placeholder="Teléfono: +x (xxx) xxx-xxxx "
-                class="form-control frm-register__input"
-                id="phone"
-                value="{{ billdata ? billdata.phone : '' }}"
-                minlength="3"
-                required
-                aria-describedby="phoneHelp" />
+              <input type="text" name="phone" formControlName="phone" placeholder="Teléfono: +x (xxx) xxx-xxxx "
+                class="form-control frm-register__input" id="phone" value="{{ billdata ? billdata.phone : '' }}"
+                minlength="3" required aria-describedby="phoneHelp" />
             </div>
             <div>
-              <input
-                type="email"
-                name="email"
-                formControlName="email"
-                placeholder="E-mail"
-                class="form-control frm-register__input"
-                id="email"
-                minlength="3"
-                value=""
-                required
+              <input type="email" name="email" formControlName="email" placeholder="E-mail"
+                class="form-control frm-register__input" id="email" minlength="3" value="" required
                 aria-describedby="emailHelp" />
             </div>
             <div>
-              <input
-                type="text"
-                name="additional_info"
-                formControlName="additional_info"
-                placeholder="Información adicional (ej, entre calle y calle)"
-                class="form-control frm-register__input"
-                id="additional_info"
-                value=""
-                minlength="3"
-                aria-describedby="additional_infoHelp" />
+              <input type="text" name="additional_info" formControlName="additional_info"
+                placeholder="Información adicional (ej, entre calle y calle)" class="form-control frm-register__input"
+                id="additional_info" value="" minlength="3" aria-describedby="additional_infoHelp" />
             </div>
             <!-- Mensajes de error de validaciones -->
             <!-- Campo Nombre -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('name')?.invalid &&
                 (formRecipient.get('name')?.dirty ||
                   formRecipient.get('name')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.name }}
             </div>
             <!-- Campo tipo de identificación -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('identity_type')?.invalid &&
                 (formRecipient.get('identity_type')?.dirty ||
                   formRecipient.get('identity_type')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.identity_type }}
             </div>
             <!-- Campo número de identificación -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('identity_number')?.invalid &&
                 (formRecipient.get('identity_number')?.dirty ||
                   formRecipient.get('identity_number')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.identity_number }}
             </div>
             <!-- Campo país -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('country_id')?.invalid &&
                 (formRecipient.get('country_id')?.dirty ||
                   formRecipient.get('country_id')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.country_id }}
             </div>
             <!-- Campo estado -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('state_id')?.invalid &&
                 (formRecipient.get('state_id')?.dirty ||
                   formRecipient.get('state_id')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.state_id }}
             </div>
             <!-- Campo Dirección -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('address')?.invalid &&
                 (formRecipient.get('address')?.dirty ||
                   formRecipient.get('address')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.address }}
             </div>
             <!-- Campo Código Postal -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('code_zip')?.invalid &&
                 (formRecipient.get('code_zip')?.dirty ||
                   formRecipient.get('code_zip')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.code_zip }}
             </div>
             <!-- Campo Teléfono -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('phone')?.invalid &&
                 (formRecipient.get('phone')?.dirty ||
                   formRecipient.get('phone')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.phone }}
             </div>
             <!-- Campo Email -->
-            <div
-              *ngIf="
+            <div *ngIf="
                 formRecipient.get('email')?.invalid &&
                 (formRecipient.get('email')?.dirty ||
                   formRecipient.get('email')?.touched)
-              "
-              class="form-text text-danger">
+              " class="form-text text-danger">
               {{ errorResponse.email }}
             </div>
           </form>
@@ -870,9 +621,7 @@
           <p class="sale__p sale__p-bold">Ítems:</p>
         </div>
         <div>
-          <div
-            class="d-flex justify-content-between pe-4 pt-1 gap-1"
-            *ngFor="let item of order.detail.items">
+          <div class="d-flex justify-content-between pe-4 pt-1 gap-1" *ngFor="let item of order.detail.items">
             <div>
               <p class="sale__p text-dark">
                 {{ item.quantity }} {{ item.name }}
@@ -901,13 +650,7 @@
         <div class="d-flex">
           <div class="col-1"></div>
           <form class="col col-lg-10" action="">
-            <input
-              type="text"
-              name="name"
-              class="form-control text-center mt-2"
-              id="name"
-              minlength="3"
-              required
+            <input type="text" name="name" class="form-control text-center mt-2" id="name" minlength="3" required
               aria-describedby="nameHelp" />
             <!-- <input
               type="text"
@@ -981,43 +724,54 @@
               </p>
             </div>
           </div>
+
+          <div class="mt-4">
+            <h3 class="sale__h3 text-center text-dark">Forma de pago</h3>
+          </div>
+          <div class="d-md-flex gap-2 my-3 d-flex">
+            <div class="col-12">
+              <select [formControl]="paymentType" id="paymentType" name="paymentType"
+                class="form-select mb-2 mb-md-0" aria-label="Seleccione una forma de pago."
+                placeholder="Seleccione una forma de pago.">
+                <option [ngValue]="null" [selected]="recipesAddressSelect.value === '0'" hidden>
+                  Seleccione una forma de pago.
+                </option>
+                <option [ngValue]="paymentType.id" *ngFor="let paymentType of order.paymentsTypes">
+                  {{ paymentType.name }}
+                </option>
+              </select>
+              <div *ngIf="
+                    paymentType?.invalid &&
+                    (paymentType?.dirty ||
+                    paymentType?.touched)
+                  " class="form-text text-danger">
+                  {{ errorResponse.paymentType }}
+                </div>
+            </div>
+          </div>
           <div class="mt-5">
             <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
             <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
               $ {{ order.detail.totalOrderPrice }}
             </p>
             <div class="d-flex justify-content-center">
-              <button
-                class="sale__btn text-center"
-                [ngClass]="{
+              <button class="sale__btn text-center" [ngClass]="{
                   disabled: !continueOrder()
-                }"
-                [disabled]="!continueOrder()"
-                (click)="getDataForm()">
+                }" [disabled]="!continueOrder()" (click)="getDataForm()">
                 Finalizar orden
               </button>
             </div>
             <p class="sale__p sale__p-xs text-center text-dark mt-2 p-2">
               Al Entrar o Registrarte, aceptás los
-              <strong
-                class="cursor__pointer"
-                routerLink="/politicas-privacidad-y-servcios"
-                >Términos y condiciones</strong
-              >
+              <strong class="cursor__pointer" routerLink="/politicas-privacidad-y-servcios">Términos y
+                condiciones</strong>
               y la
-              <strong
-                class="cursor__pointer"
-                routerLink="/politicas-privacidad-y-servcios"
-                >Política de privacidad</strong
-              >
+              <strong class="cursor__pointer" routerLink="/politicas-privacidad-y-servcios">Política de
+                privacidad</strong>
               , y el envío de mails con ofertas,además de la
               <strong>Politica de Devolución y Garantia,</strong> que podés
               conocer
-              <strong
-                class="cursor__pointer"
-                routerLink="/politicas-de-devolución-y-garantia"
-                >aquí.</strong
-              >
+              <strong class="cursor__pointer" routerLink="/politicas-de-devolución-y-garantia">aquí.</strong>
             </p>
           </div>
         </div>
@@ -1027,17 +781,12 @@
 </div>
 
 <!-- Popup -->
-<div
-  class="container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0"
+<div class="container__modal-order animate__animated animate__zoomIn animate__faster ps-2 ps-md-0 pe-2 pe-md-0"
   *ngIf="open">
-  <div
-    class="container bg-white rounded-3 justify-content-center container-order">
+  <div class="container bg-white rounded-3 justify-content-center container-order">
     <div class="row mb-3 mt-3">
       <div class="col">
-        <img
-          class="frm-register__img float-end me-2"
-          src="../assets/img/icon_closed_black.png"
-          alt="cerrar" />
+        <img class="frm-register__img float-end me-2" src="../assets/img/icon_closed_black.png" alt="cerrar" />
       </div>
     </div>
     <div class="row">

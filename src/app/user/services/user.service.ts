@@ -11,7 +11,7 @@ import { Product } from '../models/product.model';
 import { BillData } from '../models/bill-data.model';
 import { Recipient } from '../models/recipient.model';
 import { orderInformation } from 'src/app/shared/interfaces/order-interface';
-import { orderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
+import { OrderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
 import { UserProfileData } from 'src/app/shared/interfaces/UserProfileData.inteface';
 
 import { throwError } from 'rxjs';
@@ -214,7 +214,7 @@ export class UserService {
 
   createOrder(order: Order) {}
 
-  endOrder(order: orderGenerate, id: number): Observable<any> {
+  endOrder(order: OrderGenerate, id: number): Observable<any> {
     return this.http.patch(`${url}/order/${id}`, { order }, { headers });
   }
 

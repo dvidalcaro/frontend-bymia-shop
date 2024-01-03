@@ -12,9 +12,10 @@ export interface BillRecipientData {
   email: string;
   additional_info?: string;
 }
-export interface orderGenerate {
+export interface OrderGenerate {
   id: number;
   billData: BillRecipientData;
   recipient: BillRecipientData;
   same_address: boolean;
+  paymentTypeId: string;
 }

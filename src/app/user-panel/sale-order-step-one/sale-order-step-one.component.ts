@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BymiaService } from 'src/app/services/bymia.service';
 import {
   BillRecipientData,
-  orderGenerate,
+  OrderGenerate,
 } from 'src/app/shared/interfaces/OrderGenerate-interface';
 import {
   CityCode,
@@ -20,7 +20,6 @@ import { Product } from 'src/app/user/models/product.model';
 import { Recipient } from 'src/app/user/models/recipient.model';
 import { UserService } from 'src/app/user/services/user.service';
 import Swal from 'sweetalert2';
-import { PostSessionKeyCardnet } from '../../shared/interfaces/CreateSessionKeyCardnet.interface';
 
 import { environment } from 'src/environments/environment.prod';
 import { CardnetService } from 'src/app/services/cardnet.service';
@@ -47,6 +46,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   order!: orderInformation;
   isChecked = new FormControl(false);
   recipesAddressSelect = new FormControl('0');
+  paymentType = new FormControl(null, Validators.required);
   countries!: CountryCode[];
   state_code!: StateCode[];
   city_code!: CityCode[];
@@ -57,25 +57,10 @@ export class SaleOrderStepOneComponent implements OnInit {
   recipient_address_id: number | null = null;
   showFormRecipient: boolean = false;
 
-  //Se crea objeto post session carnet
-
-  sessionKeyCardnet: PostSessionKeyCardnet = {
-    TransactionType: environment.TransactionType,
-    CurrencyCode: environment.CurrencyCode,
-    AcquiringInstitutionCode: environment.AcquiringInstitutionCode,
-    MerchantType: environment.MerchantTypeCardnet,
-    MerchantNumber: environment.MerchantNumberCardnet,
-    MerchantTerminal: environment.MerchantTerminalCardnet,
-    /* MerchantTerminal_amex: environment.MerchantTerminal_amex,  */
-    ReturnUrl: environment.ReturnUrl,
-    CancelUrl: environment.CancelUrl,
-    PageLanguaje: environment.PageLanguaje,
-    MerchantName: environment.MerchantName,
-    AVS: environment.AVS,
-  };
 
   // Objeto con respuestas deerror en el formulario
   errorResponse = {
+    paymentType: 'Debe seleccionar una forma de pago.',
     name: 'El campo Nombre es requerido y debe contener al menos 3 caracteres',
     identity_type:
       'El campo Tipo de identificación es requerido y debe contener al menos 3 caracteres',
@@ -208,39 +193,41 @@ export class SaleOrderStepOneComponent implements OnInit {
   }
 
   continueOrder() {
-    if (this.bill_address_id && !this.showFormRecipient) {
-      return true;
-    }
-    if (
-      this.bill_address_id &&
-      this.showFormRecipient &&
-      this.recipient_address_id
-    ) {
-      return true;
-    }
-    if (
-      this.bill_address_id &&
-      this.showFormRecipient &&
-      this.formRecipient.valid
-    ) {
-      return true;
-    }
-    if (this.formBillData.valid && !this.showFormRecipient) {
-      return true;
-    }
-    if (
-      this.formBillData.valid &&
-      this.showFormRecipient &&
-      this.recipient_address_id
-    ) {
-      return true;
-    }
-    if (
-      this.formBillData.valid &&
-      this.showFormRecipient &&
-      this.formRecipient.valid
-    ) {
-      return true;
+    if (this.paymentType.valid) {
+      if (this.bill_address_id && !this.showFormRecipient) {
+        return true;
+      }
+      if (
+        this.bill_address_id &&
+        this.showFormRecipient &&
+        this.recipient_address_id
+      ) {
+        return true;
+      }
+      if (
+        this.bill_address_id &&
+        this.showFormRecipient &&
+        this.formRecipient.valid
+      ) {
+        return true;
+      }
+      if (this.formBillData.valid && !this.showFormRecipient) {
+        return true;
+      }
+      if (
+        this.formBillData.valid &&
+        this.showFormRecipient &&
+        this.recipient_address_id
+      ) {
+        return true;
+      }
+      if (
+        this.formBillData.valid &&
+        this.showFormRecipient &&
+        this.formRecipient.valid
+      ) {
+        return true;
+      }
     }
     return false;
   }
@@ -254,23 +241,43 @@ export class SaleOrderStepOneComponent implements OnInit {
 
     this.orderGenerate.same_address = !this.showFormRecipient; //si showFormRecipient es falso  entonces same_address es true.  esto indica que los datos de facturacion y de destinatario son los mismos
     this.orderGenerate.billData.address_id = this.bill_address_id;
+    this.orderGenerate.paymentTypeId = this.paymentType.value;
     if (this.showFormRecipient) {
       this.orderGenerate.recipient.address_id = this.recipient_address_id;
     }
 
+    this.loading = true;
     this.userService
       .endOrder(this.orderGenerate, this.orderId)
       .subscribe(res => {
         if (res.status) {
-          Swal.fire({
-            title: 'Orden finalizada con exito',
-            text: 'Gracias por tu compra',
-            icon: 'info',
-            confirmButtonText: 'Cerrar',
-          });
+          if(res.paymentTypeId == 1){ //si es transferencia
+            Swal.fire({
+              title: 'Orden finalizada con exito',
+              text: 'Gracias por tu compra',
+              icon: 'info',
+              confirmButtonText: 'Cerrar',
+            });
+            this.router.navigate(['orders']);
+          }else{
+            const form = document.createElement('form');
+            form.setAttribute('method', 'post');
+            form.setAttribute('action', res.urlCardnet);
+      
+            // Agrega los campos del formulario como entradas ocultas
+            const input = document.createElement('input');
+            input.setAttribute('type', 'hidden');
+            input.setAttribute('name', 'SESSION');
+            input.setAttribute('value', res.SESSION);
+            form.appendChild(input);
+      
+            // Agrega el formulario al DOM y haz la submisión
+            document.body.appendChild(form);
+            form.submit();
+          }
 
-          this.router.navigate(['orders']);
         } else {
+          this.loading = false;
           Swal.fire({
             title: 'Ocurrio un Error',
             text: 'Consultenos para mayor información',
@@ -297,8 +304,8 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.total && value?.startsWith('international')
         ? 0
         : this.total
-        ? this.total * 0.07
-        : 0;
+          ? this.total * 0.07
+          : 0;
     this.totalSale = this.total ? this.total + this.tax : 0;
     // console.log('international:', value?.startsWith('international'));
     // console.log('pickupData:', this.pickupData);
@@ -368,10 +375,6 @@ export class SaleOrderStepOneComponent implements OnInit {
           this.order = res;
           this.loading = false;
 
-          // this.sessionKeyCardnet.OrdenId = this.orderId.toString();
-          // this.sessionKeyCardnet.TransactionId = '123132416546'; //validar
-          // this.sessionKeyCardnet.Tax = '000'; //validar
-          // this.sessionKeyCardnet.Amount = this.order.total.replace(/[,.]/g, '');
 
           if (this.order.bill_address?.address_id) {
             this.bill_address_id = this.order.bill_address?.address_id;
@@ -394,10 +397,6 @@ export class SaleOrderStepOneComponent implements OnInit {
         }
       );
     });
-    // this.cardnetService
-    //   .getSessionkeyCardnet(this.sessionKeyCardnet)
-    //   .subscribe(res => {
-    //     console.log(res);
-    //   });
+
   }
 }

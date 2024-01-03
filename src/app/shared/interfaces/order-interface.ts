@@ -3,6 +3,10 @@ export interface itemDetail {
   name: string;
   price: string;
 }
+export interface paymentsTypes{
+  id:number,
+  name: string,
+}
 
 export interface productDetail {
   total: string;
@@ -20,6 +24,7 @@ export interface orderDetails {
 import { BillRecipientData } from './OrderGenerate-interface';
 
 export interface orderInformation {
+  paymentsTypes: paymentsTypes[]
   bill_address: BillRecipientData | null;
   recipient_address: BillRecipientData[] | null;
   orderPlaced: string;
