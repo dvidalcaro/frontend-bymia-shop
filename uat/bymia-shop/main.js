@@ -6213,34 +6213,6 @@ MyDataComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__
 
 /***/ }),
 
-/***/ 1373:
-/*!*******************************************************************!*\
-  !*** ./src/app/user-panel/order-status/order-status.component.ts ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "OrderStatusComponent": () => (/* binding */ OrderStatusComponent)
-/* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2316);
-
-class OrderStatusComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-}
-OrderStatusComponent.ɵfac = function OrderStatusComponent_Factory(t) { return new (t || OrderStatusComponent)(); };
-OrderStatusComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: OrderStatusComponent, selectors: [["app-order-status"]], decls: 2, vars: 0, consts: [[1, "ctn"]], template: function OrderStatusComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, " HOLA\n");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    } }, styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJvcmRlci1zdGF0dXMuY29tcG9uZW50LnNjc3MifQ== */"] });
-
-
-/***/ }),
-
 /***/ 9769:
 /*!*******************************************************!*\
   !*** ./src/app/user-panel/orders/orders.component.ts ***!
@@ -8186,7 +8158,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "UserPanelRoutingModule": () => (/* binding */ UserPanelRoutingModule)
 /* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/router */ 1258);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/router */ 1258);
 /* harmony import */ var _help_help_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./help/help.component */ 176);
 /* harmony import */ var _my_data_my_data_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./my-data/my-data.component */ 4178);
 /* harmony import */ var _orders_orders_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./orders/orders.component */ 9769);
@@ -8195,9 +8167,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../user/guards/auth.guard */ 5033);
 /* harmony import */ var _sale_order_step_one_sale_order_step_one_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sale-order-step-one/sale-order-step-one.component */ 9350);
 /* harmony import */ var _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./edit-profile/edit-profile.component */ 4251);
-/* harmony import */ var _order_status_order_status_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./order-status/order-status.component */ 1373);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 2316);
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/core */ 2316);
 
 
 
@@ -8229,18 +8199,13 @@ const routes = [
         component: _shipping_status_shipping_status_component__WEBPACK_IMPORTED_MODULE_4__.ShippingStatusComponent,
         canActivate: [_user_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__.AuthGuard],
     },
-    {
-        path: 'order-status',
-        component: _order_status_order_status_component__WEBPACK_IMPORTED_MODULE_8__.OrderStatusComponent,
-        canActivate: [_user_guards_auth_guard__WEBPACK_IMPORTED_MODULE_5__.AuthGuard],
-    },
 ];
 class UserPanelRoutingModule {
 }
 UserPanelRoutingModule.ɵfac = function UserPanelRoutingModule_Factory(t) { return new (t || UserPanelRoutingModule)(); };
-UserPanelRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineNgModule"]({ type: UserPanelRoutingModule });
-UserPanelRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule.forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](UserPanelRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_10__.RouterModule] }); })();
+UserPanelRoutingModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineNgModule"]({ type: UserPanelRoutingModule });
+UserPanelRoutingModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵdefineInjector"]({ imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterModule.forChild(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵsetNgModuleScope"](UserPanelRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterModule], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_9__.RouterModule] }); })();
 
 
 /***/ }),
@@ -8256,8 +8221,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "UserPanelModule": () => (/* binding */ UserPanelModule)
 /* harmony export */ });
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/common */ 4364);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @angular/forms */ 1707);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common */ 4364);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/forms */ 1707);
 /* harmony import */ var _user_panel_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user-panel-routing.module */ 2788);
 /* harmony import */ var _my_data_my_data_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./my-data/my-data.component */ 4178);
 /* harmony import */ var _orders_orders_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./orders/orders.component */ 9769);
@@ -8267,9 +8232,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sale_order_step_one_sale_order_step_one_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sale-order-step-one/sale-order-step-one.component */ 9350);
 /* harmony import */ var _change_decimal_format_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./change-decimal-format.pipe */ 2572);
 /* harmony import */ var _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./edit-profile/edit-profile.component */ 4251);
-/* harmony import */ var _order_status_order_status_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./order-status/order-status.component */ 1373);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/core */ 2316);
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/core */ 2316);
 
 
 
@@ -8285,25 +8248,24 @@ __webpack_require__.r(__webpack_exports__);
 class UserPanelModule {
 }
 UserPanelModule.ɵfac = function UserPanelModule_Factory(t) { return new (t || UserPanelModule)(); };
-UserPanelModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineNgModule"]({ type: UserPanelModule });
-UserPanelModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵdefineInjector"]({ imports: [[
-            _angular_common__WEBPACK_IMPORTED_MODULE_11__.CommonModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_12__.ReactiveFormsModule,
+UserPanelModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineNgModule"]({ type: UserPanelModule });
+UserPanelModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵdefineInjector"]({ imports: [[
+            _angular_common__WEBPACK_IMPORTED_MODULE_10__.CommonModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_11__.ReactiveFormsModule,
             _user_panel_routing_module__WEBPACK_IMPORTED_MODULE_0__.UserPanelRoutingModule,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_12__.FormsModule,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_11__.FormsModule,
         ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_10__["ɵɵsetNgModuleScope"](UserPanelModule, { declarations: [_panel_panel_component__WEBPACK_IMPORTED_MODULE_3__.PanelComponent,
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵsetNgModuleScope"](UserPanelModule, { declarations: [_panel_panel_component__WEBPACK_IMPORTED_MODULE_3__.PanelComponent,
         _my_data_my_data_component__WEBPACK_IMPORTED_MODULE_1__.MyDataComponent,
         _orders_orders_component__WEBPACK_IMPORTED_MODULE_2__.OrdersComponent,
         _help_help_component__WEBPACK_IMPORTED_MODULE_4__.HelpComponent,
         _shipping_status_shipping_status_component__WEBPACK_IMPORTED_MODULE_5__.ShippingStatusComponent,
-        _order_status_order_status_component__WEBPACK_IMPORTED_MODULE_9__.OrderStatusComponent,
         _sale_order_step_one_sale_order_step_one_component__WEBPACK_IMPORTED_MODULE_6__.SaleOrderStepOneComponent,
         _change_decimal_format_pipe__WEBPACK_IMPORTED_MODULE_7__.ChangeDecimalFormatPipe,
-        _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_8__.EditProfileComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_11__.CommonModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_12__.ReactiveFormsModule,
+        _edit_profile_edit_profile_component__WEBPACK_IMPORTED_MODULE_8__.EditProfileComponent], imports: [_angular_common__WEBPACK_IMPORTED_MODULE_10__.CommonModule,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_11__.ReactiveFormsModule,
         _user_panel_routing_module__WEBPACK_IMPORTED_MODULE_0__.UserPanelRoutingModule,
-        _angular_forms__WEBPACK_IMPORTED_MODULE_12__.FormsModule], exports: [_panel_panel_component__WEBPACK_IMPORTED_MODULE_3__.PanelComponent,
+        _angular_forms__WEBPACK_IMPORTED_MODULE_11__.FormsModule], exports: [_panel_panel_component__WEBPACK_IMPORTED_MODULE_3__.PanelComponent,
         _help_help_component__WEBPACK_IMPORTED_MODULE_4__.HelpComponent,
         _change_decimal_format_pipe__WEBPACK_IMPORTED_MODULE_7__.ChangeDecimalFormatPipe] }); })();
 
