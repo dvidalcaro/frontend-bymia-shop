@@ -9,6 +9,8 @@ import { BymiaService } from 'src/app/services/bymia.service';
 import { CountryCode } from 'src/app/shared/interfaces/countryCode-interface';
 import { User } from 'src/app/user/models/user.model';
 import { AuthService } from 'src/app/user/services/auth.service';
+import { UserService } from '../../user/services/user.service';
+import { UserProfile } from 'src/app/shared/interfaces/UserProfileData.inteface';
 
 @Component({
   selector: 'app-edit-profile',
@@ -21,6 +23,11 @@ export class EditProfileComponent implements OnInit {
   countryCodes: CountryCode[] = [];
   countryFlag: string = '';
   countryAlt: string = '';
+  userProfile!: UserProfile;
+  gender: string = '';
+  type_User: string | undefined = '';
+  loading: boolean = true;
+  showData: boolean = false;
 
   public remember = false;
   errorResponse = {
@@ -35,15 +42,46 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    bymiaService: BymiaService
+    bymiaService: BymiaService,
+    userService: UserService
   ) {
     this.user = new User();
-    this.user.gender_type = 1;
-    this.user.customer_type_role = 1;
-    this.user.country_id = 62;
 
-    bymiaService.getCountryCode().subscribe(resp => {
-      this.countryCodes = resp;
+    userService.getMyData().subscribe(resp => {
+      if (resp.status === true) {
+        this.userProfile = resp;
+
+        this.gender = this.userProfile.customerData.gender;
+
+        this.type_User =
+          this.userProfile.customerData.latest_billing_data?.type_user;
+        this.user.name =
+          this.userProfile.customerData.latest_billing_data?.name;
+        console.log(this.userProfile.customerData.birthdate);
+
+        this.user.date_of_birth = '08/ 07/1986';
+        this.user.gender_type =
+          this.gender === 'Masculino' ? 2 : this.gender === 'Femenino' ? 1 : 3;
+        this.user.customer_type_role =
+          this.type_User === 'Cliente persona' ? 1 : 2;
+
+        this.user.country_id = 62;
+        this.user.cel_phone =
+          this.userProfile.customerData.latest_billing_data?.phone;
+
+        this.loading = false;
+        bymiaService.getCountryCode().subscribe(resp => {
+          this.countryCodes = resp;
+          console.log(resp);
+        });
+        setTimeout(() => {
+          this.showData = true;
+          this.countryFlag = this.countryCodes[62].flag;
+          this.countryPhoneCode = this.countryCodes[62].phonecode;
+        }, 1000);
+      }
+
+      console.log(this.userProfile);
     });
 
     /* bymiaService.getCountryCode().subscribe(resp => {
@@ -66,8 +104,12 @@ export class EditProfileComponent implements OnInit {
   } */
 
   getFlagPhone(country_id: any) {
-    this.countryFlag = country_id.country_id.flag;
-    this.countryPhoneCode = country_id.country_id.phonecode;
+    console.log(country_id.country_id);
+
+    this.countryFlag = this.countryCodes[country_id.country_id].flag;
+    this.countryPhoneCode = this.countryCodes[country_id.country_id].phonecode;
+    /* this.countryFlag = country_id.country_id.flag;
+    this.countryPhoneCode = country_id.country_id.phonecode; */
   }
 
   clearEmailError() {
