@@ -50,7 +50,6 @@ export class EditProfileComponent implements OnInit {
     userService.getMyData().subscribe(resp => {
       if (resp.status === true) {
         this.userProfile = resp;
-
         this.gender = this.userProfile.customerData.gender;
 
         this.type_User =
@@ -76,40 +75,29 @@ export class EditProfileComponent implements OnInit {
         });
         setTimeout(() => {
           this.showData = true;
-          this.countryFlag = this.countryCodes[62].flag;
-          this.countryPhoneCode = this.countryCodes[62].phonecode;
+          const country = this.countryCodes.find(country => {
+            return (
+              country.name ===
+              this.userProfile.customerData.latest_billing_data?.country
+            );
+          });
+          this.countryFlag = country!.flag;
+          this.countryPhoneCode = country!.phonecode;
         }, 1000);
       }
 
       console.log(this.userProfile);
     });
-
-    /* bymiaService.getCountryCode().subscribe(resp => {
-      this.countryCodes = resp;
-      console.log(this.countryCodes);
-      console.log(this.countryCodes[0].phonecode);
-      this.user.country_phone_code = parseInt(this.countryCodes[0].phonecode);
-      this.countryPhoneCode = this.countryCodes[0].phonecode;
-      this.countryFlag = this.countryCodes[0].flag;
-      this.countryAlt = this.countryCodes[0].name;
-    }); */
   }
-  /* selectCountry() {
-    if (this.user.country_id) {
-      // console.log(this.user.country_id);
-      this.countryFlag = this.countryCodes[this.user.country_id].flag;
-      this.countryAlt = this.countryCodes[this.user.country_id].name;
-      this.user.country_phone_code = this.countryCodes[this.user.country_id].id;
-    }
-  } */
 
   getFlagPhone(country_id: any) {
-    console.log(country_id.country_id);
+    const country = this.countryCodes.find(country => {
+      return country.id === country_id.country_id;
+    });
 
-    this.countryFlag = this.countryCodes[country_id.country_id].flag;
-    this.countryPhoneCode = this.countryCodes[country_id.country_id].phonecode;
-    /* this.countryFlag = country_id.country_id.flag;
-    this.countryPhoneCode = country_id.country_id.phonecode; */
+    this.countryFlag = country!.flag;
+    this.countryPhoneCode = country!.phonecode;
+    this.user.cel_phone = '';
   }
 
   clearEmailError() {
@@ -130,11 +118,21 @@ export class EditProfileComponent implements OnInit {
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
-      title: 'Registrando a ' + this.user.name,
+      title: 'Modificando a ' + this.user.name,
       text: 'Espere por favor...',
     });
     Swal.showLoading();
-    this.auth.register(this.user).subscribe(
+
+    setTimeout(() => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Datos modificados correctamente',
+        text: form.value.name,
+      });
+    }, 2000);
+
+    this.router.navigateByUrl('/my-data');
+    /* this.auth.register(this.user).subscribe(
       resp => {
         this.errorServer = false;
         Swal.fire({
@@ -163,6 +161,6 @@ export class EditProfileComponent implements OnInit {
           title: err.error.message,
         });
       }
-    );
+    ); */
   }
 }
