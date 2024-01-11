@@ -57,7 +57,6 @@ export class SaleOrderStepOneComponent implements OnInit {
   recipient_address_id: number | null = null;
   showFormRecipient: boolean = false;
 
-
   // Objeto con respuestas deerror en el formulario
   errorResponse = {
     paymentType: 'Debe seleccionar una forma de pago.',
@@ -129,39 +128,16 @@ export class SaleOrderStepOneComponent implements OnInit {
     private bymiaService: BymiaService,
     private cardnetService: CardnetService
   ) {
-    /* this.bymiaService.getCountryCode().subscribe(resp => {
-      console.log(resp);
-
-      this.countries = resp;
-    }); */
     // se asignan valores al objeto session key
 
     this.bymiaService.getStateById(62).subscribe(res => {
       this.state_code = res;
     });
-
-    // eliminar
-    // this.billdata = this.userService.getOrder().bill_data;
-    // this.recipients = this.userService.getOrder().recipients;
-    // this.products = this.userService.getOrder().items?.map(item => {
-    //   return { ...item, subtotal: item.quantity * item.price };
-    // });
-
-    // this.quantityProducts = this.products?.reduce(
-    //   (acc, cur) => acc + cur.quantity,
-    //   0
-    // );
-    // this.total = this.products?.reduce((acc, cur) => acc + cur.subtotal, 0);
-
-    // this.tax = 0;
   }
   changeCity(id: string) {
     this.bymiaService.getStateById(parseInt(id)).subscribe(res => {
       this.state_code = res;
     });
-    /* this.bymiaService.getCityCodeById(parseInt(id)).subscribe(res => {
-      this.city_code = res;
-    }); */
   }
   changeState(id: string) {
     this.bymiaService.getCityCodeById(parseInt(id)).subscribe(res => {
@@ -251,7 +227,8 @@ export class SaleOrderStepOneComponent implements OnInit {
       .endOrder(this.orderGenerate, this.orderId)
       .subscribe(res => {
         if (res.status) {
-          if(res.paymentTypeId == 1){ //si es transferencia
+          if (res.paymentTypeId == 1) {
+            //si es transferencia
             Swal.fire({
               title: 'Orden finalizada con exito',
               text: 'Gracias por tu compra',
@@ -259,23 +236,22 @@ export class SaleOrderStepOneComponent implements OnInit {
               confirmButtonText: 'Cerrar',
             });
             this.router.navigate(['orders']);
-          }else{
+          } else {
             const form = document.createElement('form');
             form.setAttribute('method', 'post');
             form.setAttribute('action', res.urlCardnet);
-      
+
             // Agrega los campos del formulario como entradas ocultas
             const input = document.createElement('input');
             input.setAttribute('type', 'hidden');
             input.setAttribute('name', 'SESSION');
             input.setAttribute('value', res.SESSION);
             form.appendChild(input);
-      
+
             // Agrega el formulario al DOM y haz la submisión
             document.body.appendChild(form);
             form.submit();
           }
-
         } else {
           this.loading = false;
           Swal.fire({
@@ -304,8 +280,8 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.total && value?.startsWith('international')
         ? 0
         : this.total
-          ? this.total * 0.07
-          : 0;
+        ? this.total * 0.07
+        : 0;
     this.totalSale = this.total ? this.total + this.tax : 0;
     // console.log('international:', value?.startsWith('international'));
     // console.log('pickupData:', this.pickupData);
@@ -375,7 +351,6 @@ export class SaleOrderStepOneComponent implements OnInit {
           this.order = res;
           this.loading = false;
 
-
           if (this.order.bill_address?.address_id) {
             this.bill_address_id = this.order.bill_address?.address_id;
             this.fillFormBill(this.order.bill_address);
@@ -397,6 +372,5 @@ export class SaleOrderStepOneComponent implements OnInit {
         }
       );
     });
-
   }
 }

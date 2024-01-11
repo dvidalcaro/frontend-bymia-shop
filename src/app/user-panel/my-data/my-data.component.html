@@ -71,7 +71,9 @@
             <!-- container fondo blanco mobile  -->
             <div class="mydata__title">
               <h3>Mis datos de facturación</h3>
-              <button class="btn__mydata btn-mobile" *ngIf="false">
+              <button
+                class="btn__mydata btn-mobile"
+                [routerLink]="['/edit-billing-data']">
                 Editar
               </button>
             </div>
