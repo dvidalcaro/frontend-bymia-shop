@@ -6,7 +6,11 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
 import { BymiaService } from 'src/app/services/bymia.service';
-import { CountryCode } from 'src/app/shared/interfaces/countryCode-interface';
+import {
+  CityCode,
+  CountryCode,
+  StateCode,
+} from 'src/app/shared/interfaces/countryCode-interface';
 import { User } from 'src/app/user/models/user.model';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { UserService } from '../../user/services/user.service';
@@ -24,6 +28,8 @@ export class EditBillingDataComponent implements OnInit {
   countryPhoneCode: string = '';
   countryCodes: CountryCode[] = [];
   countryCode!: CountryCode | undefined;
+  state_code!: StateCode[];
+  city_code!: CityCode[];
   countryFlag: string = '';
   countryAlt: string = '';
   userProfile!: UserProfile;
@@ -40,13 +46,16 @@ export class EditBillingDataComponent implements OnInit {
     identity_number: 'Debe ingresar un número de identificación',
     date_of_birth: 'Ej. de fecha válida: 1980-12-31',
     cel_phone: 'Debe ingresar un teléfono válido de al menos 6 digitos',
+    city_id: 'Debes selecionar una ciudad ',
+    address: 'Debes ingresar una dirección',
+    zip_code: 'Debes ingresar un código postal',
   };
   errorServer = false;
 
   constructor(
     private auth: AuthService,
     private router: Router,
-    bymiaService: BymiaService,
+    private bymiaService: BymiaService,
     userService: UserService
   ) {
     this.user = new User();
@@ -58,15 +67,7 @@ export class EditBillingDataComponent implements OnInit {
         this.billinData = this.userProfile.customerData.latest_billing_data!;
         console.log(this.billinData);
 
-        this.type_User =
-          this.userProfile.customerData.latest_billing_data?.type_user;
-
-        //Modificar
-
-        /*  this.billinData.type_user =
-          this.type_User === 'Cliente persona' ? 1 : 2;
-        console.log(this.user.customer_type_role); 
- */
+        this.billinData.country_id = 62;
         this.user.country_id = 62;
 
         this.loading = false;
@@ -74,10 +75,22 @@ export class EditBillingDataComponent implements OnInit {
           this.countryCodes = resp;
           console.log(resp);
         });
+        this.changeCity('62');
+        this.bymiaService
+          .getCityCodeById(this.billinData.state_id)
+          .subscribe(res => {
+            this.city_code = res;
+          });
+
+        console.log('ciudad', this.city_code);
+
+        /*  bymiaService.getStateById(62).subscribe(res => {
+          this.state_code = res;
+        }); */
         setTimeout(() => {
           this.showData = true;
           this.countryCode = this.countryCodes.find(country => {
-            return country.name === this.billinData?.country;
+            return country.id === this.billinData?.country_id;
           });
           this.countryFlag = this.countryCode!.flag;
           this.countryPhoneCode = this.countryCode!.phonecode;
@@ -98,6 +111,21 @@ export class EditBillingDataComponent implements OnInit {
     this.user.cel_phone = '';
   }
 
+  changeCity(id: string) {
+    this.bymiaService.getStateById(parseInt(id)).subscribe(res => {
+      this.state_code = res;
+    });
+  }
+  changeState(id: number) {
+    console.log(id);
+
+    this.bymiaService.getCityCodeById(id).subscribe(res => {
+      this.city_code = res;
+    });
+    this.billinData.city_id = undefined;
+    console.log(this.billinData);
+  }
+
   /* clearEmailError() {
     this.errorResponse.email = '';
   } */
@@ -116,7 +144,7 @@ export class EditBillingDataComponent implements OnInit {
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
-      title: 'Modificando a ' + this.user.name,
+      title: 'Modificando a ' + this.billinData.name,
       text: 'Espere por favor...',
     });
     Swal.showLoading();

@@ -24,8 +24,7 @@ export class EditProfileComponent implements OnInit {
   countryFlag: string = '';
   countryAlt: string = '';
   userProfile!: UserProfile;
-  gender: string = '';
-  type_User: string | undefined = '';
+
   loading: boolean = true;
   showData: boolean = false;
 
@@ -50,23 +49,18 @@ export class EditProfileComponent implements OnInit {
     userService.getMyData().subscribe(resp => {
       if (resp.status === true) {
         this.userProfile = resp;
-        this.gender = this.userProfile.customerData.gender;
-
-        this.type_User =
-          this.userProfile.customerData.latest_billing_data?.type_user;
-        this.user.name =
-          this.userProfile.customerData.latest_billing_data?.name;
-        console.log(this.userProfile.customerData.birthdate);
-
-        this.user.date_of_birth = '08/ 07/1986';
-        this.user.gender_type =
-          this.gender === 'Masculino' ? 2 : this.gender === 'Femenino' ? 1 : 3;
         this.user.customer_type_role =
-          this.type_User === 'Cliente persona' ? 1 : 2;
+          this.userProfile.customerData.type_user_id;
+        this.user.name = this.userProfile.customerData.name;
+        this.user.date_of_birth = this.userProfile.customerData.birthdate;
 
-        this.user.country_id = 62;
-        this.user.cel_phone =
-          this.userProfile.customerData.latest_billing_data?.phone;
+        this.user.date_of_birth = this.changeDateFormat(
+          this.userProfile.customerData.birthdate
+        );
+        this.user.gender_type = this.userProfile.customerData.gender_id;
+
+        this.user.country_id = this.userProfile.customerData.country_id;
+        this.user.cel_phone = this.userProfile.customerData.phone;
 
         this.loading = false;
         bymiaService.getCountryCode().subscribe(resp => {
@@ -89,7 +83,10 @@ export class EditProfileComponent implements OnInit {
       console.log(this.userProfile);
     });
   }
-
+  changeDateFormat(date: string) {
+    let partesFecha = this.userProfile.customerData.birthdate.split('/');
+    return `${partesFecha[2]}-${partesFecha[1]}-${partesFecha[0]}`;
+  }
   getFlagPhone(country_id: any) {
     const country = this.countryCodes.find(country => {
       return country.id === country_id.country_id;

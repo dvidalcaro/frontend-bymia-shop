@@ -18,27 +18,13 @@
       class="frm-register__form row g-3 p-3 pb-4"
       #f="ngForm"
       (ngSubmit)="onSubmit(f)">
-      <!-- Field Type Role -->
-      <div class="col-12">
-        <select
-          class="form-select frm-register__select p-2"
-          [(ngModel)]="billinData.type_user"
-          id="type_usere"
-          name="type_user"
-          aria-label="Selecciona Persona o Empresa">
-          <option [ngValue]="1">Persona</option>
-          <option [ngValue]="2">Empresa</option>
-        </select>
-      </div>
       <!-- Field Name -->
       <div class="col-12 frm-register__input">
         <input
-          [(ngModel)]="user.name"
+          [(ngModel)]="billinData.name"
           type="text"
           name="name"
-          [placeholder]="
-            user.customer_type_role == 1 ? 'Nombre y Apellido' : 'Nombre'
-          "
+          placeholder="Nombre y Apellido"
           class="form-control"
           id="name"
           minlength="3"
@@ -67,8 +53,10 @@
           aria-describedby="identity_typeHelp" />
 
         <div
-          *ngIf="(f.submitted && f.controls['name'].errors) || errorServer"
-          id="nameHelp"
+          *ngIf="
+            (f.submitted && f.controls['identity_type'].errors) || errorServer
+          "
+          id="identity_typeHelp"
           class="form-text text-danger">
           {{ errorResponse.identity_type }}
         </div>
@@ -84,11 +72,13 @@
           id="identity_number"
           minlength="3"
           required
-          aria-describedby="nameHelp" />
+          aria-describedby="identity_numberHelp" />
 
         <div
-          *ngIf="(f.submitted && f.controls['name'].errors) || errorServer"
-          id="nameHelp"
+          *ngIf="
+            (f.submitted && f.controls['identity_number'].errors) || errorServer
+          "
+          id="identity_numberHelp"
           class="form-text text-danger">
           {{ errorResponse.identity_number }}
         </div>
@@ -171,14 +161,14 @@
         <div class="row">
           <div class="mb-3">
             <select
-              [(ngModel)]="user.country_id"
+              [(ngModel)]="billinData.country_id"
               id="country_id"
               name="country_id"
               class="form-select frm-register__select-bg"
               aria-label="Selecciona una Opción"
               (change)="getFlagPhone(f.control.value)">
               <option value="" selected disabled>Seleciona el país</option>
-              <option [ngValue]="countryCode?.id">
+              <option [ngValue]="billinData.country_id">
                 {{ countryCode?.name }}
               </option>
             </select>
@@ -187,17 +177,15 @@
         <div class="row">
           <div class="mb-3">
             <select
-              [(ngModel)]="user.country_id"
-              id="country_id"
-              name="country_id"
+              [(ngModel)]="billinData.state_id"
+              id="state_id"
+              name="state_id"
               class="form-select frm-register__select-bg"
               aria-label="Selecciona una Opción"
-              (change)="getFlagPhone(f.control.value)">
-              <option value="" selected disabled>Seleciona el país</option>
-              <option
-                [ngValue]="country.id"
-                *ngFor="let country of countryCodes">
-                {{ country.name }}
+              (change)="changeState(billinData.state_id)">
+              <option value="" selected disabled>Seleciona el estado</option>
+              <option [ngValue]="state.id" *ngFor="let state of state_code">
+                {{ state.name }}
               </option>
             </select>
           </div>
@@ -205,20 +193,25 @@
         <div class="row">
           <div class="mb-3">
             <select
-              [(ngModel)]="user.country_id"
-              id="country_id"
-              name="country_id"
+              [(ngModel)]="billinData.city_id"
+              id="city_id"
+              name="city_id"
               class="form-select frm-register__select-bg"
               aria-label="Selecciona una Opción"
-              (change)="getFlagPhone(f.control.value)">
-              <option value="" selected disabled>Seleciona el país</option>
-              <option
-                [ngValue]="country.id"
-                *ngFor="let country of countryCodes">
-                {{ country.name }}
+              aria-describedby="city_idHelp"
+              required>
+              <option value="0" selected disabled>Seleciona la ciudad</option>
+              <option [ngValue]="city.id" *ngFor="let city of city_code">
+                {{ city.name }}
               </option>
             </select>
           </div>
+        </div>
+        <div
+          *ngIf="(f.submitted && f.controls['city_id'].errors) || errorServer"
+          id="city_idHelp"
+          class="form-text text-danger">
+          {{ errorResponse.city_id }}
         </div>
         <div class="row gx-1">
           <div class="col input-group frm-register__input">
@@ -235,7 +228,7 @@
               >{{ countryPhoneCode }}</span
             >
             <input
-              [(ngModel)]="user.cel_phone"
+              [(ngModel)]="billinData.phone"
               type="text"
               name="cel_phone"
               placeholder="Teléfono"
@@ -253,6 +246,46 @@
             class="form-text text-danger">
             {{ errorResponse.cel_phone }}
           </div>
+        </div>
+      </div>
+      <!-- Field address -->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.address"
+          type="text"
+          name="address"
+          placeholder="Dirección"
+          class="form-control"
+          id="address"
+          minlength="3"
+          required
+          aria-describedby="addressHelp" />
+
+        <div
+          *ngIf="(f.submitted && f.controls['address'].errors) || errorServer"
+          id="addressHelp"
+          class="form-text text-danger">
+          {{ errorResponse.address }}
+        </div>
+      </div>
+      <!-- Field zip_code-->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.zip_code"
+          type="text"
+          name="zip_code"
+          placeholder="Código postal"
+          class="form-control"
+          id="zip_code"
+          minlength="3"
+          required
+          aria-describedby="zip_codeHelp" />
+
+        <div
+          *ngIf="(f.submitted && f.controls['address'].errors) || errorServer"
+          id="zip_codeHelp"
+          class="form-text text-danger">
+          {{ errorResponse.zip_code }}
         </div>
       </div>
 
