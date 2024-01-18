@@ -16,6 +16,7 @@ import { UserProfileData } from 'src/app/shared/interfaces/UserProfileData.intef
 
 import { throwError } from 'rxjs';
 import { PostSessionKeyCardnet } from 'src/app/shared/interfaces/CreateSessionKeyCardnet.interface';
+import { User } from '../models/user.model';
 
 const url = environment.url + '/api/customer';
 const urlCardnet = environment.urlCardnet;
@@ -225,6 +226,10 @@ export class UserService {
         return resp;
       })
     );
+  }
+
+  editProfile(profile: User): Observable<any> {
+    return this.http.patch(`${url}/profile`, { profile }, { headers });
   }
 
   // Solicitud de session key Cardnet
