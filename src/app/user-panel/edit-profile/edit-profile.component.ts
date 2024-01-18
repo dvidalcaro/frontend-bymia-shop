@@ -42,11 +42,11 @@ export class EditProfileComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     bymiaService: BymiaService,
-    userService: UserService
+    private userService: UserService
   ) {
     this.user = new User();
 
-    userService.getMyData().subscribe(resp => {
+    this.userService.getMyData().subscribe(resp => {
       if (resp.status === true) {
         this.userProfile = resp;
         this.user.customer_type_role =
@@ -110,8 +110,8 @@ export class EditProfileComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.user.country_id = form.value.country_id.id;
-    this.user.country_phone_code = form.value.country_id.id;
+    /* this.user.country_id = form.value.country_id.id;
+    this.user.country_phone_code = form.value.country_id.id; */
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
@@ -119,8 +119,49 @@ export class EditProfileComponent implements OnInit {
       text: 'Espere por favor...',
     });
     Swal.showLoading();
+    this.userService.editProfile(this.user).subscribe(resp => {
+      console.log(this.user);
 
-    setTimeout(() => {
+      this.errorServer = false;
+      Swal.fire({
+        icon: 'success',
+        title: 'Datos modificados correctamente',
+        text: form.value.name,
+      }).then(result => {
+        if (result.isConfirmed) {
+          this.router.navigateByUrl('/my-data');
+        }
+      }),
+        (err: {
+          error: {
+            validation: {
+              email: string;
+              name: string;
+              password: string;
+              date_of_birth: string;
+              cel_phone: string;
+            };
+            message: any;
+          };
+        }) => {
+          this.errorServer = true;
+          this.errorResponse = {
+            email: '',
+            name: '',
+            password: '',
+            date_of_birth: '',
+            cel_phone: '',
+          };
+
+          this.errorResponse = err.error.validation;
+          Swal.fire({
+            icon: 'error',
+            title: err.error.message,
+          });
+        };
+    });
+
+    /* setTimeout(() => {
       Swal.fire({
         icon: 'success',
         title: 'Datos modificados correctamente',
@@ -128,7 +169,7 @@ export class EditProfileComponent implements OnInit {
       });
     }, 2000);
 
-    this.router.navigateByUrl('/my-data');
+    this.router.navigateByUrl('/my-data'); */
     /* this.auth.register(this.user).subscribe(
       resp => {
         this.errorServer = false;

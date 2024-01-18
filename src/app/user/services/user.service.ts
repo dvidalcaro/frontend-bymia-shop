@@ -229,7 +229,7 @@ export class UserService {
   }
 
   editProfile(profile: User): Observable<any> {
-    return this.http.patch(`${url}/profile`, { profile }, { headers });
+    return this.http.patch(`${url}/data/profile`, { profile }, { headers });
   }
 
   // Solicitud de session key Cardnet
