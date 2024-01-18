@@ -35,5 +35,13 @@ export class MyDataComponent implements OnInit {
   openEditProfile() {
     this.router.navigate(['/edit-profile']);
   }
+  openeditaLatestBillingData() {
+    this.router.navigate(['/edit-billing-data'], {
+      queryParams: {
+        id: this.userProfile.customerData.latest_billing_data?.code_id,
+      },
+    });
+  }
+
   ngOnInit(): void {}
 }

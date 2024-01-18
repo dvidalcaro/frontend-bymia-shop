@@ -12,7 +12,10 @@ import { BillData } from '../models/bill-data.model';
 import { Recipient } from '../models/recipient.model';
 import { orderInformation } from 'src/app/shared/interfaces/order-interface';
 import { OrderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
-import { UserProfileData } from 'src/app/shared/interfaces/UserProfileData.inteface';
+import {
+  LatestBillingData,
+  UserProfileData,
+} from 'src/app/shared/interfaces/UserProfileData.inteface';
 
 import { throwError } from 'rxjs';
 import { PostSessionKeyCardnet } from 'src/app/shared/interfaces/CreateSessionKeyCardnet.interface';
@@ -230,6 +233,16 @@ export class UserService {
 
   editProfile(profile: User): Observable<any> {
     return this.http.patch(`${url}/data/profile`, { profile }, { headers });
+  }
+  editLatestBillinData(
+    billingData: LatestBillingData,
+    id: number
+  ): Observable<any> {
+    return this.http.patch(
+      `${url}/data/bill/${id}`,
+      { billingData },
+      { headers }
+    );
   }
 
   // Solicitud de session key Cardnet

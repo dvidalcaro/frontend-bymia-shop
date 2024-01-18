@@ -17,7 +17,7 @@
       <div class="mydata__flx">
         <div class="mydata">
           <!-- container fondo blanco mobile  -->
-
+          <!-- Fields My data -->
           <div class="mydata__title">
             <h3>Mis datos</h3>
             <button class="btn__mydata btn-mobile" (click)="openEditProfile()">
@@ -69,11 +69,12 @@
         <div class="mydata__billing">
           <div class="mydata">
             <!-- container fondo blanco mobile  -->
+            <!-- Fields latest billing data  -->
             <div class="mydata__title">
               <h3>Mis datos de facturación</h3>
               <button
                 class="btn__mydata btn-mobile"
-                [routerLink]="['/edit-billing-data']">
+                (click)="openeditaLatestBillingData()">
                 Editar
               </button>
             </div>

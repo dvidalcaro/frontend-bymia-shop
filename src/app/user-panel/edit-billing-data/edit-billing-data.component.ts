@@ -56,11 +56,11 @@ export class EditBillingDataComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private bymiaService: BymiaService,
-    userService: UserService
+    private userService: UserService
   ) {
     this.user = new User();
 
-    userService.getMyData().subscribe(resp => {
+    this.userService.getMyData().subscribe(resp => {
       if (resp.status === true) {
         this.userProfile = resp;
 
@@ -139,8 +139,7 @@ export class EditBillingDataComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    this.user.country_id = form.value.country_id.id;
-    this.user.country_phone_code = form.value.country_id.id;
+
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
@@ -149,44 +148,54 @@ export class EditBillingDataComponent implements OnInit {
     });
     Swal.showLoading();
 
-    setTimeout(() => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Datos modificados correctamente',
-        text: form.value.name,
-      });
-    }, 2000);
+    this.userService
+      .editLatestBillinData(this.billinData, this.billinData.code_id)
+      .subscribe(resp => {
+        console.log(this.billinData);
 
-    this.router.navigateByUrl('/my-data');
-    /* this.auth.register(this.user).subscribe(
-      resp => {
         this.errorServer = false;
         Swal.fire({
           icon: 'success',
-          title: 'Usuario creado correctamente',
-          text: 'Te enviamos un correo electrónico para que valides tu cuenta: si no lo ves en tu bandeja de entrada, revisa la carpeta de spam.',
+          title: 'Datos modificados correctamente',
+          text: form.value.name,
         }).then(result => {
           if (result.isConfirmed) {
-            this.router.navigateByUrl('/');
+            this.router.navigateByUrl('/my-data');
           }
-        });
-      },
-      err => {
-        this.errorServer = true;
-        this.errorResponse = {
-          email: '',
-          name: '',
-          password: '',
-          date_of_birth: '',
-          cel_phone: '',
-        };
-        // console.log(err);
-        this.errorResponse = err.error.validation;
-        Swal.fire({
-          icon: 'error',
-          title: err.error.message,
-        });
-      }
-    ); */
+        }),
+          (err: {
+            error: {
+              validation: {
+                identity_type: string;
+                name: string;
+                identity_number: string;
+                date_of_birth: string;
+                cel_phone: string;
+                city_id: string;
+                address: string;
+                zip_code: string;
+              };
+              message: any;
+            };
+          }) => {
+            this.errorServer = true;
+            this.errorResponse = {
+              identity_type: '',
+              name: '',
+              identity_number: '',
+              date_of_birth: '',
+              cel_phone: '',
+              city_id: '',
+              address: '',
+              zip_code: '',
+            };
+
+            this.errorResponse = err.error.validation;
+            Swal.fire({
+              icon: 'error',
+              title: err.error.message,
+            });
+          };
+      });
   }
 }
