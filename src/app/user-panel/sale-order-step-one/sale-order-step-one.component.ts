@@ -47,6 +47,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   isChecked = new FormControl(false);
   recipesAddressSelect = new FormControl('0');
   paymentType = new FormControl(null, Validators.required);
+  fiscalInvoice = new FormControl(null, Validators.required);
   countries!: CountryCode[];
   state_code!: StateCode[];
   city_code!: CityCode[];
@@ -56,10 +57,12 @@ export class SaleOrderStepOneComponent implements OnInit {
   bill_address_id: number | null = null;
   recipient_address_id: number | null = null;
   showFormRecipient: boolean = false;
+  recipientFormIdentityType: string | null = null;
 
   // Objeto con respuestas deerror en el formulario
   errorResponse = {
     paymentType: 'Debe seleccionar una forma de pago.',
+    fiscalInvoice: 'Debe seleccionar si desea factura con valor fiscal.',
     name: 'El campo Nombre es requerido y debe contener al menos 3 caracteres',
     identity_type:
       'El campo Tipo de identificación es requerido y debe contener al menos 3 caracteres',
@@ -169,7 +172,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   }
 
   continueOrder() {
-    if (this.paymentType.valid) {
+    if (this.paymentType.valid && this.fiscalInvoice.valid) {
       if (this.bill_address_id && !this.showFormRecipient) {
         return true;
       }
@@ -218,6 +221,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     this.orderGenerate.same_address = !this.showFormRecipient; //si showFormRecipient es falso  entonces same_address es true.  esto indica que los datos de facturacion y de destinatario son los mismos
     this.orderGenerate.billData.address_id = this.bill_address_id;
     this.orderGenerate.paymentTypeId = this.paymentType.value;
+    this.orderGenerate.fiscalInvoiceId = this.fiscalInvoice.value;
     if (this.showFormRecipient) {
       this.orderGenerate.recipient.address_id = this.recipient_address_id;
     }
@@ -280,8 +284,8 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.total && value?.startsWith('international')
         ? 0
         : this.total
-        ? this.total * 0.07
-        : 0;
+          ? this.total * 0.07
+          : 0;
     this.totalSale = this.total ? this.total + this.tax : 0;
     // console.log('international:', value?.startsWith('international'));
     // console.log('pickupData:', this.pickupData);
@@ -305,6 +309,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   }
 
   fillFormRecipient(data: BillRecipientData) {
+    this.recipientFormIdentityType = data.identity_type;
     this.formRecipient.disable();
     this.formRecipient.get('name')?.setValue(data?.name);
     this.formRecipient.get('identity_type')?.setValue(data?.identity_type);
@@ -334,6 +339,7 @@ export class SaleOrderStepOneComponent implements OnInit {
     this.formRecipient.reset();
     this.formRecipient.enable();
     this.recipient_address_id = null;
+    this.formRecipient.get('identity_type')?.setValue(null);
     this.formRecipient.get('country_id')?.setValue('');
     this.formRecipient.get('state_id')?.setValue('');
     this.city_code_Recipient = [];

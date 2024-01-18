@@ -145,9 +145,36 @@
             </div>
 
             <div class="d-md-flex gap-2">
-              <input type="text" name="identity_type" formControlName="identity_type"
+
+              <select formControlName="identity_type" id="identity_type" name="identity_type"
+                class="form-select mb-2 mb-md-0" aria-label="Seleccione una opción."
+                placeholder="Seleccione una opción.">
+                <option [ngValue]="null" [selected]="order.bill_address? false:true" hidden>
+                  Seleccione una opción.
+                </option>
+
+                <option value="Cedula" [selected]="order.bill_address?.identity_type === 'Cedula'">
+                  Cedula
+                </option>
+
+
+                <option value="RNC" [selected]="order.bill_address?.identity_type === 'RNC'">
+                  RNC
+                </option>
+
+                <option value="Otro"
+                  [selected]="order.bill_address? (order.bill_address.identity_type != 'Cedula' && order.bill_address.identity_type != 'RNC' ? true:false):false">
+                  Otra documentación
+                </option>
+
+              </select>
+
+
+              <!-- 
+                <input type="text" name="identity_type" formControlName="identity_type"
                 placeholder="Tipo de identificación" value="" class="form-control frm-register__input mb-2 mb-md-0"
-                id="identity_type" minlength="3" required aria-describedby="identity_typeHelp" />
+                id="identity_type" minlength="3" required aria-describedby="identity_typeHelp" /> 
+              -->
               <input type="text" name="identity_number" formControlName="identity_number"
                 placeholder="Número de identificación" value="{{ billdata ? billdata.identity_number : '' }}"
                 class="form-control frm-register__input" id="identity_number" minlength="3" required
@@ -321,10 +348,15 @@
               <option value="0" [selected]="recipesAddressSelect.value === '0'">
                 Igual datos de facturación
               </option>
-              <option [ngValue]="recipes" *ngFor="let recipes of order.recipient_address">
-                {{ recipes.name }}
-              </option>
-              <option [ngValue]="null">Nuevo destinatario</option>
+              <ng-container *ngIf="order && order.recipient_address">
+                <option [ngValue]="recipes" *ngFor="let recipes of order.recipient_address">
+                  {{ recipes.name }}
+                </option>
+                <option *ngIf="order.recipient_address.length <5" [ngValue]="null">Nuevo destinatario</option>
+              </ng-container>
+              <ng-container *ngIf="order && !order.recipient_address">
+                <option [ngValue]="null">Nuevo destinatario</option>
+              </ng-container>
             </select>
           </div>
 
@@ -372,9 +404,35 @@
                 aria-describedby="nameHelp" />
             </div>
             <div class="d-md-flex gap-2">
-              <input type="text" name="identity_type" formControlName="identity_type"
+
+              <select formControlName="identity_type" id="identity_type" name="identity_type"
+                class="form-select mb-2 mb-md-0" aria-label="Seleccione una opción."
+                placeholder="Seleccione una opción.">
+                <option [ngValue]="null" [selected]="recipientFormIdentityType? false:true" hidden>
+                  Seleccione una opción.
+                </option>
+
+                <option value="Cedula" [selected]="recipientFormIdentityType === 'Cedula'? true:false">
+                  Cedula
+                </option>
+
+
+                <option value="RNC" [selected]="recipientFormIdentityType === 'RNC'? true:false">
+                  RNC
+                </option>
+
+                <option value="Otro"
+                  [selected]="recipientFormIdentityType? (recipientFormIdentityType != 'Cedula' && recipientFormIdentityType != 'RNC' ? true:false):false">
+                  Otra documentación
+                </option>
+
+              </select>
+
+
+              <!-- <input type="text" name="identity_type" formControlName="identity_type"
                 placeholder="Tipo de identificación" value="" class="form-control frm-register__input mb-2 mb-md-0"
                 id="identity_type" minlength="3" required aria-describedby="identity_typeHelp" />
+              -->
               <input type="text" name="identity_number" formControlName="identity_number"
                 placeholder="Número de identificación" value="{{ billdata ? billdata.identity_number : '' }}"
                 class="form-control frm-register__input" id="identity_number" minlength="3" required
@@ -730,10 +788,9 @@
           </div>
           <div class="d-md-flex gap-2 my-3 d-flex">
             <div class="col-12">
-              <select [formControl]="paymentType" id="paymentType" name="paymentType"
-                class="form-select mb-2 mb-md-0" aria-label="Seleccione una forma de pago."
-                placeholder="Seleccione una forma de pago.">
-                <option [ngValue]="null" [selected]="recipesAddressSelect.value === '0'" hidden>
+              <select [formControl]="paymentType" id="paymentType" name="paymentType" class="form-select mb-2 mb-md-0"
+                aria-label="Seleccione una forma de pago." placeholder="Seleccione una forma de pago.">
+                <option [ngValue]="null" [selected] hidden>
                   Seleccione una forma de pago.
                 </option>
                 <option [ngValue]="paymentType.id" *ngFor="let paymentType of order.paymentsTypes">
@@ -745,10 +802,43 @@
                     (paymentType?.dirty ||
                     paymentType?.touched)
                   " class="form-text text-danger">
-                  {{ errorResponse.paymentType }}
-                </div>
+                {{ errorResponse.paymentType }}
+              </div>
             </div>
           </div>
+
+          <div class="mt-4">
+            <h3 class="sale__h3 text-center text-dark">¿Desea Factura con Valor fiscal?</h3>
+          </div>
+          <div class="d-md-flex gap-2 my-3 d-flex">
+            <div class="col-12">
+              <select [formControl]="fiscalInvoice" id="fiscalInvoice" name="fiscalInvoice"
+                class="form-select mb-2 mb-md-0" aria-label="Seleccione una opción."
+                placeholder="Seleccione una opción.">
+                <option [ngValue]="null" [selected] hidden>
+                  Seleccione una opción.
+                </option>
+
+                <option [ngValue]="1">
+                  Si
+                </option>
+
+
+                <option [ngValue]="1">
+                  No
+                </option>
+
+              </select>
+              <div *ngIf="
+                    fiscalInvoice?.invalid &&
+                    (fiscalInvoice?.dirty ||
+                    fiscalInvoice?.touched)
+                  " class="form-text text-danger">
+                {{ errorResponse.fiscalInvoice }}
+              </div>
+            </div>
+          </div>
+
           <div class="mt-5">
             <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
             <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
