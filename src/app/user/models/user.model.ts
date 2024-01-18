@@ -8,10 +8,13 @@ export class User {
   country_id?: number;
   country_phone_code?: number;
   gender_type?: number;
+  gender?: string;
   wish_list?: number[];
   shop_cart?: number[];
   cel_phone?: string;
+  phone_code?: string;
   date_of_birth?: string;
+  type_user_id?: number;
 
   constructor() {}
 }

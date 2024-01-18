@@ -9,6 +9,7 @@ export interface MyAddresses {
   address: string;
 }
 export interface LatestBillingData {
+  additional_info: string;
   code_id: number;
   type_user?: string;
   name: string;
@@ -16,8 +17,11 @@ export interface LatestBillingData {
   phone: string;
   identity_type: string;
   identity_number: string;
+  country_id: number;
   country: string;
+  state_id: number;
   state: string;
+  city_id: number | undefined;
   city: string;
   address: string;
   zip_code: string;
@@ -25,10 +29,13 @@ export interface LatestBillingData {
 
 export interface UserProfileData {
   code_id: number;
+  type_user_id: number;
   type_user: string;
   name: string;
   email: string;
+  country_id: number;
   phone: string;
+  gender_id: number;
   gender: string;
   birthdate: string;
   latest_billing_data: LatestBillingData | null;

@@ -13,6 +13,7 @@ import { ChangeDecimalFormatPipe } from './change-decimal-format.pipe';
 import { LoadingComponent } from '../pages/components/loading/loading.component';
 import { PagesModule } from '../pages/pages.module';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditBillingDataComponent } from './edit-billing-data/edit-billing-data.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     SaleOrderStepOneComponent,
     ChangeDecimalFormatPipe,
     EditProfileComponent,
+    EditBillingDataComponent,
   ],
   imports: [
     CommonModule,

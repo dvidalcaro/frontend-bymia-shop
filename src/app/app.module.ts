@@ -18,9 +18,10 @@ import { PagesModule } from './pages/pages.module';
 // import { BymiaService } from './services/bymia.service';
 
 import { UserModule } from './user/user.module';
+import { ChangeDateFormatPipe } from './change-date-format.pipe';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, ChangeDateFormatPipe],
   imports: [
     BrowserModule,
     FormsModule,

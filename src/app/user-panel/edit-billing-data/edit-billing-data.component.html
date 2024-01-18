@@ -1,0 +1,302 @@
+<div class="container__modal animate__animated animate__zoomIn animate__faster">
+  <div class="text-center text-bymia" *ngIf="loading">
+    <i class="bx bx-md bx-loader-alt bx-spin"></i>
+  </div>
+  <div
+    class="container bg-white rounded-3 justify-content-center frm-register"
+    *ngIf="showData">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end"
+          routerLink="/my-data"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+    <form
+      class="frm-register__form row g-3 p-3 pb-4"
+      #f="ngForm"
+      (ngSubmit)="onSubmit(f)">
+      <!-- Field Name -->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.name"
+          type="text"
+          name="name"
+          placeholder="Nombre y Apellido"
+          class="form-control"
+          id="name"
+          minlength="3"
+          required
+          aria-describedby="nameHelp" />
+
+        <div
+          *ngIf="(f.submitted && f.controls['name'].errors) || errorServer"
+          id="nameHelp"
+          class="form-text text-danger">
+          {{ errorResponse.name }}
+        </div>
+      </div>
+
+      <!-- Field DNI Type -->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.identity_type"
+          type="text"
+          name="identity_type"
+          placeholder="Tipo de identificación"
+          class="form-control"
+          id="identity_type"
+          minlength="3"
+          required
+          aria-describedby="identity_typeHelp" />
+
+        <div
+          *ngIf="
+            (f.submitted && f.controls['identity_type'].errors) || errorServer
+          "
+          id="identity_typeHelp"
+          class="form-text text-danger">
+          {{ errorResponse.identity_type }}
+        </div>
+      </div>
+      <!-- Field DNI Number -->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.identity_number"
+          type="text"
+          name="identity_number"
+          placeholder="Número de identificación"
+          class="form-control"
+          id="identity_number"
+          minlength="3"
+          required
+          aria-describedby="identity_numberHelp" />
+
+        <div
+          *ngIf="
+            (f.submitted && f.controls['identity_number'].errors) || errorServer
+          "
+          id="identity_numberHelp"
+          class="form-text text-danger">
+          {{ errorResponse.identity_number }}
+        </div>
+      </div>
+      <!--  <div class="col-12 frm-register__input">
+        <input
+          (focus)="clearEmailError()"
+          [(ngModel)]="user.email"
+          type="email"
+          name="email"
+          placeholder="Dirección de email"
+          class="form-control"
+          id="email"
+          required
+          email
+          aria-describedby="emailHelp" />
+        <div
+          *ngIf="(f.submitted && f.controls['email'].errors) || errorServer"
+          id="emailHelp"
+          class="form-text text-danger">
+          {{ errorResponse.email }}
+        </div>
+      </div> -->
+      <!--  <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="user.password"
+          type="password"
+          name="password"
+          placeholder="Password"
+          class="form-control"
+          id="password"
+          minlength="6"
+          required
+          aria-describedby="passwordHelp" />
+
+        <div
+          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
+          id="passwordHelp"
+          class="form-text text-danger">
+          {{ errorResponse.password }}
+        </div>
+      </div> -->
+      <!-- <div
+        class="col-12 frm-register__input"
+        *ngIf="user.customer_type_role != 2">
+        <input
+          (focus)="clearDateOfBirthError()"
+          [(ngModel)]="userProfile.customerData.birthdate"
+          type="date"
+          name="date_of_birth"
+          class="form-control"
+          id="date_of_birth"
+          placeholder="YYYY-MM-DD"
+          minlength="10"
+          required
+          aria-describedby="date_of_birthHelp" />
+        <div
+          *ngIf="
+            (f.submitted && f.controls['date_of_birth'].errors) || errorServer
+          "
+          id="date_of_birthHelp"
+          class="form-text text-danger">
+          {{ errorResponse.date_of_birth }}
+        </div>
+      </div> -->
+      <!-- <div class="col-12" *ngIf="user.customer_type_role != 2">
+        <select
+          [(ngModel)]="user.gender_type"
+          id="gender_type"
+          name="gender_type"
+          class="form-select frm-register__select-bg"
+          aria-label="Selecciona una Opción">
+          <option [ngValue]="1">Femenino</option>
+          <option [ngValue]="2">Masculino</option>
+          <option [ngValue]="3">Prefiero no decirlo</option>
+        </select>
+      </div> -->
+      <!-- Field selected state -->
+      <div class="col-12">
+        <div class="row">
+          <div class="mb-3">
+            <select
+              [(ngModel)]="billinData.country_id"
+              id="country_id"
+              name="country_id"
+              class="form-select frm-register__select-bg"
+              aria-label="Selecciona una Opción"
+              (change)="getFlagPhone(f.control.value)">
+              <option value="" selected disabled>Seleciona el país</option>
+              <option [ngValue]="billinData.country_id">
+                {{ countryCode?.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3">
+            <select
+              [(ngModel)]="billinData.state_id"
+              id="state_id"
+              name="state_id"
+              class="form-select frm-register__select-bg"
+              aria-label="Selecciona una Opción"
+              (change)="changeState(billinData.state_id)">
+              <option value="" selected disabled>Seleciona el estado</option>
+              <option [ngValue]="state.id" *ngFor="let state of state_code">
+                {{ state.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3">
+            <select
+              [(ngModel)]="billinData.city_id"
+              id="city_id"
+              name="city_id"
+              class="form-select frm-register__select-bg"
+              aria-label="Selecciona una Opción"
+              aria-describedby="city_idHelp"
+              required>
+              <option value="0" selected disabled>Seleciona la ciudad</option>
+              <option [ngValue]="city.id" *ngFor="let city of city_code">
+                {{ city.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div
+          *ngIf="(f.submitted && f.controls['city_id'].errors) || errorServer"
+          id="city_idHelp"
+          class="form-text text-danger">
+          {{ errorResponse.city_id }}
+        </div>
+        <div class="row gx-1">
+          <div class="col input-group frm-register__input">
+            <span
+              class="input-group-text bg-white border-1 border-dark frm-register__input">
+              <img
+                width="30px"
+                crossorigin="anonymous"
+                [src]="[countryFlag]"
+                [alt]="[countryAlt]" />
+            </span>
+            <span
+              class="input-group-text bg-white border-1 border-dark frm-register__input"
+              >{{ countryPhoneCode }}</span
+            >
+            <input
+              [(ngModel)]="billinData.phone"
+              type="text"
+              name="cel_phone"
+              placeholder="Teléfono"
+              class="form-control"
+              id="cel_phone"
+              minlength="6"
+              required
+              aria-describedby="cel_phoneHelp" />
+          </div>
+          <div
+            *ngIf="
+              (f.submitted && f.controls['cel_phone'].errors) || errorServer
+            "
+            id="cel_phoneHelp"
+            class="form-text text-danger">
+            {{ errorResponse.cel_phone }}
+          </div>
+        </div>
+      </div>
+      <!-- Field address -->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.address"
+          type="text"
+          name="address"
+          placeholder="Dirección"
+          class="form-control"
+          id="address"
+          minlength="3"
+          required
+          aria-describedby="addressHelp" />
+
+        <div
+          *ngIf="(f.submitted && f.controls['address'].errors) || errorServer"
+          id="addressHelp"
+          class="form-text text-danger">
+          {{ errorResponse.address }}
+        </div>
+      </div>
+      <!-- Field zip_code-->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.zip_code"
+          type="text"
+          name="zip_code"
+          placeholder="Código postal"
+          class="form-control"
+          id="zip_code"
+          minlength="3"
+          required
+          aria-describedby="zip_codeHelp" />
+
+        <div
+          *ngIf="(f.submitted && f.controls['address'].errors) || errorServer"
+          id="zip_codeHelp"
+          class="form-text text-danger">
+          {{ errorResponse.zip_code }}
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="button_modal col-12">Modificar</button>
+      </div>
+      <div class="col-12">
+        <button routerLink="/my-data" class="button_modal col-12">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

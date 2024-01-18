@@ -6,42 +6,56 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
 
 import { BymiaService } from 'src/app/services/bymia.service';
-import { CountryCode } from 'src/app/shared/interfaces/countryCode-interface';
+import {
+  CityCode,
+  CountryCode,
+  StateCode,
+} from 'src/app/shared/interfaces/countryCode-interface';
 import { User } from 'src/app/user/models/user.model';
 import { AuthService } from 'src/app/user/services/auth.service';
 import { UserService } from '../../user/services/user.service';
 import { UserProfile } from 'src/app/shared/interfaces/UserProfileData.inteface';
 
+import { LatestBillingData } from '../../shared/interfaces/UserProfileData.inteface';
+
 @Component({
-  selector: 'app-edit-profile',
-  templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.scss'],
+  selector: 'app-edit-billing-data',
+  templateUrl: './edit-billing-data.component.html',
+  styleUrls: ['./edit-billing-data.component.scss'],
 })
-export class EditProfileComponent implements OnInit {
+export class EditBillingDataComponent implements OnInit {
   user: User;
   countryPhoneCode: string = '';
   countryCodes: CountryCode[] = [];
+  countryCode!: CountryCode | undefined;
+  state_code!: StateCode[];
+  city_code!: CityCode[];
   countryFlag: string = '';
   countryAlt: string = '';
   userProfile!: UserProfile;
+  billinData!: LatestBillingData;
 
+  type_User: string | undefined = '';
   loading: boolean = true;
   showData: boolean = false;
 
   public remember = false;
   errorResponse = {
-    email: 'Debe ingresar un correo válido',
+    identity_type: 'Debe ingresar un tipo de identificación',
     name: 'Debe ingresar un nombre de al menos 6 letras',
-    password: 'Debe ingresar una password de al menos 6 caracteres',
+    identity_number: 'Debe ingresar un número de identificación',
     date_of_birth: 'Ej. de fecha válida: 1980-12-31',
     cel_phone: 'Debe ingresar un teléfono válido de al menos 6 digitos',
+    city_id: 'Debes selecionar una ciudad ',
+    address: 'Debes ingresar una dirección',
+    zip_code: 'Debes ingresar un código postal',
   };
   errorServer = false;
 
   constructor(
     private auth: AuthService,
     private router: Router,
-    bymiaService: BymiaService,
+    private bymiaService: BymiaService,
     userService: UserService
   ) {
     this.user = new User();
@@ -49,57 +63,72 @@ export class EditProfileComponent implements OnInit {
     userService.getMyData().subscribe(resp => {
       if (resp.status === true) {
         this.userProfile = resp;
-        this.user.customer_type_role =
-          this.userProfile.customerData.type_user_id;
-        this.user.name = this.userProfile.customerData.name;
-        this.user.date_of_birth = this.userProfile.customerData.birthdate;
 
-        this.user.date_of_birth = this.changeDateFormat(
-          this.userProfile.customerData.birthdate
-        );
-        this.user.gender_type = this.userProfile.customerData.gender_id;
+        this.billinData = this.userProfile.customerData.latest_billing_data!;
+        console.log(this.billinData);
 
-        this.user.country_id = this.userProfile.customerData.country_id;
-        this.user.cel_phone = this.userProfile.customerData.phone;
+        this.billinData.country_id = 62;
+        this.user.country_id = 62;
 
         this.loading = false;
         bymiaService.getCountryCode().subscribe(resp => {
           this.countryCodes = resp;
           console.log(resp);
         });
+        this.changeCity('62');
+        this.bymiaService
+          .getCityCodeById(this.billinData.state_id)
+          .subscribe(res => {
+            this.city_code = res;
+          });
+
+        console.log('ciudad', this.city_code);
+
+        /*  bymiaService.getStateById(62).subscribe(res => {
+          this.state_code = res;
+        }); */
         setTimeout(() => {
           this.showData = true;
-          const country = this.countryCodes.find(country => {
-            return (
-              country.name ===
-              this.userProfile.customerData.latest_billing_data?.country
-            );
+          this.countryCode = this.countryCodes.find(country => {
+            return country.id === this.billinData?.country_id;
           });
-          this.countryFlag = country!.flag;
-          this.countryPhoneCode = country!.phonecode;
+          this.countryFlag = this.countryCode!.flag;
+          this.countryPhoneCode = this.countryCode!.phonecode;
         }, 1000);
       }
 
       console.log(this.userProfile);
     });
   }
-  changeDateFormat(date: string) {
-    let partesFecha = this.userProfile.customerData.birthdate.split('/');
-    return `${partesFecha[2]}-${partesFecha[1]}-${partesFecha[0]}`;
-  }
+
   getFlagPhone(country_id: any) {
-    const country = this.countryCodes.find(country => {
+    this.countryCode = this.countryCodes.find(country => {
       return country.id === country_id.country_id;
     });
 
-    this.countryFlag = country!.flag;
-    this.countryPhoneCode = country!.phonecode;
+    this.countryFlag = this.countryCode!.flag;
+    this.countryPhoneCode = this.countryCode!.phonecode;
     this.user.cel_phone = '';
   }
 
-  clearEmailError() {
-    this.errorResponse.email = '';
+  changeCity(id: string) {
+    this.bymiaService.getStateById(parseInt(id)).subscribe(res => {
+      this.state_code = res;
+    });
   }
+  changeState(id: number) {
+    console.log(id);
+
+    this.bymiaService.getCityCodeById(id).subscribe(res => {
+      this.city_code = res;
+    });
+    this.billinData.city_id = undefined;
+    console.log(this.billinData);
+  }
+
+  /* clearEmailError() {
+    this.errorResponse.email = '';
+  } */
   clearDateOfBirthError() {
     this.errorResponse.date_of_birth = '';
   }
@@ -115,7 +144,7 @@ export class EditProfileComponent implements OnInit {
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
-      title: 'Modificando a ' + this.user.name,
+      title: 'Modificando a ' + this.billinData.name,
       text: 'Espere por favor...',
     });
     Swal.showLoading();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BymiaService } from 'src/app/services/bymia.service';
 import { OrderConfirmResponse } from 'src/app/shared/interfaces/orderConfirmResponse-interface';
+import { Order } from '../../user/models/order.model';
 
 @Component({
   selector: 'app-order-confirm',
@@ -17,6 +18,7 @@ export class OrderConfirmComponent implements OnInit {
   order!: string;
   status!: string;
   status_code!: string;
+  queryParamsId = { id: '' };
   constructor(
     private bymiaService: BymiaService,
     private route: ActivatedRoute,
@@ -38,6 +40,9 @@ export class OrderConfirmComponent implements OnInit {
           this.status_code = resp.status_code;
           this.classIco =
             'bx bxs-check-circle bx-tada-hover modal__i text-center';
+          setTimeout(() => {
+            this.router.navigateByUrl('/orders');
+          }, 4000);
         } else {
           this.customer = params['customer'];
           this.transaction = params['transaction'];
@@ -48,6 +53,13 @@ export class OrderConfirmComponent implements OnInit {
           this.status_code = resp.status_code;
           this.classIco =
             'bx bxs-x-circle bx-tada-hover modal__i__bg text-center';
+          this.queryParamsId.id = this.order;
+          setTimeout(() => {
+            this.router.navigate(['/sales-order-step1'], {
+              queryParams: this.queryParamsId,
+            });
+            /* this.router.navigateByUrl('´/sales-order-step1/${this.order} ´'); */
+          }, 4000);
         }
       });
 

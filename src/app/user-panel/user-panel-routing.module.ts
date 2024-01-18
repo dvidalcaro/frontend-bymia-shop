@@ -10,6 +10,7 @@ import { ShippingStatusComponent } from './shipping-status/shipping-status.compo
 import { AuthGuard } from '../user/guards/auth.guard';
 import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step-one.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditBillingDataComponent } from './edit-billing-data/edit-billing-data.component';
 
 const routes: Routes = [
   { path: 'my-data', component: MyDataComponent, canActivate: [AuthGuard] },
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'edit-profile',
     component: EditProfileComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-billing-data',
+    component: EditBillingDataComponent,
     canActivate: [AuthGuard],
   },
   {

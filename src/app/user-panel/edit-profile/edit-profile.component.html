@@ -1,5 +1,10 @@
 <div class="container__modal animate__animated animate__zoomIn animate__faster">
-  <div class="container bg-white rounded-3 justify-content-center frm-register">
+  <div class="text-center text-bymia" *ngIf="loading">
+    <i class="bx bx-md bx-loader-alt bx-spin"></i>
+  </div>
+  <div
+    class="container bg-white rounded-3 justify-content-center frm-register"
+    *ngIf="showData">
     <div class="row mb-3 mt-3">
       <div class="col">
         <img
@@ -45,44 +50,7 @@
           {{ errorResponse.name }}
         </div>
       </div>
-      <div class="col-12 frm-register__input">
-        <input
-          (focus)="clearEmailError()"
-          [(ngModel)]="user.email"
-          type="email"
-          name="email"
-          placeholder="Dirección de email"
-          class="form-control"
-          id="email"
-          required
-          email
-          aria-describedby="emailHelp" />
-        <div
-          *ngIf="(f.submitted && f.controls['email'].errors) || errorServer"
-          id="emailHelp"
-          class="form-text text-danger">
-          {{ errorResponse.email }}
-        </div>
-      </div>
-      <div class="col-12 frm-register__input">
-        <input
-          [(ngModel)]="user.password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          class="form-control"
-          id="password"
-          minlength="6"
-          required
-          aria-describedby="passwordHelp" />
 
-        <div
-          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
-          id="passwordHelp"
-          class="form-text text-danger">
-          {{ errorResponse.password }}
-        </div>
-      </div>
       <div
         class="col-12 frm-register__input"
         *ngIf="user.customer_type_role != 2">
@@ -129,7 +97,9 @@
               aria-label="Selecciona una Opción"
               (change)="getFlagPhone(f.control.value)">
               <option value="" selected disabled>Seleciona el país</option>
-              <option [ngValue]="country" *ngFor="let country of countryCodes">
+              <option
+                [ngValue]="country.id"
+                *ngFor="let country of countryCodes">
                 {{ country.name }}
               </option>
             </select>
@@ -170,33 +140,14 @@
           </div>
         </div>
       </div>
-      <div class="col-12 d-flex justify-content-center align-items-center">
-        <div class="row">
-          <div class="col-1 frm-register__checkbox">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="exampleCheck1" />
-          </div>
-          <div class="col-11">
-            <p class="condition__p">
-              Al Entrar o Registrarte , aceptas las
-              <a
-                class="btn-deshabilitado"
-                routerLink="/politicas-privacidad-y-servcios">
-                <strong>Condiciones de servicio </strong> </a
-              >y la
-              <a
-                class="btn-deshabilitado"
-                routerLink="/politicas-privacidad-y-servcios"
-                ><strong>Política de privacidad</strong>
-              </a>
-            </p>
-          </div>
-        </div>
+
+      <div class="col-12">
+        <button type="submit" class="button_modal col-12">Modificar</button>
       </div>
       <div class="col-12">
-        <button type="submit" class="button_modal col-12">Guardar</button>
+        <button routerLink="/my-data" class="button_modal col-12">
+          Cancelar
+        </button>
       </div>
     </form>
   </div>
