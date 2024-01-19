@@ -7,6 +7,7 @@ import {
 } from 'src/app/shared/interfaces/UserProfileData.inteface';
 
 import { UserService } from 'src/app/user/services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-my-data',
@@ -55,6 +56,8 @@ export class MyDataComponent implements OnInit {
     });
   }
   openDeleteAddress(id: number) {
+    console.log(id);
+
     this.router.navigate(['/my-data'], {
       queryParams: {
         id: id,
@@ -74,7 +77,34 @@ export class MyDataComponent implements OnInit {
   }
 
   addAddress() {}
-  deletedAddress() {}
+  deletedAddress() {
+    if (this.id_address !== -1) {
+      this.userProfile.customerData.my_addresses.splice(this.id_address, 1);
+      Swal.fire({
+        allowOutsideClick: false,
+        icon: 'info',
+        title:
+          'Eliminando dirección de ' +
+          this.userProfile.customerData.my_addresses[this.id_address].name,
+        text: 'Espere por favor...',
+      });
+
+      Swal.showLoading();
+
+      setTimeout(() => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Datos eliminados correctamente',
+          /* text: this.userProfile.customerData.name, */
+        }).then(result => {
+          if (result.isConfirmed) {
+            this.router.navigate(['/my-data']);
+            this.closedConfirms = false;
+          }
+        });
+      }, 2000);
+    }
+  }
 
   ngOnInit(): void {}
 }
