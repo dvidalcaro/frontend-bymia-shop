@@ -1,9 +1,13 @@
 export interface MyAddresses {
-  address_id: number;
+  additional_info?: string;
+  code_id: number;
   name: string;
   phone: string;
   country: string;
+  country_id: number;
+  state_id: number;
   state: string;
+  city_id: number | undefined;
   city: string;
   zip_code: string;
   address: string;

@@ -159,10 +159,13 @@
           </div>
         </div>
       </div>
+      <!-- End Fields latest billing data  -->
+
+      <!-- My addresses -->
       <div class="mydata__address mydata">
         <div class="mydata__title">
           <h3>Mis direcciones</h3>
-          <button class="btn__mydata btn-mobile" *ngIf="false">
+          <button class="btn__mydata btn-mobile" (click)="addAddress()">
             <i class="bx bxs-plus-circle bx-tada-hover"></i>Agregar
           </button>
         </div>
@@ -181,56 +184,16 @@
               {{ address.zip_code }},
               {{ address.phone }}
             </p>
-          </div>
-
-          <!-- <div class="mydata__address__card">
-            <h3>Diego Vidal Caro</h3>
-            <p>
-              Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-              +541162964723
-            </p>
             <div class="address__button">
-              <button>Editar dirección</button>
+              <button (click)="openEditAddress(address.code_id)">
+                Editar dirección
+              </button>
               <p>|</p>
-              <button>Eliminar</button>
+              <button (click)="openDeleteAddress(address.code_id)">
+                Eliminar
+              </button>
             </div>
           </div>
-          <div class="mydata__address__card">
-            <h3>Diego Vidal Caro</h3>
-            <p>
-              Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-              +541162964723
-            </p>
-            <div class="address__button">
-              <button>Editar dirección</button>
-              <p>|</p>
-              <button>Eliminar</button>
-            </div>
-          </div>
-          <div class="mydata__address__card">
-            <h3>Diego Vidal Caro</h3>
-            <p>
-              Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-              +541162964723
-            </p>
-            <div class="address__button">
-              <button>Editar dirección</button>
-              <p>|</p>
-              <button>Eliminar</button>
-            </div>
-          </div>
-          <div class="mydata__address__card">
-            <h3>Diego Vidal Caro</h3>
-            <p>
-              Estados Unidos, MIAMI, FL, WAREHOUSE 7953 NW 64TH ST, 33166,
-              +541162964723
-            </p>
-            <div class="address__button">
-              <button>Editar dirección</button>
-              <p>|</p>
-              <button>Eliminar</button>
-            </div>
-          </div> -->
         </div>
         <div
           class="mydata__address__card"
@@ -242,3 +205,57 @@
     </div>
   </div>
 </div>
+
+<!-- Test -->
+
+<div
+  class="container__modal animate__animated animate__zoomIn animate__faster"
+  *ngIf="closedConfirms">
+  <div class="text-center text-bymia" *ngIf="loading">
+    <i class="bx bx-md bx-loader-alt bx-spin"></i>
+  </div>
+  <div
+    class="container bg-white rounded-3 justify-content-center frm-register pb-3"
+    *ngIf="showData">
+    <div class="row mb-3 mt-3">
+      <div class="col">
+        <img
+          class="frm-register__img float-end"
+          (click)="closedConfirm()"
+          src="../assets/img/icon_closed_black.png"
+          alt="cerrar" />
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h3 class="text-dark">¿Deseas eliminar esta dirección?</h3>
+      <p class="text-dark">
+        {{ userProfile.customerData.my_addresses[id_address].name }}
+      </p>
+      <p class="text-dark">
+        {{ userProfile.customerData.my_addresses[id_address].city }},
+        {{ userProfile.customerData.my_addresses[id_address].state }},
+        {{ userProfile.customerData.my_addresses[id_address].address }}, CP
+        {{ userProfile.customerData.my_addresses[id_address].zip_code }},
+        {{ userProfile.customerData.my_addresses[id_address].phone }}
+      </p>
+    </div>
+
+    <div class="col-12 mb-2">
+      <button
+        type="submit"
+        class="button_modal col-12"
+        style="z-index: 1050 !important"
+        routerLink="/">
+        Confirmar
+      </button>
+    </div>
+    <div class="col-12">
+      <button (click)="closedConfirm()" class="button_modal col-12">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- end Test -->

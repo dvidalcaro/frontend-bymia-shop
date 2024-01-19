@@ -11,6 +11,7 @@ import { AuthGuard } from '../user/guards/auth.guard';
 import { SaleOrderStepOneComponent } from './sale-order-step-one/sale-order-step-one.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBillingDataComponent } from './edit-billing-data/edit-billing-data.component';
+import { EditAddressComponent } from './edit-address/edit-address.component';
 
 const routes: Routes = [
   { path: 'my-data', component: MyDataComponent, canActivate: [AuthGuard] },
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path: 'edit-billing-data',
     component: EditBillingDataComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit-address',
+    component: EditAddressComponent,
     canActivate: [AuthGuard],
   },
   {

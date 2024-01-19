@@ -17,6 +17,8 @@ export class MyDataComponent implements OnInit {
   userProfile!: UserProfile;
   loading: boolean = true;
   showData: boolean = false;
+  closedConfirms: boolean = false;
+  id_address!: number;
   constructor(private userService: UserService, private router: Router) {
     this.getdata();
     /* setTimeout(() => {
@@ -42,6 +44,37 @@ export class MyDataComponent implements OnInit {
       },
     });
   }
+
+  openEditAddress(id: number) {
+    console.log(id);
+
+    this.router.navigate(['/edit-address'], {
+      queryParams: {
+        id: id,
+      },
+    });
+  }
+  openDeleteAddress(id: number) {
+    this.router.navigate(['/my-data'], {
+      queryParams: {
+        id: id,
+      },
+    });
+
+    this.closedConfirms = true;
+
+    this.id_address = this.userProfile.customerData.my_addresses.findIndex(
+      item => item.code_id === id
+    );
+  }
+
+  closedConfirm() {
+    this.closedConfirms = false;
+    this.router.navigate(['/my-data']);
+  }
+
+  addAddress() {}
+  deletedAddress() {}
 
   ngOnInit(): void {}
 }

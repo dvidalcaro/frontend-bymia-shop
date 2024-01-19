@@ -14,6 +14,7 @@ import { LoadingComponent } from '../pages/components/loading/loading.component'
 import { PagesModule } from '../pages/pages.module';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { EditBillingDataComponent } from './edit-billing-data/edit-billing-data.component';
+import { EditAddressComponent } from './edit-address/edit-address.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EditBillingDataComponent } from './edit-billing-data/edit-billing-data.
     ChangeDecimalFormatPipe,
     EditProfileComponent,
     EditBillingDataComponent,
+    EditAddressComponent,
   ],
   imports: [
     CommonModule,
