@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
 import 'sweetalert2/src/sweetalert2.scss';
@@ -34,11 +34,16 @@ export class EditAddressComponent implements OnInit {
   city_code!: CityCode[];
   countryFlag: string = '';
   countryAlt: string = '';
+  // posiblemente se elimine
   userProfile!: UserProfile;
   billinData!: LatestBillingData;
+  ///////////////////////////
   addresses!: MyAddresses[];
+  addresse!: MyAddresses | null;
+  id_address!: number;
+  index_address!: number;
 
-  type_User: string | undefined = '';
+  type_User: string | undefined = ''; // posiblemente se va eliminar
   loading: boolean = true;
   showData: boolean = false;
 
@@ -59,46 +64,10 @@ export class EditAddressComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     private bymiaService: BymiaService,
-    private userService: UserService
+    private userService: UserService,
+    private route: ActivatedRoute
   ) {
     this.user = new User();
-
-    this.userService.getMyData().subscribe(resp => {
-      if (resp.status === true) {
-        this.userProfile = resp;
-
-        this.billinData = this.userProfile.customerData.latest_billing_data!;
-        console.log(this.billinData);
-
-        this.billinData.country_id = 62;
-        this.user.country_id = 62;
-
-        this.loading = false;
-        bymiaService.getCountryCode().subscribe(resp => {
-          this.countryCodes = resp;
-          console.log(resp);
-        });
-        this.changeCity('62');
-        this.bymiaService
-          .getCityCodeById(this.billinData.state_id)
-          .subscribe(res => {
-            this.city_code = res;
-          });
-
-        console.log('ciudad', this.city_code);
-
-        setTimeout(() => {
-          this.showData = true;
-          this.countryCode = this.countryCodes.find(country => {
-            return country.id === this.billinData?.country_id;
-          });
-          this.countryFlag = this.countryCode!.flag;
-          this.countryPhoneCode = this.countryCode!.phonecode;
-        }, 1000);
-      }
-
-      console.log(this.userProfile);
-    });
   }
 
   getFlagPhone(country_id: any) {
@@ -130,7 +99,61 @@ export class EditAddressComponent implements OnInit {
     this.errorResponse.date_of_birth = '';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.id_address = params['id'];
+      console.log('Params: ' + params['id']);
+    });
+
+    ////
+
+    this.userService.getMyData().subscribe(resp => {
+      if (resp.status === true) {
+        this.addresses = resp.customerData.my_addresses;
+        this.userProfile = resp;
+        console.log(this.addresses);
+        console.log(typeof this.id_address);
+
+        this.index_address = this.addresses.findIndex(
+          item => item.code_id === Number(this.id_address)
+        );
+
+        console.log(this.index_address);
+
+        this.addresse = this.addresses[0];
+
+        console.log('Objeto ' + this.index_address);
+
+        console.log(this.addresse);
+
+        this.billinData = this.userProfile.customerData.latest_billing_data!;
+
+        this.billinData.country_id = 62;
+        this.user.country_id = 62;
+
+        this.loading = false;
+        this.bymiaService.getCountryCode().subscribe(resp => {
+          this.countryCodes = resp;
+          console.log(resp);
+        });
+        this.changeCity('62');
+        this.bymiaService
+          .getCityCodeById(this.billinData.state_id)
+          .subscribe(res => {
+            this.city_code = res;
+          });
+
+        setTimeout(() => {
+          this.showData = true;
+          this.countryCode = this.countryCodes.find(country => {
+            return country.id === this.billinData?.country_id;
+          });
+          this.countryFlag = this.countryCode!.flag;
+          this.countryPhoneCode = this.countryCode!.phonecode;
+        }, 1000);
+      }
+    });
+  }
 
   onSubmit(form: NgForm) {
     if (form.invalid) {
