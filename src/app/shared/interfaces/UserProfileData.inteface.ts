@@ -18,6 +18,7 @@ export interface LatestBillingData {
   type_user?: string;
   name: string;
   email: string;
+  phone_code: string;
   phone: string;
   identity_type: string;
   identity_number: string;
@@ -38,6 +39,7 @@ export interface UserProfileData {
   name: string;
   email: string;
   country_id: number;
+  phone_code: string;
   phone: string;
   gender_id: number;
   gender: string;

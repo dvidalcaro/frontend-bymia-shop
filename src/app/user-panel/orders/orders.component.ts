@@ -48,6 +48,7 @@ export class OrdersComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {
     this.userService.getOrders().subscribe(resp => {
       this.orders = resp;
+      console.log(this.orders);
     });
   }
 

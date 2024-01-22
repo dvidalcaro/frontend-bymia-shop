@@ -131,9 +131,11 @@
   .ordernumber__button {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 
     button {
-      width: 30.3%;
+      width: auto;
+      padding: 0.15rem 0.5rem;
       margin-bottom: 0.3rem;
       font-weight: bold;
       color: $primary-color;
@@ -198,6 +200,15 @@
   .header__select {
     display: none;
   }
+  .container__ordernumber {
+    .ordernumber__button {
+      //flex-wrap: nowrap !important;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -253,6 +264,15 @@
     button {
       width: 48%;
       margin-bottom: 0.9rem;
+    }
+  }
+  .container__ordernumber {
+    .ordernumber__button {
+      //flex-wrap: nowrap !important;
+
+      button {
+        width: auto;
+      }
     }
   }
 }
@@ -313,6 +333,15 @@
       margin-bottom: 0.9rem;
     }
   }
+  .container__ordernumber {
+    .ordernumber__button {
+      //flex-wrap: nowrap !important;
+
+      button {
+        padding: 0.15rem 1rem;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1400px) {
@@ -341,5 +370,14 @@
   .container__orders {
     margin: 0 15rem;
     padding: 5rem 10rem;
+  }
+  .container__ordernumber {
+    .ordernumber__button {
+      //flex-wrap: nowrap !important;
+
+      button {
+        padding: 0.15rem 1.5rem;
+      }
+    }
   }
 }

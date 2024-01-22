@@ -46,7 +46,10 @@
             </div>
             <div>
               <h3>Teléfono:</h3>
-              <p>{{ userProfile.customerData.phone }}</p>
+              <p>
+                {{ userProfile.customerData.phone_code }}
+                {{ userProfile.customerData.phone }}
+              </p>
             </div>
             <div>
               <h3>Sexo:</h3>
@@ -88,12 +91,12 @@
                   {{ userProfile.customerData.latest_billing_data.code_id }}
                 </p>
               </div>
-              <div>
+              <!--  <div>
                 <h3>Tipo de cliente:</h3>
                 <p>
                   {{ userProfile.customerData.latest_billing_data.type_user }}
                 </p>
-              </div>
+              </div> -->
               <div>
                 <h3>Nombre y apellidos:</h3>
                 <p>
@@ -206,7 +209,7 @@
   </div>
 </div>
 
-<!-- Test -->
+<!-- Test delete address -->
 
 <div
   class="container__modal animate__animated animate__zoomIn animate__faster"

@@ -109,6 +109,15 @@
               a_data: true,
 
               btn__bill: true,
+              'btn-deshabilitado': order.proforma_bill.length === 0
+            }">
+            <a [href]="order.proforma_bill" target="_blank">Factura proforma</a>
+          </button>
+          <button
+            [ngClass]="{
+              a_data: true,
+
+              btn__bill: true,
               'btn-deshabilitado': order.bill.length === 0
             }">
             <a [href]="order.bill">Ver Factura</a>

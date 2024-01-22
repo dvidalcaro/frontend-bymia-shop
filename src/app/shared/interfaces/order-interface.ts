@@ -3,9 +3,9 @@ export interface itemDetail {
   name: string;
   price: string;
 }
-export interface paymentsTypes{
-  id:number,
-  name: string,
+export interface paymentsTypes {
+  id: number;
+  name: string;
 }
 
 export interface productDetail {
@@ -24,10 +24,11 @@ export interface orderDetails {
 import { BillRecipientData } from './OrderGenerate-interface';
 
 export interface orderInformation {
-  paymentsTypes: paymentsTypes[]
+  paymentsTypes: paymentsTypes[];
   bill_address: BillRecipientData | null;
   recipient_address: BillRecipientData[] | null;
   orderPlaced: string;
+  proforma_bill: string;
   total: string;
   sendTo: string;
   numberOrder: string;
