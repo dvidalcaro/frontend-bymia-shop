@@ -3514,9 +3514,11 @@ header .header__container {
 .container__ordernumber .ordernumber__button {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .container__ordernumber .ordernumber__button button {
-  width: 30.3%;
+  width: auto;
+  padding: 0.15rem 0.5rem;
   margin-bottom: 0.3rem;
   font-weight: bold;
   color: #ffffff;
@@ -3571,6 +3573,10 @@ header .header__container {
 @media screen and (max-width: 768px) {
   .header__select {
     display: none;
+  }
+
+  .container__ordernumber .ordernumber__button button {
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -3627,6 +3633,10 @@ header .header__container {
   .ordernumber__button__requests button {
     width: 48%;
     margin-bottom: 0.9rem;
+  }
+
+  .container__ordernumber .ordernumber__button button {
+    width: auto;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -3688,6 +3698,10 @@ header .header__container {
     width: 30%;
     margin-bottom: 0.9rem;
   }
+
+  .container__ordernumber .ordernumber__button button {
+    padding: 0.15rem 1rem;
+  }
 }
 @media screen and (min-width: 1400px) {
   .container__orders {
@@ -3712,6 +3726,10 @@ header .header__container {
   .container__orders {
     margin: 0 15rem;
     padding: 5rem 10rem;
+  }
+
+  .container__ordernumber .ordernumber__button button {
+    padding: 0.15rem 1.5rem;
   }
 }
 .ctn {
