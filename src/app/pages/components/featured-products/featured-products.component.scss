@@ -108,3 +108,14 @@ hr:not([size]) {
     font-weight: 400;
   } /*1rem = 16px*/
 }
+@media (min-width: 1240px) {
+  .div-card-img {
+    width: auto;
+    height: 14rem;
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

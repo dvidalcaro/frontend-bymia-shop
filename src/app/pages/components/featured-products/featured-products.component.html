@@ -47,12 +47,14 @@
                       [innerHTML]="isInWishList(item.id)">
                       <!-- <i class="bx bx-tada-hover bx-sm bx-heart"></i> -->
                     </div>
-                    <img
-                      [src]="[item.image]"
-                      class="card-img-top w-75 img__cursor"
-                      [alt]="[item.name]"
-                      draggable="false"
-                      (click)="detailProduct(item.id)" />
+                    <div class="div-card-img justify-content-center">
+                      <img
+                        [src]="[item.image]"
+                        class="card-img-top w-75 img__cursor"
+                        [alt]="[item.name]"
+                        draggable="false"
+                        (click)="detailProduct(item.id)" />
+                    </div>
                   </div>
                   <div class="card-body">
                     <h6 class="card-title">
