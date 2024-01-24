@@ -14,6 +14,7 @@ import { orderInformation } from 'src/app/shared/interfaces/order-interface';
 import { OrderGenerate } from 'src/app/shared/interfaces/OrderGenerate-interface';
 import {
   LatestBillingData,
+  MyAddresses,
   UserProfileData,
 } from 'src/app/shared/interfaces/UserProfileData.inteface';
 
@@ -243,6 +244,20 @@ export class UserService {
       { billingData },
       { headers }
     );
+  }
+  // edit address
+  addAddress() {}
+
+  editAddress(address: MyAddresses, id: number): Observable<any> {
+    return this.http.patch(
+      `${url}/data/address/${id}`,
+      { address },
+      { headers }
+    );
+  }
+
+  deleteAddress(id: number): Observable<any> {
+    return this.http.delete(`${url}/data/address/${id}`, { headers });
   }
 
   // Solicitud de session key Cardnet

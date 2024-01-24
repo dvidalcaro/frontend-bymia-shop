@@ -131,6 +131,8 @@ export class SaleOrderStepOneComponent implements OnInit {
     private bymiaService: BymiaService,
     private cardnetService: CardnetService
   ) {
+    //
+
     // se asignan valores al objeto session key
 
     this.bymiaService.getStateById(62).subscribe(res => {
@@ -284,8 +286,8 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.total && value?.startsWith('international')
         ? 0
         : this.total
-          ? this.total * 0.07
-          : 0;
+        ? this.total * 0.07
+        : 0;
     this.totalSale = this.total ? this.total + this.tax : 0;
     // console.log('international:', value?.startsWith('international'));
     // console.log('pickupData:', this.pickupData);
@@ -355,6 +357,7 @@ export class SaleOrderStepOneComponent implements OnInit {
       this.userService.getOrderById(this.orderId).subscribe(
         res => {
           this.order = res;
+
           this.loading = false;
 
           if (this.order.bill_address?.address_id) {

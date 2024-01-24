@@ -46,6 +46,7 @@ export class EditBillingDataComponent implements OnInit {
     identity_number: 'Debe ingresar un número de identificación',
     date_of_birth: 'Ej. de fecha válida: 1980-12-31',
     cel_phone: 'Debe ingresar un teléfono válido de al menos 6 digitos',
+    email: 'Debe ingresar un email válido',
     city_id: 'Debes selecionar una ciudad ',
     address: 'Debes ingresar una dirección',
     zip_code: 'Debes ingresar un código postal',
@@ -171,6 +172,7 @@ export class EditBillingDataComponent implements OnInit {
                 identity_number: string;
                 date_of_birth: string;
                 cel_phone: string;
+                email: string;
                 city_id: string;
                 address: string;
                 zip_code: string;
@@ -185,6 +187,7 @@ export class EditBillingDataComponent implements OnInit {
               identity_number: '',
               date_of_birth: '',
               cel_phone: '',
+              email: '',
               city_id: '',
               address: '',
               zip_code: '',

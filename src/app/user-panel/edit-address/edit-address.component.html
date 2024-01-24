@@ -21,7 +21,7 @@
       <!-- Field Name -->
       <div class="col-12 frm-register__input">
         <input
-          [(ngModel)]="billinData.name"
+          [(ngModel)]="addresse!.name"
           type="text"
           name="name"
           placeholder="Nombre y Apellido"
@@ -39,19 +39,64 @@
         </div>
       </div>
 
+      <div class="col-12 frm-register__input">
+        <select
+          [(ngModel)]="addresse!.identity_type"
+          id="identity_type"
+          name="identity_type"
+          class="form-select mb-2 mb-md-0"
+          aria-label="Seleccione una opción."
+          placeholder="Seleccione una opción.">
+          <option
+            [ngValue]="null"
+            [selected]="addresse!.identity_type ? false : true"
+            hidden>
+            Seleccione una opción.
+          </option>
+
+          <option
+            value="Cedula"
+            [selected]="addresse!.identity_type === 'Cedula'">
+            Cedula
+          </option>
+
+          <option value="RNC" [selected]="addresse!.identity_type === 'RNC'">
+            RNC
+          </option>
+
+          <option
+            [value]="
+              addresse!.identity_type != 'RNC' &&
+              addresse!.identity_type != 'Cedula'
+                ? 'Otra documentacion'
+                : 'Otra documentacion'
+            ">
+            Otra documentación
+          </option>
+        </select>
+        <div
+          *ngIf="
+            (f.submitted && f.controls['identity_type'].errors) || errorServer
+          "
+          id="identity_typeHelp"
+          class="form-text text-danger">
+          {{ errorResponse.identity_type }}
+        </div>
+      </div>
+
       <!-- Field selected state -->
       <div class="col-12">
         <div class="row">
           <div class="mb-3">
             <select
-              [(ngModel)]="billinData.country_id"
+              [(ngModel)]="addresse!.country_id"
               id="country_id"
               name="country_id"
               class="form-select frm-register__select-bg"
               aria-label="Selecciona una Opción"
               (change)="getFlagPhone(f.control.value)">
               <option value="" selected disabled>Seleciona el país</option>
-              <option [ngValue]="billinData.country_id">
+              <option [ngValue]="addresse!.country_id">
                 {{ countryCode?.name }}
               </option>
             </select>
@@ -60,12 +105,12 @@
         <div class="row">
           <div class="mb-3">
             <select
-              [(ngModel)]="billinData.state_id"
+              [(ngModel)]="addresse!.state_id"
               id="state_id"
               name="state_id"
               class="form-select frm-register__select-bg"
               aria-label="Selecciona una Opción"
-              (change)="changeState(billinData.state_id)">
+              (change)="changeState(addresse!.state_id)">
               <option value="" selected disabled>Seleciona el estado</option>
               <option [ngValue]="state.id" *ngFor="let state of state_code">
                 {{ state.name }}
@@ -76,7 +121,7 @@
         <div class="row">
           <div class="mb-3">
             <select
-              [(ngModel)]="billinData.city_id"
+              [(ngModel)]="addresse!.city_id"
               id="city_id"
               name="city_id"
               class="form-select frm-register__select-bg"
@@ -111,7 +156,7 @@
               >{{ countryPhoneCode }}</span
             >
             <input
-              [(ngModel)]="billinData.phone"
+              [(ngModel)]="addresse!.phone"
               type="text"
               name="cel_phone"
               placeholder="Teléfono"
@@ -134,7 +179,7 @@
       <!-- Field address -->
       <div class="col-12 frm-register__input">
         <input
-          [(ngModel)]="billinData.address"
+          [(ngModel)]="addresse!.address"
           type="text"
           name="address"
           placeholder="Dirección"
@@ -155,7 +200,7 @@
       <!-- Field additional information address -->
       <div class="col-12 frm-register__input">
         <input
-          [(ngModel)]="billinData.additional_info"
+          [(ngModel)]="addresse!.additional_info"
           type="text"
           name="additional_information"
           placeholder="Información adicional"
@@ -174,7 +219,7 @@
       <!-- Field zip_code-->
       <div class="col-12 frm-register__input">
         <input
-          [(ngModel)]="billinData.zip_code"
+          [(ngModel)]="addresse!.zip_code"
           type="text"
           name="zip_code"
           placeholder="Código postal"

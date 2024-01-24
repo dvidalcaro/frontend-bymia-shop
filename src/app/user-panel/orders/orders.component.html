@@ -102,7 +102,7 @@
               a_data_color: true,
               'btn-deshabilitado': order.receiptOfPayment.length === 0
             }">
-            <a [href]="order.receiptOfPayment">Ver recibo</a>
+            <a [href]="order.receiptOfPayment" target="_blank">Ver recibo</a>
           </button>
           <button
             [ngClass]="{
@@ -120,7 +120,7 @@
               btn__bill: true,
               'btn-deshabilitado': order.bill.length === 0
             }">
-            <a [href]="order.bill">Ver Factura</a>
+            <a [href]="order.bill" target="_blank">Ver Factura</a>
           </button>
         </div>
       </div>

@@ -87,7 +87,6 @@
               <div>
                 <h3>Código de identificación:</h3>
                 <p>
-                  {{ userProfile.customerData.latest_billing_data.name }}
                   {{ userProfile.customerData.latest_billing_data.code_id }}
                 </p>
               </div>
@@ -168,7 +167,10 @@
       <div class="mydata__address mydata">
         <div class="mydata__title">
           <h3>Mis direcciones</h3>
-          <button class="btn__mydata btn-mobile" (click)="addAddress()">
+          <button
+            class="btn__mydata btn-mobile"
+            (click)="addAddress()"
+            *ngIf="false">
             <i class="bx bxs-plus-circle bx-tada-hover"></i>Agregar
           </button>
         </div>
@@ -233,14 +235,14 @@
     <div class="text-center">
       <h3 class="text-dark">¿Deseas eliminar esta dirección?</h3>
       <p class="text-dark">
-        {{ userProfile.customerData.my_addresses[id_address].name }}
+        {{ userProfile.customerData.my_addresses[indexAddress].name }}
       </p>
       <p class="text-dark">
-        {{ userProfile.customerData.my_addresses[id_address].city }},
-        {{ userProfile.customerData.my_addresses[id_address].state }},
-        {{ userProfile.customerData.my_addresses[id_address].address }}, CP
-        {{ userProfile.customerData.my_addresses[id_address].zip_code }},
-        {{ userProfile.customerData.my_addresses[id_address].phone }}
+        {{ userProfile.customerData.my_addresses[indexAddress].city }},
+        {{ userProfile.customerData.my_addresses[indexAddress].state }},
+        {{ userProfile.customerData.my_addresses[indexAddress].address }}, CP
+        {{ userProfile.customerData.my_addresses[indexAddress].zip_code }},
+        {{ userProfile.customerData.my_addresses[indexAddress].phone }}
       </p>
     </div>
 

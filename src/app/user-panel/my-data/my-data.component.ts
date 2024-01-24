@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import {
   UserProfile,
@@ -20,7 +20,12 @@ export class MyDataComponent implements OnInit {
   showData: boolean = false;
   closedConfirms: boolean = false;
   id_address!: number;
-  constructor(private userService: UserService, private router: Router) {
+  indexAddress!: number;
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
     this.getdata();
     /* setTimeout(() => {
     }, 1000); */
@@ -66,7 +71,7 @@ export class MyDataComponent implements OnInit {
 
     this.closedConfirms = true;
 
-    this.id_address = this.userProfile.customerData.my_addresses.findIndex(
+    this.indexAddress = this.userProfile.customerData.my_addresses.findIndex(
       item => item.code_id === id
     );
   }
@@ -78,32 +83,37 @@ export class MyDataComponent implements OnInit {
 
   addAddress() {}
   deletedAddress() {
-    if (this.id_address !== -1) {
-      this.userProfile.customerData.my_addresses.splice(this.id_address, 1);
-      Swal.fire({
-        allowOutsideClick: false,
-        icon: 'info',
-        title:
-          'Eliminando dirección de ' +
-          this.userProfile.customerData.my_addresses[this.id_address].name,
-        text: 'Espere por favor...',
-      });
+    this.route.queryParams.subscribe(params => {
+      this.id_address = params['id'];
+    });
 
-      Swal.showLoading();
+    Swal.fire({
+      allowOutsideClick: false,
+      icon: 'info',
+      title:
+        'Eliminando dirección de ' +
+        this.userProfile.customerData.my_addresses[this.indexAddress].name,
+      text: 'Espere por favor...',
+    });
 
-      setTimeout(() => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Datos eliminados correctamente',
-          /* text: this.userProfile.customerData.name, */
-        }).then(result => {
-          if (result.isConfirmed) {
-            this.router.navigate(['/my-data']);
-            this.closedConfirms = false;
-          }
-        });
-      }, 2000);
-    }
+    Swal.showLoading();
+
+    this.userService.deleteAddress(this.id_address).subscribe(resp => {
+      if (resp.status) {
+        setTimeout(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Datos eliminados correctamente',
+            /* text: this.userProfile.customerData.name, */
+          }).then(result => {
+            if (result.isConfirmed) {
+              this.router.navigate(['/my-data']);
+              this.closedConfirms = false;
+            }
+          });
+        }, 2000);
+      }
+    });
   }
 
   ngOnInit(): void {}

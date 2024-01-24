@@ -26,7 +26,6 @@ import { LatestBillingData } from '../../shared/interfaces/UserProfileData.intef
   styleUrls: ['./edit-address.component.scss'],
 })
 export class EditAddressComponent implements OnInit {
-  user: User;
   countryPhoneCode: string = '';
   countryCodes: CountryCode[] = [];
   countryCode!: CountryCode | undefined;
@@ -34,16 +33,12 @@ export class EditAddressComponent implements OnInit {
   city_code!: CityCode[];
   countryFlag: string = '';
   countryAlt: string = '';
-  // posiblemente se elimine
-  userProfile!: UserProfile;
-  billinData!: LatestBillingData;
-  ///////////////////////////
+
   addresses!: MyAddresses[];
   addresse!: MyAddresses | null;
   id_address!: number;
   index_address!: number;
 
-  type_User: string | undefined = ''; // posiblemente se va eliminar
   loading: boolean = true;
   showData: boolean = false;
 
@@ -66,9 +61,7 @@ export class EditAddressComponent implements OnInit {
     private bymiaService: BymiaService,
     private userService: UserService,
     private route: ActivatedRoute
-  ) {
-    this.user = new User();
-  }
+  ) {}
 
   getFlagPhone(country_id: any) {
     this.countryCode = this.countryCodes.find(country => {
@@ -77,7 +70,6 @@ export class EditAddressComponent implements OnInit {
 
     this.countryFlag = this.countryCode!.flag;
     this.countryPhoneCode = this.countryCode!.phonecode;
-    this.user.cel_phone = '';
   }
 
   changeCity(id: string) {
@@ -86,13 +78,9 @@ export class EditAddressComponent implements OnInit {
     });
   }
   changeState(id: number) {
-    console.log(id);
-
     this.bymiaService.getCityCodeById(id).subscribe(res => {
       this.city_code = res;
     });
-    this.billinData.city_id = undefined;
-    console.log(this.billinData);
   }
 
   clearDateOfBirthError() {
@@ -102,7 +90,6 @@ export class EditAddressComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.id_address = params['id'];
-      console.log('Params: ' + params['id']);
     });
 
     ////
@@ -110,35 +97,24 @@ export class EditAddressComponent implements OnInit {
     this.userService.getMyData().subscribe(resp => {
       if (resp.status === true) {
         this.addresses = resp.customerData.my_addresses;
-        this.userProfile = resp;
-        console.log(this.addresses);
-        console.log(typeof this.id_address);
 
         this.index_address = this.addresses.findIndex(
           item => item.code_id === Number(this.id_address)
         );
 
-        console.log(this.index_address);
-
-        this.addresse = this.addresses[0];
-
-        console.log('Objeto ' + this.index_address);
-
+        this.addresse = this.addresses[this.index_address];
+        this.addresse.identity_type = 'DNI';
+        // this.addresses[this.index_address].identity_type;
         console.log(this.addresse);
-
-        this.billinData = this.userProfile.customerData.latest_billing_data!;
-
-        this.billinData.country_id = 62;
-        this.user.country_id = 62;
+        console.log(this.addresses[this.index_address].identity_type);
 
         this.loading = false;
         this.bymiaService.getCountryCode().subscribe(resp => {
           this.countryCodes = resp;
-          console.log(resp);
         });
         this.changeCity('62');
         this.bymiaService
-          .getCityCodeById(this.billinData.state_id)
+          .getCityCodeById(this.addresse.state_id)
           .subscribe(res => {
             this.city_code = res;
           });
@@ -146,7 +122,7 @@ export class EditAddressComponent implements OnInit {
         setTimeout(() => {
           this.showData = true;
           this.countryCode = this.countryCodes.find(country => {
-            return country.id === this.billinData?.country_id;
+            return country.id === this.addresse?.country_id;
           });
           this.countryFlag = this.countryCode!.flag;
           this.countryPhoneCode = this.countryCode!.phonecode;
@@ -163,16 +139,14 @@ export class EditAddressComponent implements OnInit {
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
-      title: 'Modificando a ' + this.billinData.name,
+      title: 'Modificando dirección ' + this.addresse!.name,
       text: 'Espere por favor...',
     });
     Swal.showLoading();
 
     this.userService
-      .editLatestBillinData(this.billinData, this.billinData.code_id)
+      .editAddress(this.addresse!, this.id_address)
       .subscribe(resp => {
-        console.log(this.billinData);
-
         this.errorServer = false;
         Swal.fire({
           icon: 'success',

@@ -1,7 +1,10 @@
 export interface MyAddresses {
   additional_info?: string;
   code_id: number;
+  email: string;
   name: string;
+  identity_type: string | null;
+  identity_number: string;
   phone: string;
   country: string;
   country_id: number;

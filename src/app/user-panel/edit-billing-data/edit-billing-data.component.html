@@ -38,10 +38,64 @@
           {{ errorResponse.name }}
         </div>
       </div>
+      <!-- Field Email -->
+      <div class="col-12 frm-register__input">
+        <input
+          [(ngModel)]="billinData.email"
+          type="email"
+          name="email"
+          placeholder="Email"
+          class="form-control"
+          id="email"
+          minlength="3"
+          required
+          email
+          aria-describedby="emailHelp" />
+
+        <div
+          *ngIf="(f.submitted && f.controls['email'].errors) || errorServer"
+          id="nameHelp"
+          class="form-text text-danger">
+          {{ errorResponse.email }}
+        </div>
+      </div>
 
       <!-- Field DNI Type -->
       <div class="col-12 frm-register__input">
-        <input
+        <select
+          [(ngModel)]="billinData.identity_type"
+          id="identity_type"
+          name="identity_type"
+          class="form-select mb-2 mb-md-0"
+          aria-label="Seleccione una opción."
+          placeholder="Seleccione una opción.">
+          <option
+            [ngValue]="null"
+            [selected]="billinData.identity_type ? false : true"
+            hidden>
+            Seleccione una opción.
+          </option>
+
+          <option
+            value="Cedula"
+            [selected]="billinData.identity_type === 'Cedula'">
+            Cedula
+          </option>
+
+          <option value="RNC" [selected]="billinData.identity_type === 'RNC'">
+            RNC
+          </option>
+
+          <option
+            value="Otro"
+            [selected]="
+              billinData.identity_type !== 'Cedula' &&
+              billinData.identity_type !== 'RNC'
+            ">
+            Otra documentación
+          </option>
+        </select>
+        <!-- <input
           [(ngModel)]="billinData.identity_type"
           type="text"
           name="identity_type"
@@ -50,7 +104,7 @@
           id="identity_type"
           minlength="3"
           required
-          aria-describedby="identity_typeHelp" />
+          aria-describedby="identity_typeHelp" /> -->
 
         <div
           *ngIf="
