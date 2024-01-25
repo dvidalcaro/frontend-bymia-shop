@@ -28,6 +28,46 @@ export class SearchMobileComponent implements OnInit {
   public username: string = '';
   public user: User | null = null;
 
+  linksHeaderMobile: navLink[] = [
+    {
+      label: 'Nosotros',
+      links: 'nosotros',
+    },
+    {
+      label: 'Destacado',
+      links: '/search?k=&c=%5B%5D&b=%5B%5D&t=%5B"destacados"%5D',
+    },
+
+    {
+      label: 'FAQs',
+      links: 'faqs',
+    },
+
+    /*  {
+      label: 'Ofertas',
+      links:
+        'http://localhost:4200/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D',
+    }, */
+
+    /*   {
+      label: 'Lanzamientos',
+      links: 'lanzamientos',
+    },
+ */
+    /* {
+      label: 'Flash Sales',
+      links: 'flash-sales',
+    }, */
+    /*  {
+      label: 'Precio de lista',
+      links: 'pricelist',
+    }, */
+    /*   {
+      label: 'Contacto',
+      links: 'help',
+    }, */
+  ];
+
   matchValues(field1: string, field2: string) {
     return (formGroup: FormGroup) => {
       const control1 = formGroup.controls[field1];

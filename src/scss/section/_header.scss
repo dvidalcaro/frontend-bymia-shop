@@ -25,6 +25,20 @@ header {
   }
 }
 
+.nav-ul-home {
+  list-style-type: none;
+  margin: 0px;
+  padding-left: 0px;
+
+  li {
+    padding: 0px !important;
+
+    a {
+      padding: 0px !important;
+    }
+  }
+}
+
 .link__container {
   display: flex;
   gap: 3.75rem;

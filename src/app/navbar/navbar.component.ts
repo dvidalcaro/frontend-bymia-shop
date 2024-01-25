@@ -115,6 +115,42 @@ export class NavbarComponent implements OnInit {
       links: 'help',
     },
   ];
+  linksHeaderMobile: navLink[] = [
+    {
+      label: 'Nosotros',
+      links: 'nosotros',
+    },
+    /* {
+      label: 'Destacado',
+      links:
+        'https://bymiashop.com/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D',
+    },
+ */
+    {
+      label: 'FAQs',
+      links: 'faqs',
+    },
+
+    /*  {
+      label: 'Ofertas',
+      links:
+        'http://localhost:4200/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D',
+    }, */
+
+    /*   {
+      label: 'Lanzamientos',
+      links: 'lanzamientos',
+    },
+ */
+    /* {
+      label: 'Flash Sales',
+      links: 'flash-sales',
+    }, */
+    /*  {
+      label: 'Precio de lista',
+      links: 'pricelist',
+    }, */
+  ];
   linksIcon = [
     {
       icon: 'bx bx-tada-hover bx-sm bx-search',

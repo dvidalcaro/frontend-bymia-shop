@@ -360,4 +360,20 @@
       </ul>
     </div>
   </div>
+  <div class="mt-1">
+    <ul class="d-flex justify-content-around nav-ul-home nav__mobile">
+      <li class="nav-item" *ngFor="let link of linksHeaderMobile">
+        <a class="nav-link text-light ps-3" [routerLink]="[link.links]"
+          ><strong>{{ link.label }}</strong></a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link text-light ps-3"
+          href="/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D"
+          ><strong>Destacados</strong></a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>
