@@ -46,6 +46,7 @@ export class OrdersComponent implements OnInit {
   openshowSeeDetail(orderDetails: orderDetails) {
     this.details = orderDetails;
     this.showSeeDetail = true;
+    window.scroll(0, 0);
   }
   closedSeeDetail() {
     this.showSeeDetail = false;
