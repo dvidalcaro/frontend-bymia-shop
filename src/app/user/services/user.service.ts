@@ -63,11 +63,9 @@ export class UserService {
     this.prepareHeaders();
     this.http.get<Wishlist>(`${url}/favorite/list`, { headers }).subscribe(
       resp => {
-        // console.log('notfifyAll', resp);
         this.currentWishlistSubject.next(resp);
       },
       err => {
-        // console.log(err);
         this.currentWishlistSubject.next(new Wishlist());
       }
     );
@@ -118,11 +116,9 @@ export class UserService {
     this.prepareHeaders();
     this.http.get<Cartlist>(`${url}/cart/list`, { headers }).subscribe(
       resp => {
-        // console.log('notfifyAll', resp);
         this.currentCartlistSubject.next(resp);
       },
       err => {
-        // console.log(err);
         this.currentCartlistSubject.next(new Cartlist());
       }
     );
@@ -132,7 +128,6 @@ export class UserService {
     this.prepareHeaders();
     return this.http.get<Cartlist>(`${url}/cart/list`, { headers }).pipe(
       map(resp => {
-        // this.currentCartlistSubject.next(resp);
         return resp;
       })
     );

@@ -33,7 +33,6 @@ export class OrderConfirmComponent implements OnInit {
           this.transaction = params['transaction'];
           this.order = params['order'];
           this.status = params['status'];
-          console.log(params);
 
           this.showMessage = true;
           this.message = resp.message;

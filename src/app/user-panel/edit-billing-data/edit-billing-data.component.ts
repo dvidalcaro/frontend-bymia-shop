@@ -66,7 +66,6 @@ export class EditBillingDataComponent implements OnInit {
         this.userProfile = resp;
 
         this.billinData = this.userProfile.customerData.latest_billing_data!;
-        console.log(this.billinData);
 
         this.billinData.country_id = 62;
         this.user.country_id = 62;
@@ -74,7 +73,6 @@ export class EditBillingDataComponent implements OnInit {
         this.loading = false;
         bymiaService.getCountryCode().subscribe(resp => {
           this.countryCodes = resp;
-          console.log(resp);
         });
         this.changeCity('62');
         this.bymiaService
@@ -83,11 +81,6 @@ export class EditBillingDataComponent implements OnInit {
             this.city_code = res;
           });
 
-        console.log('ciudad', this.city_code);
-
-        /*  bymiaService.getStateById(62).subscribe(res => {
-          this.state_code = res;
-        }); */
         setTimeout(() => {
           this.showData = true;
           this.countryCode = this.countryCodes.find(country => {
@@ -97,8 +90,6 @@ export class EditBillingDataComponent implements OnInit {
           this.countryPhoneCode = this.countryCode!.phonecode;
         }, 1000);
       }
-
-      console.log(this.userProfile);
     });
   }
 
@@ -118,18 +109,12 @@ export class EditBillingDataComponent implements OnInit {
     });
   }
   changeState(id: number) {
-    console.log(id);
-
     this.bymiaService.getCityCodeById(id).subscribe(res => {
       this.city_code = res;
     });
     this.billinData.city_id = undefined;
-    console.log(this.billinData);
   }
 
-  /* clearEmailError() {
-    this.errorResponse.email = '';
-  } */
   clearDateOfBirthError() {
     this.errorResponse.date_of_birth = '';
   }
@@ -152,8 +137,6 @@ export class EditBillingDataComponent implements OnInit {
     this.userService
       .editLatestBillinData(this.billinData, this.billinData.code_id)
       .subscribe(resp => {
-        console.log(this.billinData);
-
         this.errorServer = false;
         Swal.fire({
           icon: 'success',

@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SharedService {
-  _a: boolean=false;
+  _a: boolean = false;
 
-  sa(){
+  sa() {
     this._a;
   }
 
-  constructor() { }
+  constructor() {}
 
-  closeBarSearch(){
-    
-    return this._a = false;
-    
-   }
+  closeBarSearch() {
+    return (this._a = false);
+  }
 
-  openBarSearch(){
-    console.log(this._a)
-    return this._a=true;
+  openBarSearch() {
+    return (this._a = true);
   }
 }

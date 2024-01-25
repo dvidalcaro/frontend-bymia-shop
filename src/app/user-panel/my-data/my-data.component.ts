@@ -27,8 +27,6 @@ export class MyDataComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.getdata();
-    /* setTimeout(() => {
-    }, 1000); */
   }
   getdata() {
     this.userService.getMyData().subscribe(resp => {
@@ -37,7 +35,6 @@ export class MyDataComponent implements OnInit {
         this.loading = false;
         this.showData = true;
       }
-      console.log(this.userProfile);
     });
   }
   openEditProfile() {
@@ -52,8 +49,6 @@ export class MyDataComponent implements OnInit {
   }
 
   openEditAddress(id: number) {
-    console.log(id);
-
     this.router.navigate(['/edit-address'], {
       queryParams: {
         id: id,
@@ -61,8 +56,6 @@ export class MyDataComponent implements OnInit {
     });
   }
   openDeleteAddress(id: number) {
-    console.log(id);
-
     this.router.navigate(['/my-data'], {
       queryParams: {
         id: id,
@@ -104,7 +97,6 @@ export class MyDataComponent implements OnInit {
           Swal.fire({
             icon: 'success',
             title: 'Datos eliminados correctamente',
-            /* text: this.userProfile.customerData.name, */
           }).then(result => {
             if (result.isConfirmed) {
               this.router.navigate(['/my-data']);

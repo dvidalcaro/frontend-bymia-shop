@@ -105,8 +105,6 @@ export class EditAddressComponent implements OnInit {
         this.addresse = this.addresses[this.index_address];
         this.addresse.identity_type = 'DNI';
         // this.addresses[this.index_address].identity_type;
-        console.log(this.addresse);
-        console.log(this.addresses[this.index_address].identity_type);
 
         this.loading = false;
         this.bymiaService.getCountryCode().subscribe(resp => {

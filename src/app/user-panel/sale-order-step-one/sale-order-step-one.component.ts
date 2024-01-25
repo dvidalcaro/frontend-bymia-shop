@@ -269,14 +269,7 @@ export class SaleOrderStepOneComponent implements OnInit {
         }
         return res;
       });
-
-    /* console.log(this.formBillData.value); */
-    /* console.log(this.formBillData.value);
-    console.log(this.formRecipient.value); */
   }
-  /* endOrder() {
-    this.userService.endOrder().subscribe(res => {});
-  } */
 
   selectRadio(value: string) {
     this.pickupData = value.indexOf('Pickup') > 0;
@@ -289,9 +282,6 @@ export class SaleOrderStepOneComponent implements OnInit {
         ? this.total * 0.07
         : 0;
     this.totalSale = this.total ? this.total + this.tax : 0;
-    // console.log('international:', value?.startsWith('international'));
-    // console.log('pickupData:', this.pickupData);
-    // console.log('select radio:', value);
   }
 
   fillFormBill(data: BillRecipientData) {
@@ -370,11 +360,10 @@ export class SaleOrderStepOneComponent implements OnInit {
             // Manejo específico para el error 409 (Conflict)
             // Puedes acceder al mensaje de error y realizar acciones según sea necesario
             const errorMessage = error.error.message; // Ajusta esto según la estructura de tu mensaje de error
-            console.log(`Error ${error.status}: ${errorMessage}`);
+
             // Realiza aquí las acciones necesarias en caso de un error 409
           } else {
             // Manejo de otros errores
-            console.error('Otro tipo de error:', error);
             // Realiza aquí el manejo para otros tipos de errores
           }
           this.loading = false; // Asegúrate de manejar el estado de carga aquí

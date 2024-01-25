@@ -95,15 +95,7 @@
         </div>
         <div class="ordernumber__button" *ngIf="order.status < 7">
           <button (click)="openshowSeeDetail(order.detail)">Ver detalle</button>
-          <button
-            [ngClass]="{
-              ordernumber__button: true,
-              a_data: true,
-              a_data_color: true,
-              'btn-deshabilitado': order.receiptOfPayment.length === 0
-            }">
-            <a [href]="order.receiptOfPayment" target="_blank">Ver recibo</a>
-          </button>
+
           <button
             [ngClass]="{
               a_data: true,
@@ -115,13 +107,22 @@
           </button>
           <button
             [ngClass]="{
+              ordernumber__button: true,
+              a_data: true,
+              a_data_color: true,
+              'btn-deshabilitado': order.receiptOfPayment.length === 0
+            }">
+            <a [href]="order.receiptOfPayment" target="_blank">Ver recibo</a>
+          </button>
+          <!--  <button
+            [ngClass]="{
               a_data: true,
 
               btn__bill: true,
               'btn-deshabilitado': order.bill.length === 0
             }">
             <a [href]="order.bill" target="_blank">Ver Factura</a>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>

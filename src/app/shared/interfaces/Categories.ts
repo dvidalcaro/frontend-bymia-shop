@@ -6,4 +6,5 @@ export interface Categories {
   principal: boolean;
   image: string;
   slug: string;
+  url: string;
 }

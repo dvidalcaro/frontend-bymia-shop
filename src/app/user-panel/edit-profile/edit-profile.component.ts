@@ -65,7 +65,6 @@ export class EditProfileComponent implements OnInit {
         this.loading = false;
         bymiaService.getCountryCode().subscribe(resp => {
           this.countryCodes = resp;
-          console.log(resp);
         });
         setTimeout(() => {
           this.showData = true;
@@ -79,8 +78,6 @@ export class EditProfileComponent implements OnInit {
           this.countryPhoneCode = country!.phonecode;
         }, 1000);
       }
-
-      console.log(this.userProfile);
     });
   }
   changeDateFormat(date: string) {
@@ -110,8 +107,7 @@ export class EditProfileComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    /* this.user.country_id = form.value.country_id.id;
-    this.user.country_phone_code = form.value.country_id.id; */
+
     Swal.fire({
       allowOutsideClick: false,
       icon: 'info',
@@ -120,8 +116,6 @@ export class EditProfileComponent implements OnInit {
     });
     Swal.showLoading();
     this.userService.editProfile(this.user).subscribe(resp => {
-      console.log(this.user);
-
       this.errorServer = false;
       Swal.fire({
         icon: 'success',
@@ -160,45 +154,5 @@ export class EditProfileComponent implements OnInit {
           });
         };
     });
-
-    /* setTimeout(() => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Datos modificados correctamente',
-        text: form.value.name,
-      });
-    }, 2000);
-
-    this.router.navigateByUrl('/my-data'); */
-    /* this.auth.register(this.user).subscribe(
-      resp => {
-        this.errorServer = false;
-        Swal.fire({
-          icon: 'success',
-          title: 'Usuario creado correctamente',
-          text: 'Te enviamos un correo electrónico para que valides tu cuenta: si no lo ves en tu bandeja de entrada, revisa la carpeta de spam.',
-        }).then(result => {
-          if (result.isConfirmed) {
-            this.router.navigateByUrl('/');
-          }
-        });
-      },
-      err => {
-        this.errorServer = true;
-        this.errorResponse = {
-          email: '',
-          name: '',
-          password: '',
-          date_of_birth: '',
-          cel_phone: '',
-        };
-        // console.log(err);
-        this.errorResponse = err.error.validation;
-        Swal.fire({
-          icon: 'error',
-          title: err.error.message,
-        });
-      }
-    ); */
   }
 }

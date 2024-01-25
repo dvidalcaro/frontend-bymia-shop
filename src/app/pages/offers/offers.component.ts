@@ -29,14 +29,13 @@ export class OffersComponent implements OnInit {
     this.loadInitialProducts();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   loadInitialProducts() {
     this.bymiaService
       .getFeaturedProducts('destacados', this.index, this.limit)
       .subscribe(resp => {
         this.offerProducts = resp;
-        console.log(this.offerProducts);
       });
 
     // Simulating initial loading by calling moreProducts twice after a delay
@@ -50,9 +49,14 @@ export class OffersComponent implements OnInit {
       .getFeaturedProducts('destacados', this.index, this.limit)
       .subscribe(resp => {
         resp.forEach(element => {
-          const existingCategory = this.offerProducts.find(eo => eo.category === element.category);
+          const existingCategory = this.offerProducts.find(
+            eo => eo.category === element.category
+          );
           if (existingCategory) {
-            existingCategory.products = [...existingCategory.products, ...element.products];
+            existingCategory.products = [
+              ...existingCategory.products,
+              ...element.products,
+            ];
           } else {
             this.offerProducts.push(element);
           }

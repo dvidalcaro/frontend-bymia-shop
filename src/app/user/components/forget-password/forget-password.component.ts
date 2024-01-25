@@ -27,7 +27,7 @@ export class ForgetPasswordComponent implements OnInit {
     if (form.invalid) {
       return;
     }
-    console.log(this.email);
+
     this.auth.forgotPassword(this.email).subscribe(
       resp => {
         Swal.fire({
