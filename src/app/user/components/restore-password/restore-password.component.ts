@@ -30,8 +30,6 @@ export class RestorePasswordComponent implements OnInit {
   ) {}
 
   enableSend(password: string | null, passwordConfirm: string | null) {
-    console.log(password);
-
     if (password === passwordConfirm) {
       this.disabled = false;
     }
@@ -62,7 +60,6 @@ export class RestorePasswordComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: err.errror.message,
-            // text: err.error.error.message,
           });
         }
       );
@@ -73,29 +70,12 @@ export class RestorePasswordComponent implements OnInit {
         text: 'El campo password y confirme su password deben ser iguales',
       });
     }
-
-    /* this.auth.login(this.user).subscribe(
-      resp => {
-        // console.log(resp);
-        Swal.close();
-
-        this.router.navigateByUrl('/home');
-      },
-      err => {
-        Swal.fire({
-          icon: 'error',
-          title: err.error.message,
-          // text: err.error.error.message,
-        });
-      }
-    ); */
   }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
       this.code = params['code'];
-      console.log(params['code'] + 'hola');
     });
   }
 }

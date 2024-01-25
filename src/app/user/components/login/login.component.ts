@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
 
     this.auth.login(this.user).subscribe(
       resp => {
-        // console.log(resp);
         Swal.close();
 
         this.router.navigateByUrl('/home');
