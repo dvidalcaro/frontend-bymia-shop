@@ -20,6 +20,8 @@ export class NavbarComponent implements OnInit {
   CartNotifications: number = 0;
   switchBar: boolean = false;
   searchTypeList: SearchType[] = [];
+  collapse: boolean = true;
+  closedMenu: boolean = false;
 
   priceList!: PriceList;
   confirmRequest: boolean = false;
@@ -177,6 +179,16 @@ export class NavbarComponent implements OnInit {
   toogleBarSearch() {
     this.switchBar = !this.switchBar;
     this.clearInput();
+  }
+
+  toggleNavbarMenu() {
+    if (this.collapse) {
+      this.collapse = false;
+      this.closedMenu = true;
+    } else {
+      this.closedMenu = false;
+      this.collapse = true;
+    }
   }
 
   setFilter(slug: string, filter: string) {

@@ -227,11 +227,12 @@
   </div>
 </nav>
 <!-- Nav Mobile -->
-<nav class="navbar nav__mobile sticky-top navbar-expand-xxl pt-3 pb-3">
+<nav class="navbar sticky-top nav__mobile navbar-expand-xxl pt-3 pb-3">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/']">
       <img class="navbar-nav" src="{{ urlLogo }}" alt="Bymia shop" />
     </a>
+    <!--  -->
     <button
       class="navbar-toggler nav__btn"
       type="button"
@@ -239,8 +240,14 @@
       data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      aria-label="Toggle navigation"
+      (click)="toggleNavbarMenu()">
+      <img
+        class="w-75 p-1"
+        src="../assets/img/icon_closed_black.png"
+        alt="Closed"
+        *ngIf="closedMenu" />
+      <span class="navbar-toggler-icon" *ngIf="collapse"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-light rounded-3 nav__ul">
@@ -273,7 +280,7 @@
                         ><strong>Mi panel</strong></a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link text-light ps-3" routerLink="/my-data"
                         ><strong>Mi perfil</strong></a
                       >
@@ -283,7 +290,7 @@
                       <a class="nav-link text-light ps-3" routerLink="/orders"
                         ><strong>Mis órdenes</strong></a
                       >
-                    </li>
+                    </li> -->
                     <!-- Se comenta por lanzamiento -->
                     <!-- <li class="nav-item">
                       <a
@@ -312,7 +319,7 @@
 
         <!-- Fin Prueba de munu perfil  -->
 
-        <li class="nav-item" *ngFor="let link of linksHeader">
+        <!-- <li class="nav-item" *ngFor="let link of linksHeader">
           <a class="nav-link text-light ps-3" [routerLink]="[link.links]"
             ><strong>{{ link.label }}</strong></a
           >
@@ -321,7 +328,7 @@
           class="nav-link text-light ps-3"
           href="/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D"
           ><strong>Destacados</strong></a
-        >
+        > -->
 
         <li class="nav-item ms-3 mt-1" *ngFor="let icon of linksIcon">
           <div *ngIf="icon.links === 'wish-list'">
