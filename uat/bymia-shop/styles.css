@@ -1530,6 +1530,17 @@ header .header__container {
 .nav__container img {
   margin: 0 1rem 0 7.6rem;
 }
+.nav-ul-home {
+  list-style-type: none;
+  margin: 0px;
+  padding-left: 0px;
+}
+.nav-ul-home li {
+  padding: 0px !important;
+}
+.nav-ul-home li a {
+  padding: 0px !important;
+}
 .link__container {
   display: flex;
   grid-gap: 3.75rem;
@@ -3567,7 +3578,7 @@ header .header__container {
   opacity: 1;
 }
 .width_container {
-  width: 25%;
+  width: auto;
 }
 /* @Media queris */
 @media screen and (max-width: 768px) {
