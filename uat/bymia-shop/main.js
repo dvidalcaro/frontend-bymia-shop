@@ -1811,9 +1811,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const _c0 = function (a0) { return [a0]; };
 function FooterComponent_li_8_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "i", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "a", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "i", 24);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1846,60 +1846,60 @@ class FooterComponent {
                 label: 'Atención al Cliente',
                 links: '/help',
             },
-            {
-                label: 'Samsung',
-                links: '/',
+            /* {
+              label: 'Samsung',
+              links: '/',
             },
             {
-                label: 'Logitech',
-                links: '/',
+              label: 'Logitech',
+              links: '/',
             },
             {
-                label: 'Apple',
-                links: '/',
+              label: 'Apple',
+              links: '/',
             },
             {
-                label: 'AMD',
-                links: '/',
+              label: 'AMD',
+              links: '/',
             },
             {
-                label: 'Accesorios',
-                links: '/',
+              label: 'Accesorios',
+              links: '/',
             },
             {
-                label: 'Laptops',
-                links: '/',
+              label: 'Laptops',
+              links: '/',
             },
             {
-                label: 'Celulares',
-                links: '/',
+              label: 'Celulares',
+              links: '/',
             },
             {
-                label: 'Workstation',
-                links: '/',
+              label: 'Workstation',
+              links: '/',
             },
             {
-                label: 'Tablets',
-                links: '/',
+              label: 'Tablets',
+              links: '/',
             },
             {
-                label: 'Audio',
-                links: '/',
+              label: 'Audio',
+              links: '/',
             },
             {
-                label: 'Gaming',
-                links: '/',
+              label: 'Gaming',
+              links: '/',
             },
             {
-                label: 'Drones',
-                links: '/',
-            },
+              label: 'Drones',
+              links: '/',
+            }, */
         ];
     }
     ngOnInit() { }
 }
 FooterComponent.ɵfac = function FooterComponent_Factory(t) { return new (t || FooterComponent)(); };
-FooterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FooterComponent, selectors: [["app-footer"]], decls: 29, vars: 3, consts: [[1, "mt-5"], [1, "bg-dark", "text-lg-start", "text-white"], [1, "container", "p-4"], [1, "row", "mt-4"], [1, "col-xl-2", "col-lg-2", "col-md-4", "col-sm-12", "mb-4", "mb-md-0"], ["src", "assets/img/logo_bymia.png", "alt", "logo_bymia", 1, "img-fluid"], [1, "col-xl-6", "col-lg-6", "col-md-8", "col-sm-12", "mb-4", "mb-md-0"], [1, "list-unstyled", "d-flex", "align-content-stretch", "flex-wrap"], ["class", "col-6", 4, "ngFor", "ngForOf"], [1, "col-xl-3", "col-lg-3", "col-md-12", "col-sm-12", "mb-4", "mb-md-0", "subtitle"], [1, "text-center", "col-xl-1", "col-lg-1", "col-md-12", "col-sm-12", "mb-4", "mb-md-0"], ["href", "https://www.facebook.com/miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-facebook-square", "text-light"], ["href", "https://www.instagram.com/miacargord/", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-instagram", "text-light"], ["href", "https://www.tiktok.com/@miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-tiktok", "text-light"], [1, "bg-dark", "text-center", "text-muted", "p-3", "subtitle"], [1, "text-muted", 3, "routerLink"], [1, "col-6"], ["disabled", "", 1, "text-white", "subtitle", 3, "routerLink"], [1, "bx", "bx-tada-hover", "bx-chevron-right"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
+FooterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: FooterComponent, selectors: [["app-footer"]], decls: 35, vars: 3, consts: [[1, "mt-5"], [1, "bg-dark", "text-lg-start", "text-white"], [1, "container", "p-4"], [1, "row", "mt-4"], [1, "col-xl-2", "col-lg-2", "col-md-4", "col-sm-12", "mb-4", "mb-md-0"], ["src", "assets/img/logo_bymia.png", "alt", "logo_bymia", 1, "img-fluid"], [1, "col-xl-6", "col-lg-6", "col-md-8", "col-sm-12", "mb-4", "mb-md-0"], [1, "list-unstyled", "d-flex", "align-content-stretch", "flex-wrap"], ["class", "col-6", 4, "ngFor", "ngForOf"], [1, "col-xl-3", "col-lg-3", "col-md-12", "col-sm-12", "mb-4", "mb-md-0", "subtitle"], ["href", "https://wa.me/+18494475665", "target", "_blank", 1, "text-white"], ["href", "tel:956 1225", "target", "_blank", 1, "text-white"], ["href", "mailto:info@miacargo.do", "target", "_blank", 1, "text-white"], [1, "text-center", "col-xl-1", "col-lg-1", "col-md-12", "col-sm-12", "mb-4", "mb-md-0"], ["href", "https://www.facebook.com/miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-facebook-square", "text-light"], ["href", "https://www.instagram.com/miacargord/", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-instagram", "text-light"], ["href", "https://www.tiktok.com/@miacargord", "target", "_blank"], [1, "bx", "bx-lg", "bx-tada-hover", "bxl-tiktok", "text-light"], [1, "bg-dark", "text-center", "text-muted", "p-3", "subtitle"], [1, "text-muted", 3, "routerLink"], [1, "col-6"], ["disabled", "", 1, "text-white", "subtitle", 3, "routerLink"], [1, "bx", "bx-tada-hover", "bx-chevron-right"]], template: function FooterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "footer", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -1917,32 +1917,41 @@ FooterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, " Zona Universitaria, calle Benigno Filomeno de Rojas, esquina Padre Pina, local #102B ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "h6");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Whatsapp: + 1 8494475665");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Whatsapp: ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "a", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "+ 1 8494475665");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "h6");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Tel\u00E9fono: 829 956 1225");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "h6");
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Email info@bymiashop.com");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](17, "Tel\u00E9fono: ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "a", 11);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19, " 956 1225");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](19, "a", 11);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](20, "i", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](21, "a", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "i", 14);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](23, "a", 15);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](24, "i", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "h6");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](21, " Email: ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](22, "a", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23, "info@miacargo.do");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](24, "div", 13);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "a", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](26, "i", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](25, "div", 17);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](26);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "a", 18);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "bymiashop.com");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "a", 16);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](28, "i", 17);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "a", 18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](30, "i", 19);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](31, "div", 20);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](32);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](33, "a", 21);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "bymiashop.com");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1950,7 +1959,7 @@ FooterComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.links);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](18);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](24);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" Copyright \u00A9 ", ctx.year, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", "/");
