@@ -285,7 +285,7 @@ export class SaleOrderStepOneComponent implements OnInit {
   }
 
   fillFormBill(data: BillRecipientData) {
-    this.formBillData.disable();
+    // this.formBillData.disable();
     this.formBillData.get('name')?.setValue(data?.name);
     this.formBillData.get('identity_type')?.setValue(data?.identity_type);
     this.formBillData.get('identity_number')?.setValue(data?.identity_number);
@@ -302,7 +302,7 @@ export class SaleOrderStepOneComponent implements OnInit {
 
   fillFormRecipient(data: BillRecipientData) {
     this.recipientFormIdentityType = data.identity_type;
-    this.formRecipient.disable();
+    // this.formRecipient.disable();
     this.formRecipient.get('name')?.setValue(data?.name);
     this.formRecipient.get('identity_type')?.setValue(data?.identity_type);
     this.formRecipient.get('identity_number')?.setValue(data?.identity_number);

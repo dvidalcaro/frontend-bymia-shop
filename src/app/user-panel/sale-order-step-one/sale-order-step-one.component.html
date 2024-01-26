@@ -226,11 +226,13 @@
                 placeholder="Información adicional (ej, entre calle y calle)" class="form-control frm-register__input"
                 id="additional_info" value="" minlength="3" aria-describedby="additional_infoHelp" />
             </div>
+            <!--
             <div *ngIf="bill_address_id">
               <button class="cart__button cart__button-bg" (click)="changeBillingData()">
                 Cambiar datos de facturación
               </button>
             </div>
+            -->
             <!-- Mensajes de error de validaciones -->
             <!-- Campo Nombre -->
             <div *ngIf="
@@ -352,11 +354,8 @@
                 <option [ngValue]="recipes" *ngFor="let recipes of order.recipient_address">
                   {{ recipes.name }}
                 </option>
-                <option *ngIf="order.recipient_address.length <5" [ngValue]="null">Nuevo destinatario</option>
               </ng-container>
-              <ng-container *ngIf="order && !order.recipient_address">
-                <option [ngValue]="null">Nuevo destinatario</option>
-              </ng-container>
+              <option [ngValue]="null">Nuevo destinatario</option>
             </select>
           </div>
 
