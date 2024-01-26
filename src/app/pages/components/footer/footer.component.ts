@@ -27,7 +27,7 @@ export class FooterComponent implements OnInit {
       label: 'Atención al Cliente',
       links: '/help',
     },
-    {
+    /* {
       label: 'Samsung',
       links: '/',
     },
@@ -74,7 +74,7 @@ export class FooterComponent implements OnInit {
     {
       label: 'Drones',
       links: '/',
-    },
+    }, */
   ];
   constructor() {}
 
