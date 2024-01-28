@@ -8932,27 +8932,33 @@ class SaleOrderStepOneComponent {
     }
     continueOrder() {
         if (this.paymentType.valid && this.fiscalInvoice.valid) {
-            if (this.bill_address_id && !this.showFormRecipient) {
-                return true;
-            }
-            if (this.bill_address_id &&
-                this.showFormRecipient &&
-                this.recipient_address_id) {
-                return true;
-            }
-            if (this.bill_address_id &&
-                this.showFormRecipient &&
-                this.formRecipient.valid) {
-                return true;
-            }
+            // if (this.bill_address_id && !this.showFormRecipient) {
+            //   return true;
+            // }
+            // if (
+            //   this.bill_address_id &&
+            //   this.showFormRecipient &&
+            //   this.recipient_address_id
+            // ) {
+            //   return true;
+            // }
+            // if (
+            //   this.bill_address_id &&
+            //   this.showFormRecipient &&
+            //   this.formRecipient.valid
+            // ) {
+            //   return true;
+            // }
             if (this.formBillData.valid && !this.showFormRecipient) {
                 return true;
             }
-            if (this.formBillData.valid &&
-                this.showFormRecipient &&
-                this.recipient_address_id) {
-                return true;
-            }
+            // if (
+            //   this.formBillData.valid &&
+            //   this.showFormRecipient &&
+            //   this.recipient_address_id
+            // ) {
+            //   return true;
+            // }
             if (this.formBillData.valid &&
                 this.showFormRecipient &&
                 this.formRecipient.valid) {
@@ -8983,7 +8989,7 @@ class SaleOrderStepOneComponent {
                     //si es transferencia
                     sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
                         title: 'Orden finalizada con exito',
-                        text: 'Gracias por tu compra',
+                        text: 'Enviamos la información de tu compra por mail, revisa tu correo.',
                         icon: 'info',
                         confirmButtonText: 'Cerrar',
                     });

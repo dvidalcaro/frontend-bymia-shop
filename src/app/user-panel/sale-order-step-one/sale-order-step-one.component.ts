@@ -175,33 +175,33 @@ export class SaleOrderStepOneComponent implements OnInit {
 
   continueOrder() {
     if (this.paymentType.valid && this.fiscalInvoice.valid) {
-      if (this.bill_address_id && !this.showFormRecipient) {
-        return true;
-      }
-      if (
-        this.bill_address_id &&
-        this.showFormRecipient &&
-        this.recipient_address_id
-      ) {
-        return true;
-      }
-      if (
-        this.bill_address_id &&
-        this.showFormRecipient &&
-        this.formRecipient.valid
-      ) {
-        return true;
-      }
+      // if (this.bill_address_id && !this.showFormRecipient) {
+      //   return true;
+      // }
+      // if (
+      //   this.bill_address_id &&
+      //   this.showFormRecipient &&
+      //   this.recipient_address_id
+      // ) {
+      //   return true;
+      // }
+      // if (
+      //   this.bill_address_id &&
+      //   this.showFormRecipient &&
+      //   this.formRecipient.valid
+      // ) {
+      //   return true;
+      // }
       if (this.formBillData.valid && !this.showFormRecipient) {
         return true;
       }
-      if (
-        this.formBillData.valid &&
-        this.showFormRecipient &&
-        this.recipient_address_id
-      ) {
-        return true;
-      }
+      // if (
+      //   this.formBillData.valid &&
+      //   this.showFormRecipient &&
+      //   this.recipient_address_id
+      // ) {
+      //   return true;
+      // }
       if (
         this.formBillData.valid &&
         this.showFormRecipient &&
@@ -237,7 +237,7 @@ export class SaleOrderStepOneComponent implements OnInit {
             //si es transferencia
             Swal.fire({
               title: 'Orden finalizada con exito',
-              text: 'Gracias por tu compra',
+              text: 'Enviamos la información de tu compra por mail, revisa tu correo.',
               icon: 'info',
               confirmButtonText: 'Cerrar',
             });
