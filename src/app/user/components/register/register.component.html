@@ -1,4 +1,5 @@
 <div class="container__modal animate__animated animate__zoomIn animate__faster">
+  <!-- Hader Register -->
   <div class="container bg-white rounded-3 justify-content-center frm-register">
     <div class="row mb-3 mt-3">
       <div class="col">
@@ -9,10 +10,13 @@
           alt="cerrar" />
       </div>
     </div>
+    <!-- end Hader Register -->
+    <!-- Form Register -->
     <form
       class="frm-register__form row g-3 p-3 pb-4"
       #f="ngForm"
       (ngSubmit)="onSubmit(f)">
+      <!-- Field type role -->
       <div class="col-12">
         <select
           class="form-select frm-register__select p-2"
@@ -24,6 +28,8 @@
           <option [ngValue]="2">Empresa</option>
         </select>
       </div>
+
+      <!-- Field Name -->
       <div class="col-12 frm-register__input">
         <input
           [(ngModel)]="user.name"
@@ -45,6 +51,7 @@
           {{ errorResponse.name }}
         </div>
       </div>
+      <!-- Field mail -->
       <div class="col-12 frm-register__input">
         <input
           (focus)="clearEmailError()"
@@ -64,6 +71,7 @@
           {{ errorResponse.email }}
         </div>
       </div>
+      <!-- Field Password -->
       <div class="col-12 frm-register__input">
         <input
           [(ngModel)]="user.password"
@@ -83,6 +91,7 @@
           {{ errorResponse.password }}
         </div>
       </div>
+      <!-- Field Date of birth -->
       <div
         class="col-12 frm-register__input"
         *ngIf="user.customer_type_role != 2">
@@ -106,6 +115,7 @@
           {{ errorResponse.date_of_birth }}
         </div>
       </div>
+      <!-- Field gender type -->
       <div class="col-12" *ngIf="user.customer_type_role != 2">
         <select
           [(ngModel)]="user.gender_type"
@@ -118,6 +128,7 @@
           <option [ngValue]="3">Prefiero no decirlo</option>
         </select>
       </div>
+      <!-- Field country -->
       <div class="col-12">
         <div class="row">
           <div class="mb-3">
@@ -127,14 +138,25 @@
               name="country_id"
               class="form-select frm-register__select-bg"
               aria-label="Selecciona una Opción"
+              aria-describedby="country_idHelp"
               (change)="getFlagPhone(f.control.value)">
               <option value="" selected disabled>Seleciona el país</option>
               <option [ngValue]="country" *ngFor="let country of countryCodes">
                 {{ country.name }}
               </option>
             </select>
+            <!-- <p class="text-bg-dark">{{ user.country_id }}</p> -->
+            <!-- <div
+              *ngIf="
+                (f.submitted && f.controls['country_id'].errors) || errorServer
+              "
+              id="country_idHelp"
+              class="form-text text-danger">
+              {{ errorResponse.country }}
+            </div> -->
           </div>
         </div>
+        <!-- Field flag  -->
         <div class="row gx-1">
           <div class="col input-group frm-register__input">
             <span
@@ -195,392 +217,6 @@
         <button type="submit" class="button_modal col-12">Registrarme</button>
       </div>
     </form>
+    <!-- end Form Register -->
   </div>
 </div>
-<!-- <div class="containercontainer__modal animate__animated animate__zoomIn animate__faster">
-  <div class="">
-    <div class="col-3"></div>
-    <div class="container  bg-white rounded-3 justify-content-center frm-register">
-      <div class="row mb-3 mt-3">
-        <div class="col mt-3">
-           <img class="frm-register__img float-end" routerLink="/" src="../assets/img/icon_closed_black.png"
-              alt="cerrar">
-        </div>
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="frm-register__form row  p-3 pb-4">
-        <div class="mb-2">
-          <label for="customer_type_role" class="form-label text-dark"
-            >Selecciona una opción</label
-          >
-          <select
-            [(ngModel)]="user.customer_type_role"
-            id="customer_type_role"
-            name="customer_type_role"
-            class="form-select"
-            aria-label="Selecciona Persona o Empresa">
-            <option [ngValue]="1">Persona</option>
-            <option [ngValue]="2">Empresa</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
-          <input
-            [(ngModel)]="user.name"
-            type="text"
-            name="name"
-            class="form-control"
-            id="name"
-            minlength="6"
-            required
-            aria-describedby="nameHelp" />
-          <div
-            *ngIf="(f.submitted && f.controls['name'].errors) || errorServer"
-            id="nameHelp"
-            class="form-text text-danger">
-            {{ errorResponse.name }}
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input
-            (focus)="clearEmailError()"
-            [(ngModel)]="user.email"
-            type="email"
-            name="email"
-            class="form-control"
-            id="email"
-            required
-            email
-            aria-describedby="emailHelp" />
-          <div
-            *ngIf="(f.submitted && f.controls['email'].errors) || errorServer"
-            id="emailHelp"
-            class="form-text text-danger">
-            {{ errorResponse.email }}
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input
-            [(ngModel)]="user.password"
-            type="password"
-            name="password"
-            class="form-control"
-            id="password"
-            minlength="6"
-            required
-            aria-describedby="passwordHelp" />
-          <div
-            *ngIf="
-              (f.submitted && f.controls['password'].errors) || errorServer
-            "
-            id="passwordHelp"
-            class="form-text text-danger">
-            {{ errorResponse.password }}
-          </div>
-        </div>
-
-        <div class="mb-3" *ngIf="user.customer_type_role != 2">
-          <label for="date_of_birth" class="form-label"
-            >Fecha de nacimiento</label
-          >
-          <input
-            (focus)="clearDateOfBirthError()"
-            [(ngModel)]="user.date_of_birth"
-            type="text"
-            name="date_of_birth"
-            class="form-control"
-            id="date_of_birth"
-            placeholder="YYYY-MM-DD"
-            minlength="10"
-            required
-            aria-describedby="date_of_birthHelp" />
-          <div
-            *ngIf="
-              (f.submitted && f.controls['date_of_birth'].errors) || errorServer
-            "
-            id="date_of_birthHelp"
-            class="form-text text-danger">
-            {{ errorResponse.date_of_birth }}
-          </div>
-        </div>
-
-        <div class="mb-3" *ngIf="user.customer_type_role != 2">
-          <label for="gender_type" class="form-label"
-            >Selecciona una opción</label
-          >
-          <select
-            [(ngModel)]="user.gender_type"
-            id="gender_type"
-            name="gender_type"
-            class="form-select"
-            aria-label="Selecciona una Opción">
-            <option [ngValue]="1">Femenino</option>
-            <option [ngValue]="2">Masculino</option>
-            <option [ngValue]="3">Prefiero no decirlo</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="country_id" class="form-label">Pais de residencia</label>
-          <select
-            (change)="selectCountry()"
-            [(ngModel)]="user.country_id"
-            id="country_id"
-            name="country_id"
-            class="form-select"
-            required
-            aria-label="Selecciona una Opción">
-            <option [ngValue]="0">Selecciona una Opción</option>
-            <option
-              [ngValue]="i"
-              *ngFor="let cc of countryCodes; let i = index">
-              {{ cc.name }}
-            </option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="cel_phone" class="form-label">Teléfono</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <div>
-                <img
-                  width="30px"
-                  crossorigin="anonymous"
-                  [src]="[countryFlag]"
-                  [alt]="[countryAlt]" />
-              </div>
-            </span>
-            <span class="input-group-text">{{ user.country_phone_code }}</span>
-            <input
-              [(ngModel)]="user.cel_phone"
-              type="text"
-              name="cel_phone"
-              class="form-control"
-              id="cel_phone"
-              minlength="6"
-              required
-              aria-describedby="cel_phoneHelp" />
-          </div>
-          <div
-            *ngIf="
-              (f.submitted && f.controls['cel_phone'].errors) || errorServer
-            "
-            id="cel_phoneHelp"
-            class="form-text text-danger">
-            {{ errorResponse.cel_phone }}
-          </div>
-        </div>
-
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1"
-            >Acepto terminos y condiciones</label
-          >
-        </div>
-
-        <div class="mb-3">
-          <a class="text-light" routerLink="/login">
-            ¿Ya tienes cuenta? / Ingresar
-          </a>
-        </div>
-
-        <button type="submit" class="btn btn-bymia">Registrarme</button>
-      </form>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="container mt-5">
-  <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6">
-      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-        <div class="mb-3">
-          <label for="customer_type_role" class="form-label"
-            >Selecciona una opción</label
-          >
-          <select
-            [(ngModel)]="user.customer_type_role"
-            id="customer_type_role"
-            name="customer_type_role"
-            class="form-select"
-            aria-label="Selecciona Persona o Empresa">
-            <option [ngValue]="1">Persona</option>
-            <option [ngValue]="2">Empresa</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
-          <input
-            [(ngModel)]="user.name"
-            type="text"
-            name="name"
-            class="form-control"
-            id="name"
-            minlength="6"
-            required
-            aria-describedby="nameHelp" />
-          <div
-            *ngIf="(f.submitted && f.controls['name'].errors) || errorServer"
-            id="nameHelp"
-            class="form-text text-danger">
-            {{ errorResponse.name }}
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input
-            (focus)="clearEmailError()"
-            [(ngModel)]="user.email"
-            type="email"
-            name="email"
-            class="form-control"
-            id="email"
-            required
-            email
-            aria-describedby="emailHelp" />
-          <div
-            *ngIf="(f.submitted && f.controls['email'].errors) || errorServer"
-            id="emailHelp"
-            class="form-text text-danger">
-            {{ errorResponse.email }}
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input
-            [(ngModel)]="user.password"
-            type="password"
-            name="password"
-            class="form-control"
-            id="password"
-            minlength="6"
-            required
-            aria-describedby="passwordHelp" />
-          <div
-            *ngIf="
-              (f.submitted && f.controls['password'].errors) || errorServer
-            "
-            id="passwordHelp"
-            class="form-text text-danger">
-            {{ errorResponse.password }}
-          </div>
-        </div>
-
-        <div class="mb-3" *ngIf="user.customer_type_role != 2">
-          <label for="date_of_birth" class="form-label"
-            >Fecha de nacimiento</label
-          >
-          <input
-            (focus)="clearDateOfBirthError()"
-            [(ngModel)]="user.date_of_birth"
-            type="text"
-            name="date_of_birth"
-            class="form-control"
-            id="date_of_birth"
-            placeholder="YYYY-MM-DD"
-            minlength="10"
-            required
-            aria-describedby="date_of_birthHelp" />
-          <div
-            *ngIf="
-              (f.submitted && f.controls['date_of_birth'].errors) || errorServer
-            "
-            id="date_of_birthHelp"
-            class="form-text text-danger">
-            {{ errorResponse.date_of_birth }}
-          </div>
-        </div>
-
-        <div class="mb-3" *ngIf="user.customer_type_role != 2">
-          <label for="gender_type" class="form-label"
-            >Selecciona una opción</label
-          >
-          <select
-            [(ngModel)]="user.gender_type"
-            id="gender_type"
-            name="gender_type"
-            class="form-select"
-            aria-label="Selecciona una Opción">
-            <option [ngValue]="1">Femenino</option>
-            <option [ngValue]="2">Masculino</option>
-            <option [ngValue]="3">Prefiero no decirlo</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="country_id" class="form-label">Pais de residencia</label>
-          <select
-            (change)="selectCountry()"
-            [(ngModel)]="user.country_id"
-            id="country_id"
-            name="country_id"
-            class="form-select"
-            required
-            aria-label="Selecciona una Opción">
-            <option [ngValue]="0">Selecciona una Opción</option>
-            <option
-              [ngValue]="i"
-              *ngFor="let cc of countryCodes; let i = index">
-              {{ cc.name }}
-            </option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="cel_phone" class="form-label">Teléfono</label>
-          <div class="input-group">
-            <span class="input-group-text">
-              <div>
-                <img
-                  width="30px"
-                  crossorigin="anonymous"
-                  [src]="[countryFlag]"
-                  [alt]="[countryAlt]" />
-              </div>
-            </span>
-            <span class="input-group-text">{{ user.country_phone_code }}</span>
-            <input
-              [(ngModel)]="user.cel_phone"
-              type="text"
-              name="cel_phone"
-              class="form-control"
-              id="cel_phone"
-              minlength="6"
-              required
-              aria-describedby="cel_phoneHelp" />
-          </div>
-          <div
-            *ngIf="
-              (f.submitted && f.controls['cel_phone'].errors) || errorServer
-            "
-            id="cel_phoneHelp"
-            class="form-text text-danger">
-            {{ errorResponse.cel_phone }}
-          </div>
-        </div>
-
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label class="form-check-label" for="exampleCheck1"
-            >Acepto terminos y condiciones</label
-          >
-        </div>
-
-        <div class="mb-3">
-          <a class="text-light" routerLink="/login">
-            ¿Ya tienes cuenta? / Ingresar
-          </a>
-        </div>
-
-        <button type="submit" class="btn btn-bymia">Registrarme</button>
-      </form>
-    </div>
-  </div>
-</div> -->
