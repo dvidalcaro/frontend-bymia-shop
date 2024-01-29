@@ -329,16 +329,16 @@
           href="/search?k=&c=%5B%5D&b=%5B%5D&t=%5B%22destacados%22%5D"
           ><strong>Destacados</strong></a
         > -->
-
+        <!-- WishNotifications   class="nav-link col-3 text-light position-relative col-xl-12 col-1"-->
         <li class="nav-item ms-3 mt-1" *ngFor="let icon of linksIcon">
           <div *ngIf="icon.links === 'wish-list'">
             <a
-              class="nav-link col-3 text-light position-relative col-xl-12 col-1"
+              class="nav-link text-light position-relative col-sm-12 col-md-1 col-xl-10 col-1"
               [routerLink]="[icon.links]">
               <i class="{{ icon.icon }}"> </i>
               <span
                 *ngIf="WishNotifications > 0"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                class="position-absolute top-0 start-badge translate-middle badge rounded-pill bg-secundary"
                 >{{ WishNotifications }}</span
               >
             </a>
@@ -351,7 +351,7 @@
               <i class="{{ icon.icon }}"> </i>
               <span
                 *ngIf="CartNotifications > 0"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secundary"
+                class="position-absolute top-0 start-badge translate-middle badge rounded-pill bg-secundary"
                 >{{ CartNotifications }}</span
               >
             </a>
@@ -360,6 +360,7 @@
       </ul>
     </div>
   </div>
+  <!-- Navbar mobile -->
   <div class="mt-1">
     <ul class="d-flex justify-content-around nav-ul-home nav__mobile">
       <li class="nav-item" *ngFor="let link of linksHeaderMobile">

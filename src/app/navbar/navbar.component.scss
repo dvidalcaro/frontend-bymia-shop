@@ -43,6 +43,10 @@
   display: none;
   background-color: #000;
 }
+
+.start-badge {
+  left: 2.0625rem;
+}
 @media screen and (max-width: 1200px) {
   .nav__desktop {
     display: none;
