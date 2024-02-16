@@ -35,7 +35,7 @@ export class OrderConfirmComponent implements OnInit {
           this.status = params['status'];
 
           this.showMessage = true;
-          this.message = resp.message;
+          this.message = resp.data.message;
           this.status_code = resp.status_code;
           this.classIco =
             'bx bxs-check-circle bx-tada-hover modal__i text-center';
@@ -48,7 +48,7 @@ export class OrderConfirmComponent implements OnInit {
           this.order = params['order'];
           this.status = params['status'];
           this.showMessage = true;
-          this.message = resp.message;
+          this.message = resp.data.message;
           this.status_code = resp.status_code;
           this.classIco =
             'bx bxs-x-circle bx-tada-hover modal__i__bg text-center';
