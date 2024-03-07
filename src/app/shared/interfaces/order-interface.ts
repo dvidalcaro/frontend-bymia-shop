@@ -2,6 +2,8 @@ export interface itemDetail {
   quantity: string;
   name: string;
   price: string;
+  currency_id: number;
+  currency_sign: string;
 }
 export interface paymentsTypes {
   id: number;
@@ -9,9 +11,11 @@ export interface paymentsTypes {
 }
 
 export interface productDetail {
-  total: string;
+  total: number;
   totalPrice: string;
 }
+
+
 
 export interface orderDetails {
   items: itemDetail[];
@@ -21,6 +25,8 @@ export interface orderDetails {
   tax: string;
   totalOrderPrice: string;
 }
+
+
 import { BillRecipientData } from './OrderGenerate-interface';
 
 export interface orderInformation {
@@ -29,10 +35,12 @@ export interface orderInformation {
   recipient_address: BillRecipientData[] | null;
   orderPlaced: string;
   proforma_bill: string;
-  total: string;
+  totalRD: string;
+  totalUSD: string;
   sendTo: string;
   numberOrder: string;
-  detail: orderDetails;
+  detailRD: orderDetails;
+  detailUSD: orderDetails;
   bill: string;
   receiptOfPayment: string;
   status: number;

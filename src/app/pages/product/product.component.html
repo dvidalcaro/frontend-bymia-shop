@@ -77,9 +77,7 @@
       <!-- Price of the product -->
       <div class="row">
         <div class="col d-flex align-items-center">
-          <span class="text-light me-2 product__price">{{
-            productDetail.price | number : '1.2-2' | changeDecimalFormat
-          }}</span>
+          <span class="text-light me-2 product__price">{{ productDetail.currency_sign }}&nbsp;{{ productDetail.price | number : '1.2-2' | changeDecimalFormat }}</span>
           <span class="text-light me-2 product__tag">{{
             productDetail.category
           }}</span>

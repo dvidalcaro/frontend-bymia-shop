@@ -2,27 +2,21 @@
   <!-- Header Order -->
   <div class="d-flex justify-content-between">
     <div></div>
-    <div
-      class="back_mydata col-auto d-flex justify-content-end align-items-center gap-1 mb-2">
+    <div class="back_mydata col-auto d-flex justify-content-end align-items-center gap-1 mb-2">
       <a [routerLink]="['/panel']">
-        <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back"
-      /></a>
+        <img src="../assets/svg/Icon-arrow-back.svg" alt="Go back" /></a>
       <a class="text-light" [routerLink]="['/panel']">
         Volver a la
         <br />
-        página anterior</a
-      >
+        página anterior</a>
     </div>
   </div>
   <div class="d-flex">
     <div class="header__orders header__select">
       <span>Pedidos realizados en</span>
       <div class="btn-group">
-        <button
-          class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false">
+        <button class="btn btn-whithe btn-sm dropdown-toggle bg-white text-dark rounded-4 button__header" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
           Últimos 2 meses
         </button>
         <ul class="dropdown-menu">
@@ -42,11 +36,7 @@
     <div class="header__orders">
       <form class="form__header" role="search">
         <i class="{{ iconSearch }}"></i>
-        <input
-          class="form-control"
-          type="search"
-          placeholder="Buscar"
-          aria-label="Buscar" />
+        <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar" />
       </form>
     </div>
   </div>
@@ -55,13 +45,17 @@
   <div class="container__order" *ngFor="let order of orders">
     <div class="container__order__information">
       <div class="order__information">
-        <div class="header__information">
+        <div class="header__information text-center">
           <h3>PEDIDO REALIZADO</h3>
           <p>{{ order.orderPlaced }}</p>
         </div>
-        <div class="header__information">
-          <h3>TOTAL</h3>
-          <p>$ {{ order.total | number : '1.2-2' | changeDecimalFormat }}</p>
+        <div class="header__information text-center">
+          <h3>TOTAL EN RD$</h3>
+          <p>RD$ {{ order.totalRD | number : '1.2-2' | changeDecimalFormat }}</p>
+        </div>
+        <div class="header__information text-center">
+          <h3>TOTAL EN US$</h3>
+          <p>US$ {{ order.totalUSD | number : '1.2-2' | changeDecimalFormat }}</p>
         </div>
         <div class="header__information">
           <h3>ENVIAR A</h3>
@@ -76,11 +70,11 @@
             {{ order.numberOrder }}
             (
             {{
-              order.status == 8
-                ? 'Pendiente'
-                : order.status == 7
-                ? 'Cancelada'
-                : 'Abierta'
+            order.status == 8
+            ? 'Pendiente'
+            : order.status == 7
+            ? 'Cancelada'
+            : 'Abierta'
             }}
             )
           </p>
@@ -94,10 +88,9 @@
           <button class="btn-deshabilitado">Orden cancelada</button>
         </div>
         <div class="ordernumber__button" *ngIf="order.status < 7">
-          <button (click)="openshowSeeDetail(order.detail)">Ver detalle</button>
+          <button (click)="openshowSeeDetail(order.detailRD, order.detailUSD)">Ver detalle</button>
 
-          <button
-            [ngClass]="{
+          <button [ngClass]="{
               a_data: true,
 
               btn__bill: true,
@@ -105,8 +98,7 @@
             }">
             <a [href]="order.proforma_bill" target="_blank">Factura proforma</a>
           </button>
-          <button
-            [ngClass]="{
+          <button [ngClass]="{
               ordernumber__button: true,
               a_data: true,
               a_data_color: true,
@@ -138,16 +130,12 @@
 </div>
 <!-- Modal payment upload form -->
 
-<div
-  class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
+<div class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
   *ngIf="showFormPayment">
   <div class="container bg-white rounded-3 justify-content-center frm-register">
     <div class="row mb-3 mt-3">
       <div class="col">
-        <img
-          class="frm-register__img float-end"
-          (click)="closedForm()"
-          src="../assets/img/icon_closed_black.png"
+        <img class="frm-register__img float-end" (click)="closedForm()" src="../assets/img/icon_closed_black.png"
           alt="cerrar" />
       </div>
     </div>
@@ -156,40 +144,21 @@
       <p class="text-dark fw-bold text- text-center">Cargar soporte de pago</p>
       <div class="col-12 frm-register__input">
         <label for="" class="text-dark">Fecha del pago</label>
-        <input
-          type="date"
-          name=""
-          class="form-control"
-          id=""
-          required
-          aria-describedby="Fecha de realizacón del pago"
+        <input type="date" name="" class="form-control" id="" required aria-describedby="Fecha de realizacón del pago"
           placeholder="Fecha de realizacón del pago" />
         <!-- <div id="emailHelp" class="form-text text-danger">
 						          Mensaje de Validación del campo           
 						        </div> -->
       </div>
       <div class="col-12 frm-register__input">
-        <input
-          type="text"
-          name=""
-          class="form-control"
-          id=""
-          required
-          aria-describedby="Número de comprobante"
+        <input type="text" name="" class="form-control" id="" required aria-describedby="Número de comprobante"
           placeholder="Número de comprobante" />
         <!-- <div id="emailHelp" class="form-text text-danger">
 						          Mensaje de Validación del campo  
 						        </div> -->
       </div>
       <div class="col-12 frm-register__input">
-        <input
-          type="text"
-          name=""
-          class="form-control"
-          id=""
-          required
-          aria-describedby="Monto"
-          placeholder="Monto" />
+        <input type="text" name="" class="form-control" id="" required aria-describedby="Monto" placeholder="Monto" />
         <!-- <div
 						          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
 						          id="passwordHelp"
@@ -199,13 +168,7 @@
       </div>
       <div class="col-12 frm-register__input">
         <label for="" class="text-dark">Adjuntar soporte</label>
-        <input
-          type="file"
-          name=""
-          class="form-control"
-          id=""
-          required
-          aria-describedby="Adjuntar soporte"
+        <input type="file" name="" class="form-control" id="" required aria-describedby="Adjuntar soporte"
           placeholder="Adjuntar soporte" />
         <!-- <div
 						          *ngIf="(f.submitted && f.controls['password'].errors) || errorServer"
@@ -228,16 +191,12 @@
 
 <!-- product return form -->
 
-<div
-  class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
+<div class="container__modal container__modal-form animate__animated animate__zoomIn animate__faster"
   *ngIf="showReturnForm">
   <div class="container bg-white rounded-3 justify-content-center frm-register">
     <div class="row mb-3 mt-3">
       <div class="col">
-        <img
-          class="frm-register__img float-end"
-          (click)="closedReturnForm()"
-          src="../assets/img/icon_closed_black.png"
+        <img class="frm-register__img float-end" (click)="closedReturnForm()" src="../assets/img/icon_closed_black.png"
           alt="cerrar" />
       </div>
     </div>
@@ -246,39 +205,21 @@
       <p class="text-dark fw-bold text- text-center">Devolución de producto</p>
       <div class="col-12 frm-register__input">
         <!-- <label for="" class="text-dark">Fecha del pago</label> -->
-        <input
-          type="text"
-          name=""
-          class="form-control"
-          id=""
-          required
-          aria-describedby="Nombre y apellido /Razón Social"
-          placeholder="Nombre y apellido /Razón Social" />
+        <input type="text" name="" class="form-control" id="" required
+          aria-describedby="Nombre y apellido /Razón Social" placeholder="Nombre y apellido /Razón Social" />
         <!-- <div id="emailHelp" class="form-text text-danger">
 						          Mensaje de Validación del campo           
 						        </div> -->
       </div>
       <div class="col-12 frm-register__input">
-        <input
-          type="text"
-          name=""
-          class="form-control"
-          id=""
-          required
-          aria-describedby="E-mail de Contacto"
+        <input type="text" name="" class="form-control" id="" required aria-describedby="E-mail de Contacto"
           placeholder="E-mail de Contacto" />
         <!-- <div id="emailHelp" class="form-text text-danger">
 						          Mensaje de Validación del campo           
 						        </div> -->
       </div>
       <div class="col-12 frm-register__input">
-        <input
-          type="text"
-          name=""
-          class="form-control"
-          id=""
-          required
-          aria-describedby="Celular de contacto"
+        <input type="text" name="" class="form-control" id="" required aria-describedby="Celular de contacto"
           placeholder="Celular de contacto +xxx xxxxxxxxxx" />
         <!-- <div id="emailHelp" class="form-text text-danger">
 						          Mensaje de Validación del campo           
@@ -311,12 +252,7 @@
 								        </div> -->
       </div>
       <div class="col-12">
-        <textarea
-          class="rounded-3 w-100 text-dark"
-          name=""
-          id=""
-          rows="4"
-          placeholder="Mensaje"></textarea>
+        <textarea class="rounded-3 w-100 text-dark" name="" id="" rows="4" placeholder="Mensaje"></textarea>
 
         <!-- <div id="emailHelp" class="form-text text-danger">
 								          Mensaje de Validación del campo  
@@ -336,122 +272,210 @@
 
 <!-- see detail -->
 
-<div
-  *ngIf="showSeeDetail"
+<div *ngIf="showSeeDetail"
   class="container__modal-seeDetail container__modal-form animate__animated animate__zoomIn animate__faster">
-  <div
-    class="container width_container bg-white rounded-3 justify-content-center frm-register">
+  <div class="container width_container bg-white rounded-3 justify-content-center frm-register">
     <div class="row mb-3 mt-3">
       <div class="col">
-        <img
-          class="frm-register__img float-end"
-          (click)="closedSeeDetail()"
-          src="../assets/img/icon_closed_black.png"
+        <img class="frm-register__img float-end" (click)="closedSeeDetail()" src="../assets/img/icon_closed_black.png"
           alt="cerrar" />
       </div>
     </div>
     <h1 class="text-black text-center mb-3">Detalle del pedido</h1>
     <div class="row ms-2 me-2">
       <div class="col">
-        <div class="row">
-          <p class="text-black">
-            <strong>Ítems:</strong>
-          </p>
-        </div>
-        <div
-          class="row justify-content-center"
-          *ngFor="let item of details.items">
-          <div class="col text-dark">
-            <p>
-              <span>{{ item.quantity }}</span>
-              {{ item.name }}
+        <div *ngIf="detailsRD.products.total > 0 ">
+          <div class="row">
+            <p class="text-black">
+              <strong>Ítems en RD$:</strong>
             </p>
           </div>
-          <div class="col-auto text-dark">
-            <p>$ {{ item.price | number : '1.2-2' | changeDecimalFormat }}</p>
+          <div class="row justify-content-center" *ngFor="let item of detailsRD.items">
+            <div class="col text-dark">
+              <p>
+                <span>{{ item.quantity }}</span>
+                {{ item.name }}
+              </p>
+            </div>
+            <div class="col-auto text-dark">
+              <p>RD$&nbsp;{{ item.price | number : '1.2-2' | changeDecimalFormat }}</p>
+            </div>
           </div>
-        </div>
 
-        <div class="row d-flex mt-5">
-          <div class="col">
-            <p class="text-dark">
-              <strong
-                >Productos
-                <span class="text-dark"
-                  >(
-                  {{ details.products.total }}
-                  ):</span
-                >
-              </strong>
-            </p>
+          <div class="row d-flex mt-5">
+            <div class="col">
+              <p class="text-dark">
+                <strong>Productos
+                  <span class="text-dark">(
+                    {{ detailsRD.products.total }}
+                    ):</span>
+                </strong>
+              </p>
+            </div>
+            <div class="col text-end">
+              <p class="text-dark">
+                RD$&nbsp;
+                {{
+                detailsRD.products.totalPrice
+                | number : '1.2-2'
+                | changeDecimalFormat
+                }}
+              </p>
+            </div>
           </div>
-          <div class="col text-end">
-            <p class="text-dark">
-              $
-              {{
-                details.products.totalPrice
-                  | number : '1.2-2'
-                  | changeDecimalFormat
-              }}
-            </p>
+          <div class="row">
+            <div class="col">
+              <p class="text-dark">
+                <strong>Descuento productos: </strong>
+              </p>
+            </div>
+            <div class="col">
+              <p class="text-dark text-end">
+                RD$&nbsp;
+                {{
+                detailsRD.productDiscount | number : '1.2-2' | changeDecimalFormat
+                }}
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p class="text-dark">
-              <strong>Descuento productos: </strong>
-            </p>
+          <div class="row">
+            <div class="col col-sm-auto">
+              <p class="text-dark">
+                <strong>Descuento promocional: </strong>
+              </p>
+            </div>
+            <div class="col">
+              <p class="text-dark text-end">
+                RD$&nbsp;
+                {{
+                detailsRD.promocionalDiscount
+                | number : '1.2-2'
+                | changeDecimalFormat
+                }}
+              </p>
+            </div>
           </div>
-          <div class="col">
-            <p class="text-dark text-end">
-              $
-              {{
-                details.productDiscount | number : '1.2-2' | changeDecimalFormat
-              }}
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col col-sm-auto">
-            <p class="text-dark">
-              <strong>Descuento promocional: </strong>
-            </p>
-          </div>
-          <div class="col">
-            <p class="text-dark text-end">
-              $
-              {{
-                details.promocionalDiscount
-                  | number : '1.2-2'
-                  | changeDecimalFormat
-              }}
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p class="text-dark">
-              <strong>Tax: </strong>
-            </p>
-          </div>
-          <div class="col">
-            <p class="text-dark text-end">
-              $ {{ details.tax | number : '1.2-2' | changeDecimalFormat }}
-            </p>
+          <div class="row">
+            <div class="col">
+              <p class="text-dark">
+                <strong>Tax: </strong>
+              </p>
+            </div>
+            <div class="col">
+              <p class="text-dark text-end">
+                RD$&nbsp;{{ detailsRD.tax | number : '1.2-2' | changeDecimalFormat }}
+              </p>
+            </div>
           </div>
         </div>
+        <div class="mb-2" style="border-top: 1px solid black;"
+          *ngIf="detailsRD.products.total > 0 && detailsUSD.products.total > 0 ">
+        </div>
+        <div *ngIf="detailsUSD.products.total > 0 ">
+          <div class="row">
+            <p class="text-black">
+              <strong>Ítems en US$:</strong>
+            </p>
+          </div>
+          <div class="row justify-content-center" *ngFor="let item of detailsUSD.items">
+            <div class="col text-dark">
+              <p>
+                <span>{{ item.quantity }}</span>
+                {{ item.name }}
+              </p>
+            </div>
+            <div class="col-auto text-dark">
+              <p>US$&nbsp;{{ item.price | number : '1.2-2' | changeDecimalFormat }}</p>
+            </div>
+          </div>
 
+          <div class="row d-flex">
+            <div class="col">
+              <p class="text-dark">
+                <strong>Productos
+                  <span class="text-dark">(
+                    {{ detailsUSD.products.total }}
+                    ):</span>
+                </strong>
+              </p>
+            </div>
+            <div class="col text-end">
+              <p class="text-dark">
+                US$&nbsp;
+                {{
+                detailsUSD.products.totalPrice
+                | number : '1.2-2'
+                | changeDecimalFormat
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="text-dark">
+                <strong>Descuento productos: </strong>
+              </p>
+            </div>
+            <div class="col">
+              <p class="text-dark text-end">
+                US$&nbsp;
+                {{
+                detailsUSD.productDiscount | number : '1.2-2' | changeDecimalFormat
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-sm-auto">
+              <p class="text-dark">
+                <strong>Descuento promocional: </strong>
+              </p>
+            </div>
+            <div class="col">
+              <p class="text-dark text-end">
+                US$&nbsp;
+                {{
+                detailsUSD.promocionalDiscount
+                | number : '1.2-2'
+                | changeDecimalFormat
+                }}
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p class="text-dark">
+                <strong>Tax: </strong>
+              </p>
+            </div>
+            <div class="col">
+              <p class="text-dark text-end">
+                US$&nbsp;{{ detailsUSD.tax | number : '1.2-2' | changeDecimalFormat }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style="border-top:1px solid black;"></div>
         <div class="row mt-3">
           <h1 class="text-dark text-center">Total</h1>
         </div>
         <div class="row mb-5">
           <h1 class="text-dark text-center">
-            <strong
-              >$<span>
+            <strong *ngIf="detailsRD.products.total > 0 ">RD$&nbsp;<span>
                 {{
-                  details.totalOrderPrice
-                    | number : '1.2-2'
-                    | changeDecimalFormat
+                detailsRD.totalOrderPrice
+                | number : '1.2-2'
+                | changeDecimalFormat
+                }}
+              </span>
+            </strong>
+            <span
+              *ngIf="detailsRD.products.total > 0 && detailsUSD.products.total > 0 "><br><b>&nbsp;+&nbsp;</b><br></span>
+            <strong *ngIf="detailsUSD.products.total > 0 ">US$&nbsp;<span>
+                {{
+                detailsUSD.totalOrderPrice
+                | number : '1.2-2'
+                | changeDecimalFormat
                 }}
               </span>
             </strong>

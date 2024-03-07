@@ -1,9 +1,7 @@
 <div class="container">
-  <div
-    class="container p-2 p-md-5 container__bg animate__animated animate__zoomIn">
+  <div class="container p-2 p-md-5 container__bg animate__animated animate__zoomIn">
     <!-- Header Cart -->
-    <div
-      class="row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
+    <div class="row cart__header pt-3 pb-3 p-md-4 mb-2 d-flex justify-content-between align-items-center">
       <!--colum1  -->
       <div class="col">
         <h3 class="cart__h3 cart__h3-title">
@@ -18,24 +16,28 @@
       </div>
       <!--colum2  -->
       <div class="col-7 d-flex justify-content-end align-items-center">
-        <div class="me-1">
-          <button
-            (click)="sendProductsToOrder()"
-            class="cart__button cart__button-bg">
+        
+        <div class="d-flex flex-column align-content-center mx-2 text-center">
+          <h3 class="cart__h3 cart__h3-ligth">Subtotal RD$</h3>
+          <p class="cart__p cart__p-bold">
+            RD$&nbsp;{{ totalRD | number : '1.2-2' | changeDecimalFormat }}
+          </p>
+        </div>
+        <div class="d-flex flex-column align-content-center mx-2 text-center">
+          <h3 class="cart__h3 cart__h3-ligth">Subtotal US$</h3>
+          <p class="cart__p cart__p-bold">
+            US$&nbsp;{{ totalUSD | number : '1.2-2' | changeDecimalFormat }}
+          </p>
+        </div>
+        <div class="me-1  mx-2">
+          <button (click)="sendProductsToOrder()" class="cart__button cart__button-bg">
             Proceder al envio
           </button>
-        </div>
-        <div class="d-flex flex-column align-content-center">
-          <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
-          <p class="cart__p cart__p-bold">
-            {{ total | currency : 'USD' }}
-          </p>
         </div>
       </div>
     </div>
     <!-- Product -->
-    <div
-      class="row cart__product-bg p-3 d-flex justify-content-center align-items-center mb-2"
+    <div class="row cart__product-bg p-3 d-flex justify-content-center align-items-center mb-2"
       *ngFor="let product of products; let i = index">
       <div class="col-12 col-lg-2 p-0 cart__mg text-center" (click)="detailProduct(product.id)">
         <img width="125px" [src]="[product.image]" [alt]="[product.name]" />
@@ -50,31 +52,25 @@
         <div class="col-4 p-0 text-center cart__mg">
           <h3 class="cart__h3">PRE X UNI</h3>
           <p class="cart__p m-0 cart__p-bold">
-            {{ product.price | currency : 'USD' }}
+            {{ product.currency_sign }}&nbsp;{{ product.price | number : '1.2-2' | changeDecimalFormat }}
           </p>
         </div>
         <div class="col-4 p-0 text-center cart__mg">
           <h3 class="cart__h3">CANTIDAD</h3>
           <div class="d-flex justify-content-center align-content-center">
-            <img
-              class="me-1 cart__img-pointer"
-              src="../assets/svg/icon_subtract.svg"
-              alt="Restar"
+            <img class="me-1 cart__img-pointer" src="../assets/svg/icon_subtract.svg" alt="Restar"
               (click)="subtractProduct(i)" />
             <p class="cart__p m-2 cart__p-bold">
               {{ product.quantity }}
             </p>
-            <img
-              class="ms-1 cart__img-pointer"
-              src="../assets/svg/icon_plus.svg"
-              alt="Adicionar"
+            <img class="ms-1 cart__img-pointer" src="../assets/svg/icon_plus.svg" alt="Adicionar"
               (click)="addProduct(i)" />
           </div>
         </div>
         <div class="col-4 p-0 text-center cart__mg">
           <h3 class="cart__h3">SUB TOTAL</h3>
           <p class="cart__p m-0 cart__p-bold">
-            {{ product.subtotal | currency : 'USD' }}
+            {{ product.currency_sign }}&nbsp;{{ product.subtotal | number : '1.2-2' | changeDecimalFormat }}
           </p>
         </div>
       </div>
@@ -83,9 +79,7 @@
           <button class="cart__button-product" (click)="detailProduct(product.id)">Ver producto</button>
         </div>
         <div>
-          <button
-            class="cart__button-product cart__button-product-black"
-            (click)="removeProduct(product.id)">
+          <button class="cart__button-product cart__button-product-black" (click)="removeProduct(product.id)">
             Eliminar
           </button>
         </div>

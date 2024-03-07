@@ -6,6 +6,8 @@ export class Product {
   rating: number;
   reviews: number;
   old_price: number;
+  currency_id?: number;
+  currency_sign?: string;
   price: number;
   quantity: number;
   subtotal: number;

@@ -10,7 +10,8 @@ import { UserService } from 'src/app/user/services/user.service';
 export class ShopCartComponent implements OnInit {
   products: Product[] = [];
   productQuantity: number = 0;
-  total: number = 0;
+  totalRD: number = 0;
+  totalUSD: number = 0;
   priceProduct: number = 432;
   showConfirmation: boolean = false;
   messageConfirm: string =
@@ -39,11 +40,18 @@ export class ShopCartComponent implements OnInit {
   ngOnInit(): void { }
 
   getTotal() {
-    this.total = 0;
+    this.totalRD = 0;
+    this.totalUSD = 0;
     this.products.forEach(p => {
-      this.total += p.price * p.quantity;
+      if (p.currency_id == 1) {
+        this.totalRD += p.price * p.quantity;
+      } else {
+        this.totalUSD += p.price * p.quantity;
+      }
     });
   }
+
+
   getPriceTotalProduct(index: number) {
     // this.products[index].priceTotal =
     //   this.products[index].priceByUnit * this.products[index].productQuantity;

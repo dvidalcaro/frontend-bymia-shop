@@ -2,7 +2,7 @@ export class Image {
   image?: string;
   thumbnail?: string;
   principal?: boolean;
-  constructor() {}
+  constructor() { }
 }
 
 export class ProductDetailClass {
@@ -15,7 +15,7 @@ export class ProductDetailClass {
   os?: string;
   cod?: string;
   part_number?: string;
-  constructor() {}
+  constructor() { }
 }
 
 export class ProductsByColor {
@@ -23,7 +23,7 @@ export class ProductsByColor {
   color?: string;
   colorHexadecimal?: string;
   active?: boolean;
-  constructor() {}
+  constructor() { }
 }
 export class ProductDetail {
   id?: string;
@@ -37,6 +37,8 @@ export class ProductDetail {
   sku?: string;
   price?: number;
   old_price?: number;
+  currency_id?: number;
+  currency_sign?: string;
   available?: number;
   short_description_es?: string;
   long_description_es?: string;
@@ -50,5 +52,5 @@ export class ProductDetail {
   products_by_color?: ProductsByColor[];
   products_models?: any;
   product_detail?: ProductDetailClass;
-  constructor() {}
+  constructor() { }
 }

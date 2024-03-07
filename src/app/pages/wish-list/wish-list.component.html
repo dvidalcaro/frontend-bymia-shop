@@ -32,7 +32,7 @@
         </div>
         <div class="col-12 col-lg-2 d-flex flex-column justify-content-center product__wishlist center__whish">
           <h3>PRE X UNI</h3>
-          <p>{{ product.price | currency : 'USD' }}</p>
+          <p>{{ product.currency_sign }}&nbsp;{{ product.price | number : '1.2-2' | changeDecimalFormat }}</p>
         </div>
         <div class="col-12 col-lg-4 d-flex justify-content-evenly align-items-center button__product__wishlist">
           <div>

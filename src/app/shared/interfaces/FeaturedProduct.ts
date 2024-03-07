@@ -6,6 +6,8 @@ export interface Product {
   reviews: number;
   old_price: string;
   price: string;
+  currency_id: number;
+  currency_sign: string;
 }
 
 export interface FeaturedProduct {

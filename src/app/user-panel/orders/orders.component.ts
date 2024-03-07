@@ -18,7 +18,8 @@ export class OrdersComponent implements OnInit {
   showSeeDetail: boolean = false;
   btnBill = 'btn-desabilidato';
   orders: orderInformation[] = [];
-  details!: orderDetails;
+  detailsRD!: orderDetails;
+  detailsUSD!: orderDetails;
 
   constructor(private userService: UserService, private router: Router) {
     this.userService.getOrders().subscribe(resp => {
@@ -26,7 +27,7 @@ export class OrdersComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   openForm() {
     this.showFormPayment = true;
@@ -43,8 +44,9 @@ export class OrdersComponent implements OnInit {
     this.showReturnForm = false;
   }
 
-  openshowSeeDetail(orderDetails: orderDetails) {
-    this.details = orderDetails;
+  openshowSeeDetail(orderDetailsRD: orderDetails, orderDetailsUSD : orderDetails) {
+    this.detailsRD = orderDetailsRD;
+    this.detailsUSD = orderDetailsUSD;
     this.showSeeDetail = true;
     window.scroll(0, 0);
   }

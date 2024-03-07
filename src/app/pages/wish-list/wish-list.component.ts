@@ -13,7 +13,6 @@ export class WishListComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {
     this.userService.currentWishlist.subscribe(resp => {
-      // console.log(resp);
       this.products =
         resp.wish_list && resp.wish_list.length > 0 ? resp.wish_list : [];
     });

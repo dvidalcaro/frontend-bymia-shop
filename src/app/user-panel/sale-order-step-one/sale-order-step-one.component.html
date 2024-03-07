@@ -25,7 +25,7 @@
         </div>
         <!--  <div class="d-flex flex-column align-content-center">
           <h3 class="cart__h3 cart__h3-ligth">Subtotal</h3>
-          <p class="cart__p cart__p-bold">{{ total | currency : 'USD' }}</p>
+          <p class="cart__p cart__p-bold">{{ total }}</p>
         </div> -->
       </div>
     </div>
@@ -670,26 +670,165 @@
       </div>
 
       <!-- Step confimation -->
-      <div class="col bg-light rounded-3 p-4 h-100" *ngIf="order.detail">
+      <div class="col bg-light rounded-3 p-4 h-100" *ngIf="order.detailRD">
         <div class="text-center">
           <h3 class="text-dark sale__h3 pt-4">Confirmación del Pedido:</h3>
         </div>
-        <div class="pe-4 pt-2">
-          <p class="sale__p sale__p-bold">Ítems:</p>
-        </div>
         <div>
-          <div class="d-flex justify-content-between pe-4 pt-1 gap-1" *ngFor="let item of order.detail.items">
+          <div *ngIf="order.detailRD.products.total > 0">
+            <div class="pe-4 pt-2">
+              <p class="sale__p sale__p-bold">Ítems en RD$:</p>
+            </div>
             <div>
-              <p class="sale__p text-dark">
-                {{ item.quantity }} {{ item.name }}
+              <div class="d-flex justify-content-between" *ngFor="let item of order.detailRD.items">
+                <div>
+                  <p class="sale__p text-dark">
+                    {{ item.quantity }} {{ item.name }}
+                  </p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    RD$&nbsp;{{ item.price | number : '1.2-2' | changeDecimalFormat }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">
+                    Productos ({{ order.detailRD.products.total }}):
+                  </p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    RD$&nbsp;{{ order.detailRD.products.totalPrice }}
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">Descuento producto:</p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    RD$&nbsp;{{ order.detailRD.productDiscount | number : '1.2-2' | changeDecimalFormat }}
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">
+                    Descuento promocional:
+                  </p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    RD$&nbsp;{{ order.detailRD.promocionalDiscount | number : '1.2-2' | changeDecimalFormat }}
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="d-flex justify-content-between">
+            <div>
+              <p class="sale__p sale__p-bold text-dark">
+                Descuento promocional envio:
               </p>
             </div>
             <div>
-              <p class="sale__p text-dark">
-                {{ item.price | currency : 'USD' }}
-              </p>
+              <p class="sale__p text-dark">$100</p>
+            </div>
+          </div> -->
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">ITBIS:</p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    RD$&nbsp;{{ order.detailRD.tax | number : '1.2-2' | changeDecimalFormat }}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+          <div *ngIf="order.detailRD.products.total > 0 && order.detailUSD.products.total > 0">
+            <hr style="border-top: 1px solid black;">
+          </div>
+          <div *ngIf="order.detailUSD.products.total > 0">
+            <div class="pe-4 pt-2">
+              <p class="sale__p sale__p-bold">Ítems en US$:</p>
+            </div>
+            <div>
+              <div class="d-flex justify-content-between" *ngFor="let item of order.detailUSD.items">
+                <div>
+                  <p class="sale__p text-dark">
+                    {{ item.quantity }} {{ item.name }}
+                  </p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    US$&nbsp;{{ item.price | number : '1.2-2' | changeDecimalFormat }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-2">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">
+                    Productos ({{ order.detailUSD.products.total }}):
+                  </p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    US$&nbsp;{{ order.detailUSD.products.totalPrice }}
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">Descuento producto:</p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    US$&nbsp;{{ order.detailUSD.productDiscount | number : '1.2-2' | changeDecimalFormat }}
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">
+                    Descuento promocional:
+                  </p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    US$&nbsp;{{ order.detailUSD.promocionalDiscount | number : '1.2-2' | changeDecimalFormat }}
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="d-flex justify-content-between">
+              <div>
+                <p class="sale__p sale__p-bold text-dark">
+                  Descuento promocional envio:
+                </p>
+              </div>
+              <div>
+                <p class="sale__p text-dark">$100</p>
+              </div>
+            </div> -->
+              <div class="d-flex justify-content-between">
+                <div>
+                  <p class="sale__p sale__p-bold text-dark">ITBIS:</p>
+                </div>
+                <div>
+                  <p class="sale__p text-dark">
+                    US$&nbsp;{{ order.detailUSD.tax | number : '1.2-2' | changeDecimalFormat}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
         <!-- <div class="d-flex justify-content-between pe-4 pt-2 gap-1">
           <div>
@@ -727,61 +866,6 @@
           <div class="col-1"></div>
         </div>
         <div class="pe-4 pt-4">
-          <div class="d-flex justify-content-between">
-            <div>
-              <p class="sale__p sale__p-bold text-dark">
-                Productos ({{ order.detail.products.total }}):
-              </p>
-            </div>
-            <div>
-              <p class="sale__p text-dark">
-                $ {{ order.detail.products.totalPrice }}
-              </p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div>
-              <p class="sale__p sale__p-bold text-dark">Descuento producto:</p>
-            </div>
-            <div>
-              <p class="sale__p text-dark">
-                {{ order.detail.productDiscount | currency : 'USD' }}
-              </p>
-            </div>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div>
-              <p class="sale__p sale__p-bold text-dark">
-                Descuento promocional:
-              </p>
-            </div>
-            <div>
-              <p class="sale__p text-dark">
-                {{ order.detail.promocionalDiscount | currency : 'USD' }}
-              </p>
-            </div>
-          </div>
-          <!-- <div class="d-flex justify-content-between">
-            <div>
-              <p class="sale__p sale__p-bold text-dark">
-                Descuento promocional envio:
-              </p>
-            </div>
-            <div>
-              <p class="sale__p text-dark">$100</p>
-            </div>
-          </div> -->
-          <div class="d-flex justify-content-between">
-            <div>
-              <p class="sale__p sale__p-bold text-dark">ITBIS:</p>
-            </div>
-            <div>
-              <p class="sale__p text-dark">
-                {{ order.detail.tax | currency : 'USD' }}
-              </p>
-            </div>
-          </div>
-
           <div class="mt-4">
             <h3 class="sale__h3 text-center text-dark">Forma de pago</h3>
           </div>
@@ -839,11 +923,24 @@
           </div>
 
           <div class="mt-5">
-            <h3 class="sale__h3 sale__h3-md text-dark text-center">Total</h3>
-            <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
-              $ {{ order.detail.totalOrderPrice }}
-            </p>
-            <div class="d-flex justify-content-center">
+            <div *ngIf="order.detailRD.products.total > 0">
+              <h3 class="sale__h3 sale__h3-md text-dark text-center">Total en RD$</h3>
+              <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
+                RD$ {{ order.totalRD }}
+              </p>
+            </div>
+
+            <div *ngIf="order.detailRD.products.total > 0 && order.detailUSD.products.total > 0">
+              <h3 class="sale__h3 sale__h3-md text-dark text-center"><b>+</b></h3>
+            </div>
+
+            <div *ngIf="order.detailUSD.products.total > 0">
+              <h3 class="sale__h3 sale__h3-md text-dark text-center">Total en US$</h3>
+              <p class="sale__p-bold sale__p-lg fw-bold text-dark text-center">
+                US$ {{ order.totalUSD }}
+              </p>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
               <button class="sale__btn text-center" [ngClass]="{
                   disabled: !continueOrder()
                 }" [disabled]="!continueOrder()" (click)="getDataForm()">

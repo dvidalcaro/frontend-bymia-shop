@@ -3,84 +3,54 @@
     <div class="col">
       <app-loading [loading]="loading"></app-loading>
       <div *ngIf="!loading">
-        <div
-          class="row d-flex justify-content-between align-items-center"
-          *ngIf="title != ''">
+        <div class="row d-flex justify-content-between align-items-center" *ngIf="title != ''">
           <div class="col">
             <h5>
               <strong>{{ title }}</strong>
             </h5>
           </div>
-          <div class="col"><hr /></div>
+          <div class="col">
+            <hr />
+          </div>
           <div class="col col-12 col-sm-12 col-md-8 col-lg-6 col-xl-6 col-xxl">
             <ul class="nav nav-tabs justify-content-end">
-              <li
-                class="nav-item"
-                *ngFor="let fp of featuredProducts; let i = index">
-                <a
-                  *ngIf="fp.products.length > 0"
-                  class="nav-link"
-                  [ngClass]="{ active: i == 0 }"
-                  aria-current="page"
-                  data-bs-toggle="tab"
-                  [href]="['#' + category + i]"
-                  >{{ fp.category | titlecase }}</a
-                >
+              <li class="nav-item" *ngFor="let fp of featuredProducts; let i = index">
+                <a *ngIf="fp.products.length > 0" class="nav-link" [ngClass]="{ active: i == 0 }" aria-current="page"
+                  data-bs-toggle="tab" [href]="['#' + category + i]">{{ fp.category | titlecase }}</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="tab-content">
-          <div
-            class="tab-pane"
-            [ngClass]="{ active: i == 0 }"
-            id="{{ category }}{{ i }}"
+          <div class="tab-pane" [ngClass]="{ active: i == 0 }" id="{{ category }}{{ i }}"
             *ngFor="let fp of featuredProducts; let i = index">
-            <div
-              class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4 mt-2">
+            <div class="row row-cols-2 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 row-cols-xl-4 g-4 mt-2">
               <div class="col" *ngFor="let item of fp.products">
                 <div class="card text-white card__bg mb-3">
                   <div class="div-image text-black text-center">
-                    <div
-                      (click)="toggleProduct(item.id)"
-                      class="text-end me-4"
-                      [innerHTML]="isInWishList(item.id)">
+                    <div (click)="toggleProduct(item.id)" class="text-end me-4" [innerHTML]="isInWishList(item.id)">
                       <!-- <i class="bx bx-tada-hover bx-sm bx-heart"></i> -->
                     </div>
                     <div class="div-card-img justify-content-center">
-                      <img
-                        [src]="[item.image]"
-                        class="card-img-top w-75 img__cursor"
-                        [alt]="[item.name]"
-                        draggable="false"
-                        (click)="detailProduct(item.id)" />
+                      <img [src]="[item.image]" class="card-img-top w-75 img__cursor" [alt]="[item.name]"
+                        draggable="false" (click)="detailProduct(item.id)" />
                     </div>
                   </div>
                   <div class="card-body">
                     <h6 class="card-title">
                       {{ item.name }}
                     </h6>
-                    <div
-                      class="d-flex justify-content-start align-items-baseline text-light mt-2 mb-2"
+                    <div class="d-flex justify-content-start align-items-baseline text-light mt-2 mb-2"
                       [innerHTML]="getRating(item.rating, item.reviews)"></div>
                     <div class="row mb-4">
                       <div class="col">
                         <h3 class="card-text text-start card-text-h3">
-                          ${{
-                            item.price | number : '1.2-2' | changeDecimalFormat
-                          }}
+                          {{ item.currency_sign }}&nbsp;{{ item.price | number : '1.2-2' | changeDecimalFormat }}
                         </h3>
                       </div>
                       <div class="col">
-                        <p
-                          class="text-center text-decoration-line-through"
-                          *ngIf="item.old_price">
-                          $
-                          {{
-                            item.old_price
-                              | number : '1.2-2'
-                              | changeDecimalFormat
-                          }}
+                        <p class="text-center text-decoration-line-through" *ngIf="item.old_price">
+                          {{ item.currency_sign }}&nbsp;{{ item.old_price | number : '1.2-2' | changeDecimalFormat }}
                         </p>
                       </div>
                     </div>
